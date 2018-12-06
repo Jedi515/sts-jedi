@@ -1,0 +1,8 @@
+{
+  "jedi:cleanse":
+  {
+    "NAME": "Cleanse",
+    "DESCRIPTION": "Remove ALL your debuffs. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Remove ALL your debuffs. NL Exhaust."
+  }
+}

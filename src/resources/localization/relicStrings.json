@@ -1,0 +1,18 @@
+{
+  "jedi:matchstick":
+  {
+    "NAME": "Matchstick",
+    "FLAVOR": "The match is struck. A blazing star is born!",
+    "DESCRIPTIONS": [
+    "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL Gain [E] [E] ."
+    ]
+  },
+  "jedi:hotpepper":
+  {
+    "NAME": "Hot Pepper",
+    "FLAVOR": "Hot! Hot hot hot hot HOT!",
+    "DESCRIPTIONS": [
+    "Gain [E] every turn. Reduce your Max HP by #r35% upon pickup."
+    ]
+  }
+}
