@@ -2,7 +2,12 @@ package sts_jedi;
 
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
+import com.evacipated.cardcrawl.mod.jedi.cards.blue.crystallizeddark;
+import com.evacipated.cardcrawl.mod.jedi.cards.blue.crystallizedfrost;
+import com.evacipated.cardcrawl.mod.jedi.cards.blue.crystallizedlightning;
 import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Cleanse;
+import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Forcepull;
+import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Forcepush;
 import com.evacipated.cardcrawl.mod.jedi.relics.HotPepper;
 import com.evacipated.cardcrawl.mod.jedi.relics.Matchstick;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -28,6 +33,11 @@ public class jedi implements EditRelicsSubscriber, EditStringsSubscriber, EditCa
     public void receiveEditCards()
     {
         BaseMod.addCard(new Cleanse());
+        BaseMod.addCard(new Forcepush());
+        BaseMod.addCard(new Forcepull());
+        BaseMod.addCard(new crystallizedlightning());
+        BaseMod.addCard(new crystallizedfrost());
+        BaseMod.addCard(new crystallizeddark());
     }
 
     @Override

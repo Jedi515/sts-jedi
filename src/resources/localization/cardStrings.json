@@ -4,5 +4,32 @@
     "NAME": "Cleanse",
     "DESCRIPTION": "Remove ALL your debuffs. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Remove ALL your debuffs. NL Exhaust."
+  },
+  "jedi:forcepull":
+  {
+    "NAME": "Force Pull",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Draw a card."
+  },
+  "jedi:forcepush":
+  {
+    "NAME": "Force Push",
+    "DESCRIPTION": "Apply !M! Weak. NL Draw a card."
+  },
+  "jedi:crystallizedlightning":
+  {
+    "NAME": "Crystallized Lightning",
+    "DESCRIPTION": "Deal !D! damage. NL Scales with Focus instead of Strength.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scales with Focus."
+  },
+  "jedi:crystallizedfrost":
+  {
+    "NAME": "Crystallized Frost",
+    "DESCRIPTION": "Gain !B! Block. NL Scales with Focus instead of Dexterity.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Scales !M! times with Focus instead of Dexterity."
+  },
+  "jedi:crystallizeddark":
+  {
+    "NAME": "Crystallized Dark",
+    "DESCRIPTION": "Deal !D! damage. NL Focus affects this card !M! times. NL Is not affected by Strength."
   }
 }
