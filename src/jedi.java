@@ -2,6 +2,7 @@ package sts_jedi;
 
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
+import com.evacipated.cardcrawl.mod.jedi.cards.blue.MarkOfDeath;
 import com.evacipated.cardcrawl.mod.jedi.cards.blue.crystallizeddark;
 import com.evacipated.cardcrawl.mod.jedi.cards.blue.crystallizedfrost;
 import com.evacipated.cardcrawl.mod.jedi.cards.blue.crystallizedlightning;
@@ -38,6 +39,7 @@ public class jedi implements EditRelicsSubscriber, EditStringsSubscriber, EditCa
         BaseMod.addCard(new crystallizedlightning());
         BaseMod.addCard(new crystallizedfrost());
         BaseMod.addCard(new crystallizeddark());
+        BaseMod.addCard(new MarkOfDeath());
     }
 
     @Override
