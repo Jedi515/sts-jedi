@@ -18,8 +18,8 @@
   "jedi:crystallizedlightning":
   {
     "NAME": "Crystallized Lightning",
-    "DESCRIPTION": "Deal !D! damage. NL Scales with Focus instead of Strength.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scales with Focus."
+    "DESCRIPTION": "Deal !D! damage. NL Scales with Focus instead of Strength. NL Is affected by Electrodynamics.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scales !M! times with Focus instead of Strength. NL Is affected by Electrodynamics."
   },
   "jedi:crystallizedfrost":
   {
@@ -31,5 +31,10 @@
   {
     "NAME": "Crystallized Dark",
     "DESCRIPTION": "Deal !D! damage. NL Focus affects this card !M! times. NL Is not affected by Strength."
+  },
+  "jedi:markofdeath":
+  {
+    "NAME": "Mark of Death",
+    "DESCRIPTION": "Apply 99 Lock-On. NL Exhaust."
   }
 }
