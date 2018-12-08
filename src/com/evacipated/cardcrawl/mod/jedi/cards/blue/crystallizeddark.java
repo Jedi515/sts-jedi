@@ -23,7 +23,7 @@ public class crystallizeddark
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public crystallizeddark()
     {
-        super(ID, NAME, "resources/images/cards/jedi_beta_attack.png", 2, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, "resources/images/cards/jedi_beta_attack.png", 2, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = 10;
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
