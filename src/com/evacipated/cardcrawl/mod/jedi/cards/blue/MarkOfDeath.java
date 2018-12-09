@@ -20,11 +20,14 @@ public class MarkOfDeath extends CustomCard
     public MarkOfDeath()
     {
         super(ID, NAME, "resources/images/cards/jedi_beta.png", 1, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+
         this.exhaust = true;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LockOnPower(m, 99), 99));
+    public void use(AbstractPlayer p, AbstractMonster m)
+    {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LockOnPower(m, magicNumber), magicNumber));
+
     }
 
     public void upgrade() {

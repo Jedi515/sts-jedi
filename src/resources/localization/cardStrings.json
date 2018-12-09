@@ -36,5 +36,26 @@
   {
     "NAME": "Mark of Death",
     "DESCRIPTION": "Apply 99 Lock-On. NL Exhaust."
+  },
+  "jedi:locknload":
+  {
+    "NAME": "Lock'N'Load",
+    "DESCRIPTION":"Apply !M! Lock-On. NL Channel ",
+    "UPGRADE_DESCRIPTION": " Lightning."
+  },
+  "jedi:hex":
+  {
+    "NAME": "Hex",
+    "DESCRIPTION": "Apply !M! Lock-On. NL Apply !M! Vulnerable. NL Apply !M! Weak."
+  },
+  "jedi:sharpshooter":
+  {
+    "NAME": "Sharpshooter",
+    "DESCRIPTION": "Deal !D! damage. NL If enemy has Lock-On, gain [E] and draw a card."
+  },
+  "jedi:readyaimfire":
+  {
+    "NAME": "Ready, Aim, Fire",
+    "DESCRIPTION": "Apply !M! Lock-On to ALL enemies. NL Evoke ALL orbs. NL Exhaust."
   }
 }

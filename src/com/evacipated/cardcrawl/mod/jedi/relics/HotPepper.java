@@ -9,8 +9,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class HotPepper
     extends CustomRelic
 {
-
     public static final String ID = "jedi:hotpepper";
+    private static float decrease_flat = 0.7F;
+    private static float decrease_multiplier = 0.5F;
 
     public HotPepper() {
         super("jedi:hotpepper", new Texture("resources/images/relics/hotpepper.png"), AbstractRelic.RelicTier.BOSS, AbstractRelic.LandingSound.FLAT);
@@ -20,19 +21,26 @@ public class HotPepper
     {
         return this.DESCRIPTIONS[0];
     }
+
     public void onEquip()
     {
         AbstractDungeon.player.energy.energyMaster += 1;
-        AbstractDungeon.player.decreaseMaxHealth((int)Math.ceil(AbstractDungeon.player.maxHealth * 0.35F));
+        AbstractDungeon.player.decreaseMaxHealth((int)Math.ceil(AbstractDungeon.player.maxHealth * decrease_flat));
     }
 
     public void onUnequip()
     {
         AbstractDungeon.player.energy.energyMaster -= 1;
     }
+
     public AbstractRelic makeCopy()
     {
         return new HotPepper();
     }
 
+    public int onMaxHPChange(int amount)
+    {
+        flash();
+        return (int)(amount*(1-decrease_multiplier));
+    }
 }

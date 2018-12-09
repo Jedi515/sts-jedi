@@ -111,6 +111,7 @@ public class crystallizedfrost
         {
             upgradeName();
             this.upgradeMagicNumber(1);
+            this.upgradeBlock(3);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
