@@ -26,7 +26,7 @@ public class MarkOfDeath extends CustomCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LockOnPower(m, magicNumber), magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LockOnPower(m, 99), 99));
 
     }
 
