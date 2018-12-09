@@ -1,2 +1,3 @@
 Well, here's my first sts mod.
-Adds a few things here and there. A couple relics, a few cards.
+Content added:
+https://docs.google.com/spreadsheets/d/1bmcNIlQP3pEZfl3YLnfgXZw9xGSMepkqayyMrG61zIY/edit?usp=sharing
