@@ -3,6 +3,7 @@ package sts_jedi;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.jedi.cards.blue.*;
 import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Cleanse;
 import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Forcepull;
@@ -62,6 +63,8 @@ public class jedi
         BaseMod.addCard(new Hex());
         BaseMod.addCard(new Sharpshooter());
         BaseMod.addCard(new ReadyAimFire());
+        BaseMod.addCard(new Reiji());
+        BaseMod.addCard(new BlockOn());
     }
 
     @Override

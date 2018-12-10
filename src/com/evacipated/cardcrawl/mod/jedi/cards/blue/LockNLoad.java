@@ -44,11 +44,13 @@ public class LockNLoad
 
 
     public void upgrade() {
-        this.upgradeName();
-        this.upgradeMagicNumber(1);
-        CardLightningChannel = this.magicNumber+1;
-        this.rawDescription = cardStrings.DESCRIPTION + CardLightningChannel + cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+            CardLightningChannel = this.magicNumber + 1;
+            this.rawDescription = cardStrings.DESCRIPTION + CardLightningChannel + cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
+        }
     }
 
     public AbstractCard makeCopy() {

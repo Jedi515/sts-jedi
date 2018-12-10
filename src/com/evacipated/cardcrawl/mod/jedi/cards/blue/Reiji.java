@@ -1,59 +1,61 @@
 package com.evacipated.cardcrawl.mod.jedi.cards.blue;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 
-import java.util.Iterator;
-
-public class ReadyAimFire
+public class Reiji
     extends CustomCard
 {
-    public static final String ID = "jedi:readyaimfire";
+
+    public static final String ID = "jedi:reiji";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final int COST = 1;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final int COST = 0;
+    public static final String IMG_PATH = "resources/images/cards/jedi_beta.png";
 
-    public ReadyAimFire()
+    public Reiji()
     {
-        super(ID, NAME, "resources/images/cards/jedi_beta_attack.png", COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL_ENEMY);
-        this.baseMagicNumber = 1;
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        this.baseMagicNumber = 0;
         this.magicNumber = this.baseMagicNumber;
+        this.isInnate = true;
         this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LockOnPower(m, 3), 3));
+        for (int i = 0; i < magicNumber; i++)
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new LockOnPower(mo, magicNumber), magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Lightning()));
         }
-        AbstractDungeon.actionManager.addToBottom(new EvokeAllOrbsAction());
-
     }
 
     @Override
     public void upgrade()
     {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
+            upgradeName();
             this.upgradeMagicNumber(1);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
-    public AbstractCard makeCopy()
-    {
-        return new ReadyAimFire();
-    }
 
+    public CustomCard makeCopy()
+    {
+        return new Reiji();
+    }
 }

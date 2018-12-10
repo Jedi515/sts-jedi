@@ -37,8 +37,10 @@ public class Hex
 
     public void upgrade()
     {
-        this.upgradeName();
-        this.upgradeMagicNumber(1);
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override

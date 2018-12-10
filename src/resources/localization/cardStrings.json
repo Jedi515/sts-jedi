@@ -57,5 +57,17 @@
   {
     "NAME": "Ready, Aim, Fire",
     "DESCRIPTION": "Apply !M! Lock-On to ALL enemies. NL Evoke ALL orbs. NL Exhaust."
+  },
+  "jedi:reiji":
+  {
+    "NAME": "Reiji",
+    "DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Channel !M! Lightning. NL Exhaust."
+  },
+
+  "jedi:blockon":
+  {
+    "NAME": "Block-On",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to all enemies that intend to attack you."
   }
 }

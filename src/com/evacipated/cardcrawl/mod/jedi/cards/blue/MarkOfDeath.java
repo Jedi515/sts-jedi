@@ -16,10 +16,12 @@ public class MarkOfDeath extends CustomCard
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final int COST = 1;
+    public static final String IMG_PATH = "resources/images/cards/jedi_beta.png";
 
     public MarkOfDeath()
     {
-        super(ID, NAME, "resources/images/cards/jedi_beta.png", 1, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         this.exhaust = true;
     }
