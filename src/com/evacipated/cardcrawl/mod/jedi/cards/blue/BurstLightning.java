@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.ElectroPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
-import com.megacrit.cardcrawl.powers.LockOnPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 
@@ -31,13 +30,10 @@ public class BurstLightning
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final int COST = 1;
-    public static final String IMG_PATH = "resources/images/cards/jedi_beta_attack.png";
-    public static final float LockOnMult = 1.5F;
 
     public BurstLightning()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, "resources/images/cards/jedi_beta_attack.png", 1, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = 7;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
@@ -47,31 +43,25 @@ public class BurstLightning
     {
         if (p.hasPower(ElectroPower.POWER_ID))
         {
-            int DamagePlaceholder = this.damage;
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (mo.hasPower(LockOnPower.POWER_ID))
-                {
-                    this.damage *= LockOnMult;
-                }
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-                this.damage = DamagePlaceholder;
-            }
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(m, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
         else
         {
-            int DamagePlaceholder = this.damage;
-            if (m.hasPower(LockOnPower.POWER_ID))
-            {
-                this.damage *= LockOnMult;
-            }
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            this.damage = DamagePlaceholder;
         }
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Lightning());
     }
 
     @Override
     public void applyPowers() {
+        if (AbstractDungeon.player.hasPower(ElectroPower.POWER_ID)) {
+            this.target = AbstractCard.CardTarget.ALL_ENEMY;
+            this.isMultiDamage = true;
+        }
+        else {
+            this.target = AbstractCard.CardTarget.ENEMY;
+            this.isMultiDamage = false;
+        }
         int baseDamagePlaceholder = this.baseDamage;
         int currentFocus = 0;
         int currentStrength = 0;
@@ -86,11 +76,9 @@ public class BurstLightning
             currentStrength = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
             hasStrength = true;
         }
-
-        if (hasFocus)
-        {
+        if (hasFocus) {
             if (!hasStrength) {
-                this.baseDamage += currentFocus * magicNumber;
+                this.baseDamage += currentFocus;
                 super.applyPowers();
                 this.baseDamage = baseDamagePlaceholder;
                 this.isDamageModified = baseDamage != damage;
@@ -99,26 +87,35 @@ public class BurstLightning
                 super.applyPowers();
                 AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount = currentStrength;
             }
-        }
-        else if (hasStrength)
-        {
+        } else if (hasStrength) {
             AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount = currentFocus * magicNumber;
             super.applyPowers();
             AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount = currentStrength;
-        }
-        else
-        {
+        } else {
             super.applyPowers();
         }
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster m) {
+        if (AbstractDungeon.player.hasPower(ElectroPower.POWER_ID)) {
+            this.target = AbstractCard.CardTarget.ALL_ENEMY;
+            this.isMultiDamage = true;
+        }
+        else {
+            this.target = AbstractCard.CardTarget.ENEMY;
+            this.isMultiDamage = false;
+        }
         int baseDamagePlaceholder = this.baseDamage;
         int currentFocus = 0;
         int currentStrength = 0;
         boolean hasFocus = false;
         boolean hasStrength = false;
+//        boolean hasLockon = false;
+//        ArrayList<AbstractMonster> monArr = AbstractDungeon.getCurrRoom().monsters.monsters;
+//        why? because when it turns into multi-hit, it nulls m from this function and gets NPE if it's multihit and there's anyone with lockon
+//        int monArrSize = monArr.size();
+//        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
 
         if (AbstractDungeon.player.hasPower(FocusPower.POWER_ID)) {
             currentFocus = AbstractDungeon.player.getPower(FocusPower.POWER_ID).amount;
@@ -131,7 +128,7 @@ public class BurstLightning
 
         if (hasFocus) {
             if (!hasStrength) {
-                this.baseDamage += currentFocus * magicNumber;
+                this.baseDamage += currentFocus;
                 super.calculateCardDamage(m);
                 this.baseDamage = baseDamagePlaceholder;
                 this.isDamageModified = baseDamage != damage;
@@ -147,7 +144,6 @@ public class BurstLightning
         } else {
             super.calculateCardDamage(m);
         }
-
     }
 
     public void upgrade()
