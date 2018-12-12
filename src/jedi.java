@@ -10,8 +10,7 @@ import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Forcepush;
 import com.evacipated.cardcrawl.mod.jedi.potions.CoolantLeak;
 import com.evacipated.cardcrawl.mod.jedi.potions.HolyWater;
 import com.evacipated.cardcrawl.mod.jedi.potions.TentacleJuice;
-import com.evacipated.cardcrawl.mod.jedi.relics.HotPepper;
-import com.evacipated.cardcrawl.mod.jedi.relics.Matchstick;
+import com.evacipated.cardcrawl.mod.jedi.relics.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import basemod.BaseMod;
@@ -21,6 +20,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 
+import static basemod.BaseMod.isBaseGameCharacter;
 import static basemod.BaseMod.loadCustomStringsFile;
 
 @SpireInitializer
@@ -72,6 +72,10 @@ public class jedi
     {
         BaseMod.addRelic(new Matchstick(), RelicType.SHARED);
         BaseMod.addRelic(new HotPepper(), RelicType.SHARED);
+        BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
+        BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
+        BaseMod.addRelic(new Endoplasm(), RelicType.SHARED);
+        BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
     }
 
     @Override

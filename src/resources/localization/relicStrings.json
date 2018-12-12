@@ -10,9 +10,41 @@
   "jedi:hotpepper":
   {
     "NAME": "Hot Pepper",
-    "FLAVOR": "Hot! Hot hot hot hot HOT!",
+    "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
     "DESCRIPTIONS": [
-      "Gain [E] every turn. Upon pickup, #rreduce your Max HP by #r35%. Further Max HP changes are #rreduced #rby #r50%"
+      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r35%. Further Max HP changes are #rreduced #rby #r50%"
+    ]
+  },
+  "jedi:laserpointer":
+  {
+    "NAME": "Laser Pointer",
+    "FLAVOR": "Why is it a pointer if it targets everyone?",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply #b1 #yLock-On to ALL enemies."
+    ]
+  },
+  "jedi:fakemustache":
+  {
+    "NAME": "Fake Mustache",
+    "FLAVOR": "A familiar face?",
+    "DESCRIPTIONS": [
+      "When spending #yGold at the shop, heal #b5 HP."
+    ]
+  },
+  "jedi:endoplasm":
+  {
+    "NAME": "Endoplasm",
+    "FLAVOR": "What do you mean it's just a better version of something already existing?",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. Whenever you lose HP, lose #r50 #yGold."
+    ]
+  },
+  "jedi:superconductor":
+  {
+    "NAME": "Superconductor",
+    "FLAVOR": "You can almost hear orbs going round and round...",
+    "DESCRIPTIONS": [
+      "For every #b10 Orbs Channeled, trigger passive effect of ALL orbs."
     ]
   }
 }
