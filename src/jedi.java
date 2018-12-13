@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.mod.jedi.potions.CoolantLeak;
 import com.evacipated.cardcrawl.mod.jedi.potions.HolyWater;
 import com.evacipated.cardcrawl.mod.jedi.potions.TentacleJuice;
 import com.evacipated.cardcrawl.mod.jedi.relics.*;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import basemod.BaseMod;
@@ -33,9 +34,13 @@ public class jedi
             MaxHPChangeSubscriber
 {
 
+    public static boolean isReplayLoaded;
+
     public static void initialize()
     {
         BaseMod.subscribe(new jedi());
+        isReplayLoaded = Loader.isModLoaded("ReplayTheSpireMod"); // this String is the modid from ModTheSpire.json of the mod you want to find
+
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -76,6 +81,11 @@ public class jedi
         BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
         BaseMod.addRelic(new Endoplasm(), RelicType.SHARED);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
+        BaseMod.addRelic(new LeadLinedBottle(), RelicType.SHARED);
+
+        if (isReplayLoaded) {
+            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
+        }
     }
 
     @Override

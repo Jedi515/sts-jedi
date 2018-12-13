@@ -12,7 +12,7 @@
     "NAME": "Hot Pepper",
     "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r35%. Further Max HP changes are #rreduced #rby #r50%"
+      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r35%. Further Max HP increase effects are #rreduced #rby #r50%"
     ]
   },
   "jedi:laserpointer":
@@ -44,7 +44,25 @@
     "NAME": "Superconductor",
     "FLAVOR": "You can almost hear orbs going round and round...",
     "DESCRIPTIONS": [
-      "For every #b10 Orbs Channeled, trigger passive effect of ALL orbs."
+      "For every #b10 Orbs Channeled, trigger passive effect of ALL Orbs."
+    ]
+  },
+  "jedi:othersneckoeye":
+  {
+    "NAME": "Other Snecko Eye",
+    "FLAVOR": "It's almost like a ring, but it's more like an eye...",
+    "DESCRIPTIONS": [
+      "Draw #b1 more card each turn. Start each combat with CHAOS. Gain 1 more CHAOS every 3 turns."
+    ]
+  },
+  "jedi:leadlinedbottle":
+  {
+    "NAME": "Lead-Lined Bottle",
+    "FLAVOR": "Did someone say \"SINGING BRWHLRWHLRWHL\"?",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card. Start each combat with this card at the bottom of your draw pile.",
+      "Choose a card for ",
+      "Start each combat with "," at the bottom of your draw pile."
     ]
   }
 }

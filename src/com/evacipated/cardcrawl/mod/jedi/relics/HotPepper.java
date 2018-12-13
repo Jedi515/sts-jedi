@@ -10,7 +10,7 @@ public class HotPepper
     extends CustomRelic
 {
     public static final String ID = "jedi:hotpepper";
-    private static float decrease_flat = 0.7F;
+    private static float decrease_flat = 0.35F;
     private static float decrease_multiplier = 0.5F;
 
     public HotPepper() {
@@ -40,7 +40,11 @@ public class HotPepper
 
     public int onMaxHPChange(int amount)
     {
-        flash();
-        return (int)(amount*(1-decrease_multiplier));
+        if (amount > 0)
+        {
+            amount *= (1 - decrease_multiplier);
+            flash();
+        }
+        return (int)(amount);
     }
 }
