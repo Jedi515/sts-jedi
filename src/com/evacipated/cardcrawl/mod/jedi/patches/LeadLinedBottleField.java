@@ -1,3 +1,7 @@
+/* Hey guess what
+* yeah right, also copied from bottled yo-yo.
+* */
+
 package com.evacipated.cardcrawl.mod.jedi.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;

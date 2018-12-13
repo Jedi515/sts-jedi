@@ -40,9 +40,10 @@ public class LeadLinedBottle
 
     public void atPreBattle() {
         this.flash();
-        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.player.hand.moveToBottomOfDeck(card);
-        AbstractDungeon.player.hand.refreshHandLayout();
+        AbstractDungeon.player.drawPile.removeCard(card.cardID);
+        AbstractDungeon.player.drawPile.moveToBottomOfDeck(card); //.makeSameInstanceOf()
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+//        AbstractDungeon.player.hand.refreshHandLayout();
     }
 
     @Override
