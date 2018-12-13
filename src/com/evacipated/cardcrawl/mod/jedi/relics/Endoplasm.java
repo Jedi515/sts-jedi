@@ -4,6 +4,7 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnLoseHpRelic;
 
@@ -26,7 +27,9 @@ public class Endoplasm
 
     public int betterOnLoseHp(DamageInfo info, int damageAmount)
     {
-        AbstractDungeon.player.loseGold(50);
+        if (!AbstractDungeon.player.hasPower(BufferPower.POWER_ID)) {
+            AbstractDungeon.player.loseGold(50);
+        }
         return damageAmount;
     }
 
