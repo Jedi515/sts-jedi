@@ -3,14 +3,15 @@ package sts_jedi;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
-import com.evacipated.cardcrawl.mod.jedi.cards.blue.*;
-import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Cleanse;
-import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Forcepull;
-import com.evacipated.cardcrawl.mod.jedi.cards.colorless.Forcepush;
-import com.evacipated.cardcrawl.mod.jedi.potions.CoolantLeak;
-import com.evacipated.cardcrawl.mod.jedi.potions.HolyWater;
-import com.evacipated.cardcrawl.mod.jedi.potions.TentacleJuice;
-import com.evacipated.cardcrawl.mod.jedi.relics.*;
+import com.badlogic.gdx.utils.compression.lzma.Base;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import mod.jedi.cards.blue.*;
+import mod.jedi.cards.colorless.Cleanse;
+import mod.jedi.cards.colorless.Forcepull;
+import mod.jedi.cards.colorless.Forcepush;
+import mod.jedi.potions.CoolantLeak;
+import mod.jedi.potions.HolyWater;
+import mod.jedi.potions.TentacleJuice;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
@@ -20,6 +21,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import mod.jedi.relics.*;
 
 import static basemod.BaseMod.isBaseGameCharacter;
 import static basemod.BaseMod.loadCustomStringsFile;
@@ -70,6 +72,8 @@ public class jedi
         BaseMod.addCard(new Reiji());
         BaseMod.addCard(new BlockOn());
         BaseMod.addCard(new GatheringStorm());
+        BaseMod.addCard(new Meditation());
+        BaseMod.addCard(new DarknessCall());
     }
 
     @Override
@@ -83,9 +87,9 @@ public class jedi
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
         BaseMod.addRelic(new LeadLinedBottle(), RelicType.SHARED);
 
-        if (isReplayLoaded) {
-            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
-        }
+//        if (isReplayLoaded) {
+//            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
+//        }
     }
 
     @Override
@@ -93,6 +97,7 @@ public class jedi
         loadCustomStringsFile(CardStrings.class,"resources/localization/cardStrings.json");
         loadCustomStringsFile(RelicStrings.class, "resources/localization/relicStrings.json");
         loadCustomStringsFile(PotionStrings.class, "resources/localization/potionStrings.json");
+        loadCustomStringsFile(PowerStrings.class, "resources/localization/powerStrings.json");
     }
 
     @Override

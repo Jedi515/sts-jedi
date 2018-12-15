@@ -76,5 +76,16 @@
     "EXTENDED_DESCRIPTION": [
       " NL (Channels !M! Lightning.)"
     ]
+  },
+  "jedi:meditation":
+  {
+    "NAME": "Meditation",
+    "DESCRIPTION": "Gain !M! Focus every turn. NL Lose ALL Focus whenever you lose HP."
+  },
+  "jedi:darknesscall":
+  {
+    "NAME": "Darkness Call",
+    "DESCRIPTION": "Can only be played if you have Dark Orb Channeled. NL Apply 1 Lock-On to an enemy with lowest HP. NL Evoke your rightmost Dark Orb. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" : "No Dark Orbs channeled!"
   }
 }
