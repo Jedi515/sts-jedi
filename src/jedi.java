@@ -1,29 +1,27 @@
 package sts_jedi;
 
+import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.utils.compression.lzma.Base;
-import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.localization.*;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
+import mod.jedi.cards.curses.Frostbite;
+import mod.jedi.events.SwordDojo;
 import mod.jedi.potions.CoolantLeak;
 import mod.jedi.potions.HolyWater;
 import mod.jedi.potions.TentacleJuice;
-import com.evacipated.cardcrawl.modthespire.Loader;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
 import mod.jedi.relics.*;
 
-import static basemod.BaseMod.isBaseGameCharacter;
 import static basemod.BaseMod.loadCustomStringsFile;
 
 @SpireInitializer
@@ -50,17 +48,24 @@ public class jedi
     @Override
     public void receivePostInitialize()
     {
+        // Potions
         BaseMod.addPotion(TentacleJuice.class, Color.PURPLE,null,Color.WHITE,TentacleJuice.ID);
         BaseMod.addPotion(CoolantLeak.class, null, Color.CYAN, null,CoolantLeak.ID, AbstractPlayer.PlayerClass.DEFECT);
         BaseMod.addPotion(HolyWater.class, Color.YELLOW, Color.WHITE, null, HolyWater.ID);
+
+        // Events
+        BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
     }
 
     @Override
     public void receiveEditCards()
     {
+        //Colorless
         BaseMod.addCard(new Cleanse());
         BaseMod.addCard(new Forcepush());
         BaseMod.addCard(new Forcepull());
+
+        //Blue
         BaseMod.addCard(new BurstLightning());
         BaseMod.addCard(new BurstFrost());
         BaseMod.addCard(new BurstDark());
@@ -74,6 +79,9 @@ public class jedi
         BaseMod.addCard(new GatheringStorm());
         BaseMod.addCard(new Meditation());
         BaseMod.addCard(new DarknessCall());
+
+        //Curses
+        BaseMod.addCard(new Frostbite());
     }
 
     @Override
@@ -98,6 +106,7 @@ public class jedi
         loadCustomStringsFile(RelicStrings.class, "resources/localization/relicStrings.json");
         loadCustomStringsFile(PotionStrings.class, "resources/localization/potionStrings.json");
         loadCustomStringsFile(PowerStrings.class, "resources/localization/powerStrings.json");
+        loadCustomStringsFile(EventStrings.class, "resources/localization/eventStrings.json");
     }
 
     @Override

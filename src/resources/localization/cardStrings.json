@@ -87,5 +87,10 @@
     "NAME": "Darkness Call",
     "DESCRIPTION": "Can only be played if you have Dark Orb Channeled. NL Apply 1 Lock-On to an enemy with lowest HP. NL Evoke your rightmost Dark Orb. NL Exhaust.",
     "UPGRADE_DESCRIPTION" : "No Dark Orbs channeled!"
+  },
+  "jedi:frostbite":
+  {
+    "NAME": "Frostbite",
+    "DESCRIPTION": "Unplayable. NL When drawn, lose 3 Strength this turn."
   }
 }

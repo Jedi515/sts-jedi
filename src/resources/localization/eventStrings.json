@@ -1,0 +1,21 @@
+{
+  "jedi:sworddojo" :
+  {
+    "NAME" : "Sword Dojo",
+    "DESCRIPTIONS" :
+            [
+              "You come across an abandoned sword dojo. No living soul can be found anywhere. The hall you see has many praying mats in it, as well as a treasure chest in front of them.",
+              "You decide to sit on a praying mat and meditate. Soon you start feeling sharp knowledge penetrating into your mind, giving you new mastery with the sword.",
+              "You decide to open the chest. Inside you can see relics, most of them dusty and broken. You choose to take the most intact one. You feel #r~heavy~ #r~weight~ on your shoulders when you leave.",
+              "Nothing interests you in this abandoned temple. You decide to not touch anything and leave.",
+              "Striking knowledge..."
+            ],
+    "OPTIONS" :
+            [
+              "[Meditate] Obtain #y",
+              " random #yStrike cards from ANY character and a #yPerfected #yStrike.",
+              "[Chest] Obtain a random relic. Obtain a #rrandom curse.",
+              "[Leave]"
+            ]
+  }
+}
