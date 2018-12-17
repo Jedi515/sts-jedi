@@ -2,18 +2,18 @@ package mod.jedi.events;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+
+import static sts_jedi.jedi.returnTrulyRandomStrike;
 
 public class SwordDojo
     extends AbstractImageEvent
@@ -58,18 +58,11 @@ public class SwordDojo
                     case 0:
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         screenNum = 1;
-                        CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-                        for (AbstractCard card : CardLibrary.getAllCards())
-                        {
-                            if ((card.hasTag(AbstractCard.CardTags.STRIKE) && (card.rarity != AbstractCard.CardRarity.BASIC)))
-                            {
-                                group.addToBottom(card.makeCopy());
-                            }
-                        }
+
                         CardGroup GiveToPlayer = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                         for (int i = 0; i < strikesAmount; i++)
                         {
-                            AbstractCard card = group.getRandomCard(true);
+                            AbstractCard card = returnTrulyRandomStrike();
                             GiveToPlayer.addToBottom(card.makeCopy());
                             UnlockTracker.markCardAsSeen(card.cardID);
                             card.isSeen = true;

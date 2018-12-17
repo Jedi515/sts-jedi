@@ -40,8 +40,7 @@
   "jedi:locknload":
   {
     "NAME": "Lock'N'Load",
-    "DESCRIPTION":"Apply !M! Lock-On. NL Channel ",
-    "UPGRADE_DESCRIPTION": " Lightning."
+    "DESCRIPTION":"Apply !M! Lock-On. NL Channel !M! Lightning."
   },
   "jedi:hex":
   {
@@ -92,5 +91,11 @@
   {
     "NAME": "Frostbite",
     "DESCRIPTION": "Unplayable. NL When drawn, lose 3 Strength this turn."
+  },
+  "jedi:strikingstrike":
+  {
+    "NAME": "Striking Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Play a random Strike card on the same enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" : "Deal !D! damage. NL Play a random upgraded Strike card on the same enemy. NL Exhaust."
   }
 }

@@ -42,4 +42,9 @@ public class Meditation
             this.upgradeMagicNumber(1);
         }
     }
+
+    public AbstractCard makeCopy()
+    {
+        return new Meditation();
+    }
 }

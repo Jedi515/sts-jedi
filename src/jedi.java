@@ -6,16 +6,20 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
+import mod.jedi.cards.red.StrikingStrike;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.potions.CoolantLeak;
 import mod.jedi.potions.HolyWater;
@@ -80,6 +84,9 @@ public class jedi
         BaseMod.addCard(new Meditation());
         BaseMod.addCard(new DarknessCall());
 
+        //Red
+        BaseMod.addCard(new StrikingStrike());
+
         //Curses
         BaseMod.addCard(new Frostbite());
     }
@@ -118,4 +125,16 @@ public class jedi
         return amount;
     }
 
+    public static AbstractCard returnTrulyRandomStrike()
+    {
+        final CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        for (AbstractCard card : CardLibrary.getAllCards())
+        {
+            if ((card.hasTag(AbstractCard.CardTags.STRIKE) && (card.rarity != AbstractCard.CardRarity.BASIC)))
+            {
+                group.addToBottom(card.makeCopy());
+            }
+        }
+        return group.getRandomCard(true).makeCopy();
+    }
 }
