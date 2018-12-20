@@ -4,7 +4,7 @@
     "NAME": "Matchstick",
     "FLAVOR": "The match is struck. A blazing star is born!",
     "DESCRIPTIONS": [
-    "NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL Gain [E] [E] ."
+    " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL Gain [E] [E] ."
     ]
   },
   "jedi:hotpepper":
@@ -63,6 +63,22 @@
       "Upon pickup, choose a card. Start each combat with this card at the bottom of your draw pile.",
       "Choose a card for ",
       "Start each combat with "," at the bottom of your draw pile."
+    ]
+  },
+  "jedi:scrapmetal":
+  {
+    "NAME": "Scrap Metal",
+    "FLAVOR": "Nothing should go to waste.",
+    "DESCRIPTIONS": [
+      "For every #b15 #yShivs played, add a #yShiv to your hand."
+    ]
+  },
+  "jedi:zontanonomicon":
+  {
+    "NAME": "Zontanonomicon",
+    "FLAVOR": "You feel invigorated just by holding this Book of Living.",
+    "DESCRIPTIONS": [
+      "The first #ySkill played each turn that costs #b2 or more is played twice."
     ]
   }
 }

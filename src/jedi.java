@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
@@ -43,7 +42,7 @@ public class jedi
     public static void initialize()
     {
         BaseMod.subscribe(new jedi());
-        isReplayLoaded = Loader.isModLoaded("ReplayTheSpireMod"); // this String is the modid from ModTheSpire.json of the mod you want to find
+        isReplayLoaded = Loader.isModLoaded("ReplayTheSpireMod");
 
     }
 
@@ -94,13 +93,18 @@ public class jedi
     @Override
     public void receiveEditRelics()
     {
-        BaseMod.addRelic(new Matchstick(), RelicType.SHARED);
         BaseMod.addRelic(new HotPepper(), RelicType.SHARED);
-        BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
-        BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
         BaseMod.addRelic(new Endoplasm(), RelicType.SHARED);
-        BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
+        BaseMod.addRelic(new Matchstick(), RelicType.SHARED);
         BaseMod.addRelic(new LeadLinedBottle(), RelicType.SHARED);
+        BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
+
+        BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
+        BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
+
+        BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
+
+        BaseMod.addRelic(new Zontanonomicon(), RelicType.SHARED);
 
 //        if (isReplayLoaded) {
 //            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);

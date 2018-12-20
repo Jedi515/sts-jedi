@@ -11,6 +11,7 @@ import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import mod.jedi.patches.LeadLinedBottleField;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -41,9 +42,10 @@ public class LeadLinedBottle
     public void atPreBattle() {
         this.flash();
         AbstractDungeon.player.drawPile.removeCard(card.cardID);
-        AbstractDungeon.player.drawPile.moveToBottomOfDeck(card); //.makeSameInstanceOf()
+        AbstractDungeon.player.drawPile.moveToBottomOfDeck(card);
+//Don't ask me why i have to remove the card first and then add it back if it's "move" and not "add", i don't know how it works either. but it does. mostly.
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-//        AbstractDungeon.player.hand.refreshHandLayout();
+        AbstractDungeon.player.hand.refreshHandLayout();
     }
 
     @Override
