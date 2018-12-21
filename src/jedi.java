@@ -101,6 +101,7 @@ public class jedi
 
         BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
+        BaseMod.addRelic(new PaperFaux(), RelicType.BLUE);
 
         BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
 

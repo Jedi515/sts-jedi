@@ -80,5 +80,13 @@
     "DESCRIPTIONS": [
       "The first #ySkill played each turn that costs #b2 or more is played twice."
     ]
+  },
+  "jedi:papereegle":
+  {
+    "NAME": "Paper Eegle",
+    "FLAVOR": "Sharp eyes brought to you by Garrus Calibrations Inc.",
+    "DESCRIPTIONS": [
+      "Enemies with Lock-On take #b75% more damage rather than #b50%."
+    ]
   }
 }
