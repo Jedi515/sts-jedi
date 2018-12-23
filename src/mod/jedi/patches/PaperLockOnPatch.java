@@ -31,7 +31,7 @@ public class PaperLockOnPatch
     @SpirePatch(
             clz = DamageInfo.class,
             method = "createDamageMatrix",
-            paramtypez = {int.class, boolean.class, boolean.class})
+            paramtypez = {int.class, boolean.class, boolean.class   })
     public static class ElectroTarget
     {
         @SpirePostfixPatch

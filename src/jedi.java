@@ -98,12 +98,16 @@ public class jedi
         BaseMod.addRelic(new Matchstick(), RelicType.SHARED);
         BaseMod.addRelic(new LeadLinedBottle(), RelicType.SHARED);
         BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
+        BaseMod.addRelic(new FirstAidKit(), RelicType.SHARED);
+        BaseMod.addRelic(new CrownOfSimplicity(), RelicType.SHARED);
 
         BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
         BaseMod.addRelic(new PaperFaux(), RelicType.BLUE);
 
         BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
+
+        BaseMod.addRelic(new Leech(), RelicType.RED);
 
         BaseMod.addRelic(new Zontanonomicon(), RelicType.SHARED);
 

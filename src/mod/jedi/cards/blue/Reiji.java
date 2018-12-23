@@ -30,6 +30,7 @@ public class Reiji
         this.magicNumber = this.baseMagicNumber;
         this.isInnate = true;
         this.exhaust = true;
+        this.isEthereal= true;
     }
 
     @Override

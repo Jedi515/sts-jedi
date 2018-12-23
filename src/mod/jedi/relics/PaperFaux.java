@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class PaperFaux
     extends CustomRelic
 {
-    public static final String ID = "jedi:papereegle";
+    public static final String ID = "jedi:paperfaux";
     public static final String IMG_PATH = "resources/images/relics/beta_rock.png";
 
     public PaperFaux() {

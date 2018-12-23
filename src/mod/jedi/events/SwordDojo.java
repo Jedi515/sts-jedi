@@ -75,10 +75,10 @@ public class SwordDojo
                     case 1:
                         this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
                         screenNum = 1;
-                        AbstractDungeon.getCurrRoom().rewards.clear();
                         AbstractCard curse = AbstractDungeon.returnRandomCurse().makeCopy();
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
                         AbstractRelic r = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+                        AbstractDungeon.getCurrRoom().rewards.clear();
                         AbstractDungeon.getCurrRoom().addRelicToRewards(r);
                         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
                         AbstractDungeon.combatRewardScreen.open();
