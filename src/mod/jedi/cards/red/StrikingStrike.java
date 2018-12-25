@@ -55,6 +55,7 @@ public class StrikingStrike
     {
         if (!this.upgraded) {
             upgradeName();
+            upgradeDamage(3);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -94,8 +94,14 @@
   },
   "jedi:strikingstrike":
   {
-    "NAME": "Striking Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play a random Strike card on the same enemy. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" : "Deal !D! damage. NL Play a random upgraded Strike card on the same enemy. NL Exhaust."
+    "NAME": "Strikeing Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Play a random Strike on the same enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" : "Deal !D! damage. NL Play a random upgraded Strike on the same enemy. NL Exhaust."
+  },
+  "jedi:onestrike":
+  {
+    "NAME": "One Strike",
+    "DESCRIPTION": "Kill a non-boss enemy. NL Fleeting.",
+    "UPGRADE_DESCRIPTION": "Kill a non-boss enemy. NL Realize you wasted an [#FFFFFF]upgrade[]. NL Fleeting."
   }
 }

@@ -12,12 +12,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
+import mod.jedi.cards.red.OneStrike;
 import mod.jedi.cards.red.StrikingStrike;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.potions.CoolantLeak;
@@ -38,11 +41,17 @@ public class jedi
 {
 
     public static boolean isReplayLoaded;
+    public static boolean isConspireLoaded;
+    public static boolean isGluttonLoaded;
+    public static boolean isBeakedLoaded;
 
     public static void initialize()
     {
         BaseMod.subscribe(new jedi());
         isReplayLoaded = Loader.isModLoaded("ReplayTheSpireMod");
+        isConspireLoaded = Loader.isModLoaded("conspire");
+        isGluttonLoaded = Loader.isModLoaded("GluttonMod");
+        isBeakedLoaded = Loader.isModLoaded("beakedthecultist-sts");
 
     }
 
@@ -85,6 +94,7 @@ public class jedi
 
         //Red
         BaseMod.addCard(new StrikingStrike());
+        BaseMod.addCard(new OneStrike());
 
         //Curses
         BaseMod.addCard(new Frostbite());
@@ -100,6 +110,7 @@ public class jedi
         BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
         BaseMod.addRelic(new FirstAidKit(), RelicType.SHARED);
         BaseMod.addRelic(new CrownOfSimplicity(), RelicType.SHARED);
+        BaseMod.addRelic(new HeavyJacket(), RelicType.SHARED);
 
         BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
@@ -110,6 +121,21 @@ public class jedi
         BaseMod.addRelic(new Leech(), RelicType.RED);
 
         BaseMod.addRelic(new Zontanonomicon(), RelicType.SHARED);
+
+        if (isGluttonLoaded)
+        {
+            Leech glutLeech = new Leech();
+            BaseMod.addRelicToCustomPool(glutLeech, AbstractCardEnum.GLUTTON);
+            RelicLibrary.uncommonList.remove(glutLeech);
+        }
+
+        if (isBeakedLoaded)
+        {
+            Leech beakedLeech = new Leech();
+            BaseMod.addRelicToCustomPool(beakedLeech, beaked.patches.AbstractCardEnum.BEAKED_YELLOW);
+            RelicLibrary.uncommonList.remove(beakedLeech);
+        }
+
 
 //        if (isReplayLoaded) {
 //            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);

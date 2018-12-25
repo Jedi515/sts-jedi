@@ -4,6 +4,8 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
+// If you wonder how this works, go check paper patches in patches folder.
+
 public class PaperFaux
     extends CustomRelic
 {
