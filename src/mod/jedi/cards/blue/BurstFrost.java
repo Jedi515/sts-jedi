@@ -32,6 +32,7 @@ public class BurstFrost
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        CardCrawlGame.sound.playA("ORB_FROST_CHANNEL", -1.25F);
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Frost());
     }

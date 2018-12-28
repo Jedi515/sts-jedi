@@ -111,6 +111,7 @@ public class jedi
         BaseMod.addRelic(new FirstAidKit(), RelicType.SHARED);
         BaseMod.addRelic(new CrownOfSimplicity(), RelicType.SHARED);
         BaseMod.addRelic(new HeavyJacket(), RelicType.SHARED);
+        BaseMod.addRelic(new ShrinkRay(), RelicType.SHARED);
 
         BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);

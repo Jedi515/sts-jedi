@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static sts_jedi.jedi.returnTrulyRandomStrike;
 
+//If you're curious on how does it double increase perfected strike - go patches/strikingstrikepatch.java
 public class StrikingStrike
     extends CustomCard
 {

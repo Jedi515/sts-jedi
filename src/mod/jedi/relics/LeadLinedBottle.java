@@ -11,7 +11,9 @@ import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.patches.LeadLinedBottleField;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -22,6 +24,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
+import java.util.Iterator;
 import java.util.function.Predicate;
 
 public class LeadLinedBottle
@@ -41,8 +44,18 @@ public class LeadLinedBottle
 
     public void atPreBattle() {
         this.flash();
-        AbstractDungeon.player.drawPile.removeCard(card.cardID);
-        AbstractDungeon.player.drawPile.moveToBottomOfDeck(card);
+        AbstractCard cardToMove = null;
+
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group)
+        {
+            if (StSLib.getMasterDeckEquivalent(c) == card)
+            {
+                cardToMove = c;
+            }
+        }
+        AbstractDungeon.player.drawPile.removeCard(cardToMove);
+        AbstractDungeon.player.drawPile.addToBottom(cardToMove);
+
 //Don't ask me why i have to remove the card first and then add it back if it's "move" and not "add", i don't know how it works either. but it does. mostly.
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         AbstractDungeon.player.hand.refreshHandLayout();

@@ -20,6 +20,8 @@ import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.ElectroPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 
 public class BurstLightning
@@ -47,7 +49,12 @@ public class BurstLightning
         }
         else
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            m.damageFlash = true;
+            m.damageFlashFrames = 4;
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.effectList.add(new LightningEffect(m.drawX, m.drawY));
+            CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         }
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Lightning());
     }

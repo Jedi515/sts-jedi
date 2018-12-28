@@ -29,6 +29,9 @@ public class OneStrike
     public static final int COST = 3;
     public static final String IMG_PATH = "resources/images/cards/jedi_beta_attack.png";
 
+    public String Speech = "ONE STRIKE!";
+    public String SpeechUp = "ONE STRIKE PLUS ULTRA!";
+
     public OneStrike()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.SPECIAL, CardTarget.ENEMY);
@@ -60,7 +63,14 @@ public class OneStrike
         }
 
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, m.maxHealth * 2, DamageInfo.DamageType.HP_LOSS)));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "ONE STRIKE!", 1.0F, 2.0F));
+        if (this.upgraded)
+        {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, Speech, 1.0F, 2.0F));
+        }
+        else
+        {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, SpeechUp, 1.0F, 2.0F));
+        }
     }
 
     @Override
@@ -68,6 +78,7 @@ public class OneStrike
     {
         if (!this.upgraded) {
             this.name += " Plus Ultra";
+            this.upgraded = true;
             initializeTitle();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
