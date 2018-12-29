@@ -60,8 +60,8 @@
   "jedi:reiji":
   {
     "NAME": "Reiji",
-    "DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Channel !M! Lightning. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Ethereal. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Channel !M! Lightning. NL Ethereal. Exhaust."
   },
   "jedi:blockon":
   {
@@ -103,5 +103,22 @@
     "NAME": "One Strike",
     "DESCRIPTION": "Kill a non-boss enemy. NL Fleeting.",
     "UPGRADE_DESCRIPTION": "Kill a non-boss enemy. NL Realize you wasted an [#FFFFFF]upgrade[]. NL Fleeting."
+  },
+  "jedi:hate":
+  {
+    "NAME": "Hate",
+    "DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile."
+  },
+  "jedi:fear":
+  {
+    "NAME": "Fear",
+    "DESCRIPTION": "Add !M! Angers to your hand. NL Exhaust."
+  },
+  "jedi:suffering":
+  {
+    "NAME": "Suffering",
+    "DESCRIPTION": "For each Attack Exhausted, deal !M! damage to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": " NL (Deals !D! damage)"
   }
 }

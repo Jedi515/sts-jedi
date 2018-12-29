@@ -34,9 +34,9 @@
   "jedi:endoplasm":
   {
     "NAME": "Endoplasm",
-    "FLAVOR": "What do you mean it's just a better version of something already existing?",
+    "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. Whenever you lose HP, lose #r50 #yGold."
+      "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold."
     ]
   },
   "jedi:superconductor":
@@ -58,7 +58,7 @@
   "jedi:leadlinedbottle":
   {
     "NAME": "Lead-Lined Bottle",
-    "FLAVOR": "Did someone say \"SINGING BRWHLRWHLRWHL\"?",
+    "FLAVOR": "Unlike other bottles, this one can actually holds its contents properly.",
     "DESCRIPTIONS": [
       "Upon pickup, choose a card. Start each combat with this card at the bottom of your draw pile.",
       "Choose a card for ",
@@ -100,7 +100,7 @@
   "jedi:leech":
   {
     "NAME": "Leech",
-    "FLAVOR": "Craaawling iiin my craaaaaawl!",
+    "FLAVOR": "Is it producing blood instead of sucking it or what?",
     "DESCRIPTIONS": [
       "Reduce HP loss from cards and powers by #b1 to a minimum of #b1."
     ]

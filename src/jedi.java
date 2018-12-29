@@ -20,8 +20,7 @@ import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
-import mod.jedi.cards.red.OneStrike;
-import mod.jedi.cards.red.StrikingStrike;
+import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.potions.CoolantLeak;
 import mod.jedi.potions.HolyWater;
@@ -95,6 +94,10 @@ public class jedi
         //Red
         BaseMod.addCard(new StrikingStrike());
         BaseMod.addCard(new OneStrike());
+        //Fear leads to anger, anger leads to hate, hate leads to suffering
+        BaseMod.addCard(new Fear());
+        BaseMod.addCard(new Hate());
+        BaseMod.addCard(new Suffering());
 
         //Curses
         BaseMod.addCard(new Frostbite());

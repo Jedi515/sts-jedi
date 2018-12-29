@@ -14,6 +14,7 @@ public class Endoplasm
 {
     public static final String ID = "jedi:endoplasm";
     public static final String IMG_PATH = "resources/images/relics/beta_rock.png";
+    public static boolean canTrigger = true;
 
 
     public Endoplasm() {
@@ -27,10 +28,19 @@ public class Endoplasm
 
     public int betterOnLoseHp(DamageInfo info, int damageAmount)
     {
-        if (!AbstractDungeon.player.hasPower(BufferPower.POWER_ID)) {
-            AbstractDungeon.player.loseGold(50);
+        if (canTrigger) {
+            if (!AbstractDungeon.player.hasPower(BufferPower.POWER_ID)) {
+                AbstractDungeon.player.loseGold(50);
+                canTrigger = false;
+                this.flash();
+            }
         }
         return damageAmount;
+    }
+
+
+    public void atTurnStart() {
+        canTrigger = true;
     }
 
     public void onUnequip()
