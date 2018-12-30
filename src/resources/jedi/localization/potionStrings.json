@@ -1,0 +1,28 @@
+{
+  "jedi:tentaclejuice":
+  {
+    "NAME": "Tentacle Juice",
+    "DESCRIPTIONS":
+            [
+              "Apply #b",
+              " Constricted."
+            ]
+  },
+  "jedi:coolantleak":
+  {
+    "NAME": "Coolant Leak",
+    "DESCRIPTIONS":
+            [
+              "Apply #b",
+              " Lock-On."
+            ]
+  },
+  "jedi:holywater":
+  {
+    "NAME": "Holy Water",
+    "DESCRIPTIONS":
+    [
+      "Remove ALL debuffs from yourself."
+    ]
+  }
+}
