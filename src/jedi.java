@@ -98,6 +98,10 @@ public class jedi
         BaseMod.addCard(new Fear());
         BaseMod.addCard(new Hate());
         BaseMod.addCard(new Suffering());
+        BaseMod.addCard(new Harder());
+        BaseMod.addCard(new Better());
+        BaseMod.addCard(new Faster());
+        BaseMod.addCard(new Stronger());
 
         //Curses
         BaseMod.addCard(new Frostbite());

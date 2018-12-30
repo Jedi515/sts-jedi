@@ -26,3 +26,6 @@ $RECYCLE.BIN/
 
 sts-jedi.iml
 sts_jedi.iml
+.gitignore
+.gitattributes
+META-INF/*
