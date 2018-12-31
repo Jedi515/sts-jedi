@@ -144,5 +144,11 @@
     "NAME": "Stronger",
     "DESCRIPTION": "Gain !M! Strength every turn. NL Ethereal.",
     "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Strength every turn. NL Ethereal."
+  },
+  "jedi:unlimitedpower":
+  {
+    "NAME": "Unlimited Power",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL Unlimited.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL Unlimited."
   }
 }

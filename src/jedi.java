@@ -36,6 +36,7 @@ public class jedi
             EditRelicsSubscriber,
             EditStringsSubscriber,
             EditCardsSubscriber,
+            EditKeywordsSubscriber,
             MaxHPChangeSubscriber
 {
 
@@ -102,6 +103,7 @@ public class jedi
         BaseMod.addCard(new Better());
         BaseMod.addCard(new Faster());
         BaseMod.addCard(new Stronger());
+        BaseMod.addCard(new UnlimitedPower());
 
         //Curses
         BaseMod.addCard(new Frostbite());
@@ -148,6 +150,13 @@ public class jedi
 //        if (isReplayLoaded) {
 //            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
 //        }
+    }
+
+    @Override
+    public void receiveEditKeywords()
+    {
+        String[] keywordUnlimited = {"unlimited"};
+        BaseMod.addKeyword(keywordUnlimited, "Return an upgraded copy of this card to your hand. Can be upgraded any number of times. Reset upgrades at the end of your turn. Cannot be upgraded outside of combat.");
     }
 
     @Override
