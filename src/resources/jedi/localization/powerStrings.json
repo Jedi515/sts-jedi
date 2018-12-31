@@ -1,0 +1,15 @@
+{
+  "jedi:meditation": {
+    "NAME": "Meditation",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " Focus at the start of your turn. Lose ALL Focus whenever you lose HP."
+    ]
+  },
+  "jedi:upgradeondraw": {
+    "NAME": "Better",
+    "DESCRIPTIONS": [
+      "Whenever you draw a card this round, upgrade it."
+    ]
+  }
+}

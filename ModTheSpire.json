@@ -1,0 +1,12 @@
+{
+  "modid": "jedi",
+  "name": "Jedi Mod",
+  "author_list": ["Jedi#3970"],
+  "description": "NEW:\nWORK IT HARDER\nMAKE IT BETTER\nDO IT FASTER\nMAKES US STRONGER\n\nCHANGE:\nChanged file pathing so it doesn't clash with some things. (hello RatMod)\n\nSomewhat running out of ideas to add for base characters since, well, i'm late for the party.",
+  "credits": "Big thanks to JohnnyDevo and kiooeht for helping with the code, Reiji for lock-on memes, Reina for being cursed, Rhapsody for spreading positivity and my college teachers for teaching me how to Java.",
+  "version": "0.2.2",
+  "sts_version": "12-20-2018",
+  "mts_version": "3.6.0",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": "https://api.github.com/repos/jedi515/sts-jedi/releases/latest"
+}
