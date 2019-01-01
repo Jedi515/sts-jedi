@@ -150,5 +150,17 @@
     "NAME": "Unlimited Power",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL Unlimited.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL Unlimited."
+  },
+  "jedi:test":
+  {
+    "NAME": "Test",
+    "DESCRIPTION": "If you're reading this, you're either me or something went wrong.",
+    "UPGRADE_DESCRIPTION": "That or you're very curious on github."
+  },
+  "jedi:bruteforce":
+  {
+    "NAME": "Bruteforce",
+    "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times.",
+    "UPGRADE_DESCRIPTION": "No Lightning Orbs channeled!"
   }
 }

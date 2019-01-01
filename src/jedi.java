@@ -91,6 +91,7 @@ public class jedi
         BaseMod.addCard(new GatheringStorm());
         BaseMod.addCard(new Meditation());
         BaseMod.addCard(new DarknessCall());
+        BaseMod.addCard(new Bruteforce());
 
         //Red
         BaseMod.addCard(new StrikingStrike());
