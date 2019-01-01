@@ -156,7 +156,7 @@ public class jedi
     public void receiveEditKeywords()
     {
         String[] keywordUnlimited = {"unlimited"};
-        BaseMod.addKeyword(keywordUnlimited, "Return an upgraded copy of this card to your hand. Can be upgraded any number of times. Reset upgrades at the end of your turn. Cannot be upgraded outside of combat.");
+        BaseMod.addKeyword(keywordUnlimited, "Return an upgraded copy of this card to your hand. NL Can be upgraded any number of times. NL Reset upgrades at the end of your turn. NL Cannot be upgraded outside of combat.");
     }
 
     @Override

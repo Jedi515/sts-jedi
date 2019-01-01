@@ -55,11 +55,9 @@ public class UnlimitedPower
         AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.effectList.add(new LightningEffect(m.drawX, m.drawY));
         CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
+
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage)));
 
-//        UnlimitedPower MORE = (UnlimitedPower) this.makeStatEquivalentCopy();
-//        MORE.upgrade();
-//        MORE.darkSide = this.darkSide;
         this.upgrade();
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
 
