@@ -29,3 +29,6 @@ sts_jedi.iml
 .gitignore
 .gitattributes
 META-INF/*
+_windows/*
+codestyles/*
+*.xml
