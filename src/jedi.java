@@ -52,7 +52,6 @@ public class jedi
         isConspireLoaded = Loader.isModLoaded("conspire");
         isGluttonLoaded = Loader.isModLoaded("GluttonMod");
         isBeakedLoaded = Loader.isModLoaded("beakedthecultist-sts");
-
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -100,11 +99,14 @@ public class jedi
         BaseMod.addCard(new Fear());
         BaseMod.addCard(new Hate());
         BaseMod.addCard(new Suffering());
+        //WORK IT / MAKE IT / DO IT / MAKES US
         BaseMod.addCard(new Harder());
         BaseMod.addCard(new Better());
         BaseMod.addCard(new Faster());
         BaseMod.addCard(new Stronger());
+        //UNLIMITED PAAAWAAAAAAAH
         BaseMod.addCard(new UnlimitedPower());
+        BaseMod.addCard(new BloodyHammer());
 
         //Curses
         BaseMod.addCard(new Frostbite());
@@ -189,5 +191,25 @@ public class jedi
             }
         }
         return group.getRandomCard(true).makeCopy();
+    }
+
+    //As unused as it is now, will be useful for when kio makes customdiscovery action or something.
+    public CardGroup descriptionSearch(String[] keywords)
+    {
+        CardGroup toReturn = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
+        for (AbstractCard c : CardLibrary.getAllCards())
+        {
+            for (String keyword : keywords)
+            {
+                if (c.rawDescription.toLowerCase().contains(keyword.toLowerCase()))
+                {
+                    toReturn.addToBottom(c.makeStatEquivalentCopy());
+                    //don't forget to markasseen when it pops on player screen
+                    break;
+                }
+            }
+        }
+        return toReturn;
     }
 }

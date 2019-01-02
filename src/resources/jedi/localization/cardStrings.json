@@ -162,5 +162,11 @@
     "NAME": "Bruteforce",
     "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times.",
     "UPGRADE_DESCRIPTION": "No Lightning Orbs channeled!"
+  },
+  "jedi:bloodyhammer":
+  {
+    "NAME": "Bloody Hammer",
+    "DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Purge.",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Exhaust."
   }
 }

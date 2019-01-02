@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import mod.jedi.actions.RemoveSpecificOrbAction;
 
 import java.util.Collections;
 
@@ -30,26 +31,25 @@ public class Bruteforce
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 2;
     public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
-    private int hitsTillBreak;
-    private DamageInfo info;
 
     public Bruteforce()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 3;
+        this.exhaust = true;
     }
 
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.hitsTillBreak = 0;
-        this.info = evokeInfo();
-        while (this.hitsTillBreak < this.magicNumber || (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()))
+        int hitsTillBreak = 0;
+        DamageInfo info = evokeInfo();
+        while (hitsTillBreak < this.magicNumber || (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()))
         {
             AbstractCreature mo = AbstractDungeon.getRandomMonster();
             if (m == mo)
             {
-                this.hitsTillBreak++;
+                hitsTillBreak++;
             }
             if (mo != null) {
                 float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
@@ -57,8 +57,8 @@ public class Bruteforce
                     speedTime = 0.0F;
                 }
 
-                this.info.output = AbstractOrb.applyLockOn(mo, this.info.base);
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, this.info, AbstractGameAction.AttackEffect.NONE, true));
+                info.output = AbstractOrb.applyLockOn(mo, info.base);
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, info, AbstractGameAction.AttackEffect.NONE, true));
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(mo.drawX, mo.drawY), speedTime));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE"));
             }
@@ -69,19 +69,7 @@ public class Bruteforce
         {
             if (o instanceof Lightning)
             {
-                int position = AbstractDungeon.player.orbs.indexOf(o);
-                AbstractOrb orbSlot = new EmptyOrbSlot();
-
-                int i;
-                for(i = position + 1; i < AbstractDungeon.player.orbs.size(); ++i) {
-                    Collections.swap(AbstractDungeon.player.orbs, i, i - 1);
-                }
-
-                AbstractDungeon.player.orbs.set(AbstractDungeon.player.orbs.size() - 1, orbSlot);
-
-                for(i = position; i < AbstractDungeon.player.orbs.size(); ++i) {
-                    ((AbstractOrb)AbstractDungeon.player.orbs.get(i)).setSlot(i, AbstractDungeon.player.maxOrbs);
-                }
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbAction(o));
                 return;
             }
         }
