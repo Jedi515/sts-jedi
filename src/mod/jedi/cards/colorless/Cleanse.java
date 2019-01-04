@@ -1,6 +1,8 @@
 package mod.jedi.cards.colorless;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,7 +37,8 @@ extends CustomCard
         if(!this.upgraded)
         {
             upgradeName();
-            this.retain = true;
+//            this.retain = true;
+            AlwaysRetainField.alwaysRetain.set(this, true);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

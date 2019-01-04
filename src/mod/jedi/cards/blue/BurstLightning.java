@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import mod.jedi.actions.VSFXLightningAction;
 
 
 public class BurstLightning
@@ -45,15 +46,12 @@ public class BurstLightning
     {
         if (p.hasPower(ElectroPower.POWER_ID))
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(m, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(true));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(m, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
         }
         else
         {
-            m.damageFlash = true;
-            m.damageFlashFrames = 4;
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE));
-            AbstractDungeon.effectList.add(new LightningEffect(m.drawX, m.drawY));
-            CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
+            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(m));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         }
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Lightning());

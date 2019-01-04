@@ -1,6 +1,7 @@
 package mod.jedi.relics;
 
 import basemod.abstracts.CustomRelic;
+import basemod.helpers.BaseModCardTags;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -23,7 +24,7 @@ public class CrownOfSimplicity
 
     public void onUseCard(AbstractCard card, UseCardAction action)
     {
-        if (card.rarity == AbstractCard.CardRarity.BASIC && !card.purgeOnUse)
+        if ((card.rarity == AbstractCard.CardRarity.BASIC || card.hasTag(BaseModCardTags.BASIC_STRIKE) || card.hasTag(BaseModCardTags.BASIC_DEFEND)) && !card.purgeOnUse && !card.freeToPlayOnce)
         {
             this.flash();
             AbstractMonster m = null;
