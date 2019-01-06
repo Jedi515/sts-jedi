@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import mod.jedi.actions.VSFXLightningAction;
 
 public class UnlimitedPower
     extends CustomCard
@@ -23,19 +24,19 @@ public class UnlimitedPower
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 0;
-    public boolean darkSide = false;
-    public static int startDamage;
-    public static int startMagicNumber;
+    private boolean darkSide = false;
+    private static int startDamage = 3;
+    private static int startMagicNumber = 0;
 
     public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_attack.png";
 
 
     public UnlimitedPower()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ENEMY);
         this.exhaust = true;
-        this.magicNumber = this.baseMagicNumber = this.startMagicNumber = 0;
-        this.damage = this.baseDamage = this.startDamage = 3;
+        this.magicNumber = this.baseMagicNumber = 0;
+        this.damage = this.baseDamage = 3;
     }
 
 
@@ -43,19 +44,13 @@ public class UnlimitedPower
     {
         if (this.magicNumber > 0)
         {
-            p.damageFlash = true;
-            p.damageFlashFrames = 4;
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(p.hb.cX, p.hb.cY, AbstractGameAction.AttackEffect.NONE));
-            AbstractDungeon.effectList.add(new LightningEffect(p.drawX, p.drawY));
+
+            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(p));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.HP_LOSS)));
         }
 
-        m.damageFlash = true;
-        m.damageFlashFrames = 4;
-        AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE));
-        AbstractDungeon.effectList.add(new LightningEffect(m.drawX, m.drawY));
-        CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
 
+        AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(m));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage)));
 
         this.upgrade();
@@ -106,6 +101,7 @@ public class UnlimitedPower
         this.upgraded = false;
         this.timesUpgraded = 0;
         this.name = NAME;
+        this.darkSide = false;
         initializeTitle();
         this.rawDescription = DESCRIPTION;
         initializeDescription();

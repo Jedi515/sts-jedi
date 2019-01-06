@@ -1,0 +1,133 @@
+{
+  "jedi:matchstick":
+  {
+    "NAME": "Спичка",
+    "FLAVOR": "The match is struck. A blazing star is born!",
+    "DESCRIPTIONS": [
+    " NL [#2aecd7]Работает [#2aecd7]один [#2aecd7]раз [#2aecd7]за [#2aecd7]бой. NL Даёт [E] [E] ."
+    ]
+  },
+  "jedi:hotpepper":
+  {
+    "NAME": "Острый Перец",
+    "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
+    "DESCRIPTIONS": [
+      "Даёт [E] в начале вашего хода. При получении #rпонижает Макс ОЗ на #r35%. Последующие повышения Макс. ОЗ #rпонижены #rна #r50%"
+    ]
+  },
+  "jedi:laserpointer":
+  {
+    "NAME": "LЛазерная Указка",
+    "FLAVOR": "Why is it a pointer if it targets everyone?",
+    "DESCRIPTIONS": [
+      "Накладывает #b1 #yЗахват #yЦели на ВСЕХ врагов в начале боя."
+    ]
+  },
+  "jedi:fakemustache":
+  {
+    "NAME": "Накладные Усы",
+    "FLAVOR": "A familiar face?",
+    "DESCRIPTIONS": [
+      "Когда вы тратите #yЗолото в магазине, Восполняет #b5 ОЗ."
+    ]
+  },
+  "jedi:endoplasm":
+  {
+    "NAME": "Эндоплазма",
+    "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
+    "DESCRIPTIONS": [
+      "Даёт [E] в начале вашего хода. Каждый раунд, при первой потере ОЗ также теряете #r50 #yЗолота."
+    ]
+  },
+  "jedi:superconductor":
+  {
+    "NAME": "Суперпроводник",
+    "FLAVOR": "You can almost hear orbs going round and round...",
+    "DESCRIPTIONS": [
+      "За каждые #b10 Заряженных Сфер, активирует пассивный эффект всех Сфер."
+    ]
+  },
+  "jedi:othersneckoeye":
+  {
+    "NAME": "Other Snecko Eye",
+    "FLAVOR": "It's almost like a ring, but it's more like an eye...",
+    "DESCRIPTIONS": [
+      "Draw #b1 more card each turn. Start each combat with CHAOS. Gain 1 more CHAOS every 3 turns."
+    ]
+  },
+  "jedi:leadlinedbottle":
+  {
+    "NAME": "Свинцовая Бутылка",
+    "FLAVOR": "\"В низу\" в данном случае грамматически правильное написание.",
+    "DESCRIPTIONS": [
+      "При получении, вы выберете карту. Вы начинаете каждый бой с этой картой в низу стопки добора.",
+      "Выберите карту, на которую подействует ",
+      "Вы начинаете каждый бой с картой "," в низу стопки добора."
+    ]
+  },
+  "jedi:scrapmetal":
+  {
+    "NAME": "Металлолом",
+    "FLAVOR": "Nothing should go to waste.",
+    "DESCRIPTIONS": [
+      "За каждые #b15 разыгранных #yЗаточек, добавляет в руку #yЗаточку."
+    ]
+  },
+  "jedi:zontanonomicon":
+  {
+    "NAME": "Книга Жизни",
+    "FLAVOR": "You feel invigorated just by holding this Book of Living.",
+    "DESCRIPTIONS": [
+      "Первый в зоду #yНавык с ценой не менее #b2 разыгрывается дважды."
+    ]
+  },
+  "jedi:paperfaux":
+  {
+    "NAME": "Бумажная Леса",
+    "FLAVOR": "What does it say?",
+    "DESCRIPTIONS": [
+      "Враги с #yЗахватом #yЦели получают на #b75% больше урона от Сфер (вместо #b50%)."
+    ]
+  },
+  "jedi:firstaidkit":
+  {
+    "NAME": "Аптечка первой помощи",
+    "FLAVOR": "Do you really need a bandage for every byrd peck?",
+    "DESCRIPTIONS": [
+      "Даёт персонажу #b2 #yРегенерации за каждую атаку врага."
+    ]
+  },
+  "jedi:leech":
+  {
+    "NAME": "Пиявка",
+    "FLAVOR": "Is it producing blood instead of sucking it or what?",
+    "DESCRIPTIONS": [
+      "Понижает потерю ОЗ от карт и талантов на #b1 (до минимума #b1)."
+    ]
+  },
+  "jedi:crownofsimplicity":
+  {
+    "NAME": "Корона Простоты",
+    "FLAVOR": "Did you really have to remove that Bash?",
+    "DESCRIPTIONS": [
+      "#yБазовые карты разыгрыватся дважды."
+    ]
+  },
+  "jedi:heavyjacket":
+  {
+    "NAME": "Тяжёлая Куртка",
+    "FLAVOR": "That's a lot of pockets for a single jacket.",
+    "DESCRIPTIONS": [
+      "В начале каждого боя, даёт #b1 #yПанциря за каждые #b2 реликвии."
+    ]
+  },
+  "jedi:shrinkray":
+  {
+    "NAME": "Уменьшающий Луч",
+    "FLAVOR": "Freeze!",
+    "DESCRIPTIONS": [
+      "У всех врагов, не являющихся боссами, на #b",
+      "% меньше ОЗ."
+    ]
+  }
+}

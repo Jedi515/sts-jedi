@@ -61,7 +61,7 @@ public class Suffering
                 this.baseDamage += this.magicNumber;
             }
         }
-
+        this.damage = this.baseDamage;
         if (this.baseDamage > 0) {
             this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -77,6 +77,14 @@ public class Suffering
 
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
+        for (AbstractCard c : AbstractDungeon.player.exhaustPile.group)
+        {
+            if (c.type == CardType.ATTACK)
+            {
+                this.baseDamage += this.magicNumber;
+            }
+        }
+        this.damage = this.baseDamage;
         if (this.baseDamage > 0) {
             this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
         }

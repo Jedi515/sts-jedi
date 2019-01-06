@@ -1,6 +1,7 @@
 package mod.jedi.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,20 +11,20 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 public class VSFXLightningAction
     extends AbstractGameAction {
-    private AbstractMonster m;
+    private AbstractCreature c;
 
-    public VSFXLightningAction(AbstractMonster monster)
+    public VSFXLightningAction(AbstractCreature creature)
     {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
-        this.m = monster;
+        this.c = creature;
     }
 
     public VSFXLightningAction(boolean isMultihit)
     {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
-        this.m = null;
+        this.c = null;
     }
 
     @Override
@@ -31,12 +32,12 @@ public class VSFXLightningAction
     {
         if (this.duration == Settings.ACTION_DUR_FAST)
         {
-            if (m != null)
+            if (c != null)
             {
-                m.damageFlash = true;
-                m.damageFlashFrames = 4;
-                AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE));
-                AbstractDungeon.effectList.add(new LightningEffect(m.drawX, m.drawY));
+                c.damageFlash = true;
+                c.damageFlashFrames = 4;
+                AbstractDungeon.effectList.add(new FlashAtkImgEffect(c.hb.cX, c.hb.cY, AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.effectList.add(new LightningEffect(c.drawX, c.drawY));
             }
             else
             {
@@ -48,7 +49,7 @@ public class VSFXLightningAction
                     AbstractDungeon.effectList.add(new LightningEffect(mo.drawX, mo.drawY));
                 }
             }
-            CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
+            CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE");
         }
         this.isDone = true;
     }

@@ -24,7 +24,7 @@ public class LockNLoad
 
     public LockNLoad()
     {
-        super(ID, NAME, "resources/jedi/images/cards/jedi_beta.png", COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, "resources/jedi/images/cards/jedi_beta.png", COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
         this.rawDescription = cardStrings.DESCRIPTION;

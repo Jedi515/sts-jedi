@@ -22,7 +22,7 @@ public class ReadyAimFire
 
     public ReadyAimFire()
     {
-        super(ID, NAME, "resources/jedi/images/cards/jedi_beta_attack.png", COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL_ENEMY);
+        super(ID, NAME, "resources/jedi/images/cards/jedi_beta.png", COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;

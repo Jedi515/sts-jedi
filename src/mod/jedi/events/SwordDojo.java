@@ -44,7 +44,7 @@ public class SwordDojo
         {
             strikesAmount = 5;
         }
-        this.imageEventText.setDialogOption(OPTIONS[0] + strikesAmount + OPTIONS[1]);
+        this.imageEventText.setDialogOption(OPTIONS[0] + strikesAmount + OPTIONS[1], new PerfectedStrike());
         this.imageEventText.setDialogOption(OPTIONS[2]);
         this.imageEventText.setDialogOption(OPTIONS[3]);
     }

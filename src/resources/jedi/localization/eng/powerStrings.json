@@ -11,5 +11,11 @@
     "DESCRIPTIONS": [
       "Whenever you draw a card this round, upgrade it."
     ]
+  },
+  "jedi:controlledanger": {
+    "NAME": "Controlled Anger",
+    "DESCRIPTIONS": [
+      "Whenever you play an Anger, exhaust it."
+    ]
   }
 }

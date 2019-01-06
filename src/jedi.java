@@ -3,17 +3,21 @@ package sts_jedi;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import conspire.cards.colorless.GhostlyStrike;
 import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
@@ -27,7 +31,9 @@ import mod.jedi.potions.HolyWater;
 import mod.jedi.potions.TentacleJuice;
 import mod.jedi.relics.*;
 
-import static basemod.BaseMod.loadCustomStringsFile;
+import java.nio.charset.StandardCharsets;
+
+import static basemod.BaseMod.loadCustomStrings;
 
 @SpireInitializer
 public class jedi
@@ -107,6 +113,7 @@ public class jedi
         //UNLIMITED PAAAWAAAAAAAH
         BaseMod.addCard(new UnlimitedPower());
         BaseMod.addCard(new BloodyHammer());
+        BaseMod.addCard(new ControlledAnger());
 
         //Curses
         BaseMod.addCard(new Frostbite());
@@ -155,20 +162,60 @@ public class jedi
 //        }
     }
 
+//  Copied from Gatherer
+    private static String GetLocString(String locCode, String name) {
+        return Gdx.files.internal("resources/jedi/localization/" + locCode + "/" + name + ".json").readString(
+                String.valueOf(StandardCharsets.UTF_8));
+    }
+    public static String getLocCode() {
+        switch (Settings.language) {
+            case RUS:
+                return "rus";
+            case ENG:
+                return "eng";
+
+
+            default:
+                return "eng";
+        }
+    }
+
     @Override
     public void receiveEditKeywords()
     {
-        String[] keywordUnlimited = {"unlimited"};
-        BaseMod.addKeyword(keywordUnlimited, "Return an upgraded copy of this card to your hand. NL Can be upgraded any number of times. NL Reset upgrades at the end of your turn. NL Cannot be upgraded outside of combat.");
+
+        Gson gson = new Gson();
+        String loc = getLocCode();
+
+        String json = GetLocString(loc, "keywordStrings");
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
     }
 
     @Override
     public void receiveEditStrings() {
-        loadCustomStringsFile(CardStrings.class,"resources/jedi/localization/cardStrings.json");
-        loadCustomStringsFile(RelicStrings.class, "resources/jedi/localization/relicStrings.json");
-        loadCustomStringsFile(PotionStrings.class, "resources/jedi/localization/potionStrings.json");
-        loadCustomStringsFile(PowerStrings.class, "resources/jedi/localization/powerStrings.json");
-        loadCustomStringsFile(EventStrings.class, "resources/jedi/localization/eventStrings.json");
+
+        String loc = getLocCode();
+
+        String cardStrings = GetLocString(loc, "cardStrings");
+        loadCustomStrings(CardStrings.class, cardStrings);
+
+        String relicStrings = GetLocString(loc, "relicStrings");
+        loadCustomStrings(RelicStrings.class, relicStrings);
+
+        String potionStrings = GetLocString(loc, "potionStrings");
+        loadCustomStrings(PotionStrings.class, potionStrings);
+
+        String powerStrings = GetLocString(loc, "powerStrings");
+        loadCustomStrings(PowerStrings.class, powerStrings);
+
+        String eventStrings = GetLocString(loc, "eventStrings");
+        loadCustomStrings(EventStrings.class, eventStrings);
     }
 
     @Override
@@ -187,6 +234,13 @@ public class jedi
         {
             if ((card.hasTag(AbstractCard.CardTags.STRIKE) && (card.rarity != AbstractCard.CardRarity.BASIC)))
             {
+                if (isConspireLoaded)
+                {
+                    if (card instanceof GhostlyStrike)
+                    {
+                        continue;
+                    }
+                }
                 group.addToBottom(card.makeCopy());
             }
         }

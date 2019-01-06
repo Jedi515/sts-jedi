@@ -2,10 +2,10 @@
   "modid": "jedi",
   "name": "Jedi Mod",
   "author_list": ["Jedi#3970"],
-  "description": "NEW:\nSteam support\n\nCHANGE:\nCleanse now should properly retain.\n",
+  "description": "NEW:\nControlled Anger\n\nCHANGE:\nUnlimited power supposedly works.\nFear now adds upgraded angers instead.\nBurst Dark completely reworked.\n",
   "credits": "Big thanks to JohnnyDevo and kiooeht for helping with the code, Reiji for lock-on memes, Reina for being cursed, Rhapsody for spreading positivity and my college teachers for teaching me how to Java.",
-  "version": "0.2.6",
-  "sts_version": "01-03-2018",
+  "version": "0.2.9",
+  "sts_version": "01-03-2019",
   "mts_version": "3.6.0",
   "dependencies": ["basemod", "stslib"],
   "update_json": "https://api.github.com/repos/jedi515/sts-jedi/releases/latest"
