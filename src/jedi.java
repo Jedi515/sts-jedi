@@ -157,9 +157,9 @@ public class jedi
         }
 
 
-//        if (isReplayLoaded) {
-//            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
-//        }
+        if (isReplayLoaded) {
+            BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
+        }
     }
 
 //  Copied from Gatherer

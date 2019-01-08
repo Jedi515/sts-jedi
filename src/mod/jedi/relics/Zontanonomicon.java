@@ -10,16 +10,18 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mod.jedi.util.TextureLoader;
 
 public class Zontanonomicon
     extends CustomRelic
 {
     public static final String ID = "jedi:zontanonomicon";
     public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private boolean activated = true;
 
     public Zontanonomicon() {
-        super(ID, new Texture(IMG_PATH), RelicTier.SPECIAL, LandingSound.CLINK);
+        super(ID, IMG, RelicTier.SPECIAL, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription()

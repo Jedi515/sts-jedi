@@ -5,6 +5,7 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mod.jedi.util.TextureLoader;
 
 public class HotPepper
     extends CustomRelic
@@ -12,9 +13,11 @@ public class HotPepper
     public static final String ID = "jedi:hotpepper";
     private static float decrease_flat = 0.35F;
     private static float decrease_multiplier = 0.5F;
+    public static final String IMG_PATH = "resources/jedi/images/relics/hotpepper.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
     public HotPepper() {
-        super("jedi:hotpepper", new Texture("resources/jedi/images/relics/hotpepper.png"), AbstractRelic.RelicTier.BOSS, AbstractRelic.LandingSound.FLAT);
+        super(ID, IMG, AbstractRelic.RelicTier.BOSS, AbstractRelic.LandingSound.FLAT);
     }
 
     public String getUpdatedDescription()

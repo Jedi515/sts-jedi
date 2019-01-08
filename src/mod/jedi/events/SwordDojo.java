@@ -4,14 +4,13 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import static sts_jedi.jedi.returnTrulyRandomStrike;
 
@@ -75,12 +74,11 @@ public class SwordDojo
                     case 1:
                         this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
                         screenNum = 1;
-                        AbstractCard curse = AbstractDungeon.returnRandomCurse().makeCopy();
-                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
-                        AbstractRelic r = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+                        AbstractRelic r = AbstractDungeon.returnRandomScreenlessRelic(AbstractRelic.RelicTier.COMMON);
                         AbstractDungeon.combatRewardScreen.open();
-                        AbstractDungeon.getCurrRoom().rewards.clear();
-                        AbstractDungeon.getCurrRoom().addRelicToRewards(r);
+                        AbstractDungeon.combatRewardScreen.rewards.clear();
+                        AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(r));
+                        AbstractDungeon.combatRewardScreen.positionRewards();
                         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
                         this.imageEventText.updateDialogOption(0, OPTIONS[3]);
                         this.imageEventText.clearRemainingOptions();

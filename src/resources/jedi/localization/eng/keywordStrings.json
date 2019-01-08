@@ -1,9 +1,37 @@
 [
-{
-  "NAMES":
-          [
-            "unlimited"
-          ],
-  "DESCRIPTION": "When played, adds an upgraded copy of this card to your hand. NL Can be upgraded any number of times. NL Reset upgrades at the end of your turn. NL Cannot be upgraded outside of combat."
-}
+  {
+    "NAMES":
+            [
+              "unlimited"
+            ],
+    "DESCRIPTION": "When played, adds an upgraded copy of this card to your hand. NL Can be upgraded any number of times. NL Reset upgrades at the end of your turn. NL Cannot be upgraded outside of combat."
+  },
+  {
+    "NAMES":
+    [
+      "chaos"
+    ],
+    "DESCRIPTION": "Randomizes cost and effects of certain cards when drawn."
+  },
+  {
+    "NAMES":
+    [
+      "better"
+    ],
+    "DESCRIPTION": "A card that upgrades all cards in hand and adds Faster to your hand."
+  },
+  {
+    "NAMES":
+    [
+      "faster"
+    ],
+    "DESCRIPTION": "A card that applies slow to an enemy (ALL enemies on upgrade) and adds Stronger to your hand."
+  },
+  {
+    "NAMES":
+    [
+      "stronger"
+    ],
+    "DESCRIPTION": "A power that gives you strength every turn."
+  }
 ]

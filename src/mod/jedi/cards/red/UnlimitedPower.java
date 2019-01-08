@@ -28,7 +28,7 @@ public class UnlimitedPower
     private static int startDamage = 3;
     private static int startMagicNumber = 0;
 
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_attack.png";
+    public static final String IMG_PATH = "resources/jedi/images/cards/red/unlimitedpower.png";
 
 
     public UnlimitedPower()

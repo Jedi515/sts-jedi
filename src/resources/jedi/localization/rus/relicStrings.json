@@ -49,10 +49,10 @@
   },
   "jedi:othersneckoeye":
   {
-    "NAME": "Other Snecko Eye",
-    "FLAVOR": "It's almost like a ring, but it's more like an eye...",
+    "NAME": "Второй глаз змекко",
+    "FLAVOR": "The legendary second eye of the snecko, unseen by anyone... Untill now.",
     "DESCRIPTIONS": [
-      "Draw #b1 more card each turn. Start each combat with CHAOS. Gain 1 more CHAOS every 3 turns."
+      "В начале каждого хода вы берёте на #b1 карту больше. Накладывает на вас #b2 #yХАОСА в начале боя. Накладывает дополнительно #b1 ХАОС каждые #b3 хода."
     ]
   },
   "jedi:leadlinedbottle":
@@ -78,7 +78,7 @@
     "NAME": "Книга Жизни",
     "FLAVOR": "You feel invigorated just by holding this Book of Living.",
     "DESCRIPTIONS": [
-      "Первый в зоду #yНавык с ценой не менее #b2 разыгрывается дважды."
+      "Первый в ходу #yНавык с ценой не менее #b2 разыгрывается дважды."
     ]
   },
   "jedi:paperfaux":
@@ -99,8 +99,8 @@
   },
   "jedi:leech":
   {
-    "NAME": "Пиявка",
-    "FLAVOR": "Is it producing blood instead of sucking it or what?",
+    "NAME": "Пакет крови",
+    "FLAVOR": "Nope it was always like this.",
     "DESCRIPTIONS": [
       "Понижает потерю ОЗ от карт и талантов на #b1 (до минимума #b1)."
     ]

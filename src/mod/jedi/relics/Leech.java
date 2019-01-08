@@ -4,17 +4,19 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnLoseHpRelic;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import mod.jedi.util.TextureLoader;
 
 public class Leech
     extends CustomRelic
     implements BetterOnLoseHpRelic
 {
     public static final String ID = "jedi:leech";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String IMG_PATH = "resources/jedi/images/relics/bloodpack.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
     public Leech()
     {
-        super(ID, new Texture(IMG_PATH), RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, IMG, RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
     @Override

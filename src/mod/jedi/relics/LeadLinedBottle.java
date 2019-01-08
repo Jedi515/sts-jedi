@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import mod.jedi.util.TextureLoader;
 
 import java.util.Iterator;
 import java.util.function.Predicate;
@@ -33,13 +34,14 @@ public class LeadLinedBottle
         CustomSavable<Integer>
 {
     public static final String ID = "jedi:leadlinedbottle";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String IMG_PATH = "resources/jedi/images/relics/leadlinedbottle.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private boolean cardSelected = true;
     public AbstractCard card = null;
 
 
     public LeadLinedBottle() {
-        super(ID, new Texture(IMG_PATH), RelicTier.UNCOMMON,LandingSound.CLINK);
+        super(ID, IMG, RelicTier.UNCOMMON,LandingSound.CLINK);
     }
 
     public void atPreBattle() {

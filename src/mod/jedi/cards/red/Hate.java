@@ -1,7 +1,11 @@
 package mod.jedi.cards.red;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Anger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +15,7 @@ import mod.jedi.actions.HatredAction;
 
 public class Hate
     extends CustomCard
+    implements StartupCard
 {
     public static final String ID = "jedi:hate";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -50,5 +55,26 @@ public class Hate
     public CustomCard makeCopy()
     {
         return new Hate();
+    }
+
+    @Override
+    public boolean atBattleStartPreDraw()
+    {
+        boolean toReturn = true;
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
+        {
+            if (c instanceof Anger)
+            {
+                toReturn = false;
+                break;
+            }
+        }
+
+        if (toReturn)
+        {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Anger(), 1, true, true));
+        }
+
+        return toReturn;
     }
 }

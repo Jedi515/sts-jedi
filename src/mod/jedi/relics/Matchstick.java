@@ -7,17 +7,20 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import mod.jedi.util.TextureLoader;
 
 public class Matchstick
     extends CustomRelic
 implements ClickableRelic
 {
     public static final String ID = "jedi:matchstick";
+    public static final String IMG_PATH = "resources/jedi/images/relics/matchstick.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private boolean usedThisCombat = false;
 
     public Matchstick()
     {
-        super("jedi:matchstick", new Texture("resources/jedi/images/relics/matchstick.png"), AbstractRelic.RelicTier.RARE, AbstractRelic.LandingSound.SOLID);
+        super(ID, IMG, AbstractRelic.RelicTier.RARE, AbstractRelic.LandingSound.SOLID);
     }
 
     @Override

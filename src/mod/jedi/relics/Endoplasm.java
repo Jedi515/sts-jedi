@@ -7,18 +7,20 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnLoseHpRelic;
+import mod.jedi.util.TextureLoader;
 
 public class Endoplasm
     extends CustomRelic
     implements BetterOnLoseHpRelic
 {
     public static final String ID = "jedi:endoplasm";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String IMG_PATH = "resources/jedi/images/relics/endoplasm.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     public static boolean canTrigger = true;
 
 
     public Endoplasm() {
-        super(ID, new Texture(IMG_PATH), RelicTier.BOSS,LandingSound.FLAT);
+        super(ID, IMG, RelicTier.BOSS,LandingSound.FLAT);
     }
 
     public void onEquip()

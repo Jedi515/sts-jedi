@@ -8,16 +8,18 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mod.jedi.util.TextureLoader;
 
 public class LaserPointer
     extends CustomRelic
 {
     public static final String ID = "jedi:laserpointer";
     public static final String IMG_PATH = "resources/jedi/images/relics/laserpointer.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
 
     public LaserPointer() {
-        super(ID, new Texture(IMG_PATH), RelicTier.COMMON,LandingSound.FLAT);
+        super(ID, IMG, RelicTier.COMMON,LandingSound.FLAT);
     }
 
     public String getUpdatedDescription()

@@ -8,15 +8,17 @@ import com.megacrit.cardcrawl.cards.colorless.Shiv;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mod.jedi.util.TextureLoader;
 
 public class ScrapMetal
     extends CustomRelic
 {
     public static final String ID = "jedi:scrapmetal";
     public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
     public ScrapMetal() {
-        super(ID, new Texture(IMG_PATH), RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, IMG, RelicTier.UNCOMMON, LandingSound.CLINK);
         this.counter = 0;
     }
 

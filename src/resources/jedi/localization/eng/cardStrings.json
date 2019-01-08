@@ -107,8 +107,8 @@
   "jedi:hate":
   {
     "NAME": "Hate",
-    "DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile."
+    "DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile. NL Exhaust. NL Startup: If you have no Angers in your deck, shuffle an Anger into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile. NL Startup: If you have no Angers in your deck, shuffle an Anger into your draw pile."
   },
   "jedi:fear":
   {

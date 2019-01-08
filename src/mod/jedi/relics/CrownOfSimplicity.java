@@ -9,16 +9,18 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mod.jedi.util.TextureLoader;
 
 public class CrownOfSimplicity
     extends CustomRelic
 {
     public static final String ID = "jedi:crownofsimplicity";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String IMG_PATH = "resources/jedi/images/relics/crownofsimplicity.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
     public CrownOfSimplicity()
     {
-        super(ID, new Texture(IMG_PATH), RelicTier.RARE, LandingSound.FLAT);
+        super(ID, IMG, RelicTier.RARE, LandingSound.FLAT);
     }
 
 

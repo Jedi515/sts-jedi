@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.defect.ImpulseAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mod.jedi.util.TextureLoader;
 
 public class Superconductor
     extends CustomRelic
@@ -14,9 +15,10 @@ public class Superconductor
 {
     public static final String ID = "jedi:superconductor";
     public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
     public Superconductor() {
-        super(ID, new Texture(IMG_PATH), RelicTier.UNCOMMON,LandingSound.FLAT);
+        super(ID, IMG, RelicTier.UNCOMMON,LandingSound.FLAT);
         this.counter = 0;
     }
 

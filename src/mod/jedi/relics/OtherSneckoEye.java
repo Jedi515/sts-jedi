@@ -6,17 +6,21 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.mod.replay.powers.ChaosPower;
+import com.megacrit.cardcrawl.mod.replay.relics.RingOfChaos;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.SneckoEye;
+import mod.jedi.util.TextureLoader;
 
 public class OtherSneckoEye
     extends CustomRelic
 {
     public static final String ID = "jedi:othersneckoeye";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String IMG_PATH = "resources/jedi/images/relics/othersneckoeye.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
 
     public OtherSneckoEye() {
-        super(ID, new Texture(IMG_PATH), RelicTier.BOSS,LandingSound.FLAT);
+        super(ID, IMG, RelicTier.COMMON, LandingSound.FLAT);
     }
 
     public void onEquip()
@@ -32,7 +36,7 @@ public class OtherSneckoEye
     public void atPreBattle()
     {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChaosPower(AbstractDungeon.player, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChaosPower(AbstractDungeon.player, 2), 2));
     }
 
     public void atBattleStart() {
@@ -54,6 +58,14 @@ public class OtherSneckoEye
     public void onVictory() {
         this.counter = -1;
         this.stopPulse();
+    }
+
+    public boolean canSpawn()
+    {
+        boolean toReturn =  (AbstractDungeon.player.hasRelic(SneckoEye.ID) ||
+                            (AbstractDungeon.player.hasRelic("Ring of Chaos")));
+
+        return toReturn;
     }
 
     public String getUpdatedDescription()

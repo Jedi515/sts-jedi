@@ -50,9 +50,9 @@
   "jedi:othersneckoeye":
   {
     "NAME": "Other Snecko Eye",
-    "FLAVOR": "It's almost like a ring, but it's more like an eye...",
+    "FLAVOR": "The legendary second eye of the snecko, unseen by anyone... Untill now.",
     "DESCRIPTIONS": [
-      "Draw #b1 more card each turn. Start each combat with CHAOS. Gain 1 more CHAOS every 3 turns."
+      "Draw #b1 more card each turn. Start each combat with #b2 #yCHAOS. Gain #b1 more #yCHAOS every #b3 turns."
     ]
   },
   "jedi:leadlinedbottle":
@@ -99,8 +99,8 @@
   },
   "jedi:leech":
   {
-    "NAME": "Leech",
-    "FLAVOR": "Is it producing blood instead of sucking it or what?",
+    "NAME": "Blood Pack",
+    "FLAVOR": "Nope it was always like this.",
     "DESCRIPTIONS": [
       "Reduce HP loss from cards and powers by #b1 to a minimum of #b1."
     ]

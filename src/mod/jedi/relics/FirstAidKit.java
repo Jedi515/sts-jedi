@@ -6,17 +6,19 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.RegenPower;
+import mod.jedi.util.TextureLoader;
 
 public class FirstAidKit
     extends CustomRelic
 {
 
     public static final String ID = "jedi:firstaidkit";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String IMG_PATH = "resources/jedi/images/relics/firstaidkit.png";
+    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
 
     public FirstAidKit()
     {
-        super(ID, new Texture(IMG_PATH), RelicTier.RARE, LandingSound.FLAT);
+        super(ID, IMG, RelicTier.RARE, LandingSound.FLAT);
     }
 
 
