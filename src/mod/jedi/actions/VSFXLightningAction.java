@@ -12,19 +12,19 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 public class VSFXLightningAction
     extends AbstractGameAction {
     private AbstractCreature c;
+    private boolean playSound;
 
     public VSFXLightningAction(AbstractCreature creature)
+    {
+        new VSFXLightningAction(creature, true);
+    }
+
+    public VSFXLightningAction(AbstractCreature creature, boolean playSound)
     {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
         this.c = creature;
-    }
-
-    public VSFXLightningAction(boolean isMultihit)
-    {
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.SPECIAL;
-        this.c = null;
+        this.playSound = playSound;
     }
 
     @Override
@@ -49,7 +49,10 @@ public class VSFXLightningAction
                     AbstractDungeon.effectList.add(new LightningEffect(mo.drawX, mo.drawY));
                 }
             }
-            CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE");
+            if (this.playSound)
+            {
+                CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE");
+            }
         }
         this.isDone = true;
     }

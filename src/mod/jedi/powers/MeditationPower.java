@@ -41,7 +41,7 @@ public class MeditationPower
         if (!this.owner.hasPower(BufferPower.POWER_ID))
         {
             this.flash();
-            if (AbstractDungeon.player.hasPower(FocusPower.POWER_ID))
+            if (AbstractDungeon.player.hasPower(FocusPower.POWER_ID) && damageAmount > 0)
             {
                 if (AbstractDungeon.player.getPower(FocusPower.POWER_ID).amount > 0)
                 {

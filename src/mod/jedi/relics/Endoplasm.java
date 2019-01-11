@@ -31,7 +31,7 @@ public class Endoplasm
     public int betterOnLoseHp(DamageInfo info, int damageAmount)
     {
         if (canTrigger) {
-            if (!AbstractDungeon.player.hasPower(BufferPower.POWER_ID)) {
+            if (!AbstractDungeon.player.hasPower(BufferPower.POWER_ID) && damageAmount > 0) {
                 AbstractDungeon.player.loseGold(50);
                 canTrigger = false;
                 this.flash();

@@ -46,7 +46,7 @@ public class BurstLightning
     {
         if (p.hasPower(ElectroPower.POWER_ID))
         {
-            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(true));
+            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(null));
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(m, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
         }
         else

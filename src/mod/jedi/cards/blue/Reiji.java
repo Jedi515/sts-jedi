@@ -21,7 +21,7 @@ public class Reiji
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 0;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
+    public static final String IMG_PATH = "resources/jedi/images/cards/blue/reiji.png";
 
     public Reiji()
     {
@@ -30,7 +30,6 @@ public class Reiji
         this.magicNumber = this.baseMagicNumber;
         this.isInnate = true;
         this.exhaust = true;
-        this.isEthereal= true;
     }
 
     @Override

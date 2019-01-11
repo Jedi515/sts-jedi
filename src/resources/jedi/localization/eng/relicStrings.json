@@ -129,5 +129,13 @@
       "Non-boss enemies have #b",
       "% less HP."
     ]
+  },
+  "jedi:gremlinknob":
+  {
+    "NAME": "Gremlin Knob",
+    "FLAVOR": "Made from a horn of a well-known beast.",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, gain #b1 #yStrength till the end of a turn."
+    ]
   }
 }

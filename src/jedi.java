@@ -1,12 +1,14 @@
 package sts_jedi;
 
 import basemod.BaseMod;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -19,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import conspire.cards.colorless.GhostlyStrike;
 import gluttonmod.patches.AbstractCardEnum;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
@@ -26,14 +29,13 @@ import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
-import mod.jedi.potions.CoolantLeak;
-import mod.jedi.potions.HolyWater;
-import mod.jedi.potions.TentacleJuice;
+import mod.jedi.potions.*;
 import mod.jedi.relics.*;
 
 import java.nio.charset.StandardCharsets;
 
 import static basemod.BaseMod.loadCustomStrings;
+import static the_gatherer.GathererMod.lesserPotionPool;
 
 @SpireInitializer
 public class jedi
@@ -45,11 +47,11 @@ public class jedi
             EditKeywordsSubscriber,
             MaxHPChangeSubscriber
 {
-
     public static boolean isReplayLoaded;
     public static boolean isConspireLoaded;
     public static boolean isGluttonLoaded;
     public static boolean isBeakedLoaded;
+    public static boolean isGathererLoaded;
 
     public static void initialize()
     {
@@ -58,6 +60,7 @@ public class jedi
         isConspireLoaded = Loader.isModLoaded("conspire");
         isGluttonLoaded = Loader.isModLoaded("GluttonMod");
         isBeakedLoaded = Loader.isModLoaded("beakedthecultist-sts");
+        isGathererLoaded = Loader.isModLoaded("gatherermod");
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -69,6 +72,12 @@ public class jedi
         BaseMod.addPotion(TentacleJuice.class, Color.PURPLE,null,Color.WHITE,TentacleJuice.ID);
         BaseMod.addPotion(CoolantLeak.class, null, Color.CYAN, null,CoolantLeak.ID, AbstractPlayer.PlayerClass.DEFECT);
         BaseMod.addPotion(HolyWater.class, Color.YELLOW, Color.WHITE, null, HolyWater.ID);
+
+        if (isGathererLoaded)
+        {
+            lesserPotionPool.add(new LesserTentacleJuice());
+            lesserPotionPool.add(new LesserHolyWater());
+        }
 
         // Events
         BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
@@ -131,6 +140,7 @@ public class jedi
         BaseMod.addRelic(new CrownOfSimplicity(), RelicType.SHARED);
         BaseMod.addRelic(new HeavyJacket(), RelicType.SHARED);
         BaseMod.addRelic(new ShrinkRay(), RelicType.SHARED);
+        BaseMod.addRelic(new GremlinKnob(), RelicType.SHARED);
 
         BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
@@ -167,7 +177,8 @@ public class jedi
         return Gdx.files.internal("resources/jedi/localization/" + locCode + "/" + name + ".json").readString(
                 String.valueOf(StandardCharsets.UTF_8));
     }
-    public static String getLocCode() {
+
+    private static String getLocCode() {
         switch (Settings.language) {
             case RUS:
                 return "rus";
@@ -192,7 +203,7 @@ public class jedi
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }
@@ -247,7 +258,7 @@ public class jedi
         return group.getRandomCard(true).makeCopy();
     }
 
-    //As unused as it is now, will be useful for when kio makes customdiscovery action or something.
+    //As unused as it is now, will be useful for when kio makes customDiscovery action or something.
     public CardGroup descriptionSearch(String[] keywords)
     {
         CardGroup toReturn = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -259,7 +270,7 @@ public class jedi
                 if (c.rawDescription.toLowerCase().contains(keyword.toLowerCase()))
                 {
                     toReturn.addToBottom(c.makeStatEquivalentCopy());
-                    //don't forget to markasseen when it pops on player screen
+                    //don't forget to markAsSeen when it pops on player screen
                     break;
                 }
             }

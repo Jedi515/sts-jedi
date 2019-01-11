@@ -19,10 +19,10 @@ public class EvokeWithoutRemovingSpecificOrbAction
             this.startDuration = Settings.ACTION_DUR_XFAST;
         }
 
-        this.position = position;
         this.duration = this.startDuration;
-        this.orbCount = amount;
         this.actionType = ActionType.DAMAGE;
+        this.position = position;
+        this.orbCount = amount;
     }
 
 

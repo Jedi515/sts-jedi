@@ -41,7 +41,7 @@ public class RemoveSpecificOrbAction
                 ((AbstractOrb) AbstractDungeon.player.orbs.get(i)).setSlot(i, AbstractDungeon.player.maxOrbs);
             }
         }
-        this.tickDuration();
+        this.isDone = true;
     }
 
 }

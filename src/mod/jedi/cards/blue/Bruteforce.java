@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import mod.jedi.actions.BruteforceAction;
 import mod.jedi.actions.RemoveSpecificOrbAction;
 
 import java.util.Collections;
@@ -42,57 +43,9 @@ public class Bruteforce
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int hitsTillBreak = 0;
-        DamageInfo info = evokeInfo();
-        while (hitsTillBreak < this.magicNumber || (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()))
-        {
-            AbstractCreature mo = AbstractDungeon.getRandomMonster();
-            if (m == mo)
-            {
-                hitsTillBreak++;
-            }
-            if (mo != null) {
-                float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
-                if (Settings.FAST_MODE) {
-                    speedTime = 0.0F;
-                }
-
-                info.output = AbstractOrb.applyLockOn(mo, info.base);
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, info, AbstractGameAction.AttackEffect.NONE, true));
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(mo.drawX, mo.drawY), speedTime));
-                AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE"));
-            }
-
-        }
-
-        for (AbstractOrb o : AbstractDungeon.player.orbs)
-        {
-            if (o instanceof Lightning)
-            {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbAction(o));
-                return;
-            }
-        }
+        AbstractDungeon.actionManager.addToBottom(new BruteforceAction(m, this.magicNumber));
     }
 
-    //            AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageType.THORNS), false));
-
-    private DamageInfo evokeInfo()
-    {
-        return new DamageInfo(AbstractDungeon.player, evokeAmt(), DamageInfo.DamageType.THORNS);
-    }
-
-    private int evokeAmt()
-    {
-        for (AbstractOrb o : AbstractDungeon.player.orbs)
-        {
-            if (o instanceof Lightning)
-            {
-                return o.evokeAmount;
-            }
-        }
-        return 0;
-    }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m)
     {

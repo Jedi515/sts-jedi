@@ -85,6 +85,11 @@ public class UnlimitedPower
 
     public boolean canUpgrade()
     {
+        if (!CardCrawlGame.isInARun())
+        {
+            return true;
+        }
+
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
         {
             return true;

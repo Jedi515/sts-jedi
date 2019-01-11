@@ -24,5 +24,22 @@
     [
       "Remove ALL debuffs from yourself."
     ]
+  },
+  "jedi:lessertentaclejuice":
+  {
+    "NAME": "Lesser Tentacle Juice",
+    "DESCRIPTIONS":
+    [
+      "Apply #b",
+      " Constricted."
+    ]
+  },
+  "jedi:lesserholywater":
+  {
+    "NAME": "Lesser Holy Water",
+    "DESCRIPTIONS":
+    [
+      "Remove a random debuff from yourself."
+    ]
   }
 }
