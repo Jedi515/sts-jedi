@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.util.TextureLoader;
 
@@ -15,18 +16,29 @@ public class CrownOfSimplicity
     extends CustomRelic
 {
     public static final String ID = "jedi:crownofsimplicity";
-    public static final String IMG_PATH = "resources/jedi/images/relics/crownofsimplicity.png";
+    public static final String PATH = "resources/jedi/images/relics/";
+    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
+    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
+    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
+    private boolean oncePerTurn;
 
     public CrownOfSimplicity()
     {
-        super(ID, IMG, RelicTier.RARE, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.FLAT);
     }
 
 
     public void onUseCard(AbstractCard card, UseCardAction action)
     {
-        if ((card.rarity == AbstractCard.CardRarity.BASIC || card.hasTag(BaseModCardTags.BASIC_STRIKE) || card.hasTag(BaseModCardTags.BASIC_DEFEND)) && !card.purgeOnUse && !card.freeToPlayOnce)
+        if ((   oncePerTurn &&
+                (
+                    card.rarity == AbstractCard.CardRarity.BASIC ||
+                    card.hasTag(BaseModCardTags.BASIC_STRIKE) ||
+                    card.hasTag(BaseModCardTags.BASIC_DEFEND)) &&
+                    !card.purgeOnUse &&
+                    !card.freeToPlayOnce)
+                )
         {
             this.flash();
             AbstractMonster m = null;
@@ -47,7 +59,13 @@ public class CrownOfSimplicity
 
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse));
+            oncePerTurn = false;
         }
+    }
+
+    public void atTurnStart()
+    {
+        oncePerTurn = true;
     }
 
     public String getUpdatedDescription()

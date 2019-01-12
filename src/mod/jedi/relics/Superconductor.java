@@ -14,11 +14,14 @@ public class Superconductor
     implements OnChannelRelic
 {
     public static final String ID = "jedi:superconductor";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String PATH = "resources/jedi/images/relics/";
+    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
+    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
+    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
 
     public Superconductor() {
-        super(ID, IMG, RelicTier.UNCOMMON,LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON,LandingSound.FLAT);
         this.counter = 0;
     }
 

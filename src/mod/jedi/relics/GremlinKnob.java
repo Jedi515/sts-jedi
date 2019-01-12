@@ -15,12 +15,15 @@ public class GremlinKnob
     extends CustomRelic
 {
     public static final String ID = "jedi:gremlinknob";
-    public static final String IMG_PATH = "resources/jedi/images/relics/gremlinknob.png";
+    public static final String PATH = "resources/jedi/images/relics/";
+    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
+    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
+    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
 
 
     public GremlinKnob() {
-        super(ID, IMG, RelicTier.RARE,LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.RARE,LandingSound.FLAT);
     }
 
     public void onPlayCard(AbstractCard c, AbstractMonster m)

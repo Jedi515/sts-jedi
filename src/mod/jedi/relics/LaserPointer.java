@@ -14,12 +14,15 @@ public class LaserPointer
     extends CustomRelic
 {
     public static final String ID = "jedi:laserpointer";
-    public static final String IMG_PATH = "resources/jedi/images/relics/laserpointer.png";
+    public static final String PATH = "resources/jedi/images/relics/";
+    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
+    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
+    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
 
 
     public LaserPointer() {
-        super(ID, IMG, RelicTier.COMMON,LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON,LandingSound.FLAT);
     }
 
     public String getUpdatedDescription()

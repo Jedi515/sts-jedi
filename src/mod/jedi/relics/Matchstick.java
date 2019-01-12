@@ -14,13 +14,16 @@ public class Matchstick
 implements ClickableRelic
 {
     public static final String ID = "jedi:matchstick";
-    public static final String IMG_PATH = "resources/jedi/images/relics/matchstick.png";
+    public static final String PATH = "resources/jedi/images/relics/";
+    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
+    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
+    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
     private boolean usedThisCombat = false;
 
     public Matchstick()
     {
-        super(ID, IMG, AbstractRelic.RelicTier.RARE, AbstractRelic.LandingSound.SOLID);
+        super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.RARE, AbstractRelic.LandingSound.SOLID);
     }
 
     @Override

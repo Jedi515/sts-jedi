@@ -26,6 +26,7 @@ public class TentacleJuice
         this.isThrown = true;
         this.targetRequired = true;
         this.tips.add(new PowerTip(this.name, this.description));
+        this.tips.add(new PowerTip(DESCRIPTIONS[2], DESCRIPTIONS[3]));
     }
 
     public void use(AbstractCreature target) {

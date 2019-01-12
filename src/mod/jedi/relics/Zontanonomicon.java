@@ -16,12 +16,15 @@ public class Zontanonomicon
     extends CustomRelic
 {
     public static final String ID = "jedi:zontanonomicon";
-    public static final String IMG_PATH = "resources/jedi/images/relics/beta_rock.png";
+    public static final String PATH = "resources/jedi/images/relics/";
+    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
+    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
+    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
     private boolean activated = true;
 
     public Zontanonomicon() {
-        super(ID, IMG, RelicTier.SPECIAL, LandingSound.CLINK);
+        super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription()

@@ -26,8 +26,7 @@ public class Reiji
     public Reiji()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.baseMagicNumber = 0;
-        this.magicNumber = this.baseMagicNumber;
+        this.magicNumber = this.baseMagicNumber = 0;
         this.isInnate = true;
         this.exhaust = true;
     }

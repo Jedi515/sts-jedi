@@ -5,7 +5,9 @@
     "DESCRIPTIONS":
             [
               "Apply #b",
-              " Constricted."
+              " #yConstricted.",
+              "Constriction",
+              "A debuff that deals damage at the end of creature's turn. If the enemy is constricted, it will do its move first and then take damage from constriction."
             ]
   },
   "jedi:coolantleak":
@@ -39,7 +41,9 @@
     "NAME": "Lesser Holy Water",
     "DESCRIPTIONS":
     [
-      "Remove a random debuff from yourself."
+      "Remove #b",
+      " random debuff from yourself.",
+      " random debuffs from yourself."
     ]
   }
 }

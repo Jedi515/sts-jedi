@@ -36,7 +36,7 @@
     "NAME": "Эндоплазма",
     "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
     "DESCRIPTIONS": [
-      "Даёт [E] в начале вашего хода. Каждый раунд, при первой потере ОЗ также теряете #r50 #yЗолота."
+      "Даёт [E] в начале вашего хода. Каждый раунд, при первой потере ОЗ также теряете #r50 #yЗолота. При потере ОЗ вне боя также также теряете #r50 #yЗолота."
     ]
   },
   "jedi:superconductor":
@@ -110,7 +110,7 @@
     "NAME": "Корона Простоты",
     "FLAVOR": "Did you really have to remove that Bash?",
     "DESCRIPTIONS": [
-      "#yБазовые карты разыгрыватся дважды."
+      "В каждом ходу первая #yБазовая карта разыгрыватся дважды."
     ]
   },
   "jedi:heavyjacket":
@@ -124,7 +124,7 @@
   "jedi:shrinkray":
   {
     "NAME": "Уменьшающий Луч",
-    "FLAVOR": "Freeze!",
+    "FLAVOR": "Did you just call me short?!",
     "DESCRIPTIONS": [
       "У всех врагов, не являющихся боссами, на #b",
       "% меньше ОЗ."

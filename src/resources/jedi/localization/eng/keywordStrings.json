@@ -33,5 +33,14 @@
       "stronger"
     ],
     "DESCRIPTION": "A power that gives you strength every turn."
+  },
+  {
+    "PROPER_NAME": "Constriction",
+    "NAMES":
+    [
+      "constricted",
+      "constriction"
+    ],
+    "DESCRIPTION": "A debuff that deals damage at the end of creature's turn. If the enemy is constricted, it will do its move first and then take damage from constriction."
   }
 ]

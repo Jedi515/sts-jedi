@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import mod.jedi.relics.ShrinkRay;
 
 @SpirePatch(clz = AbstractCreature.class, method = "loadAnimation")
@@ -15,7 +16,7 @@ public class ShrinkRayPatch {
 
         if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null)
         {
-            if (AbstractDungeon.player.hasRelic(ShrinkRay.ID) && !__instance.isPlayer)
+            if (AbstractDungeon.player.hasRelic(ShrinkRay.ID) && !__instance.isPlayer && !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss))
             {
                 scale[0] += 0.2F;
             }

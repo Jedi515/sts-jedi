@@ -36,7 +36,7 @@
     "NAME": "Endoplasm",
     "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold."
+      "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold. Whenever you lose HP outside of combat, lose #r50 #yGold."
     ]
   },
   "jedi:superconductor":
@@ -110,7 +110,7 @@
     "NAME": "Crown of Simplicity",
     "FLAVOR": "Did you really have to remove that Bash?",
     "DESCRIPTIONS": [
-      "#yStarter cards are played twice."
+      "First #yStarter card each turn is played twice."
     ]
   },
   "jedi:heavyjacket":
@@ -124,7 +124,7 @@
   "jedi:shrinkray":
   {
     "NAME": "Shrink Ray",
-    "FLAVOR": "Freeze!",
+    "FLAVOR": "Did you just call me short?!",
     "DESCRIPTIONS": [
       "Non-boss enemies have #b",
       "% less HP."
