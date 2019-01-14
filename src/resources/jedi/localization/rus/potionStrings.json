@@ -29,7 +29,7 @@
   },
   "jedi:lessertentaclejuice":
   {
-    "NAME": "Разбавленный Сок Щупалец",
+    "NAME": "Малый Сок Щупалец",
     "DESCRIPTIONS":
     [
       "Накладывает #b",
@@ -38,7 +38,7 @@
   },
   "jedi:lesserholywater":
   {
-    "NAME": "Разбавленная Святая Вода",
+    "NAME": "Малая Святая Вода",
     "DESCRIPTIONS":
     [
       "Снимает с персонажа #b",

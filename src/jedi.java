@@ -267,9 +267,12 @@ public class jedi
         {
             for (String keyword : keywords)
             {
-                if (c.rawDescription.toLowerCase().contains(keyword.toLowerCase()))
+                if ((   c.rawDescription.toLowerCase().contains(keyword.toLowerCase()) &&
+                        !(toReturn.contains(c)) &&
+                        (c.type != AbstractCard.CardType.CURSE) &&
+                        (c.type != AbstractCard.CardType.STATUS)))
                 {
-                    toReturn.addToBottom(c.makeStatEquivalentCopy());
+                    toReturn.addToBottom(c.makeCopy());
                     //don't forget to markAsSeen when it pops on player screen
                     break;
                 }

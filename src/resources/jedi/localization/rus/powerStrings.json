@@ -9,7 +9,7 @@
   "jedi:upgradeondraw": {
     "NAME": "Better",
     "DESCRIPTIONS": [
-      "Улучшает все карты, которые вы тянете в этом раунде."
+      "Улучшает все карты, которые вы берёте в этом раунде."
     ]
   },
   "jedi:controlledanger": {

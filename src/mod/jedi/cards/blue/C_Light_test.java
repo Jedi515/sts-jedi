@@ -45,9 +45,7 @@ public class C_Light_test
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        for (int i = 0; i < this.magicNumber; i++) {
-            AbstractDungeon.actionManager.addToBottom(new EvokeWithoutRemovingSpecificOrbAction(1, 1));
-        }
+
     }
 
     public void upgrade()

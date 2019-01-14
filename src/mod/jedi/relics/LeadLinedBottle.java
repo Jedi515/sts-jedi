@@ -56,6 +56,7 @@ public class LeadLinedBottle
             if (StSLib.getMasterDeckEquivalent(c) == card)
             {
                 cardToMove = c;
+                break;
             }
         }
         AbstractDungeon.player.drawPile.removeCard(cardToMove);

@@ -67,7 +67,7 @@ public class SwordDojo
                             card.isSeen = true;
                         }
                         GiveToPlayer.addToBottom(new PerfectedStrike());
-                        AbstractDungeon.gridSelectScreen.openConfirmationGrid(GiveToPlayer, this.DESCRIPTIONS[4]);
+                        AbstractDungeon.gridSelectScreen.openConfirmationGrid(GiveToPlayer, DESCRIPTIONS[4]);
                         this.imageEventText.updateDialogOption(0, OPTIONS[3]);
                         this.imageEventText.clearRemainingOptions();
                         return;
