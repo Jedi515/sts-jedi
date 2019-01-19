@@ -19,9 +19,10 @@ public class ScrapMetal
     public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
+    public static final int shivCount = 10;
 
     public ScrapMetal() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
         this.counter = 0;
     }
 
@@ -32,7 +33,7 @@ public class ScrapMetal
             this.counter++;
         }
 
-        if (this.counter == 15)
+        if (this.counter == shivCount)
         {
             this.flash();
             this.counter = 0;
@@ -42,7 +43,7 @@ public class ScrapMetal
 
     public String getUpdatedDescription()
     {
-        return this.DESCRIPTIONS[0];
+        return this.DESCRIPTIONS[0] + shivCount + this.DESCRIPTIONS[1];
     }
 
     public AbstractRelic makeCopy()

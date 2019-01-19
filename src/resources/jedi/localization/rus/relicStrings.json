@@ -70,7 +70,8 @@
     "NAME": "Металлолом",
     "FLAVOR": "Nothing should go to waste.",
     "DESCRIPTIONS": [
-      "За каждые #b15 разыгранных #yЗаточек, добавляет в руку #yЗаточку."
+      "Добавляет в руку #yЗаточку за каждые #b",
+      " разыгранных #yЗаточек."
     ]
   },
   "jedi:zontanonomicon":
@@ -108,7 +109,7 @@
   "jedi:crownofsimplicity":
   {
     "NAME": "Корона Простоты",
-    "FLAVOR": "Did you really have to remove that Bash?",
+    "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
     "DESCRIPTIONS": [
       "В каждом ходу первая #yБазовая карта разыгрыватся дважды."
     ]

@@ -16,7 +16,7 @@ public class UpgradeOnDraw
     implements OnCardDrawPower
 {
     public static final String POWER_ID = "jedi:upgradeondraw";
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);;
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME =  powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 

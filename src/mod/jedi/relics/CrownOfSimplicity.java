@@ -25,7 +25,7 @@ public class CrownOfSimplicity
 
     public CrownOfSimplicity()
     {
-        super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
     }
 
 

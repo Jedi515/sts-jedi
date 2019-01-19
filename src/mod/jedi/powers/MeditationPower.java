@@ -31,7 +31,8 @@ public class MeditationPower
         this.type = PowerType.BUFF;
     }
 
-    public void atStartOfTurn() {
+    public void atEndOfTurn(boolean isPlayer)
+    {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, this.amount), this.amount));
     }

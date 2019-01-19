@@ -70,7 +70,8 @@
     "NAME": "Scrap Metal",
     "FLAVOR": "Nothing should go to waste.",
     "DESCRIPTIONS": [
-      "For every #b15 #yShivs played, add a #yShiv to your hand."
+      "For every #b",
+      " #yShivs played, add a #yShiv to your hand."
     ]
   },
   "jedi:zontanonomicon":
@@ -108,7 +109,7 @@
   "jedi:crownofsimplicity":
   {
     "NAME": "Crown of Simplicity",
-    "FLAVOR": "Did you really have to remove that Bash?",
+    "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
     "DESCRIPTIONS": [
       "First #yStarter card each turn is played twice."
     ]

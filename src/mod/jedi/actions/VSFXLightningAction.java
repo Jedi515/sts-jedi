@@ -16,14 +16,21 @@ public class VSFXLightningAction
 
     public VSFXLightningAction(AbstractCreature creature)
     {
-        new VSFXLightningAction(creature, true);
+        this(creature, true);
     }
 
     public VSFXLightningAction(AbstractCreature creature, boolean playSound)
     {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
-        this.c = creature;
+        if (creature == null)
+        {
+            this.c = null;
+        }
+        else
+        {
+            this.c = creature;
+        }
         this.playSound = playSound;
     }
 
@@ -32,7 +39,7 @@ public class VSFXLightningAction
     {
         if (this.duration == Settings.ACTION_DUR_FAST)
         {
-            if (c != null)
+            if (this.c != null)
             {
                 c.damageFlash = true;
                 c.damageFlashFrames = 4;

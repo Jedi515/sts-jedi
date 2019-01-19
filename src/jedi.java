@@ -27,6 +27,7 @@ import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
+import mod.jedi.cards.green.PoisonIvy;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.potions.*;
@@ -90,6 +91,9 @@ public class jedi
         BaseMod.addCard(new Cleanse());
         BaseMod.addCard(new Forcepush());
         BaseMod.addCard(new Forcepull());
+
+        //Green
+        BaseMod.addCard(new PoisonIvy());
 
         //Blue
         BaseMod.addCard(new BurstLightning());

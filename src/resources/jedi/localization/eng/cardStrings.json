@@ -66,7 +66,7 @@
   "jedi:blockon":
   {
     "NAME": "Block-On",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to all enemies that intend to attack you."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to ALL enemies that intend to attack you."
   },
   "jedi:gatheringstorm":
   {
@@ -79,7 +79,7 @@
   "jedi:meditation":
   {
     "NAME": "Meditation",
-    "DESCRIPTION": "Gain !M! Focus at the start of your turn. NL Lose ALL Focus whenever you lose HP."
+    "DESCRIPTION": "Gain !M! Focus at the end of your turn. NL Lose ALL Focus whenever you lose HP."
   },
   "jedi:darknesscall":
   {
@@ -180,5 +180,11 @@
     "NAME": "Controlled Anger",
     "DESCRIPTION": "Add !M! Angers to your hand. NL Whenever you play an Anger, Exhaust it.",
     "UPGRADE_DESCRIPTION": "Add !M! Upgraded Angers to your hand. NL Whenever you play an Anger, Exhaust it."
+  },
+  "jedi:poisonivy":
+  {
+    "NAME": "Poison Ivy",
+    "DESCRIPTION":  "Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand."
   }
 }

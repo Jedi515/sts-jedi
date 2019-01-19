@@ -3,19 +3,27 @@
     "NAME": "Meditation",
     "DESCRIPTIONS": [
       "Gain #b",
-      " Focus at the start of your turn. Lose ALL Focus whenever you lose HP."
+      " #yFocus at the start of your turn AFTER orb passive effects trigger. Lose ALL #yFocus whenever you lose HP."
     ]
   },
   "jedi:upgradeondraw": {
     "NAME": "Better",
     "DESCRIPTIONS": [
-      "Whenever you draw a card this round, upgrade it."
+      "Whenever you draw a card this round, #yupgrade it."
     ]
   },
   "jedi:controlledanger": {
     "NAME": "Controlled Anger",
     "DESCRIPTIONS": [
-      "Whenever you play an Anger, exhaust it."
+      "Whenever you play an #yAnger, #yExhaust it."
+    ]
+  },
+  "jedi:poisonivy": {
+    "NAME": "Poison Ivy",
+    "DESCRIPTIONS": [
+      "Whenever you attack a #yPoisoned enemy with a non #yShiv card, add #b",
+      " #yShiv to your hand.",
+      " #yShivs to your hand."
     ]
   }
 }

@@ -76,6 +76,7 @@ public class BruteforceAction
                     {
                         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbAction(o));
                         this.isDone = true;
+                        break;
                     }
                 }
                 this.isDone = true;
