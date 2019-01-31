@@ -1,0 +1,73 @@
+{
+  "cards": {
+    "jedi:unlimitedpower": [
+      {
+        "x": 266.5,
+        "y": 238.5,
+        "size": 35.0
+      },
+      {
+        "x": 397.0,
+        "y": 219.0,
+        "size": 35.0
+      }
+    ]
+  },
+  "relics": {
+    "jedi:fakemustache": [
+      {
+        "x": -60.0,
+        "y": -8.5,
+        "size": 25.0
+      },
+      {
+        "x": 58.5,
+        "y": -8.5,
+        "size": 25.0
+      }
+    ],
+    "jedi:firstaidkit": [
+      {
+        "x": 9.0,
+        "y": 9.5,
+        "size": 25.0
+      }
+    ],
+    "jedi:heavyjacket": [
+      {
+        "x": -19.0,
+        "y": 38.0,
+        "size": 18.0
+      },
+      {
+        "x": 16.0,
+        "y": 38.0,
+        "size": 18.0
+      }
+    ],
+    "jedi:shrinkray": [
+      {
+        "x": -21.0,
+        "y": 24.500015,
+        "size": 16.7
+      }
+    ],
+    "jedi:paperfaux": [
+      {
+        "x": 10.5,
+        "y": 29.0,
+        "size": 9.5
+      },
+      {
+        "x": 33.0,
+        "y": 29.0,
+        "size": 9.5
+      }
+    ]
+  },
+  "events": {},
+  "charSelect": {},
+  "creatures": {},
+  "creaturesStatic": {},
+  "orbs": {}
+}

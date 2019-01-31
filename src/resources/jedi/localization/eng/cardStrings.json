@@ -90,7 +90,7 @@
   "jedi:frostbite":
   {
     "NAME": "Frostbite",
-    "DESCRIPTION": "Unplayable. NL When drawn, lose 3 Strength this turn."
+    "DESCRIPTION": "Unplayable. NL Whenever this card is drawn, lose 3 Strength this turn."
   },
   "jedi:strikingstrike":
   {
@@ -148,8 +148,8 @@
   "jedi:stronger":
   {
     "NAME": "Stronger",
-    "DESCRIPTION": "Gain !M! Strength every turn. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Strength every turn. NL Ethereal."
+    "DESCRIPTION": "Gain !M! Strength at the start of your turn. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Strength at the start of your turn. NL Ethereal."
   },
   "jedi:unlimitedpower":
   {

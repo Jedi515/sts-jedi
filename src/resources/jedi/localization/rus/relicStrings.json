@@ -9,7 +9,7 @@
   },
   "jedi:hotpepper":
   {
-    "NAME": "Острый Перец",
+    "NAME": "Острый перец",
     "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
     "DESCRIPTIONS": [
       "Даёт [E] в начале вашего хода. При получении #rпонижает Макс ОЗ на #r35%. Последующие повышения Макс. ОЗ #rпонижены #rна #r50%"
@@ -17,7 +17,7 @@
   },
   "jedi:laserpointer":
   {
-    "NAME": "LЛазерная Указка",
+    "NAME": "Лазерная указка",
     "FLAVOR": "Why is it a pointer if it targets everyone?",
     "DESCRIPTIONS": [
       "Накладывает #b1 #yЗахват #yЦели на ВСЕХ врагов в начале боя."
@@ -25,10 +25,10 @@
   },
   "jedi:fakemustache":
   {
-    "NAME": "Накладные Усы",
+    "NAME": "Накладные усы",
     "FLAVOR": "A familiar face?",
     "DESCRIPTIONS": [
-      "Когда вы тратите #yЗолото в магазине, Восполняет #b5 ОЗ."
+      "Когда вы тратите #yЗолото в магазине, Восполняет #b5 ОЗ. Покупка данной реликвии восполняет #b10 ОЗ."
     ]
   },
   "jedi:endoplasm":
@@ -57,7 +57,7 @@
   },
   "jedi:leadlinedbottle":
   {
-    "NAME": "Свинцовая Бутылка",
+    "NAME": "Свинцовая бутылка",
     "FLAVOR": "\"В низу\" в данном случае грамматически правильное написание.",
     "DESCRIPTIONS": [
       "При получении, вы выберете карту. Вы начинаете каждый бой с этой картой в низу стопки добора.",
@@ -71,12 +71,12 @@
     "FLAVOR": "Nothing should go to waste.",
     "DESCRIPTIONS": [
       "Добавляет в руку #yЗаточку за каждые #b",
-      " разыгранных #yЗаточек."
+      " разыгранных #yЗаточекf."
     ]
   },
   "jedi:zontanonomicon":
   {
-    "NAME": "Книга Жизни",
+    "NAME": "Книга жизни",
     "FLAVOR": "You feel invigorated just by holding this Book of Living.",
     "DESCRIPTIONS": [
       "Первый в ходу #yНавык с ценой не менее #b2 разыгрывается дважды."
@@ -84,7 +84,7 @@
   },
   "jedi:paperfaux":
   {
-    "NAME": "Бумажная Леса",
+    "NAME": "Бумажная леса",
     "FLAVOR": "What does it say?",
     "DESCRIPTIONS": [
       "Враги с #yЗахватом #yЦели получают на #b75% больше урона от Сфер (вместо #b50%)."
@@ -108,7 +108,7 @@
   },
   "jedi:crownofsimplicity":
   {
-    "NAME": "Корона Простоты",
+    "NAME": "Корона простоты",
     "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
     "DESCRIPTIONS": [
       "В каждом ходу первая #yБазовая карта разыгрыватся дважды."
@@ -116,7 +116,7 @@
   },
   "jedi:heavyjacket":
   {
-    "NAME": "Тяжёлая Куртка",
+    "NAME": "Тяжёлая куртка",
     "FLAVOR": "That's a lot of pockets for a single jacket.",
     "DESCRIPTIONS": [
       "В начале каждого боя, даёт #b1 #yПанциря за каждые #b2 реликвии."
@@ -124,7 +124,7 @@
   },
   "jedi:shrinkray":
   {
-    "NAME": "Уменьшающий Луч",
+    "NAME": "Уменьшающий луч",
     "FLAVOR": "An evil mastermind has once tried to steal a satellite with this very relic...",
     "DESCRIPTIONS": [
       "У всех врагов, не являющихся боссами, на #b",
@@ -137,6 +137,15 @@
     "FLAVOR": "Made from a horn of a well-known beast.",
     "DESCRIPTIONS": [
       "Даёт вам #b1 #yСилы до конца вашего хода, когда вы разыгрываете #yНавык."
+    ]
+  },
+  "jedi:ashlotus":
+  {
+    "NAME": "Пепельный лотос",
+    "FLAVOR": "Welcome home, Ashen Two...",
+    "DESCRIPTIONS": [
+      "В конце вашего хода, если у вас нет карт в руке и стопках добора и сброса, даёт #b",
+      " плюс количеству карт в стопке #yСожжённых карт #yЗащиты и наносит столько же урона ВСЕМ врагам."
     ]
   }
 }

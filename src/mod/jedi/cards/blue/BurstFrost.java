@@ -2,6 +2,7 @@ package mod.jedi.cards.blue;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,7 +33,6 @@ public class BurstFrost
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        CardCrawlGame.sound.playA("ORB_FROST_CHANNEL", -1.25F);
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Frost());
     }

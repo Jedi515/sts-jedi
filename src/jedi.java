@@ -1,7 +1,6 @@
 package sts_jedi;
 
 import basemod.BaseMod;
-import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -21,7 +20,6 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import conspire.cards.colorless.GhostlyStrike;
 import gluttonmod.patches.AbstractCardEnum;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
@@ -53,6 +51,7 @@ public class jedi
     public static boolean isGluttonLoaded;
     public static boolean isBeakedLoaded;
     public static boolean isGathererLoaded;
+    public static boolean isHubrisLoaded;
 
     public static void initialize()
     {
@@ -62,6 +61,7 @@ public class jedi
         isGluttonLoaded = Loader.isModLoaded("GluttonMod");
         isBeakedLoaded = Loader.isModLoaded("beakedthecultist-sts");
         isGathererLoaded = Loader.isModLoaded("gatherermod");
+        isHubrisLoaded = Loader.isModLoaded("hubris");
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -145,6 +145,8 @@ public class jedi
         BaseMod.addRelic(new HeavyJacket(), RelicType.SHARED);
         BaseMod.addRelic(new ShrinkRay(), RelicType.SHARED);
         BaseMod.addRelic(new GremlinKnob(), RelicType.SHARED);
+        //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
+        BaseMod.addRelic(new AshLotus(), RelicType.SHARED);
 
         BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
         BaseMod.addRelic(new Superconductor(), RelicType.BLUE);

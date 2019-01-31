@@ -27,6 +27,11 @@ public class FakeMustache
         AbstractDungeon.player.heal(5);
     }
 
+    public void onEquip()
+    {
+        AbstractDungeon.player.heal(10);
+    }
+
     public String getUpdatedDescription()
     {
         return this.DESCRIPTIONS[0];

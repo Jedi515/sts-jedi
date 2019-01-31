@@ -28,7 +28,7 @@
     "NAME": "Fake Mustache",
     "FLAVOR": "A familiar face?",
     "DESCRIPTIONS": [
-      "When spending #yGold at the shop, heal #b5 HP."
+      "When spending #yGold at the shop, heal #b5 HP. Heal #b10 HP upon pickup."
     ]
   },
   "jedi:endoplasm":
@@ -87,7 +87,7 @@
     "NAME": "Paper Faux",
     "FLAVOR": "What does it say?",
     "DESCRIPTIONS": [
-      "Enemies with Lock-On take #b75% more damage rather than #b50%."
+      "Enemies with #yLock-On take #b75% more damage rather than #b50%."
     ]
   },
   "jedi:firstaidkit":
@@ -137,6 +137,15 @@
     "FLAVOR": "Made from a horn of a well-known beast.",
     "DESCRIPTIONS": [
       "Whenever you play a #ySkill, gain #b1 #yStrength till the end of a turn."
+    ]
+  },
+  "jedi:ashlotus":
+  {
+    "NAME": "Ash Lotus",
+    "FLAVOR": "Welcome home, Ashen Two...",
+    "DESCRIPTIONS": [
+      "At the end of your turn, if you have no cards left in your hand, draw and discard piles, gain #yBlock equal to the number of cards in your exhaust pile size plus #b",
+      " and deal that much damage to ALL enemies."
     ]
   }
 }
