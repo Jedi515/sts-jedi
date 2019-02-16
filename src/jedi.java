@@ -114,6 +114,7 @@ public class jedi
         //Red
         BaseMod.addCard(new StrikingStrike());
         BaseMod.addCard(new OneStrike());
+        BaseMod.addCard(new CollectorStrike());
         //Fear leads to anger, anger leads to hate, hate leads to suffering
         BaseMod.addCard(new Fear());
         BaseMod.addCard(new Hate());
@@ -233,10 +234,13 @@ public class jedi
 
         String eventStrings = GetLocString(loc, "eventStrings");
         loadCustomStrings(EventStrings.class, eventStrings);
+
+        String uiStrings = GetLocString(loc, "uiStrings");
+        loadCustomStrings(UIStrings.class, uiStrings);
     }
 
     @Override
-    public int receiveMapHPChange(int amount) {
+    public int receiveMaxHPChange(int amount) {
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(HotPepper.ID)) {
             HotPepper relic = (HotPepper) AbstractDungeon.player.getRelic(HotPepper.ID);
             amount = relic.onMaxHPChange(amount);

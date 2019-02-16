@@ -3,7 +3,7 @@
   {
     "NAME": "Cleanse",
     "DESCRIPTION": "Remove ALL your debuffs. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Remove ALL your debuffs. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Retain. NL Remove all of your debuffs. NL Exhaust."
   },
   "jedi:forcepull":
   {
@@ -66,7 +66,7 @@
   "jedi:blockon":
   {
     "NAME": "Block-On",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to ALL enemies that intend to attack you."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to each enemy that intends to attack you."
   },
   "jedi:gatheringstorm":
   {
@@ -136,20 +136,20 @@
   "jedi:better":
   {
     "NAME": "Better",
-    "DESCRIPTION": "Upgrade ALL cards in hand. NL Add Faster to your hand. NL Ethereal. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Upgrade ALL cards in hand. NL This turn, upgrade ALL cards drawn. NL Add Do it Faster to your hand. NL Ethereal. Exhaust."
+    "DESCRIPTION": "Ethereal. NL Upgrade ALL cards in hand. NL Add Faster to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade ALL cards in hand. NL This turn, upgrade ALL cards drawn. NL Add Do it Faster to your hand. NL Exhaust."
   },
   "jedi:faster":
   {
     "NAME": "Faster",
-    "DESCRIPTION": "Apply Slow to an enemy. NL Add Stronger to your hand. NL Ethereal. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add Makes us Stronger to your hand. NL Ethereal. Exhaust."
+    "DESCRIPTION": "Ethereal. NL Apply Slow to an enemy. NL Add Stronger to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add Makes us Stronger to your hand. NL Exhaust."
   },
   "jedi:stronger":
   {
     "NAME": "Stronger",
-    "DESCRIPTION": "Gain !M! Strength at the start of your turn. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Strength at the start of your turn. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! Strength at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn."
   },
   "jedi:unlimitedpower":
   {
@@ -186,5 +186,10 @@
     "NAME": "Poison Ivy",
     "DESCRIPTION":  "Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand.",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand."
+  },
+  "jedi:collectorstrike":
+  {
+    "NAME": "Collector's Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Collective !M!."
   }
 }

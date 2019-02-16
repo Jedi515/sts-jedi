@@ -4,8 +4,10 @@ import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import mod.jedi.cards.red.UnlimitedPower;
 
 import java.util.ArrayList;
@@ -14,7 +16,9 @@ public class SmithInCombatAction
     extends AbstractGameAction
 {
     private ArrayList<AbstractCard> cannotUpgrade = new ArrayList();
-    private String updateBodyText = "Select a card for permanent upgrade";
+    public static String ID = "jedi:SmithInCombatAction";
+    public static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(ID);
+    public static final String[] TEXT = uiStrings.TEXT;
 
     public SmithInCombatAction()
     {
@@ -58,7 +62,7 @@ public class SmithInCombatAction
             }
 //      and now if there's more than one
             p.hand.group.removeAll(this.cannotUpgrade);
-            AbstractDungeon.handCardSelectScreen.open(updateBodyText, 1, false, false, false, true);
+            AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, true);
             this.tickDuration();
             return;
         }

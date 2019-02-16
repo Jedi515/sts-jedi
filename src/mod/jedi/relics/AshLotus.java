@@ -23,7 +23,7 @@ public class AshLotus
     public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
-    private AbstractPlayer p = AbstractDungeon.player;
+    public AbstractPlayer p = AbstractDungeon.player;
     public int potency = 30;
 
     public AshLotus()
@@ -60,7 +60,7 @@ public class AshLotus
 
         if (jedi.isHubrisLoaded)
         {
-            toReturn = (toReturn || p.hasRelic(BlackHole.ID));
+            toReturn = (toReturn || AbstractDungeon.player.hasRelic(BlackHole.ID));
         }
 
         return toReturn;

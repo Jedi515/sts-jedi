@@ -66,7 +66,7 @@ public class SwordDojo
                             UnlockTracker.markCardAsSeen(card.cardID);
                             card.isSeen = true;
                         }
-                        GiveToPlayer.addToBottom(new PerfectedStrike());
+                        GiveToPlayer.addToTop(new PerfectedStrike());
                         AbstractDungeon.gridSelectScreen.openConfirmationGrid(GiveToPlayer, DESCRIPTIONS[4]);
                         this.imageEventText.updateDialogOption(0, OPTIONS[3]);
                         this.imageEventText.clearRemainingOptions();

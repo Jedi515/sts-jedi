@@ -42,5 +42,13 @@
       "constriction"
     ],
     "DESCRIPTION": "A debuff that deals damage at the end of creature's turn. If the enemy is #yconstricted, it will do its move first and then take damage from #yconstriction."
+  },
+  {
+    "PROPER_NAME": "Collective",
+    "NAMES":
+    [
+      "collective"
+    ],
+    "DESCRIPTION": "You can only have #yone copy of this card in your deck. NL Further pickups of this card would instead increase the effect of first one by the number shown on that card. NL #rWarning: the higher the number on the card in your deck, the higher the chances one of cards on card reward screen would be replaced by a #ycollective card."
   }
 ]

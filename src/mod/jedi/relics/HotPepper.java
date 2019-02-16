@@ -48,9 +48,9 @@ public class HotPepper
     {
         if (amount > 0)
         {
-            amount *= (1 - decrease_multiplier);
+            amount = (int) Math.ceil (amount * (1 - decrease_multiplier));
             flash();
         }
-        return (int)(amount);
+        return (amount);
     }
 }
