@@ -49,6 +49,6 @@
     [
       "collective"
     ],
-    "DESCRIPTION": "You can only have #yone copy of this card in your deck. NL Further pickups of this card would instead increase the effect of first one by the number shown on that card. NL #rWarning: the higher the number on the card in your deck, the higher the chances one of cards on card reward screen would be replaced by a #ycollective card."
+    "DESCRIPTION": "Increase the value of a card in your deck with the same name by the #yCollective amount on it, instead of obtaining this card. You are more likely to find this card in future card rewards the higher the value is."
   }
 ]

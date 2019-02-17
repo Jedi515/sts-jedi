@@ -26,12 +26,12 @@ public class HatredAction
     }
 
     public void update() {
-        if (this.duration == this.startingDuration) {
-            int count = AbstractDungeon.player.discardPile.size();
-
-            for(int i = 0; i < count; ++i) {
-                AbstractCard c = AbstractDungeon.player.discardPile.group.get(i);
-                if (c instanceof Anger) {
+        if (this.duration == this.startingDuration)
+        {
+            for (AbstractCard c : AbstractDungeon.player.discardPile.group)
+            {
+                if (c instanceof Anger)
+                {
                     AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile, true));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(this.target, this.info, AttackEffect.BLUNT_HEAVY));
                 }

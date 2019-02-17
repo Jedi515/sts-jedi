@@ -66,7 +66,7 @@
   "jedi:blockon":
   {
     "NAME": "Block-On",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to each enemy that intends to attack you."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to each enemy that intends to attack."
   },
   "jedi:gatheringstorm":
   {
@@ -85,7 +85,7 @@
   {
     "NAME": "Darkness Call",
     "DESCRIPTION": "Can only be played if you have Dark Orb Channeled. NL Apply 1 Lock-On to an enemy with lowest HP. NL Evoke your rightmost Dark Orb. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" : "No Dark Orbs channeled!"
+    "UPGRADE_DESCRIPTION" : "No Dark orbs channeled!"
   },
   "jedi:frostbite":
   {
@@ -136,8 +136,8 @@
   "jedi:better":
   {
     "NAME": "Better",
-    "DESCRIPTION": "Ethereal. NL Upgrade ALL cards in hand. NL Add Faster to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade ALL cards in hand. NL This turn, upgrade ALL cards drawn. NL Add Do it Faster to your hand. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL Add Faster to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add Do it Faster to your hand. NL Exhaust."
   },
   "jedi:faster":
   {
@@ -167,7 +167,7 @@
   {
     "NAME": "Bruteforce",
     "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times.",
-    "UPGRADE_DESCRIPTION": "No Lightning Orbs channeled!"
+    "UPGRADE_DESCRIPTION": "No Lightning orbs channeled!"
   },
   "jedi:bloodyhammer":
   {
@@ -191,5 +191,10 @@
   {
     "NAME": "Collector's Strike",
     "DESCRIPTION": "Deal !D! damage. NL Collective !M!."
+  },
+  "jedi:collectorvenom":
+  {
+    "NAME": "Collector's Venom",
+    "DESCRIPTION": "Apply !M! Poison. NL Collective !jedi_P!."
   }
 }

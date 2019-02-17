@@ -25,6 +25,7 @@ import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
+import mod.jedi.cards.green.CollectorVenom;
 import mod.jedi.cards.green.PoisonIvy;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
@@ -87,6 +88,7 @@ public class jedi
     @Override
     public void receiveEditCards()
     {
+        BaseMod.addDynamicVariable(new CollectorVenom.JediPoisonVariable());
         //Colorless
         BaseMod.addCard(new Cleanse());
         BaseMod.addCard(new Forcepush());
@@ -94,6 +96,7 @@ public class jedi
 
         //Green
         BaseMod.addCard(new PoisonIvy());
+        BaseMod.addCard(new CollectorVenom());
 
         //Blue
         BaseMod.addCard(new BurstLightning());

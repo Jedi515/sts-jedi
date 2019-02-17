@@ -33,6 +33,7 @@ public class CollectorStrike
         this.magicNumber = this.baseMagicNumber = 3;
         this.tags.add(CardTags.STRIKE);
     }
+
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage), AttackEffect.FIRE));
@@ -42,15 +43,41 @@ public class CollectorStrike
     {
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group)
         {
-            if (card.getClass() == this.getClass() && card != this)
+            if (this.cardID.equals(card.cardID) && card != this)
             {
                 card.misc += card.magicNumber;
                 card.damage = card.baseDamage = card.misc;
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new ShowCardBrieflyEffect(card)));
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new UpgradeShineEffect(Settings.WIDTH/2, Settings.HEIGHT/2)));
+                card.initializeDescription();
                 AbstractDungeon.player.masterDeck.removeCard(this);
                 break;
             }
+        }
+    }
+
+    @Override
+    public boolean ReplaceCardWithCollector() {
+        {
+            if (this.misc < 8)
+            {
+                threshold = 20;
+            }
+
+            if (this.misc >= 8)
+            {
+                threshold = 35;
+            }
+
+            if (this.misc >= 15)
+            {
+                threshold = 40;
+            }
+
+            if (this.misc >= 20)
+            {
+                threshold = 60;
+            }
+
+            return AbstractDungeon.cardRng.random(0,99) < threshold;
         }
     }
 
