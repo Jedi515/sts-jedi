@@ -32,21 +32,23 @@ public class CollectorCardPatch
         public static ArrayList<AbstractCard> Postfix(ArrayList<AbstractCard> __result)
         {
             boolean AlreadyReplaced;
-            AbstractCollectorCard fancyCard = null;
-
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
             {
                 if (c instanceof AbstractCollectorCard)
                 {
                     AlreadyReplaced = false;
-                    fancyCard = (AbstractCollectorCard) c;
                     for (int i=0; i<__result.size(); ++i)
                     {
-                        if (!AlreadyReplaced && fancyCard.ReplaceCardWithCollector())
+                        if (!AlreadyReplaced && ((AbstractCollectorCard) c).ReplaceCardWithCollector())
                         {
                             try
                             {
-                                __result.set(i, fancyCard.getClass().newInstance());
+                                AbstractCollectorCard cardToReplace = (AbstractCollectorCard) c.getClass().newInstance();
+                                if (c.upgraded)
+                                {
+                                    cardToReplace.upgrade();
+                                }
+                                __result.set(i, cardToReplace);
                                 AlreadyReplaced = true;
                             }
                             catch (InstantiationException | IllegalAccessException e)

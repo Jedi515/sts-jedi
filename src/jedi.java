@@ -1,6 +1,7 @@
 package sts_jedi;
 
 import basemod.BaseMod;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -53,6 +54,7 @@ public class jedi
     public static boolean isBeakedLoaded;
     public static boolean isGathererLoaded;
     public static boolean isHubrisLoaded;
+    public static CardGroup StrikeGroup;
 
     public static void initialize()
     {
@@ -83,6 +85,16 @@ public class jedi
 
         // Events
         BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
+        StrikeGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        for (AbstractCard card : CardLibrary.getAllCards())
+        {
+            if ((card.hasTag(AbstractCard.CardTags.STRIKE) &&
+                (!card.hasTag(BaseModCardTags.BASIC_STRIKE)) &&
+                (card.rarity != AbstractCard.CardRarity.BASIC)))
+            {
+                StrikeGroup.addToBottom(card.makeCopy());
+            }
+        }
     }
 
     @Override
@@ -253,22 +265,7 @@ public class jedi
 
     public static AbstractCard returnTrulyRandomStrike()
     {
-        final CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard card : CardLibrary.getAllCards())
-        {
-            if ((card.hasTag(AbstractCard.CardTags.STRIKE) && (card.rarity != AbstractCard.CardRarity.BASIC)))
-            {
-                if (isConspireLoaded)
-                {
-                    if (card instanceof GhostlyStrike)
-                    {
-                        continue;
-                    }
-                }
-                group.addToBottom(card.makeCopy());
-            }
-        }
-        return group.getRandomCard(true).makeCopy();
+        return StrikeGroup.getRandomCard(true).makeCopy();
     }
 
     //As unused as it is now, will be useful for when kio makes customDiscovery action or something.

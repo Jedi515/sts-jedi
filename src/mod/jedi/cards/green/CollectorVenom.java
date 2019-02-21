@@ -62,9 +62,12 @@ public class CollectorVenom
             if (this.cardID.equals(card.cardID) && card != this)
             {
                 CollectorVenom venomCard = (CollectorVenom) card;
-                card.misc += venomCard.poisonCreep;
+                card.misc += (this.magicNumber > venomCard.magicNumber ? this.magicNumber : venomCard.poisonCreep);
                 card.magicNumber = card.baseMagicNumber = card.misc;
                 card.initializeDescription();
+                AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();
+                AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(showCard));
+                AbstractDungeon.topLevelEffectsQueue.add(new UpgradeShineEffect(Settings.WIDTH/2, Settings.HEIGHT/2));
                 AbstractDungeon.player.masterDeck.removeCard(this);
                 break;
             }

@@ -22,7 +22,7 @@ public class Frostbite
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final int COST = -2;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
+    public static final String IMG_PATH = "resources/jedi/images/cards/curses/Frostbite.png";
 
     public Frostbite()
     {

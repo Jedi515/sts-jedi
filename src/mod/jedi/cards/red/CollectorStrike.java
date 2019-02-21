@@ -45,9 +45,12 @@ public class CollectorStrike
         {
             if (this.cardID.equals(card.cardID) && card != this)
             {
-                card.misc += card.magicNumber;
+                card.misc += (this.baseDamage > card.baseDamage ? this.baseDamage : card.magicNumber);
                 card.damage = card.baseDamage = card.misc;
                 card.initializeDescription();
+                AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();
+                AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(showCard));
+                AbstractDungeon.topLevelEffectsQueue.add(new UpgradeShineEffect(Settings.WIDTH/2, Settings.HEIGHT/2));
                 AbstractDungeon.player.masterDeck.removeCard(this);
                 break;
             }
