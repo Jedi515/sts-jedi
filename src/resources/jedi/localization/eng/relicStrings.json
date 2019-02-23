@@ -134,7 +134,7 @@
   "jedi:gremlinknob":
   {
     "NAME": "Gremlin Knob",
-    "FLAVOR": "Made from a horn of a well-known beast.",
+    "FLAVOR": "If I hear ONE MORE knock-knock joke...",
     "DESCRIPTIONS": [
       "Whenever you play a #ySkill, gain #b1 #yStrength till the end of a turn."
     ]

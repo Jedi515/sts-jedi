@@ -10,7 +10,7 @@
   "jedi:hotpepper":
   {
     "NAME": "Острый перец",
-    "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
+    "FLAVOR": "Полностью выжигает вкусовые рецепторы. Любая еда после него имеет преотвратный вкус.",
     "DESCRIPTIONS": [
       "Даёт [E] в начале вашего хода. При получении #rпонижает Макс ОЗ на #r35%. Последующие повышения Макс. ОЗ #rпонижены #rна #r50%"
     ]
@@ -18,7 +18,7 @@
   "jedi:laserpointer":
   {
     "NAME": "Лазерная указка",
-    "FLAVOR": "Why is it a pointer if it targets everyone?",
+    "FLAVOR": "Почему это указка, если она указывает на всех разом?",
     "DESCRIPTIONS": [
       "Накладывает #b1 #yЗахват #yЦели на ВСЕХ врагов в начале боя."
     ]
@@ -26,7 +26,7 @@
   "jedi:fakemustache":
   {
     "NAME": "Накладные усы",
-    "FLAVOR": "A familiar face?",
+    "FLAVOR": "Знакомое лицо?",
     "DESCRIPTIONS": [
       "Когда вы тратите #yЗолото в магазине, Восполняет #b5 ОЗ. Покупка данной реликвии восполняет #b10 ОЗ."
     ]
@@ -34,7 +34,7 @@
   "jedi:endoplasm":
   {
     "NAME": "Эндоплазма",
-    "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
+    "FLAVOR": "Кажется, в этом липком сгустке энергии пульсирует смерть.",
     "DESCRIPTIONS": [
       "Даёт [E] в начале вашего хода. Каждый раунд, при первой потере ОЗ также теряете #r50 #yЗолота. При потере ОЗ вне боя также также теряете #r50 #yЗолота."
     ]
@@ -42,7 +42,7 @@
   "jedi:superconductor":
   {
     "NAME": "Суперпроводник",
-    "FLAVOR": "You can almost hear orbs going round and round...",
+    "FLAVOR": "Сферы крутятся и переливаются цветами радуги...",
     "DESCRIPTIONS": [
       "За каждые #b10 Заряженных Сфер, активирует пассивный эффект всех Сфер."
     ]
@@ -50,7 +50,7 @@
   "jedi:othersneckoeye":
   {
     "NAME": "Второй глаз змекко",
-    "FLAVOR": "The legendary second eye of the snecko, unseen by anyone... Untill now.",
+    "FLAVOR": "Легендарный второй глаз змекко, невиданный ранее никем...",
     "DESCRIPTIONS": [
       "В начале каждого хода вы берёте на #b1 карту больше. Накладывает на вас #b2 #yХАОСА в начале боя. Накладывает дополнительно #b1 ХАОС каждые #b3 хода."
     ]
@@ -68,7 +68,7 @@
   "jedi:scrapmetal":
   {
     "NAME": "Металлолом",
-    "FLAVOR": "Nothing should go to waste.",
+    "FLAVOR": "Ничего не должно быть просто так выкинуто.",
     "DESCRIPTIONS": [
       "Добавляет в руку #yЗаточку за каждые #b",
       " разыгранных #yЗаточек."
@@ -77,7 +77,7 @@
   "jedi:zontanonomicon":
   {
     "NAME": "Книга жизни",
-    "FLAVOR": "You feel invigorated just by holding this Book of Living.",
+    "FLAVOR": "На самом деле используется для убийства бессмертных.",
     "DESCRIPTIONS": [
       "Первый в ходу #yНавык с ценой не менее #b2 разыгрывается дважды."
     ]
@@ -85,7 +85,7 @@
   "jedi:paperfaux":
   {
     "NAME": "Бумажная леса",
-    "FLAVOR": "What does it say?",
+    "FLAVOR": "О чём же молвит Леса?",
     "DESCRIPTIONS": [
       "Враги с #yЗахватом #yЦели получают на #b75% больше урона от Сфер (вместо #b50%)."
     ]
@@ -93,7 +93,7 @@
   "jedi:firstaidkit":
   {
     "NAME": "Аптечка первой помощи",
-    "FLAVOR": "Do you really need a bandage for every byrd peck?",
+    "FLAVOR": "Тебе действительно нужны бинты за каждый клевок птаха?",
     "DESCRIPTIONS": [
       "Даёт персонажу #b2 #yРегенерации за каждую атаку врага."
     ]
@@ -101,7 +101,7 @@
   "jedi:leech":
   {
     "NAME": "Пакет крови",
-    "FLAVOR": "Nope it was always like this.",
+    "FLAVOR": "Группа первая, резус положительный.",
     "DESCRIPTIONS": [
       "Понижает потерю ОЗ от карт и талантов на #b1 (до минимума #b1)."
     ]
@@ -109,7 +109,7 @@
   "jedi:crownofsimplicity":
   {
     "NAME": "Корона простоты",
-    "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
+    "FLAVOR": "Простейшая корона с простейшей огранкой.",
     "DESCRIPTIONS": [
       "В каждом ходу первая #yБазовая карта разыгрыватся дважды."
     ]
@@ -117,7 +117,7 @@
   "jedi:heavyjacket":
   {
     "NAME": "Тяжёлая куртка",
-    "FLAVOR": "That's a lot of pockets for a single jacket.",
+    "FLAVOR": "В этой куртке ОЧЕНЬ много карманов.",
     "DESCRIPTIONS": [
       "В начале каждого боя даёт #b1 #yПанциря за каждые #b2 реликвии."
     ]
@@ -125,7 +125,7 @@
   "jedi:shrinkray":
   {
     "NAME": "Уменьшающий луч",
-    "FLAVOR": "An evil mastermind has once tried to steal a satellite with this very relic...",
+    "FLAVOR": "Давным-давно, некий злобный гений попытался украсть спутник, используя данный артефакт...",
     "DESCRIPTIONS": [
       "У всех врагов, не являющихся боссами, на #b",
       "% меньше ОЗ."
@@ -134,15 +134,15 @@
   "jedi:gremlinknob":
   {
     "NAME": "Гремлин-дверьзила",
-    "FLAVOR": "Made from a horn of a well-known beast.",
+    "FLAVOR": "Ещё одна шутеечка про тук-тук...",
     "DESCRIPTIONS": [
-      "Даёт вам #b1 #yСилы до конца вашего хода, когда вы разыгрываете #yНавык."
+      "Даёт вам #b1 #yСилы до конца вашего хода, когда разыгрывается #yНавык."
     ]
   },
   "jedi:ashlotus":
   {
     "NAME": "Пепельный лотос",
-    "FLAVOR": "Welcome home, Ashen Two...",
+    "FLAVOR": "С возвращением, Второй Пепельный...",
     "DESCRIPTIONS": [
       "В конце вашего хода, если у вас нет карт в руке и стопках добора и сброса, даёт #b",
       " плюс количеству карт в стопке #yСожжённых карт #yЗащиты и наносит столько же урона ВСЕМ врагам."
