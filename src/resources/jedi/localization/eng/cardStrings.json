@@ -195,6 +195,28 @@
   "jedi:collectorvenom":
   {
     "NAME": "Collector's Venom",
-    "DESCRIPTION": "Apply !M! Poison. NL Collective !jedi_P!."
+    "DESCRIPTION": "Apply !M! Poison. NL Collective !jedi:SecondMN!."
+  },
+  "jedi:unstablefumes":
+  {
+    "NAME": "Unstable Fumes",
+    "DESCRIPTION": "Apply !M! Poison. NL If this card is discarded from your hand, apply !jedi:SecondMN! Poison to ALL enemies."
+  },
+  "jedi:rejectivetoxin":
+  {
+    "NAME": "Rejective Toxin",
+    "DESCRIPTION": "Discard your hand. NL Apply !M! Poison for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Discard any number of cards. NL Apply !M! Poison for each card discarded."
+  },
+  "jedi:brewingpoison":
+  {
+    "NAME": "Brewing Poison",
+    "DESCRIPTION": "Apply !M! Poison. NL Exhaust. NL Whenever you draw this card, increase its Poison by !jedi:SecondMN!. NL Whenever you discard this card, double its Poison."
+  },
+  "jedi:pocketpoison":
+  {
+    "NAME": "Pocket Poison",
+    "DESCRIPTION": "Apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Draw a card."
   }
 }

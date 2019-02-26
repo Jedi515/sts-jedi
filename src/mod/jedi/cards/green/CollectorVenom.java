@@ -26,12 +26,10 @@ public class CollectorVenom
     public static final int COST = 1;
     public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
 
-    public int poisonCreep;
-
     public CollectorVenom()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.ENEMY);
-        this.poisonCreep = 2; //Increment
+        this.secondMN = this.baseSecondMN = 2; //Increment
         this.magicNumber = this.baseMagicNumber = this.misc = 2; //Application
     }
 
@@ -44,7 +42,7 @@ public class CollectorVenom
     {
         if (!this.upgraded)
         {
-            this.poisonCreep += 1;
+            this.upgradeSecondMN(1);
             this.upgradeName();
         }
     }
@@ -62,7 +60,7 @@ public class CollectorVenom
             if (this.cardID.equals(card.cardID) && card != this)
             {
                 CollectorVenom venomCard = (CollectorVenom) card;
-                card.misc += (this.magicNumber > venomCard.magicNumber ? this.magicNumber : venomCard.poisonCreep);
+                card.misc += (this.magicNumber > venomCard.magicNumber ? this.magicNumber : venomCard.secondMN);
                 card.magicNumber = card.baseMagicNumber = card.misc;
                 card.initializeDescription();
                 AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();
@@ -98,40 +96,6 @@ public class CollectorVenom
             }
 
             return AbstractDungeon.cardRng.random(0,99) < threshold;
-        }
-    }
-
-    public static class JediPoisonVariable extends DynamicVariable {
-
-        @Override
-        public int baseValue(AbstractCard card) {
-            if (card instanceof CollectorVenom) {
-                return ((CollectorVenom) card).poisonCreep;
-            }
-            return 0;
-        }
-
-        @Override
-        public boolean isModified(AbstractCard card) {
-            return false;
-        }
-
-        @Override
-        public String key() {
-            return "jedi_P";
-        }
-
-        @Override
-        public boolean upgraded(AbstractCard card) {
-            return false;
-        }
-
-        @Override
-        public int value(AbstractCard card) {
-            if (card instanceof CollectorVenom) {
-                return ((CollectorVenom) card).poisonCreep;
-            }
-            return 0;
         }
     }
 }

@@ -1,9 +1,7 @@
 package mod.jedi.cards;
 
-import basemod.abstracts.CustomCard;
-
 public abstract class AbstractCollectorCard
-    extends CustomCard
+    extends CustomJediCard
 {
     public int threshold;
 

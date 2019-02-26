@@ -5,5 +5,12 @@
             [
               "upgrade permanently."
             ]
+  },
+  "jedi:RejectiveToxinAction":
+  {
+    "TEXT":
+            [
+              "Discard and apply Poison"
+            ]
   }
 }

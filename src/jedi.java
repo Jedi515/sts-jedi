@@ -19,19 +19,18 @@ import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
-import conspire.cards.colorless.GhostlyStrike;
 import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
-import mod.jedi.cards.green.CollectorVenom;
-import mod.jedi.cards.green.PoisonIvy;
+import mod.jedi.cards.green.*;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.potions.*;
 import mod.jedi.relics.*;
+import mod.jedi.variables.JediSecondMN;
 
 import java.nio.charset.StandardCharsets;
 
@@ -100,7 +99,7 @@ public class jedi
     @Override
     public void receiveEditCards()
     {
-        BaseMod.addDynamicVariable(new CollectorVenom.JediPoisonVariable());
+        BaseMod.addDynamicVariable(new JediSecondMN());
         //Colorless
         BaseMod.addCard(new Cleanse());
         BaseMod.addCard(new Forcepush());
@@ -109,6 +108,10 @@ public class jedi
         //Green
         BaseMod.addCard(new PoisonIvy());
         BaseMod.addCard(new CollectorVenom());
+        BaseMod.addCard(new UnstableFumes());
+        BaseMod.addCard(new PocketPoison());
+        BaseMod.addCard(new BrewingPoison());
+        BaseMod.addCard(new RejectiveToxin());
 
         //Blue
         BaseMod.addCard(new BurstLightning());
