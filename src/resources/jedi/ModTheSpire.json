@@ -2,7 +2,7 @@
   "modid": "jedi",
   "name": "Jedi Mod",
   "author_list": ["Jedi#3970"],
-  "description": "NEW:\nPoison\n\nCHANGE:\n\n",
+  "description": "NEW:\n\n\nCHANGE:\nCollector's cards now double their values on being duplicated (mirror, shrine, anything else that duplicates cards in your deck)\n",
   "credits": "Big thanks to JohnnyDevo and kiooeht for helping with the code, Reiji for lock-on memes, Reina for being cursed, Rhapsody for spreading positivity and my college teachers for teaching me how to Java.",
   "version": "0.4.3",
   "sts_version": "01-03-2019",

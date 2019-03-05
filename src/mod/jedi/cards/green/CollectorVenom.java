@@ -1,7 +1,5 @@
 package mod.jedi.cards.green;
 
-import basemod.abstracts.DynamicVariable;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -60,7 +58,7 @@ public class CollectorVenom
             if (this.cardID.equals(card.cardID) && card != this)
             {
                 CollectorVenom venomCard = (CollectorVenom) card;
-                card.misc += (this.magicNumber > venomCard.magicNumber ? this.magicNumber : venomCard.secondMN);
+                card.misc += (this.magicNumber >= card.magicNumber ? this.magicNumber : venomCard.secondMN);
                 card.magicNumber = card.baseMagicNumber = card.misc;
                 card.initializeDescription();
                 AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();
