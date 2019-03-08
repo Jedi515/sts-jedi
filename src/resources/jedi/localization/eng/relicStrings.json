@@ -4,7 +4,7 @@
     "NAME": "Matchstick",
     "FLAVOR": "The match is struck. A blazing star is born!",
     "DESCRIPTIONS": [
-    " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL Gain [E] [E] ."
+    " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Gain [E] [E] ."
     ]
   },
   "jedi:hotpepper":

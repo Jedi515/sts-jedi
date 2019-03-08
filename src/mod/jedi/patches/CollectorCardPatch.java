@@ -1,6 +1,7 @@
 package mod.jedi.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.SoulGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,12 +16,17 @@ public class CollectorCardPatch
     @SpirePatch(clz = SoulGroup.class, method = "obtain")
     public static class ShowCardAndObtainEffectPatch
     {
-        public static void Postfix(SoulGroup __instance, AbstractCard card, boolean obtainCard)
+        public static SpireReturn Prefix(SoulGroup __instance, AbstractCard card, boolean obtainCard)
         {
             if (card instanceof AbstractCollectorCard)
             {
-                ((AbstractCollectorCard) card).onAddedToMasterDeck();
+                boolean skipAddingToDeck = ((AbstractCollectorCard) card).onAddedToMasterDeck();
+                if (skipAddingToDeck)
+                {
+                    return SpireReturn.Return(null);
+                }
             }
+            return SpireReturn.Continue();
         }
     }
 

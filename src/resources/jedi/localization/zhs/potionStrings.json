@@ -1,0 +1,49 @@
+{
+  "jedi:tentaclejuice":
+  {
+    "NAME": "触手汁液",
+    "DESCRIPTIONS":
+            [
+              "给予 #b ",
+              " 层 #y缠绕 。",
+              "缠绕",
+              "一种在敌人的回合结束时对其造成伤害的负面效果。如果敌人处于缠绕状态，它会先进行行动，然后受到来自缠绕的伤害。"
+            ]
+  },
+  "jedi:coolantleak":
+  {
+    "NAME": "渗漏冷却剂",
+    "DESCRIPTIONS":
+            [
+              "给予 #b ",
+              " 层 跟踪锁定 。"
+            ]
+  },
+  "jedi:holywater":
+  {
+    "NAME": "圣水",
+    "DESCRIPTIONS":
+    [
+      "移除你身上的所有负面状态。"
+    ]
+  },
+  "jedi:lessertentaclejuice":
+  {
+    "NAME": "次级触手汁液",
+    "DESCRIPTIONS":
+    [
+      "给予 #b ",
+      " 层 缠绕 。"
+    ]
+  },
+  "jedi:lesserholywater":
+  {
+    "NAME": "次级圣水",
+    "DESCRIPTIONS":
+    [
+      "移除你身上的 #b ",
+      " 层随机负面状态。",
+      " 层随机负面状态。"
+    ]
+  }
+}

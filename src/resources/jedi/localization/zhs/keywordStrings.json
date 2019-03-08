@@ -1,0 +1,56 @@
+[
+  {
+    "NAMES":
+            [
+              "无限"
+            ],
+    "DESCRIPTION": "打出时，增加一张已 #y升级 的这张卡的复制品到你的手牌。  NL 能够被无限次 #y升级 。 NL 你的回合结束时，重置 #y升级 次数。 NL 不能在战斗外被 #y升级 。"
+  },
+  {
+    "NAMES":
+    [
+      "混沌"
+    ],
+    "DESCRIPTION": "抽卡时，随机变化某些卡的费用和效果。"
+  },
+  {
+    "NAMES":
+    [
+      "better"
+    ],
+    "DESCRIPTION": "一张 #y升级 你的所有手牌，并增加一张 #yFaster 到你的手牌的牌。"
+  },
+  {
+    "NAMES":
+    [
+      "faster"
+    ],
+    "DESCRIPTION": "一张给予一位敌人（升级后变为所有敌人） #y缓慢 ，并增加一张 #yStronger 到你的手牌的牌。"
+  },
+  {
+    "NAMES":
+    [
+      "stronger"
+    ],
+    "DESCRIPTION": "一张每回合增加你的 #y力量 的能力牌。"
+  },
+  {
+    "PROPER_NAME": "缠绕",
+    "NAMES":
+    [
+      "constriction",
+      "constricted",
+      "缠绕"
+    ],
+    "DESCRIPTION": "一种在敌人的回合结束时对其造成伤害的负面效果。如果敌人处于 #y缠绕 状态，它会先行动，然后受到来自 #y缠绕 的伤害。"
+  },
+  {
+    "PROPER_NAME": "收集",
+    "NAMES":
+    [
+      "收集",
+      "collective"
+    ],
+    "DESCRIPTION": "不再获得这张牌，而是根据 #y收集 的总数增加你牌组中的同名牌的效果数值。总数越高，你在之后找到这张卡的几率就越高。"
+  }
+]

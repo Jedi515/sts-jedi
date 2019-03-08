@@ -6,6 +6,7 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
@@ -203,27 +204,25 @@ public class jedi
                 String.valueOf(StandardCharsets.UTF_8));
     }
 
-    private static String getLocCode() {
-        switch (Settings.language) {
-            case RUS:
-                return "rus";
-            case ENG:
-                return "eng";
-
-
-            default:
-                return "eng";
-        }
-    }
-
     @Override
     public void receiveEditKeywords()
     {
+        loadKeywords("eng");
+        try
+        {
+            loadKeywords(Settings.language.toString().toLowerCase());
+        }
+        catch (GdxRuntimeException er)
+        {
+            System.out.println("Jedi Mod: Adding keywords error: Language not found, defaulted to eng.");
+        }
+    }
 
+    private void loadKeywords(String langKey)
+    {
         Gson gson = new Gson();
-        String loc = getLocCode();
 
-        String json = GetLocString(loc, "keywordStrings");
+        String json = GetLocString(langKey, "keywordStrings");
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
@@ -234,26 +233,37 @@ public class jedi
     }
 
     @Override
-    public void receiveEditStrings() {
+    public void receiveEditStrings()
+    {
+        loadStrings("eng");
+        try
+        {
+            loadStrings(Settings.language.toString().toLowerCase());
+        }
+        catch (GdxRuntimeException er)
+        {
+            System.out.println("Jedi Mod: Adding strings error: Language not found, defaulted to eng.");
+        }
+    }
 
-        String loc = getLocCode();
-
-        String cardStrings = GetLocString(loc, "cardStrings");
+    private void loadStrings(String langKey)
+    {
+        String cardStrings = GetLocString(langKey, "cardStrings");
         loadCustomStrings(CardStrings.class, cardStrings);
 
-        String relicStrings = GetLocString(loc, "relicStrings");
+        String relicStrings = GetLocString(langKey, "relicStrings");
         loadCustomStrings(RelicStrings.class, relicStrings);
 
-        String potionStrings = GetLocString(loc, "potionStrings");
+        String potionStrings = GetLocString(langKey, "potionStrings");
         loadCustomStrings(PotionStrings.class, potionStrings);
 
-        String powerStrings = GetLocString(loc, "powerStrings");
+        String powerStrings = GetLocString(langKey, "powerStrings");
         loadCustomStrings(PowerStrings.class, powerStrings);
 
-        String eventStrings = GetLocString(loc, "eventStrings");
+        String eventStrings = GetLocString(langKey, "eventStrings");
         loadCustomStrings(EventStrings.class, eventStrings);
 
-        String uiStrings = GetLocString(loc, "uiStrings");
+        String uiStrings = GetLocString(langKey, "uiStrings");
         loadCustomStrings(UIStrings.class, uiStrings);
     }
 

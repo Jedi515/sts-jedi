@@ -9,7 +9,7 @@ public abstract class AbstractCollectorCard
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
     }
 
-    public abstract void onAddedToMasterDeck();
+    public abstract boolean onAddedToMasterDeck();
 
     public abstract boolean ReplaceCardWithCollector();
 }

@@ -1,0 +1,29 @@
+{
+  "jedi:meditation": {
+    "NAME": "冥想",
+    "DESCRIPTIONS": [
+      "回合结束时获得 #b",
+      "层 #y专注 （在充能球的 #y被动 效果触发之后触发）。 失去生命时，候失去所有 #y专注 。"
+    ]
+  },
+  "jedi:upgradeondraw": {
+    "NAME": "Better",
+    "DESCRIPTIONS": [
+      " #y升级 这一回合抽到的牌。"
+    ]
+  },
+  "jedi:controlledanger": {
+    "NAME": "受控愤怒",
+    "DESCRIPTIONS": [
+      "在你打出 #y愤怒 时，将其 #y消耗 。"
+    ]
+  },
+  "jedi:poisonivy": {
+    "NAME": "毒藤",
+    "DESCRIPTIONS": [
+      "当你使用 #y小刀 以外的攻击牌攻击处于 #y中毒 状态的敌人时候，增加 #b",
+      " 张 #y小刀 到你的手牌。",
+      " 张 #y小刀 到你的手牌。"
+    ]
+  }
+}
