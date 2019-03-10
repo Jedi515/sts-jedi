@@ -45,7 +45,7 @@ public class CollectorStrike
         {
             if (this.cardID.equals(card.cardID) && card != this)
             {
-                card.misc += (this.baseDamage >= card.baseDamage ? this.baseDamage : card.magicNumber);
+                card.misc += ((this.baseDamage >= card.baseDamage && this.baseDamage > 3) ? this.baseDamage : card.magicNumber);
                 card.damage = card.baseDamage = card.misc;
                 card.initializeDescription();
                 AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();

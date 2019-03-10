@@ -1,7 +1,7 @@
 {
   "jedi:cleanse":
   {
-    "NAME": "涤荡",
+    "NAME": "涤净",
     "DESCRIPTION": "移除你身上的所有负面效果。 消耗 。",
     "UPGRADE_DESCRIPTION": " 保留 。 NL 移除你身上的所有负面效果。 NL 消耗 。"
   },
@@ -54,7 +54,7 @@
   },
   "jedi:readyaimfire":
   {
-    "NAME": "准备，瞄准，开火",
+    "NAME": "预备，瞄准，开火",
     "DESCRIPTION": "给予所有敌人!M!层 跟踪锁定 。 NL  激发 所有充能球。 NL 消耗 。"
   },
   "jedi:reiji":
@@ -84,7 +84,7 @@
   "jedi:darknesscall":
   {
     "NAME": "黑暗呼唤",
-    "DESCRIPTION": "只能在你有 黑暗 充能球的时候打出。 NL 给予一名生命值最低的敌人1层 跟踪锁定 。 NL 激发你最右侧的 黑暗 充能球。 NL 消耗 。",
+    "DESCRIPTION": "只能在你有 黑暗 充能球的时候打出。 NL 给予一名生命值最低的敌人1层 跟踪锁定 。 NL  激发 你最右侧的 黑暗 充能球。 NL 消耗 。",
     "UPGRADE_DESCRIPTION" : "我没有黑暗充能球！"
   },
   "jedi:frostbite":

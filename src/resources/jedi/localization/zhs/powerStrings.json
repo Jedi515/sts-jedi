@@ -9,7 +9,7 @@
   "jedi:upgradeondraw": {
     "NAME": "Better",
     "DESCRIPTIONS": [
-      " #y升级 这一回合抽到的牌。"
+      " #y升级 一回合内抽到的所有牌。"
     ]
   },
   "jedi:controlledanger": {

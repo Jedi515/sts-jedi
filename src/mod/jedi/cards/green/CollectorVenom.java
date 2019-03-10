@@ -58,7 +58,7 @@ public class CollectorVenom
             if (this.cardID.equals(card.cardID) && card != this)
             {
                 CollectorVenom venomCard = (CollectorVenom) card;
-                card.misc += ((this.baseMagicNumber >= card.magicNumber && this.magicNumber >= venomCard.secondMN)  ? this.baseMagicNumber : venomCard.secondMN);
+                card.misc += ((this.baseMagicNumber >= card.baseMagicNumber && this.baseMagicNumber > 2)  ? this.baseMagicNumber : venomCard.secondMN);
                 card.magicNumber = card.baseMagicNumber = card.misc;
                 card.initializeDescription();
                 AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();

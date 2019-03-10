@@ -165,6 +165,9 @@ public class jedi
         BaseMod.addRelic(new HeavyJacket(), RelicType.SHARED);
         BaseMod.addRelic(new ShrinkRay(), RelicType.SHARED);
         BaseMod.addRelic(new GremlinKnob(), RelicType.SHARED);
+        BaseMod.addRelic(new PurpleFairy(), RelicType.SHARED);
+        BaseMod.addRelic(new CryingMask(), RelicType.SHARED);
+
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);
 
@@ -193,7 +196,8 @@ public class jedi
         }
 
 
-        if (isReplayLoaded) {
+        if (isReplayLoaded)
+        {
             BaseMod.addRelic(new OtherSneckoEye(), RelicType.SHARED);
         }
     }

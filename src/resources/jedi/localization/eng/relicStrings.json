@@ -147,5 +147,26 @@
       "At the end of your turn, if you have no cards left in your hand, draw and discard piles, gain #yBlock equal to the number of cards in your exhaust pile size plus #b",
       " and deal that much damage to ALL enemies."
     ]
+  },
+  "jedi:purplefairy":
+  {
+    "NAME": "Purple Fairy",
+    "FLAVOR": "Mai waifu.",
+    "DESCRIPTIONS": [
+      "Whenever you #ySmith a card, heal HP depending on card rarity.",
+      "Healing value",
+      "#yBasic [REMOVE_SPACE]: #gfull HP NL #yCommon or #ySpecial [REMOVE_SPACE]: #b10 HP NL #yUncommon [REMOVE_SPACE]: #b5 HP NL #yRare [REMOVE_SPACE]: #b1 HP NL #rCurse [REMOVE_SPACE]: gain #b5 Max. HP and heal to #gfull [REMOVE_SPACE]."
+    ]
+  },
+  "jedi:cryingmask":
+  {
+    "NAME": "Crying Mask",
+    "FLAVOR": "Mask worn by the Merchant of the past... Or is it of the future?",
+    "DESCRIPTIONS": [
+      "The Merchant's card removal service can now be purchased twice per shop for the same price. NL Synergy: ",
+      "Synergy",
+      "If the player has ",
+      ", gain #b5 Max HP whenever you remove #b2 cards at the same shop."
+    ]
   }
 }
