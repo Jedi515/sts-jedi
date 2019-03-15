@@ -28,6 +28,7 @@ public class PurpleFairy
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2]));
+        this.initializeTips();
     }
 
     @Override

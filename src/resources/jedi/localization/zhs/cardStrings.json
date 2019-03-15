@@ -166,7 +166,7 @@
   "jedi:bruteforce":
   {
     "NAME": "穷举",
-    "DESCRIPTION": "只能在你有 闪电 充能球的时候打出。 NL  激发 你最右侧的 闪电 充能球，直到其击中选中的敌人 !M! 次为止。",
+    "DESCRIPTION": "只能在你有 闪电 充能球的时候打出。 NL  激发 你最右侧的 闪电 充能球，直到其击中选中的敌人 !M! 次为止。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "我没有闪电充能球！"
   },
   "jedi:bloodyhammer":

@@ -1,0 +1,9 @@
+{
+  "jedi:ClawDefect": {
+    "NAME": "Claw",
+    "CARD_IDS": [
+      "jedi:hex",
+      "jedi:reiji"
+    ]
+  }
+}

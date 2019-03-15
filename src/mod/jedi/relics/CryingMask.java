@@ -28,6 +28,7 @@ public class CryingMask
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2] + FontHelper.colorString(mask.name, "y") + DESCRIPTIONS[3]));
+        this.initializeTips();
     }
 
     public void onEnterRoom(AbstractRoom room)
@@ -35,8 +36,8 @@ public class CryingMask
         if (!canBuySecond)
         {
             ShopScreen.purgeCost += 25;
-            canBuySecond = true;
         }
+        canBuySecond = true;
     }
     //More info under patches/CryingMaskPatch
 }

@@ -1,0 +1,16 @@
+{
+  "jedi:LightningDefect": {
+    "NAME": "Lightning",
+    "CARD_IDS": [
+      "jedi:BurstLightning",
+      "jedi:markofdeath",
+      "jedi:locknload",
+      "jedi:hex",
+      "jedi:readyaimfire",
+      "jedi:reiji",
+      "jedi:blockon",
+      "jedi:gatheringstorm",
+      "jedi:bruteforce"
+    ]
+  }
+}

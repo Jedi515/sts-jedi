@@ -1,5 +1,11 @@
 package sts_jedi;
 
+import archetypeAPI.archetypes.theDefect.ClawLowCostDefect;
+import archetypeAPI.archetypes.theDefect.DarkDefect;
+import archetypeAPI.archetypes.theDefect.LightningDefect;
+import archetypeAPI.archetypes.theSilent.DiscardSilent;
+import archetypeAPI.archetypes.theSilent.PoisonSilent;
+import archetypeAPI.archetypes.theSilent.ShivSilent;
 import basemod.BaseMod;
 import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
@@ -7,9 +13,9 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -54,6 +60,7 @@ public class jedi
     public static boolean isBeakedLoaded;
     public static boolean isGathererLoaded;
     public static boolean isHubrisLoaded;
+    public static boolean isArchetypeLoaded;
     public static CardGroup StrikeGroup;
 
     public static void initialize()
@@ -65,6 +72,7 @@ public class jedi
         isBeakedLoaded = Loader.isModLoaded("beakedthecultist-sts");
         isGathererLoaded = Loader.isModLoaded("gatherermod");
         isHubrisLoaded = Loader.isModLoaded("hubris");
+        isArchetypeLoaded = Loader.isModLoaded("archetypeapi");
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -94,6 +102,17 @@ public class jedi
             {
                 StrikeGroup.addToBottom(card.makeCopy());
             }
+        }
+
+        if (isArchetypeLoaded)
+        {
+            DiscardSilent.discardSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Discard.json");
+            PoisonSilent.poisonSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Poison.json");
+            ShivSilent.shivSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Shiv.json");
+
+            DarkDefect.darkDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Dark.json");
+            LightningDefect.lightningDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Lightning.json");
+            ClawLowCostDefect.clawLowCostDefectDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/LowCost.json");
         }
     }
 
@@ -167,6 +186,7 @@ public class jedi
         BaseMod.addRelic(new GremlinKnob(), RelicType.SHARED);
         BaseMod.addRelic(new PurpleFairy(), RelicType.SHARED);
         BaseMod.addRelic(new CryingMask(), RelicType.SHARED);
+        BaseMod.addRelic(new BattleStandard(), RelicType.SHARED);
 
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);

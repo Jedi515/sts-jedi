@@ -1,0 +1,9 @@
+{
+  "jedi:DarkDefect": {
+    "NAME": "Dark",
+    "CARD_IDS": [
+      "jedi:BurstDark",
+      "jedi:darknesscall"
+    ]
+  }
+}

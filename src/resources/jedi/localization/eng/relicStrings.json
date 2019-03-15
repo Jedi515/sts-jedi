@@ -168,5 +168,13 @@
       "If the player has ",
       ", gain #b5 Max HP whenever you remove #b2 cards at the same shop."
     ]
+  },
+  "jedi:battlestandard":
+  {
+    "NAME": "Battle Standart",
+    "FLAVOR": "To battle! Fight! Fight for your life!",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. You have to enter combat rooms whenever you can."
+    ]
   }
 }

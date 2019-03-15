@@ -166,7 +166,7 @@
   "jedi:bruteforce":
   {
     "NAME": "Bruteforce",
-    "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times.",
+    "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "No Lightning orbs channeled!"
   },
   "jedi:bloodyhammer":
