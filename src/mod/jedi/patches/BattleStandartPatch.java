@@ -16,15 +16,12 @@ public class BattleStandartPatch
     )
     public static class IsConnectedTo
     {
-        private static boolean hasCombats = false;
-
         public static boolean Postfix(boolean __result, MapRoomNode __instance, MapRoomNode node)
         {
             if (__result && __instance == AbstractDungeon.getCurrMapNode())
             {
                 if (AbstractDungeon.player.hasRelic(BattleStandard.ID))
                 {
-                    hasCombats = false;
                     for (MapEdge edge : __instance.getEdges())
                     {
                         MapRoomNode nextNode = getNode(edge.dstX, edge.dstY);

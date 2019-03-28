@@ -24,8 +24,8 @@ public class UnstableFumes
     public UnstableFumes()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.magicNumber = this.baseMagicNumber = 3;
-        this.secondMN = this.baseSecondMN = 6;
+        this.magicNumber = this.baseMagicNumber = 2;
+        this.secondMN = this.baseSecondMN = 4;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class UnstableFumes
         if (!this.upgraded) {
             upgradeName();
             this.upgradeMagicNumber(2);
-            this.upgradeSecondMN(3);
+            this.upgradeSecondMN(2);
             this.initializeDescription();
         }
     }

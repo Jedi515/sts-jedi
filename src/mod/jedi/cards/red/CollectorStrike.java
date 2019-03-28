@@ -28,7 +28,7 @@ public class CollectorStrike
 
     public CollectorStrike()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.damage = this.baseDamage = this.misc = 3;
         this.magicNumber = this.baseMagicNumber = 3;
         this.tags.add(CardTags.STRIKE);
@@ -50,7 +50,7 @@ public class CollectorStrike
                 card.initializeDescription();
                 AbstractCollectorCard showCard = (AbstractCollectorCard) card.makeSameInstanceOf();
                 AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(showCard));
-                AbstractDungeon.topLevelEffectsQueue.add(new UpgradeShineEffect(Settings.WIDTH/2, Settings.HEIGHT/2));
+                AbstractDungeon.topLevelEffectsQueue.add(new UpgradeShineEffect(Settings.WIDTH/2.0F, Settings.HEIGHT/2.0F));
                 return true;
             }
         }

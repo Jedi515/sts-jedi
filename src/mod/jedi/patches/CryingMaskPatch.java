@@ -57,7 +57,10 @@ public class CryingMaskPatch
                     AbstractDungeon.player.increaseMaxHp(5, true);
                 }
             }
-            ShopScreen.purgeCost -= 25;
+            if (AbstractDungeon.player.hasRelic(CryingMask.ID))
+            {
+                ShopScreen.purgeCost -= 25;
+            }
         }
     }
 }

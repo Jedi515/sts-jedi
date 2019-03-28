@@ -26,7 +26,7 @@ public class CollectorVenom
 
     public CollectorVenom()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.secondMN = this.baseSecondMN = 2; //Increment
         this.magicNumber = this.baseMagicNumber = this.misc = 2; //Application
     }

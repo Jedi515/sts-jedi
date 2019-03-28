@@ -93,6 +93,7 @@ public class jedi
 
         // Events
         BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
+
         StrikeGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard card : CardLibrary.getAllCards())
         {
@@ -132,6 +133,7 @@ public class jedi
         BaseMod.addCard(new PocketPoison());
         BaseMod.addCard(new BrewingPoison());
         BaseMod.addCard(new RejectiveToxin());
+        BaseMod.addCard(new AcidRain());
 
         //Blue
         BaseMod.addCard(new BurstLightning());
@@ -148,6 +150,8 @@ public class jedi
         BaseMod.addCard(new Meditation());
         BaseMod.addCard(new DarknessCall());
         BaseMod.addCard(new Bruteforce());
+        BaseMod.addCard(new SpotBugs());
+        BaseMod.addCard(new Overflow());
 
         //Red
         BaseMod.addCard(new StrikingStrike());
@@ -187,6 +191,7 @@ public class jedi
         BaseMod.addRelic(new PurpleFairy(), RelicType.SHARED);
         BaseMod.addRelic(new CryingMask(), RelicType.SHARED);
         BaseMod.addRelic(new BattleStandard(), RelicType.SHARED);
+        BaseMod.addRelic(new Kaleidoscope(), RelicType.SHARED);
 
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);

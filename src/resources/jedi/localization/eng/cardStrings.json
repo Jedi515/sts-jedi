@@ -218,5 +218,38 @@
     "NAME": "Pocket Poison",
     "DESCRIPTION": "Apply !M! Poison.",
     "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Draw a card."
+  },
+  "jedi:acidrain":
+  {
+    "NAME": "Acid Rain",
+    "DESCRIPTION": "Apply !M! Poison for each card discarded this turn.",
+    "EXTENDED_DESCRIPTION":
+    [
+      " NL (",
+      " card discarded.)",
+      " cards discarded.)"
+    ]
+  },
+  "jedi:spotbugs":
+  {
+    "NAME": "Spot Bugs",
+    "DESCRIPTION": "If the enemy intends to buff, gain !M! Orb slot.",
+    "UPGRADE_DESCRIPTION": "If the enemy intends to buff, gain !M! Orb slot and NL Channel !M! random Orb.",
+    "EXTENDED_DESCRIPTION":
+    [
+      "If the enemy intends to buff, gain !M! Orb slots.",
+      "If the enemy intends to buff, gain !M! Orb slots and NL Channel !M! random Orbs."
+    ]
+  },
+  "jedi:overflow":
+  {
+    "NAME": "Overflow",
+    "DESCRIPTION": "If you have no empty Orb slots, gain !M! Orb slot.",
+    "UPGRADE_DESCRIPTION": "If you have no empty Orb slots, gain !M! Orb slot. NL Otherwise, Channel !M! random Orb.",
+    "EXTENDED_DESCRIPTION":
+    [
+      "If you have no empty Orb slots, gain !M! Orb slots.",
+      "If you have no empty Orb slots, gain !M! Orb slots. NL Otherwise, Channel !M! random Orbs."
+    ]
   }
 }

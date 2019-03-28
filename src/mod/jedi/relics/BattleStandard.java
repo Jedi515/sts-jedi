@@ -18,7 +18,6 @@ public class BattleStandard
     public BattleStandard()
     {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.MAGICAL);
-        this.description = DESCRIPTIONS[0];
     }
 
     //Of course it's a patch. What did you expect? Patches/BattleStandardPatch
@@ -31,5 +30,10 @@ public class BattleStandard
     public void onUnequip()
     {
         AbstractDungeon.player.energy.energyMaster -= 1;
+    }
+
+    public String getUpdatedDescription()
+    {
+        return this.DESCRIPTIONS[0];
     }
 }

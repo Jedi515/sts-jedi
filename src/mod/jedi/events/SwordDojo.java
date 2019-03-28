@@ -17,12 +17,6 @@ import static sts_jedi.jedi.returnTrulyRandomStrike;
 public class SwordDojo
     extends AbstractImageEvent
 {
-//    cardLibrary.getAllCards()
-//    for (Map.Entry<String, AbstractCard> entrySetCard : CardLibrary.cards.entrySet()) {
-//    AbstractCard card = entrySetCard.getValue();
-//    //check against card
-//      }
-
     public static final String ID = "jedi:sworddojo";
     public static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
     public static final String[] OPTIONS = eventStrings.OPTIONS;
@@ -30,7 +24,6 @@ public class SwordDojo
     public static final String NAME = eventStrings.NAME;
     private static int strikesAmount;
     private int screenNum = 0;
-
 
     public SwordDojo()
     {
@@ -47,7 +40,6 @@ public class SwordDojo
         this.imageEventText.setDialogOption(OPTIONS[2]);
         this.imageEventText.setDialogOption(OPTIONS[3]);
     }
-
 
     @Override
     protected void buttonEffect(int buttonPressed) {
