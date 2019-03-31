@@ -192,6 +192,8 @@ public class jedi
         BaseMod.addRelic(new CryingMask(), RelicType.SHARED);
         BaseMod.addRelic(new BattleStandard(), RelicType.SHARED);
         BaseMod.addRelic(new Kaleidoscope(), RelicType.SHARED);
+        BaseMod.addRelic(new PaperLyon(), RelicType.SHARED);
+        BaseMod.addRelic(new AngryMask(), RelicType.SHARED);
 
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);

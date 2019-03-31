@@ -31,6 +31,9 @@ public class ShrinkRay
             AbstractDungeon.actionManager.addToTop(new ShrinkRayAction(MODIFIER_AMT));
     }
 
+    public boolean canSpawn() {
+        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
+    }
 
     public String getUpdatedDescription()
     {

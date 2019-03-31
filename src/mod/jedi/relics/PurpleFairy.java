@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnSmithRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import mod.jedi.util.TextureLoader;
@@ -29,6 +30,10 @@ public class PurpleFairy
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2]));
         this.initializeTips();
+    }
+
+    public boolean canSpawn() {
+        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
     }
 
     @Override

@@ -184,5 +184,25 @@
     "DESCRIPTIONS": [
       "Start each combat with #yStrength equal to unique card colors in your deck."
     ]
+  },
+  "jedi:paperlyon":
+  {
+    "NAME": "Paper Lyon",
+    "FLAVOR": "It may only be made of paper, yet it gives such an intimidating aura.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. When #yVulnerable, take #b75% more attack damage rather than #b50%. When #yWeak, deal #b40% less attack damage rather than #b25%. NL Synergy: ",
+      "Synergy",
+      "If the player has ",
+      ", receive #b50% more attack damage when #yVulnerable."
+    ]
+  },
+  "jedi:angrymask":
+  {
+    "NAME": "Angry Mask",
+    "FLAVOR": "Is this what they call \"Aggressive marketing\"?",
+    "DESCRIPTIONS": [
+      "Whenever you spend any #yGold at a shop, start the next combat with #b",
+      " #yStrength."
+    ]
   }
 }
