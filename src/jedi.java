@@ -203,6 +203,7 @@ public class jedi
         BaseMod.addRelic(new PaperFaux(), RelicType.BLUE);
 
         BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
+        BaseMod.addRelic(new Sprinkler(), RelicType.GREEN);
 
         BaseMod.addRelic(new Leech(), RelicType.RED);
 

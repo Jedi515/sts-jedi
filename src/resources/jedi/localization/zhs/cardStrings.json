@@ -218,5 +218,38 @@
     "NAME": "囊中毒药",
     "DESCRIPTION": "给予 !M! 层 中毒 。",
     "UPGRADE_DESCRIPTION": "给予 !M! 层 中毒 。 NL 抽一张牌。"
+  },
+  "jedi:acidrain":
+  {
+    "NAME": "酸液雨",
+    "DESCRIPTION": "给予本回合弃牌数乘以 !M! 层 中毒 。",
+    "EXTENDED_DESCRIPTION":
+    [
+      " NL (",
+      " card discarded.)",
+      " cards discarded.)"
+    ]
+  },
+  "jedi:spotbugs":
+  {
+    "NAME": "寻找错误",
+    "DESCRIPTION": "如果敌人的意图是强化，获得 !M! 个 充能球 栏位。",
+    "UPGRADE_DESCRIPTION": "如果敌人的意图是强化，获得 !M! 个 充能球 栏位  NL 并生成 !M! 个随机 充能球 。",
+    "EXTENDED_DESCRIPTION":
+    [
+      "如果敌人的意图是强化，获得 !M! 个 充能球 栏位。",
+      "如果敌人的意图是强化，获得 !M! 个 充能球 栏位 NL 并生成 !M! 个随机 充能球 。"
+    ]
+  },
+  "jedi:overflow":
+  {
+    "NAME": "溢出",
+    "DESCRIPTION": "如果你没有空余的 充能球 栏位，获得 !M! 个 充能球 栏位。",
+    "UPGRADE_DESCRIPTION": "如果你没有空余的 充能球 栏位，获得 !M! 个 充能球 栏位。 NL 否则， 生成 !M! 个随机 充能球 。",
+    "EXTENDED_DESCRIPTION":
+    [
+      "如果你没有空余的 充能球 栏位，获得 !M! 个 充能球 栏位。",
+      "如果你没有空余的 充能球 栏位，获得 !M! 个 充能球 栏位。 NL 否则， 生成 !M! 个随机 充能球 。"
+    ]
   }
 }

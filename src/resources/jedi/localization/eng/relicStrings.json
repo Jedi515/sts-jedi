@@ -204,5 +204,14 @@
       "Whenever you spend any #yGold at a shop, start the next combat with #b",
       " #yStrength."
     ]
+  },
+  "jedi:sprinkler":
+  {
+    "NAME": "Sprinkler",
+    "FLAVOR": "Taking care of those nasty insects has never been so easy!",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, apply #b",
+      " #yPoison to ALL enemies."
+    ]
   }
 }

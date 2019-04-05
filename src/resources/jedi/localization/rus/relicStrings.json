@@ -204,5 +204,14 @@
       "Даёт #b",
       " #yСилы в начале первого боя после траты #yЗолота в магазине."
     ]
+  },
+  "jedi:sprinkler":
+  {
+    "NAME": "Разбрызгиватель",
+    "FLAVOR": "Taking care of those nasty insects has never been so easy!",
+    "DESCRIPTIONS": [
+      "Накладывает #b",
+      " #yЯда на ВСЕХ врагов при каждой перетасовке колоды."
+    ]
   }
 }

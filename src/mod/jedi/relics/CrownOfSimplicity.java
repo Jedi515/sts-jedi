@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -26,6 +27,21 @@ public class CrownOfSimplicity
     public CrownOfSimplicity()
     {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
+    }
+
+    public boolean canSpawn()
+    {
+        if (CardCrawlGame.isInARun())
+        {
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
+            {
+                if (c.rarity == AbstractCard.CardRarity.BASIC)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -71,10 +87,5 @@ public class CrownOfSimplicity
     public String getUpdatedDescription()
     {
         return this.DESCRIPTIONS[0];
-    }
-
-    public CustomRelic makeCopy()
-    {
-        return new CrownOfSimplicity();
     }
 }
