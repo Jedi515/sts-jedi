@@ -130,20 +130,20 @@
   "jedi:harder":
   {
     "NAME": "Harder",
-    "DESCRIPTION": "Gain !M! Plated Armor. NL Add Better to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Metallicize. NL Gain !M! Plated Armor. NL Add Make it Better to your hand."
+    "DESCRIPTION": "Gain !M! Plated Armor. NL Add jedi:Better to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Metallicize. NL Gain !M! Plated Armor. NL Add Make it jedi:Better to your hand."
   },
   "jedi:better":
   {
     "NAME": "Better",
-    "DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL Add Faster to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add Do it Faster to your hand. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL Add jedi:Faster to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add Do it jedi:Faster to your hand. NL Exhaust."
   },
   "jedi:faster":
   {
     "NAME": "Faster",
-    "DESCRIPTION": "Ethereal. NL Apply Slow to an enemy. NL Add Stronger to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add Makes us Stronger to your hand. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Apply Slow to an enemy. NL Add jedi:Stronger to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add Makes us jedi:Stronger to your hand. NL Exhaust."
   },
   "jedi:stronger":
   {
@@ -154,8 +154,8 @@
   "jedi:unlimitedpower":
   {
     "NAME": "Unlimited Power",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL Unlimited.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL Unlimited."
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL jedi:Unlimited.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL jedi:cUnlimited."
   },
   "jedi:test":
   {
@@ -190,12 +190,12 @@
   "jedi:collectorstrike":
   {
     "NAME": "Collector's Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Collective !M!."
+    "DESCRIPTION": "Deal !D! damage. NL jedi:Collective !M!."
   },
   "jedi:collectorvenom":
   {
     "NAME": "Collector's Venom",
-    "DESCRIPTION": "Apply !M! Poison. NL Collective !jedi:SecondMN!."
+    "DESCRIPTION": "Apply !M! Poison. NL jedi:Collective !jedi:SecondMN!."
   },
   "jedi:unstablefumes":
   {

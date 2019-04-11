@@ -19,6 +19,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -73,6 +74,15 @@ public class jedi
         isGathererLoaded = Loader.isModLoaded("gatherermod");
         isHubrisLoaded = Loader.isModLoaded("hubris");
         isArchetypeLoaded = Loader.isModLoaded("archetypeapi");
+    }
+
+    public static int publishAttackMonsterChange(DamageInfo info, int damage)
+    {
+        if (AbstractDungeon.player.hasRelic(ArchwizardHat.ID))
+        {
+            return ((ArchwizardHat)(AbstractDungeon.player.getRelic(ArchwizardHat.ID))).betterOnAttackedMonster(info, damage);
+        }
+        return damage;
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -194,6 +204,7 @@ public class jedi
         BaseMod.addRelic(new Kaleidoscope(), RelicType.SHARED);
         BaseMod.addRelic(new PaperLyon(), RelicType.SHARED);
         BaseMod.addRelic(new AngryMask(), RelicType.SHARED);
+        BaseMod.addRelic(new ArchwizardHat(), RelicType.SHARED);
 
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);
@@ -240,13 +251,16 @@ public class jedi
     public void receiveEditKeywords()
     {
         loadKeywords("eng");
-        try
+        if (Settings.language != Settings.GameLanguage.ENG)
         {
-            loadKeywords(Settings.language.toString().toLowerCase());
-        }
-        catch (GdxRuntimeException er)
-        {
-            System.out.println("Jedi Mod: Adding keywords error: Language not found, defaulted to eng.");
+            try
+            {
+                loadKeywords(Settings.language.toString().toLowerCase());
+            }
+            catch (GdxRuntimeException er)
+            {
+                System.out.println("Jedi Mod: Adding keywords error: Language not found, defaulted to eng.");
+            }
         }
     }
 
@@ -258,8 +272,9 @@ public class jedi
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
-            for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            for (Keyword keyword : keywords)
+            {
+                BaseMod.addKeyword("jedi", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }
@@ -268,13 +283,16 @@ public class jedi
     public void receiveEditStrings()
     {
         loadStrings("eng");
-        try
+        if (Settings.language != Settings.GameLanguage.ENG)
         {
-            loadStrings(Settings.language.toString().toLowerCase());
-        }
-        catch (GdxRuntimeException er)
-        {
-            System.out.println("Jedi Mod: Adding strings error: Language not found, defaulted to eng.");
+            try
+            {
+                loadStrings(Settings.language.toString().toLowerCase());
+            }
+            catch (GdxRuntimeException er)
+            {
+                System.out.println("Jedi Mod: Adding strings error: Language not found, defaulted to eng.");
+            }
         }
     }
 

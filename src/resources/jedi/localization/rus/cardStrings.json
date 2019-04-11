@@ -130,20 +130,20 @@
   "jedi:harder":
   {
     "NAME": "Harder",
-    "DESCRIPTION": "Даёт !M! Панциря. NL Добавляет в руку Better.",
-    "UPGRADE_DESCRIPTION": "Даёт !M! Защиты в конце хода. NL Даёт !M! Панциря. NL Добавляет в руку Make it Better."
+    "DESCRIPTION": "Даёт !M! Панциря. NL Добавляет в руку jedi:Better.",
+    "UPGRADE_DESCRIPTION": "Даёт !M! Защиты в конце хода. NL Даёт !M! Панциря. NL Добавляет в руку Make it jedi:Better."
   },
   "jedi:better":
   {
     "NAME": "Better",
-    "DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Добавляет в руку Faster. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Улучшает все карты, которые вы берёте, в этом ходу до конца боя. NL Добавляет в руку Do it Faster. NL Сжигается."
+    "DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Добавляет в руку jedi:Faster. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Улучшает все карты, которые вы берёте, в этом ходу до конца боя. NL Добавляет в руку Do it jedi:Faster. NL Сжигается."
   },
   "jedi:faster":
   {
     "NAME": "Faster",
-    "DESCRIPTION": "Эфирная. NL Накладывает Медлительность на врага. NL Добавляет в руку Stronger. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Эфирная. NL Даёт [E] [E] в вашем след. ходу. NL Накладывает Медлительность на ВСЕХ врагов. NL Добавляет в руку Makes us Stronger. NL Сжигается."
+    "DESCRIPTION": "Эфирная. NL Накладывает Медлительность на врага. NL Добавляет в руку jedi:Stronger. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Эфирная. NL Даёт [E] [E] в вашем след. ходу. NL Накладывает Медлительность на ВСЕХ врагов. NL Добавляет в руку Makes us jedi:Stronger. NL Сжигается."
   },
   "jedi:stronger":
   {
@@ -154,8 +154,8 @@
   "jedi:unlimitedpower":
   {
     "NAME": "Абсолютная власть",
-    "DESCRIPTION": "Наносит !D! урона. NL Сжигается. NL Безграничная.",
-    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Отнимает !M! ОЗ. NL Сжигается. NL Безграничная."
+    "DESCRIPTION": "Наносит !D! урона. NL Сжигается. NL jedi:Безграничная.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Отнимает !M! ОЗ. NL Сжигается. NL jedi:Безграничная."
   },
   "jedi:test":
   {
@@ -190,12 +190,12 @@
   "jedi:collectorstrike":
   {
     "NAME": "Удар Коллекционера",
-    "DESCRIPTION": "Наносит !D! урона. NL Коллекционная !M!."
+    "DESCRIPTION": "Наносит !D! урона. NL jedi:Коллекционная !M!."
   },
   "jedi:collectorvenom":
   {
     "NAME": "Яд Коллекционера",
-    "DESCRIPTION": "Накладывает !M! Яда. NL Коллекционная !jedi:SecondMN!."
+    "DESCRIPTION": "Накладывает !M! Яда. NL jedi:Коллекционная !jedi:SecondMN!."
   },
   "jedi:unstablefumes":
   {

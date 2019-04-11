@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.SoulGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import mod.jedi.cards.AbstractCollectorCard;
+import mod.jedi.interfaces.CardAddedToDeck;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -18,9 +19,9 @@ public class CollectorCardPatch
     {
         public static SpireReturn Prefix(SoulGroup __instance, AbstractCard card, boolean obtainCard)
         {
-            if (card instanceof AbstractCollectorCard)
+            if (card instanceof CardAddedToDeck)
             {
-                boolean skipAddingToDeck = ((AbstractCollectorCard) card).onAddedToMasterDeck();
+                boolean skipAddingToDeck = ((CardAddedToDeck) card).onAddedToMasterDeck();
                 if (skipAddingToDeck)
                 {
                     return SpireReturn.Return(null);

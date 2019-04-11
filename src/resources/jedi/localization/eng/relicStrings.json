@@ -213,5 +213,13 @@
       "Whenever you shuffle your draw pile, apply #b",
       " #yPoison to ALL enemies."
     ]
+  },
+  "jedi:archwizardhat":
+  {
+    "NAME": "Archwizard's Hat",
+    "FLAVOR": "Bakuretsu, bakuretsu, la la la...",
+    "DESCRIPTIONS": [
+      "Whenever an #yAttack that costs #b1 or more uses all of your current energy, increase its damage by #b25%."
+    ]
   }
 }
