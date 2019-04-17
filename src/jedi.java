@@ -33,6 +33,7 @@ import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
 import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
+import mod.jedi.cards.curses.TheDog;
 import mod.jedi.cards.green.*;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
@@ -183,6 +184,7 @@ public class jedi
 
         //Curses
         BaseMod.addCard(new Frostbite());
+        BaseMod.addCard(new TheDog());
     }
 
     @Override
@@ -205,6 +207,7 @@ public class jedi
         BaseMod.addRelic(new PaperLyon(), RelicType.SHARED);
         BaseMod.addRelic(new AngryMask(), RelicType.SHARED);
         BaseMod.addRelic(new ArchwizardHat(), RelicType.SHARED);
+        BaseMod.addRelic(new WindUpBox(), RelicType.SHARED);
 
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);

@@ -11,7 +11,7 @@ public class HotPepper
     extends CustomRelic
 {
     public static final String ID = "jedi:hotpepper";
-    private static float decrease_flat = 0.35F;
+    private static float decrease_flat = 0.25F;
     private static float decrease_multiplier = 0.5F;
     public static final String PATH = "resources/jedi/images/relics/";
     public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";

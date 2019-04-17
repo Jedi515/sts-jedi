@@ -1,255 +1,215 @@
 {
-  "jedi:cleanse":
-  {
-    "NAME": "Cleanse",
-    "DESCRIPTION": "Remove ALL your debuffs. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Remove all of your debuffs. NL Exhaust."
+  "jedi:BurstDark": {
+    "NAME": "Burst Dark",
+    "DESCRIPTION": "Deal !D! damage. NL At the end of your turn, increase damage of this card by your Focus. NL Exhaust."
   },
-  "jedi:forcepull":
-  {
-    "NAME": "Force Pull",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Draw a card."
-  },
-  "jedi:forcepush":
-  {
-    "NAME": "Force Push",
-    "DESCRIPTION": "Apply !M! Weak. NL Draw a card."
-  },
-  "jedi:BurstLightning":
-  {
-    "NAME": "Burst Lightning",
-    "DESCRIPTION": "Deal !D! damage. NL Scales with Focus instead of Strength. NL Is affected by Electrodynamics.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scales !M! times with Focus instead of Strength. NL Is affected by Electrodynamics."
-  },
-  "jedi:BurstFrost":
-  {
+  "jedi:BurstFrost": {
     "NAME": "Burst Frost",
     "DESCRIPTION": "Gain !B! Block. NL Scales with Focus instead of Dexterity.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Scales !M! times with Focus instead of Dexterity."
   },
-  "jedi:BurstDark":
-  {
-    "NAME": "Burst Dark",
-    "DESCRIPTION": "Deal !D! damage. NL At the end of your turn, increase damage of this card by your Focus. NL Exhaust."
+  "jedi:BurstLightning": {
+    "NAME": "Burst Lightning",
+    "DESCRIPTION": "Deal !D! damage. NL Scales with Focus instead of Strength. NL Is affected by Electrodynamics.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Scales !M! times with Focus instead of Strength. NL Is affected by Electrodynamics."
   },
-  "jedi:markofdeath":
-  {
-    "NAME": "Mark of Death",
-    "DESCRIPTION": "Apply 99 Lock-On. NL Exhaust."
+  "jedi:acidrain": {
+    "NAME": "Acid Rain",
+    "DESCRIPTION": "Apply !M! Poison for each card discarded this turn.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " card discarded.)",
+      " cards discarded.)"
+    ]
   },
-  "jedi:locknload":
-  {
-    "NAME": "Lock'N'Load",
-    "DESCRIPTION":"Apply !M! Lock-On. NL Channel !M! Lightning."
+  "jedi:better": {
+    "NAME": "Better",
+    "DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL Add jedi:Faster to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add Do it jedi:Faster to your hand. NL Exhaust."
   },
-  "jedi:hex":
-  {
-    "NAME": "Hex",
-    "DESCRIPTION": "Apply !M! Lock-On. NL Apply !M! Vulnerable. NL Apply !M! Weak."
-  },
-  "jedi:sharpshooter":
-  {
-    "NAME": "Sharpshooter",
-    "DESCRIPTION": "Deal !D! damage. NL If enemy has Lock-On, gain [E] and draw a card."
-  },
-  "jedi:readyaimfire":
-  {
-    "NAME": "Ready, Aim, Fire",
-    "DESCRIPTION": "Apply !M! Lock-On to ALL enemies. NL Evoke ALL orbs. NL Exhaust."
-  },
-  "jedi:reiji":
-  {
-    "NAME": "Reiji",
-    "DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Channel !M! Lightning. NL Exhaust."
-  },
-  "jedi:blockon":
-  {
+  "jedi:blockon": {
     "NAME": "Block-On",
     "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to each enemy that intends to attack."
   },
-  "jedi:gatheringstorm":
-  {
+  "jedi:bloodyhammer": {
+    "NAME": "Bloody Hammer",
+    "DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Purge.",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Exhaust."
+  },
+  "jedi:brewingpoison": {
+    "NAME": "Brewing Poison",
+    "DESCRIPTION": "Apply !M! Poison. NL Exhaust. NL Whenever you draw this card, increase its Poison by !jedi:SecondMN!. NL Whenever you discard this card, double its Poison."
+  },
+  "jedi:bruteforce": {
+    "NAME": "Bruteforce",
+    "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "No Lightning orbs channeled!"
+  },
+  "jedi:cleanse": {
+    "NAME": "Cleanse",
+    "DESCRIPTION": "Remove ALL your debuffs. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Remove all of your debuffs. NL Exhaust."
+  },
+  "jedi:collectorstrike": {
+    "NAME": "Collector's Strike",
+    "DESCRIPTION": "Deal !D! damage. NL jedi:Collective !M!."
+  },
+  "jedi:collectorvenom": {
+    "NAME": "Collector's Venom",
+    "DESCRIPTION": "Apply !M! Poison. NL jedi:Collective !jedi:SecondMN!."
+  },
+  "jedi:controlledanger": {
+    "NAME": "Controlled Anger",
+    "DESCRIPTION": "Add !M! Angers to your hand. NL Whenever you play an Anger, Exhaust it.",
+    "UPGRADE_DESCRIPTION": "Add !M! Upgraded Angers to your hand. NL Whenever you play an Anger, Exhaust it."
+  },
+  "jedi:darknesscall": {
+    "NAME": "Darkness Call",
+    "DESCRIPTION": "Can only be played if you have Dark Orb Channeled. NL Apply 1 Lock-On to an enemy with lowest HP. NL Evoke your rightmost Dark Orb. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "No Dark orbs channeled!"
+  },
+  "jedi:faster": {
+    "NAME": "Faster",
+    "DESCRIPTION": "Ethereal. NL Apply Slow to an enemy. NL Add jedi:Stronger to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add Makes us jedi:Stronger to your hand. NL Exhaust."
+  },
+  "jedi:fear": {
+    "NAME": "Fear",
+    "DESCRIPTION": "Add !M! Angers to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! upgraded Angers to your hand. NL Exhaust."
+  },
+  "jedi:forcepull": {
+    "NAME": "Force Pull",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Draw a card."
+  },
+  "jedi:forcepush": {
+    "NAME": "Force Push",
+    "DESCRIPTION": "Apply !M! Weak. NL Draw a card."
+  },
+  "jedi:frostbite": {
+    "NAME": "Frostbite",
+    "DESCRIPTION": "Unplayable. NL Whenever this card is drawn, lose 3 Strength this turn."
+  },
+  "jedi:gatheringstorm": {
     "NAME": "Gathering Storm",
     "DESCRIPTION": "For each non-Lightning orb Channeled this combat, Channel 1 Lightning. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Channels !M! Lightning.)"
     ]
   },
-  "jedi:meditation":
-  {
-    "NAME": "Meditation",
-    "DESCRIPTION": "Gain !M! Focus at the end of your turn. NL Lose ALL Focus whenever you lose HP."
-  },
-  "jedi:darknesscall":
-  {
-    "NAME": "Darkness Call",
-    "DESCRIPTION": "Can only be played if you have Dark Orb Channeled. NL Apply 1 Lock-On to an enemy with lowest HP. NL Evoke your rightmost Dark Orb. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" : "No Dark orbs channeled!"
-  },
-  "jedi:frostbite":
-  {
-    "NAME": "Frostbite",
-    "DESCRIPTION": "Unplayable. NL Whenever this card is drawn, lose 3 Strength this turn."
-  },
-  "jedi:strikingstrike":
-  {
-    "NAME": "Strikeing Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play a random Strike on the same enemy. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" : "Deal !D! damage. NL Play a random upgraded Strike on the same enemy. NL Exhaust."
-  },
-  "jedi:onestrike":
-  {
-    "NAME": "One Strike",
-    "DESCRIPTION": "Kill a non-boss enemy. NL Fleeting.",
-    "UPGRADE_DESCRIPTION": "Kill a non-boss enemy. NL Realize you wasted an [#FFFFFF]upgrade[]. NL Fleeting.",
-    "EXTENDED_DESCRIPTION":
-            [
-              " Plus Ultra",
-              "Cannot be used on bosses."
-            ]
-  },
-  "jedi:hate":
-  {
-    "NAME": "Hate",
-    "DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile. NL Exhaust. NL Startup: If you have no Angers in your deck, shuffle an Anger into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage for each Anger in your discard pile. NL Exhaust ALL Angers in your discard pile. NL Startup: If you have no Angers in your deck, shuffle an Anger into your draw pile."
-  },
-  "jedi:fear":
-  {
-    "NAME": "Fear",
-    "DESCRIPTION": "Add !M! Angers to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! upgraded Angers to your hand. NL Exhaust."
-  },
-  "jedi:suffering":
-  {
-    "NAME": "Suffering",
-    "DESCRIPTION": "For each Attack Exhausted, deal !M! damage to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": " NL (Deals !D! damage)"
-  },
-  "jedi:harder":
-  {
+  "jedi:harder": {
     "NAME": "Harder",
     "DESCRIPTION": "Gain !M! Plated Armor. NL Add jedi:Better to your hand.",
     "UPGRADE_DESCRIPTION": "Gain !M! Metallicize. NL Gain !M! Plated Armor. NL Add Make it jedi:Better to your hand."
   },
-  "jedi:better":
-  {
-    "NAME": "Better",
-    "DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL Add jedi:Faster to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add Do it jedi:Faster to your hand. NL Exhaust."
+  "jedi:hate": {
+    "NAME": "Hate",
+    "DESCRIPTION": "Exhaust all Angers in your discard pile and deal !D! damage for each. NL Exhaust. NL Startup: If you have no Angers in your deck, shuffle an Anger into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Exhaust all Angers in your discard pile and deal !D! damage for each. NL Startup: If you have no Angers in your deck, shuffle an Anger into your draw pile."
   },
-  "jedi:faster":
-  {
-    "NAME": "Faster",
-    "DESCRIPTION": "Ethereal. NL Apply Slow to an enemy. NL Add jedi:Stronger to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add Makes us jedi:Stronger to your hand. NL Exhaust."
+  "jedi:hex": {
+    "NAME": "Hex",
+    "DESCRIPTION": "Apply !M! Lock-On. NL Apply !M! Vulnerable. NL Apply !M! Weak."
   },
-  "jedi:stronger":
-  {
-    "NAME": "Stronger",
-    "DESCRIPTION": "Ethereal. NL Gain !M! Strength at the start of your turn.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn."
+  "jedi:locknload": {
+    "NAME": "Lock'N'Load",
+    "DESCRIPTION": "Apply !M! Lock-On. NL Channel !M! Lightning."
   },
-  "jedi:unlimitedpower":
-  {
-    "NAME": "Unlimited Power",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL jedi:Unlimited.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL jedi:cUnlimited."
+  "jedi:markofdeath": {
+    "NAME": "Mark of Death",
+    "DESCRIPTION": "Apply 99 Lock-On. NL Exhaust."
   },
-  "jedi:test":
-  {
-    "NAME": "Test",
-    "DESCRIPTION": "If you're reading this, you're either me or something went wrong.",
-    "UPGRADE_DESCRIPTION": "That or you're very curious on github."
+  "jedi:meditation": {
+    "NAME": "Meditation",
+    "DESCRIPTION": "Gain !M! Focus at the end of your turn. NL Lose ALL Focus whenever you lose HP."
   },
-  "jedi:bruteforce":
-  {
-    "NAME": "Bruteforce",
-    "DESCRIPTION": "Can only be used if you have Lightning Channeled. NL Evoke your rightmost Lightning Orb till it hits selected enemy !M! times. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "No Lightning orbs channeled!"
+  "jedi:onestrike": {
+    "NAME": "One Strike",
+    "DESCRIPTION": "Kill a non-boss enemy. NL Fleeting.",
+    "UPGRADE_DESCRIPTION": "Kill a non-boss enemy. NL Realize you wasted an [#FFFFFF]upgrade[]. NL Fleeting.",
+    "EXTENDED_DESCRIPTION": [
+      " Plus Ultra",
+      "Cannot be used on bosses."
+    ]
   },
-  "jedi:bloodyhammer":
-  {
-    "NAME": "Bloody Hammer",
-    "DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Purge.",
-    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Exhaust."
+  "jedi:overflow": {
+    "NAME": "Overflow",
+    "DESCRIPTION": "If you have no empty Orb slots, gain !M! Orb slot.",
+    "UPGRADE_DESCRIPTION": "If you have no empty Orb slots, gain !M! Orb slot. NL Otherwise, Channel !M! random Orb.",
+    "EXTENDED_DESCRIPTION": [
+      "If you have no empty Orb slots, gain !M! Orb slots.",
+      "If you have no empty Orb slots, gain !M! Orb slots. NL Otherwise, Channel !M! random Orbs."
+    ]
   },
-  "jedi:controlledanger":
-  {
-    "NAME": "Controlled Anger",
-    "DESCRIPTION": "Add !M! Angers to your hand. NL Whenever you play an Anger, Exhaust it.",
-    "UPGRADE_DESCRIPTION": "Add !M! Upgraded Angers to your hand. NL Whenever you play an Anger, Exhaust it."
-  },
-  "jedi:poisonivy":
-  {
-    "NAME": "Poison Ivy",
-    "DESCRIPTION":  "Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand."
-  },
-  "jedi:collectorstrike":
-  {
-    "NAME": "Collector's Strike",
-    "DESCRIPTION": "Deal !D! damage. NL jedi:Collective !M!."
-  },
-  "jedi:collectorvenom":
-  {
-    "NAME": "Collector's Venom",
-    "DESCRIPTION": "Apply !M! Poison. NL jedi:Collective !jedi:SecondMN!."
-  },
-  "jedi:unstablefumes":
-  {
-    "NAME": "Unstable Fumes",
-    "DESCRIPTION": "Apply !M! Poison. NL If this card is discarded from your hand, apply !jedi:SecondMN! Poison to ALL enemies."
-  },
-  "jedi:rejectivetoxin":
-  {
-    "NAME": "Storm of Toxin",
-    "DESCRIPTION": "Discard your hand. NL Apply !M! Poison for each card discarded.",
-    "UPGRADE_DESCRIPTION": "Discard any number of cards. NL Apply !M! Poison for each card discarded."
-  },
-  "jedi:brewingpoison":
-  {
-    "NAME": "Brewing Poison",
-    "DESCRIPTION": "Apply !M! Poison. NL Exhaust. NL Whenever you draw this card, increase its Poison by !jedi:SecondMN!. NL Whenever you discard this card, double its Poison."
-  },
-  "jedi:pocketpoison":
-  {
+  "jedi:pocketpoison": {
     "NAME": "Pocket Poison",
     "DESCRIPTION": "Apply !M! Poison.",
     "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Draw a card."
   },
-  "jedi:acidrain":
-  {
-    "NAME": "Acid Rain",
-    "DESCRIPTION": "Apply !M! Poison for each card discarded this turn.",
-    "EXTENDED_DESCRIPTION":
-    [
-      " NL (",
-      " card discarded.)",
-      " cards discarded.)"
-    ]
+  "jedi:poisonivy": {
+    "NAME": "Poison Ivy",
+    "DESCRIPTION": "Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you attack a Poisoned enemy with a non-Shiv card, add !M! Shiv to your hand."
   },
-  "jedi:spotbugs":
-  {
+  "jedi:readyaimfire": {
+    "NAME": "Ready, Aim, Fire",
+    "DESCRIPTION": "Apply !M! Lock-On to ALL enemies. NL Evoke ALL orbs. NL Exhaust."
+  },
+  "jedi:reiji": {
+    "NAME": "Reiji",
+    "DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Apply 3 Lock-On. NL Channel !M! Lightning. NL Exhaust."
+  },
+  "jedi:rejectivetoxin": {
+    "NAME": "Storm of Toxin",
+    "DESCRIPTION": "Discard your hand. NL Apply !M! Poison for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Discard any number of cards. NL Apply !M! Poison for each card discarded."
+  },
+  "jedi:sharpshooter": {
+    "NAME": "Sharpshooter",
+    "DESCRIPTION": "Deal !D! damage. NL If enemy has Lock-On, gain [E] and draw a card."
+  },
+  "jedi:spotbugs": {
     "NAME": "Spot Bugs",
     "DESCRIPTION": "If the enemy intends to buff, gain !M! Orb slot.",
     "UPGRADE_DESCRIPTION": "If the enemy intends to buff, gain !M! Orb slot and NL Channel !M! random Orb.",
-    "EXTENDED_DESCRIPTION":
-    [
+    "EXTENDED_DESCRIPTION": [
       "If the enemy intends to buff, gain !M! Orb slots.",
       "If the enemy intends to buff, gain !M! Orb slots and NL Channel !M! random Orbs."
     ]
   },
-  "jedi:overflow":
-  {
-    "NAME": "Overflow",
-    "DESCRIPTION": "If you have no empty Orb slots, gain !M! Orb slot.",
-    "UPGRADE_DESCRIPTION": "If you have no empty Orb slots, gain !M! Orb slot. NL Otherwise, Channel !M! random Orb.",
-    "EXTENDED_DESCRIPTION":
-    [
-      "If you have no empty Orb slots, gain !M! Orb slots.",
-      "If you have no empty Orb slots, gain !M! Orb slots. NL Otherwise, Channel !M! random Orbs."
-    ]
+  "jedi:strikingstrike": {
+    "NAME": "Strikeing Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Play a random Strike on the same enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Play a random upgraded Strike on the same enemy. NL Exhaust."
+  },
+  "jedi:stronger": {
+    "NAME": "Stronger",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Strength at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn."
+  },
+  "jedi:suffering": {
+    "NAME": "Suffering",
+    "DESCRIPTION": "For each Attack Exhausted, deal !M! damage to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": " NL (Deals !D! damage)"
+  },
+  "jedi:test": {
+    "NAME": "Test",
+    "DESCRIPTION": "If you're reading this, you're either me or something went wrong.",
+    "UPGRADE_DESCRIPTION": "That or you're very curious on github."
+  },
+  "jedi:thedog": {
+    "NAME": "The Dog",
+    "DESCRIPTION": "Unplayable. Retain. NL Cannot be removed from your hand.",
+    "UPGRADE_DESCRIPTION": "The Dog stays!"
+  },
+  "jedi:unlimitedpower": {
+    "NAME": "Unlimited Power",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL jedi:Unlimited.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL jedi:Unlimited."
+  },
+  "jedi:unstablefumes": {
+    "NAME": "Unstable Fumes",
+    "DESCRIPTION": "Apply !M! Poison. NL If this card is discarded from your hand, apply !jedi:SecondMN! Poison to ALL enemies."
   }
 }

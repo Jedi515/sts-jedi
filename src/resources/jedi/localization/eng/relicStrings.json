@@ -1,146 +1,20 @@
 {
-  "jedi:matchstick":
-  {
-    "NAME": "Matchstick",
-    "FLAVOR": "The match is struck. A blazing star is born!",
+  "jedi:angrymask": {
+    "NAME": "Angry Mask",
+    "FLAVOR": "Is this what they call \"Aggressive marketing\"?",
     "DESCRIPTIONS": [
-    " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Gain [E] [E] ."
+      "Whenever you spend any #yGold at a shop, start the next combat with #b",
+      " #yStrength."
     ]
   },
-  "jedi:hotpepper":
-  {
-    "NAME": "Hot Pepper",
-    "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
+  "jedi:archwizardhat": {
+    "NAME": "Archwizard's Hat",
+    "FLAVOR": "Bakuretsu, bakuretsu, la la la...",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r35%. Further Max HP increase effects are #rreduced #rby #r50%"
+      "Whenever an #yAttack that costs #b1 or more uses all of your current energy, increase its damage by #b25%."
     ]
   },
-  "jedi:laserpointer":
-  {
-    "NAME": "Laser Pointer",
-    "FLAVOR": "Why is it a pointer if it targets everyone?",
-    "DESCRIPTIONS": [
-      "At the start of each combat, apply #b1 #yLock-On to ALL enemies."
-    ]
-  },
-  "jedi:fakemustache":
-  {
-    "NAME": "Fake Mustache",
-    "FLAVOR": "A familiar face?",
-    "DESCRIPTIONS": [
-      "When spending #yGold at the shop, heal #b5 HP. Heal #b10 HP upon pickup."
-    ]
-  },
-  "jedi:endoplasm":
-  {
-    "NAME": "Endoplasm",
-    "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
-    "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold. Whenever you lose HP outside of combat, lose #r50 #yGold."
-    ]
-  },
-  "jedi:superconductor":
-  {
-    "NAME": "Superconductor",
-    "FLAVOR": "You can almost hear orbs going round and round...",
-    "DESCRIPTIONS": [
-      "For every #b10 Orbs Channeled, trigger passive effect of ALL Orbs."
-    ]
-  },
-  "jedi:othersneckoeye":
-  {
-    "NAME": "Other Snecko Eye",
-    "FLAVOR": "The legendary second eye of the snecko, unseen by anyone... Untill now.",
-    "DESCRIPTIONS": [
-      "Draw #b1 more card each turn. Start each combat with #b2 #yCHAOS. Gain #b1 more #yCHAOS every #b3 turns."
-    ]
-  },
-  "jedi:leadlinedbottle":
-  {
-    "NAME": "Lead-Lined Bottle",
-    "FLAVOR": "Unlike other bottles, this one can actually holds its contents properly.",
-    "DESCRIPTIONS": [
-      "Upon pickup, choose a card. Start each combat with this card at the bottom of your draw pile.",
-      "Choose a card for ",
-      "Start each combat with "," at the bottom of your draw pile."
-    ]
-  },
-  "jedi:scrapmetal":
-  {
-    "NAME": "Scrap Metal",
-    "FLAVOR": "Nothing should go to waste.",
-    "DESCRIPTIONS": [
-      "For every #b",
-      " #yShivs played, add a #yShiv to your hand."
-    ]
-  },
-  "jedi:zontanonomicon":
-  {
-    "NAME": "Zontanonomicon",
-    "FLAVOR": "You feel invigorated just by holding this Book of Living.",
-    "DESCRIPTIONS": [
-      "The first #ySkill played each turn that costs #b2 or more is played twice."
-    ]
-  },
-  "jedi:paperfaux":
-  {
-    "NAME": "Paper Faux",
-    "FLAVOR": "What does it say?",
-    "DESCRIPTIONS": [
-      "Enemies with #yLock-On take #b75% more damage rather than #b50%."
-    ]
-  },
-  "jedi:firstaidkit":
-  {
-    "NAME": "First Aid Kit",
-    "FLAVOR": "Do you really need a bandage for every byrd peck?",
-    "DESCRIPTIONS": [
-      "Whenever you take unblocked attack damage, gain #b2 Regen."
-    ]
-  },
-  "jedi:leech":
-  {
-    "NAME": "Blood Pack",
-    "FLAVOR": "Nope it was always like this.",
-    "DESCRIPTIONS": [
-      "Reduce HP loss from cards and powers by #b1 to a minimum of #b1."
-    ]
-  },
-  "jedi:crownofsimplicity":
-  {
-    "NAME": "Crown of Simplicity",
-    "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
-    "DESCRIPTIONS": [
-      "First #yStarter card each turn is played twice."
-    ]
-  },
-  "jedi:heavyjacket":
-  {
-    "NAME": "Heavy Jacket",
-    "FLAVOR": "That's a lot of pockets for a single jacket.",
-    "DESCRIPTIONS": [
-      "At the start of each combat, gain #b1 #yPlated #yArmor for every #b2 relics you have."
-    ]
-  },
-  "jedi:shrinkray":
-  {
-    "NAME": "Shrink Ray",
-    "FLAVOR": "An evil mastermind has once tried to steal a satellite with this very relic...",
-    "DESCRIPTIONS": [
-      "Non-boss enemies have #b",
-      "% less HP."
-    ]
-  },
-  "jedi:gremlinknob":
-  {
-    "NAME": "Gremlin Knob",
-    "FLAVOR": "If I hear ONE MORE knock-knock joke...",
-    "DESCRIPTIONS": [
-      "Whenever you play a #ySkill, gain #b1 #yStrength till the end of a turn."
-    ]
-  },
-  "jedi:ashlotus":
-  {
+  "jedi:ashlotus": {
     "NAME": "Ash Lotus",
     "FLAVOR": "Welcome home, Ashen Two...",
     "DESCRIPTIONS": [
@@ -148,18 +22,21 @@
       " and deal that much damage to ALL enemies."
     ]
   },
-  "jedi:purplefairy":
-  {
-    "NAME": "Purple Fairy",
-    "FLAVOR": "Mai waifu.",
+  "jedi:battlestandard": {
+    "NAME": "Battle Standard",
+    "FLAVOR": "To battle! Fight! Fight for your life!",
     "DESCRIPTIONS": [
-      "Whenever you #ySmith a card, heal HP depending on card rarity.",
-      "Healing value",
-      "#yBasic [REMOVE_SPACE]: #gfull HP NL #yCommon or #ySpecial [REMOVE_SPACE]: #b10 HP NL #yUncommon [REMOVE_SPACE]: #b5 HP NL #yRare [REMOVE_SPACE]: #b1 HP NL #rCurse [REMOVE_SPACE]: gain #b5 Max. HP and heal to #gfull [REMOVE_SPACE]."
+      "Gain [E] at the start of your turn. You have to enter combat rooms whenever you can."
     ]
   },
-  "jedi:cryingmask":
-  {
+  "jedi:crownofsimplicity": {
+    "NAME": "Crown of Simplicity",
+    "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
+    "DESCRIPTIONS": [
+      "First #yBasic card each turn is played twice."
+    ]
+  },
+  "jedi:cryingmask": {
     "NAME": "Crying Mask",
     "FLAVOR": "Mask worn by the Merchant of the past... Or is it of the future?",
     "DESCRIPTIONS": [
@@ -169,24 +46,101 @@
       ", gain #b5 Max HP whenever you remove #b2 cards at the same shop."
     ]
   },
-  "jedi:battlestandard":
-  {
-    "NAME": "Battle Standard",
-    "FLAVOR": "To battle! Fight! Fight for your life!",
+  "jedi:endoplasm": {
+    "NAME": "Endoplasm",
+    "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. You have to enter combat rooms whenever you can."
+      "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold. Whenever you lose HP outside of combat, lose #r50 #yGold."
     ]
   },
-  "jedi:kaleidoscope":
-  {
+  "jedi:fakemustache": {
+    "NAME": "Fake Mustache",
+    "FLAVOR": "A familiar face?",
+    "DESCRIPTIONS": [
+      "When spending #yGold at the shop, heal #b5 HP. Heal #b10 HP upon pickup."
+    ]
+  },
+  "jedi:firstaidkit": {
+    "NAME": "First Aid Kit",
+    "FLAVOR": "Do you really need a bandage for every byrd peck?",
+    "DESCRIPTIONS": [
+      "Whenever you take unblocked attack damage, gain #b2 Regen."
+    ]
+  },
+  "jedi:gremlinknob": {
+    "NAME": "Gremlin Knob",
+    "FLAVOR": "If I hear ONE MORE knock-knock joke...",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, gain #b1 #yStrength till the end of a turn."
+    ]
+  },
+  "jedi:heavyjacket": {
+    "NAME": "Heavy Jacket",
+    "FLAVOR": "That's a lot of pockets for a single jacket.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b1 #yPlated #yArmor for every #b2 relics you have."
+    ]
+  },
+  "jedi:hotpepper": {
+    "NAME": "Hot Pepper",
+    "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r25%. Further Max HP increase effects are #rreduced #rby #r50%"
+    ]
+  },
+  "jedi:kaleidoscope": {
     "NAME": "Kaleidoscope",
     "FLAVOR": "It seems to be lacking its main shard...",
     "DESCRIPTIONS": [
       "Start each combat with #yStrength equal to unique card colors in your deck."
     ]
   },
-  "jedi:paperlyon":
-  {
+  "jedi:laserpointer": {
+    "NAME": "Laser Pointer",
+    "FLAVOR": "Why is it a pointer if it targets everyone?",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply #b1 #yLock-On to ALL enemies."
+    ]
+  },
+  "jedi:leadlinedbottle": {
+    "NAME": "Lead-Lined Bottle",
+    "FLAVOR": "Unlike other bottles, this one can actually holds its contents properly.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card. Start each combat with this card at the bottom of your draw pile.",
+      "Choose a card for ",
+      "Start each combat with ",
+      " at the bottom of your draw pile."
+    ]
+  },
+  "jedi:leech": {
+    "NAME": "Blood Pack",
+    "FLAVOR": "Nope it was always like this.",
+    "DESCRIPTIONS": [
+      "Reduce HP loss from cards and powers by #b1 to a minimum of #b1."
+    ]
+  },
+  "jedi:matchstick": {
+    "NAME": "Matchstick",
+    "FLAVOR": "The match is struck. A blazing star is born!",
+    "DESCRIPTIONS": [
+      " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Gain [E] [E] ."
+    ]
+  },
+  "jedi:othersneckoeye": {
+    "NAME": "Other Snecko Eye",
+    "FLAVOR": "The legendary second eye of the snecko, unseen by anyone... Untill now.",
+    "DESCRIPTIONS": [
+      "Draw #b1 more card each turn. Start each combat with #b2 #yCHAOS. Gain #b1 more #yCHAOS every #b3 turns."
+    ]
+  },
+  "jedi:paperfaux": {
+    "NAME": "Paper Faux",
+    "FLAVOR": "What does it say?",
+    "DESCRIPTIONS": [
+      "Enemies with #yLock-On take #b75% more damage rather than #b50%."
+    ]
+  },
+  "jedi:paperlyon": {
     "NAME": "Paper Lyon",
     "FLAVOR": "It may only be made of paper, yet it gives such an intimidating aura.",
     "DESCRIPTIONS": [
@@ -196,17 +150,32 @@
       ", receive #b50% more attack damage when #yVulnerable."
     ]
   },
-  "jedi:angrymask":
-  {
-    "NAME": "Angry Mask",
-    "FLAVOR": "Is this what they call \"Aggressive marketing\"?",
+  "jedi:purplefairy": {
+    "NAME": "Purple Fairy",
+    "FLAVOR": "Mai waifu.",
     "DESCRIPTIONS": [
-      "Whenever you spend any #yGold at a shop, start the next combat with #b",
-      " #yStrength."
+      "Whenever you #ySmith a card, heal HP depending on card rarity.",
+      "Healing value",
+      "#yBasic [REMOVE_SPACE]: #gfull HP NL #yCommon or #ySpecial [REMOVE_SPACE]: #b10 HP NL #yUncommon [REMOVE_SPACE]: #b5 HP NL #yRare [REMOVE_SPACE]: #b1 HP NL #rCurse [REMOVE_SPACE]: gain #b5 Max. HP and heal to #gfull [REMOVE_SPACE]."
     ]
   },
-  "jedi:sprinkler":
-  {
+  "jedi:scrapmetal": {
+    "NAME": "Scrap Metal",
+    "FLAVOR": "Nothing should go to waste.",
+    "DESCRIPTIONS": [
+      "For every #b",
+      " #yShivs played, add a #yShiv to your hand."
+    ]
+  },
+  "jedi:shrinkray": {
+    "NAME": "Shrink Ray",
+    "FLAVOR": "An evil mastermind has once tried to steal a satellite with this very relic...",
+    "DESCRIPTIONS": [
+      "Non-boss enemies have #b",
+      "% less HP."
+    ]
+  },
+  "jedi:sprinkler": {
     "NAME": "Sprinkler",
     "FLAVOR": "Taking care of those nasty insects has never been so easy!",
     "DESCRIPTIONS": [
@@ -214,12 +183,32 @@
       " #yPoison to ALL enemies."
     ]
   },
-  "jedi:archwizardhat":
-  {
-    "NAME": "Archwizard's Hat",
-    "FLAVOR": "Bakuretsu, bakuretsu, la la la...",
+  "jedi:superconductor": {
+    "NAME": "Superconductor",
+    "FLAVOR": "You can almost hear orbs going round and round...",
     "DESCRIPTIONS": [
-      "Whenever an #yAttack that costs #b1 or more uses all of your current energy, increase its damage by #b25%."
+      "For every #b10 Orbs Channeled, trigger passive effect of ALL Orbs."
+    ]
+  },
+  "jedi:windupbox": {
+    "NAME": "Wind-up Box",
+    "FLAVOR": "Like clockwork.",
+    "DESCRIPTIONS": [
+      "Increases effectiveness of all time-based relics.",
+      "Deals #b1 more damage.",
+      "Will provide its effect with #b4 cards played.",
+      "Deals damage #b1 turn earlier.",
+      "Gives #b1 additional [E]",
+      "You have #b30 more seconds to live.",
+      "Has #b2 more charges.",
+      "Scales twice faster."
+    ]
+  },
+  "jedi:zontanonomicon": {
+    "NAME": "Zontanonomicon",
+    "FLAVOR": "You feel invigorated just by holding this Book of Living.",
+    "DESCRIPTIONS": [
+      "The first #ySkill played each turn that costs #b2 or more is played twice."
     ]
   }
 }

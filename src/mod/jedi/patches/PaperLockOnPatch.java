@@ -17,12 +17,9 @@ public class PaperLockOnPatch
 
     @SpirePatch(clz= AbstractOrb.class, method = "applyLockOn")
     public static class SingleTarget {
-        @SpireInsertPatch(rloc = 1)
-        public static SpireReturn<Integer> Insert(AbstractCreature target, int dmg) {
-            int retValPatch;
+        public static SpireReturn<Integer> Prefix(AbstractCreature target, int dmg) {
             if (AbstractDungeon.player.hasRelic(PaperFaux.ID) && target.hasPower(LockOnPower.POWER_ID)) {
-                retValPatch = (int) (dmg * 1.75F);
-                return SpireReturn.Return(retValPatch);
+                return SpireReturn.Return((int) (dmg * 1.75F));
             } else {
                 return SpireReturn.Continue();
             }

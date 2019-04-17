@@ -28,7 +28,7 @@ public class AshLotus
 
     public AshLotus()
     {
-        super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.MAGICAL);
     }
 
     public void onPlayerEndTurn()

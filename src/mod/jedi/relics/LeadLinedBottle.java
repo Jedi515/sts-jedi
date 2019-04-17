@@ -12,9 +12,7 @@ import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import gluttonmod.patches.AbstractCardEnum;
-import mod.jedi.patches.LeadLinedBottleField;
+import mod.jedi.patches.JediBottleFields;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -25,7 +23,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import mod.jedi.util.TextureLoader;
 
-import java.util.Iterator;
 import java.util.function.Predicate;
 
 public class LeadLinedBottle
@@ -48,23 +45,26 @@ public class LeadLinedBottle
     }
 
     public void atPreBattle() {
-        this.flash();
-        AbstractCard cardToMove = null;
-
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group)
+        if (AbstractDungeon.player.drawPile.contains(card) && card != null)
         {
-            if (StSLib.getMasterDeckEquivalent(c) == card)
-            {
-                cardToMove = c;
-                break;
-            }
-        }
-        AbstractDungeon.player.drawPile.removeCard(cardToMove);
-        AbstractDungeon.player.drawPile.addToBottom(cardToMove);
+            this.flash();
+            AbstractCard cardToMove = null;
 
-//Don't ask me why i have to remove the card first and then add it back if it's "move" and not "add", i don't know how it works either. but it does. mostly.
-        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.player.hand.refreshHandLayout();
+            for (AbstractCard c : AbstractDungeon.player.drawPile.group)
+            {
+                if (StSLib.getMasterDeckEquivalent(c) == card)
+                {
+                    cardToMove = c;
+                    break;
+                }
+            }
+            AbstractDungeon.player.drawPile.removeCard(cardToMove);
+            AbstractDungeon.player.drawPile.addToBottom(cardToMove);
+
+    //Don't ask me why i have to remove the card first and then add it back if it's "move" and not "add", i don't know how it works either. but it does. mostly.
+            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            AbstractDungeon.player.hand.refreshHandLayout();
+        }
     }
 
     @Override
@@ -85,7 +85,7 @@ public class LeadLinedBottle
         if (card != null) {
             AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(card);
             if (cardInDeck != null) {
-                LeadLinedBottleField.inLeadLinedBottle.set(cardInDeck, false);
+                JediBottleFields.inLeadLinedBottle.set(cardInDeck, false);
             }
         }
     }
@@ -108,7 +108,7 @@ public class LeadLinedBottle
     public void onLoad(Integer index) {
         if (index != null && index >= 0 && index < AbstractDungeon.player.masterDeck.group.size()) {
             this.card = AbstractDungeon.player.masterDeck.group.get(index);
-            LeadLinedBottleField.inLeadLinedBottle.set(this.card, true);
+            JediBottleFields.inLeadLinedBottle.set(this.card, true);
             this.setDescriptionAfterLoading();
         }
     }
@@ -123,7 +123,7 @@ public class LeadLinedBottle
         if (!this.cardSelected && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             this.cardSelected = true;
             this.card = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-            LeadLinedBottleField.inLeadLinedBottle.set(this.card, true);
+            JediBottleFields.inLeadLinedBottle.set(this.card, true);
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.setDescriptionAfterLoading();
@@ -144,6 +144,6 @@ public class LeadLinedBottle
 
     @Override
     public Predicate<AbstractCard> isOnCard() {
-        return LeadLinedBottleField.inLeadLinedBottle::get;
+        return JediBottleFields.inLeadLinedBottle::get;
     }
 }
