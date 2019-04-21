@@ -190,11 +190,67 @@
       "你每生成 #b10 个充能球，触发一次所有充能球的被动效果。"
     ]
   },
+  "jedi:windupbox": {
+    "NAME": "发条盒",
+    "FLAVOR": "看起来像是精巧的钟表装置。",
+    "DESCRIPTIONS": [
+      "提升所有与时间相关的遗物的效果。",
+      "造成的伤害增加 #b1 。",
+      "打出 #b4 张牌即可触发效果。",
+      "提早 #b1 回合造成伤害。",
+      "获得的 [E] 增加 #b1 点。",
+      "你能多存活 #b30 秒。",
+      "增加 #b2 格充能。",
+      "层数积攒速度翻倍。"
+    ]
+  },
   "jedi:zontanonomicon": {
     "NAME": "生灵之书",
     "FLAVOR": "仅仅是拿着这本生者之书，就让你觉得精神焕发。",
     "DESCRIPTIONS": [
       "你每回合打出的第一张耗能大于等于 #b2 的 #y技能牌 将被打出两次。"
+    ]
+  },
+  "jedi:command_common": {
+    "NAME": "命令（普通）",
+    "FLAVOR": "正在获取直接控制。",
+    "DESCRIPTIONS": [
+      "拾取时，选择并获取任意一件普通遗物。"
+    ]
+  },
+  "jedi:command_uncommon": {
+    "NAME": "命令（罕见）",
+    "FLAVOR": "正在获取直接控制。",
+    "DESCRIPTIONS": [
+      "拾取时，选择并获取任意一件罕见遗物。"
+    ]
+  },
+  "jedi:command_rare": {
+    "NAME": "命令（稀有）",
+    "FLAVOR": "正在获取直接控制。",
+    "DESCRIPTIONS": [
+      "拾取时，选择并获取任意一件稀有遗物。"
+    ]
+  },
+  "jedi:command_shop": {
+    "NAME": "命令（商店）",
+    "FLAVOR": "正在获取直接控制。",
+    "DESCRIPTIONS": [
+      "拾取时，选择并获取任意一件商店遗物。"
+    ]
+  },
+  "jedi:command_boss": {
+    "NAME": "命令（BOSS）",
+    "FLAVOR": "正在获取直接控制。",
+    "DESCRIPTIONS": [
+      "拾取时，选择并获取任意一件BOSS遗物。"
+    ]
+  },
+  "jedi:maincommand": {
+    "NAME": "命令",
+    "FLAVOR": "高塔里没有雨。",
+    "DESCRIPTIONS": [
+      "获得遗物的种类不再随机决定，而是由你自选。"
     ]
   }
 }

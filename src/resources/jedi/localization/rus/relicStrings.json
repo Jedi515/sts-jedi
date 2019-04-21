@@ -235,5 +235,47 @@
     "DESCRIPTIONS": [
       "#yАтаки, расходующие всю оставшуюся энергию, наносят на #b25% больше урона."
     ]
+  },
+  "jedi:command_common": {
+    "NAME": "Воля (обычная)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Выберите и получите любую обычную реликвию."
+    ]
+  },
+  "jedi:command_uncommon": {
+    "NAME": "Воля (необычная)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Выберите и получите любую необычную реликвию."
+    ]
+  },
+  "jedi:command_rare": {
+    "NAME": "Воля (редкая)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Выберите и получите любую редкую реликвию."
+    ]
+  },
+  "jedi:command_shop": {
+    "NAME": "Воля (торговца)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Выберите и получите любую реликвию торговца."
+    ]
+  },
+  "jedi:command_boss": {
+    "NAME": "Воля (босса)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Выберите и получите любую реликвию босса."
+    ]
+  },
+  "jedi:maincommand": {
+    "NAME": "Воля Шпиля",
+    "FLAVOR": "Жаль что в Шпиле не идёт дождь.",
+    "DESCRIPTIONS": [
+      "Позволяет выбирать предметы указанной редкости на своё усмотрение."
+    ]
   }
 }

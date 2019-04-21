@@ -65,10 +65,8 @@ public class OtherSneckoEye
 
     public boolean canSpawn()
     {
-        boolean toReturn =  (AbstractDungeon.player.hasRelic(SneckoEye.ID) ||
-                            (AbstractDungeon.player.hasRelic("Ring of Chaos")));
-
-        return toReturn;
+        return  (AbstractDungeon.player.hasRelic(SneckoEye.ID) ||
+                (AbstractDungeon.player.hasRelic("Ring of Chaos")));
     }
 
     public String getUpdatedDescription()

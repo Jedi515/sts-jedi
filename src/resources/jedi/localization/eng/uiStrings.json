@@ -12,5 +12,15 @@
             [
               "Discard and apply Poison"
             ]
+  },
+  "jedi:Command":
+  {
+    "TEXT":
+            [
+              "Allow unseen relics in Command",
+              "Allow locked relics in Command",
+              "Allow relics you already have in Command",
+              "Command is only accessible through Custom Run modifier if Hubris mod is loaded"
+            ]
   }
 }

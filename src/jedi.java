@@ -7,6 +7,9 @@ import archetypeAPI.archetypes.theSilent.DiscardSilent;
 import archetypeAPI.archetypes.theSilent.PoisonSilent;
 import archetypeAPI.archetypes.theSilent.ShivSilent;
 import basemod.BaseMod;
+import basemod.ModLabel;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -15,18 +18,23 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
@@ -37,11 +45,16 @@ import mod.jedi.cards.curses.TheDog;
 import mod.jedi.cards.green.*;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
+import mod.jedi.modifiers.CommandCustomRun;
 import mod.jedi.potions.*;
 import mod.jedi.relics.*;
+import mod.jedi.util.TextureLoader;
 import mod.jedi.variables.JediSecondMN;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Properties;
 
 import static basemod.BaseMod.loadCustomStrings;
 import static the_gatherer.GathererMod.lesserPotionPool;
@@ -54,7 +67,10 @@ public class jedi
             EditStringsSubscriber,
             EditCardsSubscriber,
             EditKeywordsSubscriber,
-            MaxHPChangeSubscriber
+            MaxHPChangeSubscriber,
+            PostUpdateSubscriber,
+            AddCustomModeModsSubscriber,
+            PostDungeonInitializeSubscriber
 {
     public static boolean isReplayLoaded;
     public static boolean isConspireLoaded;
@@ -64,6 +80,10 @@ public class jedi
     public static boolean isHubrisLoaded;
     public static boolean isArchetypeLoaded;
     public static CardGroup StrikeGroup;
+    public static SpireConfig jediConfig;
+    public static boolean CommandUnseen;
+    public static boolean CommandLocked;
+    public static boolean CommandHasCopy;
 
     public static void initialize()
     {
@@ -126,6 +146,85 @@ public class jedi
             LightningDefect.lightningDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Lightning.json");
             ClawLowCostDefect.clawLowCostDefectDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/LowCost.json");
         }
+
+        //Buttons
+        try {
+            Properties defaults = new Properties();
+            defaults.put("jedi:commandunseen", Boolean.toString(false));
+            defaults.put("jedi:commandlocked", Boolean.toString(false));
+            defaults.put("jedi:commandhascopy", Boolean.toString(false));
+
+            jediConfig = new SpireConfig("jedi","jediConfig", defaults);
+            jediConfig.load();
+            CommandUnseen = jediConfig.getBool("jedi:commandunseen");
+            CommandLocked = jediConfig.getBool("jedi:commandlocked");
+            CommandHasCopy = jediConfig.getBool("jedi:commandhascopy");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ModPanel settingsPanel = new ModPanel();
+
+        loadConfigButtons(settingsPanel);
+
+        RelicLibrary.specialList.removeIf(r -> r.relicId.contains("jedi:command_"));
+    }
+
+    private void loadConfigButtons(ModPanel settingsPanel)
+    {
+        UIStrings commandUI = CardCrawlGame.languagePack.getUIString("jedi:Command");
+        String[] TEXT = commandUI.TEXT;
+        ModLabeledToggleButton cmdUnseenBtn = new ModLabeledToggleButton(TEXT[0],
+                350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                CommandUnseen, settingsPanel, l -> {},
+                button ->
+                {
+                    if (jediConfig != null) {
+                        jediConfig.setBool("jedi:commandunseen", button.enabled);
+                        try {
+                            jediConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(cmdUnseenBtn);
+        ModLabeledToggleButton cmdLockedBtn = new ModLabeledToggleButton(TEXT[1],
+                350, 550, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                CommandLocked, settingsPanel, l -> {},
+                button ->
+                {
+                    if (jediConfig != null) {
+                        jediConfig.setBool("jedi:commandlocked", button.enabled);
+                        try {
+                            jediConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(cmdLockedBtn);
+
+        ModLabeledToggleButton cmdHascopyBtn = new ModLabeledToggleButton(TEXT[2],
+                350, 500, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                CommandHasCopy, settingsPanel, l -> {},
+                button ->
+                {
+                    if (jediConfig != null) {
+                        jediConfig.setBool("jedi:commandhascopy", button.enabled);
+                        try {
+                            jediConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(cmdHascopyBtn);
+
+        ModLabel lblCmdWarning = new ModLabel(TEXT[3], 350, 450, Settings.CREAM_COLOR, FontHelper.charDescFont,settingsPanel, l -> {});
+        settingsPanel.addUIElement(lblCmdWarning);
+
+        BaseMod.registerModBadge(TextureLoader.getTexture("resources/jedi/images/badge.png"), "Jedi", "Jedi#3970", "Wat", settingsPanel);
     }
 
     @Override
@@ -209,6 +308,15 @@ public class jedi
         BaseMod.addRelic(new ArchwizardHat(), RelicType.SHARED);
         BaseMod.addRelic(new WindUpBox(), RelicType.SHARED);
 
+        if (isHubrisLoaded)
+        {
+            BaseMod.addRelic(new MainCommand(), RelicType.SHARED);
+            BaseMod.addRelic(new Command_common(), RelicType.SHARED);
+            BaseMod.addRelic(new Command_uncommon(), RelicType.SHARED);
+            BaseMod.addRelic(new Command_rare(), RelicType.SHARED);
+            BaseMod.addRelic(new Command_shop(), RelicType.SHARED);
+            BaseMod.addRelic(new Command_boss(), RelicType.SHARED);
+        }
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);
 
@@ -301,23 +409,13 @@ public class jedi
 
     private void loadStrings(String langKey)
     {
-        String cardStrings = GetLocString(langKey, "cardStrings");
-        loadCustomStrings(CardStrings.class, cardStrings);
-
-        String relicStrings = GetLocString(langKey, "relicStrings");
-        loadCustomStrings(RelicStrings.class, relicStrings);
-
-        String potionStrings = GetLocString(langKey, "potionStrings");
-        loadCustomStrings(PotionStrings.class, potionStrings);
-
-        String powerStrings = GetLocString(langKey, "powerStrings");
-        loadCustomStrings(PowerStrings.class, powerStrings);
-
-        String eventStrings = GetLocString(langKey, "eventStrings");
-        loadCustomStrings(EventStrings.class, eventStrings);
-
-        String uiStrings = GetLocString(langKey, "uiStrings");
-        loadCustomStrings(UIStrings.class, uiStrings);
+        loadCustomStrings(CardStrings.class, GetLocString(langKey, "cardStrings"));
+        loadCustomStrings(RelicStrings.class, GetLocString(langKey, "relicStrings"));
+        loadCustomStrings(PotionStrings.class, GetLocString(langKey, "potionStrings"));
+        loadCustomStrings(PowerStrings.class, GetLocString(langKey, "powerStrings"));
+        loadCustomStrings(EventStrings.class, GetLocString(langKey, "eventStrings"));
+        loadCustomStrings(UIStrings.class, GetLocString(langKey, "uiStrings"));
+        loadCustomStrings(RunModStrings.class, GetLocString(langKey, "runmodStrings"));
     }
 
     @Override
@@ -355,5 +453,54 @@ public class jedi
             }
         }
         return toReturn;
+    }
+
+    @Override
+    public void receivePostUpdate()
+    {
+        if (CardCrawlGame.isInARun() && isHubrisLoaded)
+        {
+            AbstractCommand command = null;
+
+            for (AbstractRelic r : AbstractDungeon.player.relics)
+            {
+                if (r.relicId.contains(AbstractCommand.ID))
+                {
+                    command = (AbstractCommand) r;
+                }
+            }
+
+            if (command != null)
+            {
+                command.relicBS();
+            }
+        }
+    }
+
+    @Override
+    public void receiveCustomModeMods(List<CustomMod> list)
+    {
+        if (isHubrisLoaded)
+        {
+            list.add(new CustomMod(CommandCustomRun.ID, "b", true));
+        }
+    }
+
+    @Override
+    public void receivePostDungeonInitialize()
+    {
+        if (isHubrisLoaded)
+        {
+            if (CardCrawlGame.trial != null)
+            {
+                if( CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID))
+                {
+                    new MainCommand().instantObtain();
+                }
+            }
+        }
+        CommandUnseen = jediConfig.getBool("jedi:commandunseen");
+        CommandLocked = jediConfig.getBool("jedi:commandlocked");
+        CommandHasCopy = jediConfig.getBool("jedi:commandhascopy");
     }
 }

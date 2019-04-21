@@ -52,7 +52,7 @@ public class LeadLinedBottle
 
             for (AbstractCard c : AbstractDungeon.player.drawPile.group)
             {
-                if (StSLib.getMasterDeckEquivalent(c) == card)
+                if (JediBottleFields.inLeadLinedBottle.get(c))
                 {
                     cardToMove = c;
                     break;

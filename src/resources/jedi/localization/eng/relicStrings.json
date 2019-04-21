@@ -71,7 +71,7 @@
     "NAME": "Gremlin Knob",
     "FLAVOR": "If I hear ONE MORE knock-knock joke...",
     "DESCRIPTIONS": [
-      "Whenever you play a #ySkill, gain #b1 #yStrength till the end of a turn."
+      "Whenever you play a #ySkill, gain #b1 #yStrength until the end of your turn."
     ]
   },
   "jedi:heavyjacket": {
@@ -209,6 +209,48 @@
     "FLAVOR": "You feel invigorated just by holding this Book of Living.",
     "DESCRIPTIONS": [
       "The first #ySkill played each turn that costs #b2 or more is played twice."
+    ]
+  },
+  "jedi:command_common": {
+    "NAME": "Command (common)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any common relic."
+    ]
+  },
+  "jedi:command_uncommon": {
+    "NAME": "Command (uncommon)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any uncommon relic."
+    ]
+  },
+  "jedi:command_rare": {
+    "NAME": "Command (rare)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any rare relic."
+    ]
+  },
+  "jedi:command_shop": {
+    "NAME": "Command (shop)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any shop relic."
+    ]
+  },
+  "jedi:command_boss": {
+    "NAME": "Command (boss)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any boss relic."
+    ]
+  },
+  "jedi:maincommand": {
+    "NAME": "Command",
+    "FLAVOR": "There is no rain inside the Spire.",
+    "DESCRIPTIONS": [
+      "Instead of random you always choose which relic to obtain."
     ]
   }
 }
