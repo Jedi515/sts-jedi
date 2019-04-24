@@ -47,6 +47,7 @@ public class StrikingStrike
         }
         card.freeToPlayOnce = true;
         card.applyPowers();
+        card.calculateCardDamage(m);
         card.purgeOnUse = true;
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, m));
     }

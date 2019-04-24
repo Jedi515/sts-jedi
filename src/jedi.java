@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
@@ -53,6 +54,7 @@ import mod.jedi.variables.JediSecondMN;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -84,6 +86,8 @@ public class jedi
     public static boolean CommandUnseen;
     public static boolean CommandLocked;
     public static boolean CommandHasCopy;
+    public static ArrayList<AbstractRelic> unseenRelics = new ArrayList<>();
+    public static ArrayList<String> lockedRelics = new ArrayList<>();
 
     public static void initialize()
     {
@@ -267,16 +271,13 @@ public class jedi
         BaseMod.addCard(new StrikingStrike());
         BaseMod.addCard(new OneStrike());
         BaseMod.addCard(new CollectorStrike());
-        //Fear leads to anger, anger leads to hate, hate leads to suffering
         BaseMod.addCard(new Fear());
         BaseMod.addCard(new Hate());
         BaseMod.addCard(new Suffering());
-        //WORK IT / MAKE IT / DO IT / MAKES US
         BaseMod.addCard(new Harder());
         BaseMod.addCard(new Better());
         BaseMod.addCard(new Faster());
         BaseMod.addCard(new Stronger());
-        //UNLIMITED PAAAWAAAAAAAH
         BaseMod.addCard(new UnlimitedPower());
         BaseMod.addCard(new BloodyHammer());
         BaseMod.addCard(new ControlledAnger());

@@ -1,8 +1,10 @@
 package mod.jedi.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import mod.jedi.modifiers.CommandCustomRun;
 import mod.jedi.relics.MainCommand;
 import sts_jedi.jedi;
 
@@ -14,7 +16,7 @@ public class CommandPatches
     {
         if (jedi.isHubrisLoaded)
         {
-            if (AbstractDungeon.player.hasRelic(MainCommand.ID))
+            if (AbstractDungeon.player.hasRelic(MainCommand.ID) || ((CardCrawlGame.trial != null) && (CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID))))
             {
                 return "jedi:command_" + tier.toString().toLowerCase();
             }

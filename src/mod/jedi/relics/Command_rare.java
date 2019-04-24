@@ -38,10 +38,34 @@ public class Command_rare
         {
             relics.removeIf((r) -> UnlockTracker.isRelicLocked(r.relicId));
         }
+        else
+        {
+            sts_jedi.jedi.lockedRelics.clear();
+            for (AbstractRelic r : relics)
+            {
+                if (UnlockTracker.isRelicLocked(r.relicId))
+                {
+                    sts_jedi.jedi.lockedRelics.add(r.relicId);
+                    UnlockTracker.lockedRelics.remove(r.relicId);
+                }
+            }
+        }
 
         if (!sts_jedi.jedi.CommandUnseen)
         {
             relics.removeIf((r) -> !UnlockTracker.isRelicSeen(r.relicId));
+        }
+        else
+        {
+            sts_jedi.jedi.unseenRelics.clear();
+            for (AbstractRelic r : relics)
+            {
+                if (!UnlockTracker.isRelicSeen(r.relicId))
+                {
+                    sts_jedi.jedi.unseenRelics.add(r);
+                    r.isSeen = true;
+                }
+            }
         }
         this.relicSelectScreen.open(relics);
     }

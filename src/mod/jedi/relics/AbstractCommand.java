@@ -8,6 +8,8 @@ import com.evacipated.cardcrawl.mod.hubris.vfx.ObtainRelicLater;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import sts_jedi.jedi;
 
 public abstract class AbstractCommand
     extends CustomRelic
@@ -29,6 +31,7 @@ public abstract class AbstractCommand
     }
 
     public void onEquip() {
+        AbstractDungeon.closeCurrentScreen();
         if (AbstractDungeon.isScreenUp) {
             AbstractDungeon.dynamicBanner.hide();
             AbstractDungeon.overlayMenu.cancelButton.hide();
@@ -108,6 +111,19 @@ public abstract class AbstractCommand
         if (loseRelic)
         {
             AbstractDungeon.player.loseRelic(this.relicId);
+
+            if (sts_jedi.jedi.CommandLocked)
+            {
+                UnlockTracker.lockedRelics.addAll(sts_jedi.jedi.lockedRelics);
+            }
+
+            if (jedi.CommandUnseen)
+            {
+                for (AbstractRelic r : jedi.unseenRelics)
+                {
+                    r.isSeen = false;
+                }
+            }
         }
     }
 }
