@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.hubris.relics.CrackedHourglass;
 import com.evacipated.cardcrawl.mod.hubris.relics.Metronome;
 import com.evacipated.cardcrawl.mod.hubris.relics.Stopwatch;
-import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.MercuryHourglass;
@@ -13,7 +12,7 @@ import com.megacrit.cardcrawl.relics.Pocketwatch;
 import com.megacrit.cardcrawl.relics.StoneCalendar;
 import com.megacrit.cardcrawl.relics.Sundial;
 import mod.jedi.util.TextureLoader;
-import sts_jedi.jedi;
+import mod.jedi.jedi;
 
 public class WindUpBox
     extends CustomRelic

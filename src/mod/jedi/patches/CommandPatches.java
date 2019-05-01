@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import mod.jedi.modifiers.CommandCustomRun;
 import mod.jedi.relics.MainCommand;
-import sts_jedi.jedi;
+import mod.jedi.jedi;
 
 @SpirePatch(clz = AbstractDungeon.class, method = "returnEndRandomRelicKey")
 @SpirePatch(clz = AbstractDungeon.class, method = "returnRandomRelicKey")

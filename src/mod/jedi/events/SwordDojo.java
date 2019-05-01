@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import static sts_jedi.jedi.returnTrulyRandomStrike;
+import static mod.jedi.jedi.returnTrulyRandomStrike;
 
 public class SwordDojo
     extends AbstractImageEvent

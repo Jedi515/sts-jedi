@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.characters.Ironclad;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import gluttonmod.characters.GluttonCharacter;
 import mod.jedi.util.TextureLoader;
-import sts_jedi.jedi;
+import mod.jedi.jedi;
 
 public class AshLotus
     extends CustomRelic

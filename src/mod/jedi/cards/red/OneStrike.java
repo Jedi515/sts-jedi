@@ -16,9 +16,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
-import conspire.powers.GhostlyPower;
-import conspire.powers.HolyPower;
-import sts_jedi.jedi;
 
 public class OneStrike
     extends CustomCard

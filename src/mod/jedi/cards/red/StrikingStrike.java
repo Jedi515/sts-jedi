@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static sts_jedi.jedi.returnTrulyRandomStrike;
+import static mod.jedi.jedi.returnTrulyRandomStrike;
 
 //If you're curious on how does it double increase perfected strike - go patches/strikingstrikepatch.java
 public class StrikingStrike

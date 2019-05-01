@@ -1,11 +1,5 @@
-package sts_jedi;
+package mod.jedi;
 
-import archetypeAPI.archetypes.theDefect.ClawLowCostDefect;
-import archetypeAPI.archetypes.theDefect.DarkDefect;
-import archetypeAPI.archetypes.theDefect.LightningDefect;
-import archetypeAPI.archetypes.theSilent.DiscardSilent;
-import archetypeAPI.archetypes.theSilent.PoisonSilent;
-import archetypeAPI.archetypes.theSilent.ShivSilent;
 import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
@@ -35,7 +29,6 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
@@ -46,6 +39,7 @@ import mod.jedi.cards.curses.TheDog;
 import mod.jedi.cards.green.*;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
+import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.modifiers.CommandCustomRun;
 import mod.jedi.potions.*;
 import mod.jedi.relics.*;
@@ -103,11 +97,15 @@ public class jedi
 
     public static int publishAttackMonsterChange(DamageInfo info, int damage)
     {
-        if (AbstractDungeon.player.hasRelic(ArchwizardHat.ID))
+        int returnDamage = damage;
+        for (AbstractRelic r : AbstractDungeon.player.relics)
         {
-            return ((ArchwizardHat)(AbstractDungeon.player.getRelic(ArchwizardHat.ID))).betterOnAttackedMonster(info, damage);
+            if (r instanceof RelicOnFullAttackMonster)
+            {
+                returnDamage = ((RelicOnFullAttackMonster)r).betterOnAttackedMonster(info, returnDamage);
+            }
         }
-        return damage;
+        return returnDamage;
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -140,16 +138,16 @@ public class jedi
             }
         }
 
-        if (isArchetypeLoaded)
-        {
-            DiscardSilent.discardSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Discard.json");
-            PoisonSilent.poisonSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Poison.json");
-            ShivSilent.shivSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Shiv.json");
-
-            DarkDefect.darkDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Dark.json");
-            LightningDefect.lightningDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Lightning.json");
-            ClawLowCostDefect.clawLowCostDefectDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/LowCost.json");
-        }
+//        if (isArchetypeLoaded)
+//        {
+//            DiscardSilent.discardSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Discard.json");
+//            PoisonSilent.poisonSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Poison.json");
+//            ShivSilent.shivSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Shiv.json");
+//
+//            DarkDefect.darkDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Dark.json");
+//            LightningDefect.lightningDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Lightning.json");
+//            ClawLowCostDefect.clawLowCostDefectDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/LowCost.json");
+//        }
 
         //Buttons
         try {
@@ -308,6 +306,13 @@ public class jedi
         BaseMod.addRelic(new AngryMask(), RelicType.SHARED);
         BaseMod.addRelic(new ArchwizardHat(), RelicType.SHARED);
         BaseMod.addRelic(new WindUpBox(), RelicType.SHARED);
+        BaseMod.addRelic(new BottledFury(), RelicType.SHARED);
+        BaseMod.addRelic(new ArcaneWood(), RelicType.SHARED);
+
+        BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
+        BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
+        BaseMod.addRelic(new TokenOfMystery(), RelicType.SHARED);
+        BaseMod.addRelic(new TokenOfSerenity(), RelicType.SHARED);
 
         if (isHubrisLoaded)
         {
@@ -329,6 +334,7 @@ public class jedi
         BaseMod.addRelic(new Sprinkler(), RelicType.GREEN);
 
         BaseMod.addRelic(new Leech(), RelicType.RED);
+        BaseMod.addRelic(new IronBlood(), RelicType.RED);
 
         BaseMod.addRelic(new Zontanonomicon(), RelicType.SHARED);
 

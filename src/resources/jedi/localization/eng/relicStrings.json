@@ -7,6 +7,13 @@
       " #yStrength."
     ]
   },
+  "jedi:arcanewood": {
+    "NAME": "Arcane Wood",
+    "FLAVOR": "Why did it have to be something special?",
+    "DESCRIPTIONS": [
+      "You can now encounter Rest sites in #y? rooms."
+    ]
+  },
   "jedi:archwizardhat": {
     "NAME": "Archwizard's Hat",
     "FLAVOR": "Bakuretsu, bakuretsu, la la la...",
@@ -27,6 +34,16 @@
     "FLAVOR": "To battle! Fight! Fight for your life!",
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. You have to enter combat rooms whenever you can."
+    ]
+  },
+  "jedi:bottledfury": {
+    "NAME": "Bottled Fury",
+    "FLAVOR": "I will be very sad if you put in something like Bandage Up and will just spam it to heal to full every possible time.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card. Whenever an enemy dies, #yFetch this card to your hand.",
+      "Choose a card for ",
+      "Whenever an enemy dies, #yFetch ",
+      " into your hand."
     ]
   },
   "jedi:crownofsimplicity": {
@@ -86,6 +103,13 @@
     "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r25%. Further Max HP increase effects are #rreduced #rby #r50%"
+    ]
+  },
+  "jedi:ironblood": {
+    "NAME": "Iron Blood",
+    "FLAVOR": "It may be a worse Potato, but it sure is a better Velvet Choker.",
+    "DESCRIPTIONS": [
+      "Whenever you would lose HP, take that much damage instead."
     ]
   },
   "jedi:kaleidoscope": {
@@ -188,6 +212,36 @@
     "FLAVOR": "You can almost hear orbs going round and round...",
     "DESCRIPTIONS": [
       "For every #b10 Orbs Channeled, trigger passive effect of ALL Orbs."
+    ]
+  },
+  "jedi:tokenofglory": {
+    "NAME": "Token of Glory",
+    "FLAVOR": "You're feeling an ominous presence...",
+    "DESCRIPTIONS": [
+      "Elites are more often."
+    ]
+  },
+  "jedi:tokenofmystery": {
+    "NAME": "Token of Mystery",
+    "FLAVOR": "???????????????????????????",
+    "DESCRIPTIONS": [
+      "#y? rooms are more often. NL You are more likely to encounter normal enemy encounters in #y? rooms."
+    ]
+  },
+  "jedi:tokenofserenity": {
+    "NAME": "Token of Serenity",
+    "FLAVOR": "Hush now, quiet now, it's time to lay your sleepy head...",
+    "DESCRIPTIONS": [
+      "Rest sites are more often. NL When resting, heal #b",
+      "% HP (instead of #b30% [REMOVE_SPACE])"
+    ]
+  },
+  "jedi:tokenofwealth": {
+    "NAME": "Token of Wealth",
+    "FLAVOR": "The price you pay.",
+    "DESCRIPTIONS": [
+      "Shops are more often. NL All prices in shop are increased by #b",
+      "%."
     ]
   },
   "jedi:windupbox": {

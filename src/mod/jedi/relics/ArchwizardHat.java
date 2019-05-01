@@ -6,10 +6,12 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.util.TextureLoader;
 
 public class ArchwizardHat
     extends CustomRelic
+    implements RelicOnFullAttackMonster
 {
     public static final String ID = "jedi:archwizardhat";
     public static final String PATH = "resources/jedi/images/relics/";

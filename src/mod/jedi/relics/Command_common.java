@@ -1,13 +1,12 @@
 package mod.jedi.relics;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.mod.hubris.screens.select.RelicSelectScreen;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mod.jedi.util.TextureLoader;
-import sts_jedi.jedi;
+import mod.jedi.jedi;
 
 import java.util.ArrayList;
 

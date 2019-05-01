@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import sts_jedi.jedi;
+import mod.jedi.jedi;
 
 public abstract class AbstractCommand
     extends CustomRelic
@@ -112,9 +112,9 @@ public abstract class AbstractCommand
         {
             AbstractDungeon.player.loseRelic(this.relicId);
 
-            if (sts_jedi.jedi.CommandLocked)
+            if (jedi.CommandLocked)
             {
-                UnlockTracker.lockedRelics.addAll(sts_jedi.jedi.lockedRelics);
+                UnlockTracker.lockedRelics.addAll(jedi.lockedRelics);
             }
 
             if (jedi.CommandUnseen)
