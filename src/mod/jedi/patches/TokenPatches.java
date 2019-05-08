@@ -26,6 +26,8 @@ import java.util.ArrayList;
 
 public class TokenPatches
 {
+    private static float INCREMENT = 2.0F;
+
     @SpirePatch(clz = AbstractDungeon.class, method = "generateRoomTypes")
     public static class MapGenTokenPatch
     {
@@ -34,19 +36,19 @@ public class TokenPatches
         {
             if (AbstractDungeon.player.hasRelic(TokenOfGlory.ID))
             {
-                eliteCount[0] = (int)Math.ceil(eliteCount[0] * 1.5F);
+                eliteCount[0] = (int)Math.ceil(eliteCount[0] * INCREMENT);
             }
             else if (AbstractDungeon.player.hasRelic(TokenOfMystery.ID))
             {
-                eventCount[0] = (int)Math.ceil(eventCount[0] * 1.5F);
+                eventCount[0] = (int)Math.ceil(eventCount[0] * INCREMENT);
             }
             else if (AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
             {
-                restCount[0] = (int)Math.ceil(restCount[0] * 1.5F);
+                restCount[0] = (int)Math.ceil(restCount[0] * INCREMENT);
             }
             else if (AbstractDungeon.player.hasRelic(TokenOfWealth.ID))
             {
-                shopCount[0] = (int)Math.ceil(shopCount[0] * 1.5F);
+                shopCount[0] = (int)Math.ceil(shopCount[0] * INCREMENT);
             }
         }
     }

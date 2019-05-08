@@ -18,10 +18,10 @@ public class IronBloodPatch
             if (AbstractDungeon.player.hasRelic(IronBlood.ID) && type == DamageInfo.DamageType.HP_LOSS && damageSource == AbstractDungeon.player)
             {
                 __instance.type = DamageInfo.DamageType.THORNS;
-                if (AbstractDungeon.player.hasRelic(Leech.ID))
-                {
-                    __instance.base--;
-                }
+//                if (AbstractDungeon.player.hasRelic(Leech.ID))
+//                {
+//                    __instance.base--;
+//                }
             }
         }
     }

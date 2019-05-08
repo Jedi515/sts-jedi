@@ -5,13 +5,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import mod.jedi.interfaces.ModifyDamageRelic;
 import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.util.TextureLoader;
 
 public class ArchwizardHat
     extends CustomRelic
-    implements RelicOnFullAttackMonster
+    implements ModifyDamageRelic
 {
     public static final String ID = "jedi:archwizardhat";
     public static final String PATH = "resources/jedi/images/relics/";
@@ -20,6 +22,7 @@ public class ArchwizardHat
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
     private static boolean triggered;
+    public static final float efficiency = 1.25F;
 
     public ArchwizardHat()
     {
@@ -41,12 +44,21 @@ public class ArchwizardHat
         }
     }
 
-    public int betterOnAttackedMonster(DamageInfo info, int damageAmount)
+    public int calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, int damage)
     {
-        if (triggered && info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0)
+        if ((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0)
         {
-            return (int)(damageAmount * 1.25F);
+            return (int)Math.ceil(damage * efficiency);
         }
-        return damageAmount;
+        return damage;
+    }
+
+    public int applyPowersFinalRelic(AbstractCard card, int damage)
+    {
+        if ((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0)
+        {
+            return (int)Math.ceil(damage * efficiency);
+        }
+        return damage;
     }
 }

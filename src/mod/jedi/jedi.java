@@ -308,11 +308,14 @@ public class jedi
         BaseMod.addRelic(new WindUpBox(), RelicType.SHARED);
         BaseMod.addRelic(new BottledFury(), RelicType.SHARED);
         BaseMod.addRelic(new ArcaneWood(), RelicType.SHARED);
+        BaseMod.addRelic(new StrikeManual(), RelicType.SHARED);
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfMystery(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfSerenity(), RelicType.SHARED);
+
+        BaseMod.addRelic(new StrengthTestRelic(), RelicType.SHARED);
 
         if (isHubrisLoaded)
         {

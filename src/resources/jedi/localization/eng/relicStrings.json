@@ -187,8 +187,8 @@
     "NAME": "Scrap Metal",
     "FLAVOR": "Nothing should go to waste.",
     "DESCRIPTIONS": [
-      "For every #b",
-      " #yShivs played, add a #yShiv to your hand."
+      "#yShivs deal #b",
+      " additional damage for each #yShiv played during the turn."
     ]
   },
   "jedi:shrinkray": {
@@ -205,6 +205,14 @@
     "DESCRIPTIONS": [
       "Whenever you shuffle your draw pile, apply #b",
       " #yPoison to ALL enemies."
+    ]
+  },
+  "jedi:strikemanual": {
+    "NAME": "Strike Manual",
+    "FLAVOR": "Truly striking knowledge.",
+    "DESCRIPTIONS": [
+      "All #yStrikes deal #b",
+      " additional damage."
     ]
   },
   "jedi:superconductor": {
@@ -305,6 +313,13 @@
     "FLAVOR": "There is no rain inside the Spire.",
     "DESCRIPTIONS": [
       "Instead of random you always choose which relic to obtain."
+    ]
+  },
+  "jedi:strengthtestrelic": {
+    "NAME": "Strength test",
+    "FLAVOR": "I mean why not.",
+    "DESCRIPTIONS": [
+      "All attacks deal #b10 more damage."
     ]
   }
 }

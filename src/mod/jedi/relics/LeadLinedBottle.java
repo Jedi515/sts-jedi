@@ -41,7 +41,7 @@ public class LeadLinedBottle
 
 
     public LeadLinedBottle() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON,LandingSound.CLINK);
+        super(ID, IMG, OUTLINE, RelicTier.DEPRECATED, LandingSound.CLINK);
     }
 
     public void atPreBattle() {
