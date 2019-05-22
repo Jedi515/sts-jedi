@@ -29,6 +29,16 @@ public class HeavyJacket
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new PlatedArmorPower(AbstractDungeon.player, PA), PA));
     }
 
+    public void onEquip()
+    {
+        this.counter = (AbstractDungeon.player.relics.size()) / 2;
+    }
+
+    public void modifyCounter()
+    {
+        this.counter = (AbstractDungeon.player.relics.size() + 1) / 2;
+    }
+
     public String getUpdatedDescription()
     {
         return this.DESCRIPTIONS[0];

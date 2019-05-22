@@ -36,7 +36,7 @@ public class Hate
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new HatredAction(m, new DamageInfo(p, this.damage)));
+        AbstractDungeon.actionManager.addToBottom(new HatredAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
     }
 
     @Override

@@ -51,7 +51,7 @@ public class UnlimitedPower
 
 
         AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(m));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage)));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
 
         this.upgrade();
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));

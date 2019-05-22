@@ -68,6 +68,8 @@ public abstract class AbstractCommand
                     case BOSS:
                         AbstractDungeon.bossRelicPool.removeIf(id ->  id.equals(relic.relicId));
                         break;
+                    default:
+                        System.out.println("JEDI MOD: Top 10 anime plot twists - command was SOMEHOW called for a rarity that it doesn't support. I blame mods. If osmething crashed: " + relic.tier.toString());
                 }
                 AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(relic));
                 AbstractDungeon.getCurrRoom().phase = roomPhase;

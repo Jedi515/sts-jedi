@@ -1,5 +1,6 @@
 package mod.jedi;
 
+import archetypeAPI.ArchetypeAPI;
 import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
@@ -28,6 +29,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.CallingBell;
+import com.megacrit.cardcrawl.relics.PandorasBox;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import gluttonmod.patches.AbstractCardEnum;
 import mod.jedi.cards.blue.*;
@@ -41,6 +44,7 @@ import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.modifiers.CommandCustomRun;
+import mod.jedi.relics.Equalizer;
 import mod.jedi.potions.*;
 import mod.jedi.relics.*;
 import mod.jedi.util.TextureLoader;
@@ -66,7 +70,8 @@ public class jedi
             MaxHPChangeSubscriber,
             PostUpdateSubscriber,
             AddCustomModeModsSubscriber,
-            PostDungeonInitializeSubscriber
+            PostDungeonInitializeSubscriber,
+            RelicGetSubscriber
 {
     public static boolean isReplayLoaded;
     public static boolean isConspireLoaded;
@@ -80,6 +85,7 @@ public class jedi
     public static boolean CommandUnseen;
     public static boolean CommandLocked;
     public static boolean CommandHasCopy;
+    public static ArrayList<String> cursedRelics = new ArrayList<>();
     public static ArrayList<AbstractRelic> unseenRelics = new ArrayList<>();
     public static ArrayList<String> lockedRelics = new ArrayList<>();
 
@@ -118,6 +124,15 @@ public class jedi
         BaseMod.addPotion(CoolantLeak.class, null, Color.CYAN, null,CoolantLeak.ID, AbstractPlayer.PlayerClass.DEFECT);
         BaseMod.addPotion(HolyWater.class, Color.YELLOW, Color.WHITE, null, HolyWater.ID);
 
+        // Filling cursed relic pool for lucky charm
+        cursedRelics.clear();
+        cursedRelics.add(CallingBell.ID);
+        cursedRelics.add(PandorasBox.ID);
+        cursedRelics.add(OminousLoanNote.ID);
+        cursedRelics.add(ScalesOfToshan.ID);
+        cursedRelics.add(Equalizer.ID);
+        cursedRelics.add(LuckyCharm.ID);
+
         if (isGathererLoaded)
         {
             lesserPotionPool.add(new LesserTentacleJuice());
@@ -138,16 +153,10 @@ public class jedi
             }
         }
 
-//        if (isArchetypeLoaded)
-//        {
-//            DiscardSilent.discardSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Discard.json");
-//            PoisonSilent.poisonSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Poison.json");
-//            ShivSilent.shivSilentArchetypeFiles.add("resources/jedi/Archetypes/Silent/Shiv.json");
-//
-//            DarkDefect.darkDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Dark.json");
-//            LightningDefect.lightningDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/Lightning.json");
-//            ClawLowCostDefect.clawLowCostDefectDefectArchetypeFiles.add("resources/jedi/Archetypes/Defect/LowCost.json");
-//        }
+        if (isArchetypeLoaded)
+        {
+            ArchetypeAPI.loadArchetypes("resources/jedi/Archetypes");
+        }
 
         //Buttons
         try {
@@ -309,6 +318,10 @@ public class jedi
         BaseMod.addRelic(new BottledFury(), RelicType.SHARED);
         BaseMod.addRelic(new ArcaneWood(), RelicType.SHARED);
         BaseMod.addRelic(new StrikeManual(), RelicType.SHARED);
+        BaseMod.addRelic(new OminousLoanNote(), RelicType.SHARED);
+        BaseMod.addRelic(new ScalesOfToshan(), RelicType.SHARED);
+        BaseMod.addRelic(new Equalizer(), RelicType.SHARED);
+        BaseMod.addRelic(new LuckyCharm(), RelicType.SHARED);
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
@@ -335,6 +348,7 @@ public class jedi
 
         BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
         BaseMod.addRelic(new Sprinkler(), RelicType.GREEN);
+        BaseMod.addRelic(new GhostBlades(), RelicType.GREEN);
 
         BaseMod.addRelic(new Leech(), RelicType.RED);
         BaseMod.addRelic(new IronBlood(), RelicType.RED);
@@ -468,7 +482,9 @@ public class jedi
     @Override
     public void receivePostUpdate()
     {
-        if (CardCrawlGame.isInARun() && isHubrisLoaded)
+        if (AbstractDungeon.player == null) return;
+
+        if (isHubrisLoaded)
         {
             AbstractCommand command = null;
 
@@ -512,5 +528,18 @@ public class jedi
         CommandUnseen = jediConfig.getBool("jedi:commandunseen");
         CommandLocked = jediConfig.getBool("jedi:commandlocked");
         CommandHasCopy = jediConfig.getBool("jedi:commandhascopy");
+    }
+
+    @Override
+    public void receiveRelicGet(AbstractRelic abstractRelic)
+    {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null) return;
+        for (AbstractRelic r : p.relics)
+        {
+            if (r.relicId.equals(HeavyJacket.ID)) ((HeavyJacket)r).modifyCounter();
+            if (r.relicId.equals(LuckyCharm.ID)) ((LuckyCharm)r).modifyCounter(abstractRelic.relicId);
+        }
+
     }
 }

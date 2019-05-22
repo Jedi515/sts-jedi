@@ -70,6 +70,13 @@
       "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold. Whenever you lose HP outside of combat, lose #r50 #yGold."
     ]
   },
+  "jedi:equalizer": {
+    "NAME": "Equalizer",
+    "FLAVOR": "You're equally as lucky to get this relic as you're unlucky you could've bought a different one.",
+    "DESCRIPTIONS": [
+      "Increases damage and #yBlock from #ybasic and #ycommon cards by #b25%. Reduces damage and #yBlock from other cards by #b25%."
+    ]
+  },
   "jedi:fakemustache": {
     "NAME": "Fake Mustache",
     "FLAVOR": "A familiar face?",
@@ -82,6 +89,13 @@
     "FLAVOR": "Do you really need a bandage for every byrd peck?",
     "DESCRIPTIONS": [
       "Whenever you take unblocked attack damage, gain #b2 Regen."
+    ]
+  },
+  "jedi:ghostblades": {
+    "NAME": "Ghost Blades",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "#yShivs ignore enemy #yBlock."
     ]
   },
   "jedi:gremlinknob": {
@@ -143,11 +157,27 @@
       "Reduce HP loss from cards and powers by #b1 to a minimum of #b1."
     ]
   },
+  "jedi:luckycharm": {
+    "NAME": "Lucky Charm",
+    "FLAVOR": "If this works you're truly lucky to stay alive.",
+    "DESCRIPTIONS": [
+      "Start each combat with #b",
+      " #yStrength and #yDexterity for each #rcursed relic you hold."
+    ]
+  },
   "jedi:matchstick": {
     "NAME": "Matchstick",
     "FLAVOR": "The match is struck. A blazing star is born!",
     "DESCRIPTIONS": [
       " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Gain [E] [E] ."
+    ]
+  },
+  "jedi:ominousloannote": {
+    "NAME": "Ominous Loan Note",
+    "FLAVOR": "You pay for your greed.",
+    "DESCRIPTIONS": [
+      "Upon pickup receive a large sum of gold. All gold gained, with interest, will go toward paying off this debt.",
+      "The debt has been paid."
     ]
   },
   "jedi:othersneckoeye": {
@@ -181,6 +211,13 @@
       "Whenever you #ySmith a card, heal HP depending on card rarity.",
       "Healing value",
       "#yBasic [REMOVE_SPACE]: #gfull HP NL #yCommon or #ySpecial [REMOVE_SPACE]: #b10 HP NL #yUncommon [REMOVE_SPACE]: #b5 HP NL #yRare [REMOVE_SPACE]: #b1 HP NL #rCurse [REMOVE_SPACE]: gain #b5 Max. HP and heal to #gfull [REMOVE_SPACE]."
+    ]
+  },
+  "jedi:scalesoftoshan": {
+    "NAME": "Scales of Toshan",
+    "FLAVOR": "Perfectly balanced, as all things should be.",
+    "DESCRIPTIONS": [
+      "Increases damage and #yBlock from unupgraded cards by #b25%. Reduces damage and #yBlock from upgraded cards by #b25%."
     ]
   },
   "jedi:scrapmetal": {

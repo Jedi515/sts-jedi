@@ -1,7 +1,8 @@
 {
   "jedi:DiscardSilent":
   {
-    "NAME": "Discard",
+    "CHARACTER": "THE_SILENT",
+    "ARCHETYPE_NAME": "Discard",
     "CARD_IDS":
     [
       "jedi:unstablefumes",
