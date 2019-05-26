@@ -205,8 +205,8 @@
   },
   "jedi:unlimitedpower": {
     "NAME": "无限力量",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL  消耗 。 NL  jedi:无限 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL  失去 !M! 点生命。 NL  消耗 。 NL  jedi:无限 。"
+    "DESCRIPTION": "造成 !D! 点伤害。  NL  jedi:无限 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL  失去 !M! 点生命。  NL  jedi:无限 。"
   },
   "jedi:unstablefumes": {
     "NAME": "不稳毒雾",

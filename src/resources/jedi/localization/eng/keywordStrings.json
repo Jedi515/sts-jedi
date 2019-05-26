@@ -4,7 +4,7 @@
             [
               "unlimited"
             ],
-    "DESCRIPTION": "When played, adds an #yupgraded copy of this card to your hand. NL Can be #yupgraded any number of times. NL Reset #yupgrades at the end of your turn. NL Cannot be #yupgraded outside of combat."
+    "DESCRIPTION": "When played, remains in hand and #yUpgrades. NL Can be #yupgraded any number of times. NL Reset #yupgrades at the end of your turn. NL Cannot be #yupgraded outside of combat."
   },
   {
     "NAMES":

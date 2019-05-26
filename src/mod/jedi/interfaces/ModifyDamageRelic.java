@@ -1,26 +1,27 @@
 package mod.jedi.interfaces;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public interface ModifyDamageRelic
 {
-    default int calculateCardDamageRelic(AbstractCard card, AbstractMonster target, int damage)
+    default float calculateCardDamageRelic(AbstractCard card, AbstractMonster target, float damage)
     {
         return damage;
     }
 
-    default int calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, int damage)
+    default float calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, float damage)
     {
         return damage;
     }
 
-    default int applyPowersRelic(AbstractCard card, int damage)
+    default float applyPowersRelic(AbstractCard card, float damage)
     {
         return damage;
     }
 
-    default int applyPowersFinalRelic(AbstractCard card, int damage)
+    default float applyPowersFinalRelic(AbstractCard card, float damage)
     {
         return damage;
     }

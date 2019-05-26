@@ -43,27 +43,27 @@ public class ScalesOfToshan
         }
     }
 
-    public int calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, int damage)
+    public float calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, float damage)
     {
         if (!card.upgraded)
         {
-            return (int)Math.ceil(damage * (1F + modifier));
+            return damage * (1F + modifier);
         }
         else
         {
-            return (int)Math.ceil(damage * (1F - modifier));
+            return damage * (1F - modifier);
         }
     }
 
-    public int applyPowersFinalRelic(AbstractCard card, int damage)
+    public float applyPowersFinalRelic(AbstractCard card, float damage)
     {
         if (!card.upgraded)
         {
-            return (int)Math.ceil(damage * (1F + modifier));
+            return damage * (1F + modifier);
         }
         else
         {
-            return (int)Math.ceil(damage * (1F - modifier));
+            return damage * (1F - modifier);
         }
     }
 }

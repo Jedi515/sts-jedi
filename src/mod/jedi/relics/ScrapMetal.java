@@ -46,7 +46,7 @@ public class ScrapMetal
         }
     }
 
-    public int calculateCardDamageRelic(AbstractCard card, AbstractMonster target, int damage)
+    public float calculateCardDamageRelic(AbstractCard card, AbstractMonster target, float damage)
     {
         if (card.cardID.equals(Shiv.ID))
         {
@@ -55,7 +55,7 @@ public class ScrapMetal
         return damage;
     }
 
-    public int applyPowersRelic(AbstractCard card, int damage)
+    public float applyPowersRelic(AbstractCard card, float damage)
     {
         if (card.cardID.equals(Shiv.ID))
         {

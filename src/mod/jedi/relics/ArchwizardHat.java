@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import mod.jedi.interfaces.ModifyDamageRelic;
-import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.util.TextureLoader;
 
 public class ArchwizardHat
@@ -44,20 +43,20 @@ public class ArchwizardHat
         }
     }
 
-    public int calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, int damage)
+    public float calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, float damage)
     {
-        if ((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0)
+        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0) || triggered)
         {
             return (int)Math.ceil(damage * efficiency);
         }
         return damage;
     }
 
-    public int applyPowersFinalRelic(AbstractCard card, int damage)
+    public float applyPowersFinalRelic(AbstractCard card, float damage)
     {
-        if ((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0)
+        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0) || triggered)
         {
-            return (int)Math.ceil(damage * efficiency);
+            return (float)Math.ceil(damage * efficiency);
         }
         return damage;
     }

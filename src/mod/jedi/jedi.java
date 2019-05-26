@@ -349,6 +349,8 @@ public class jedi
         BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
         BaseMod.addRelic(new Sprinkler(), RelicType.GREEN);
         BaseMod.addRelic(new GhostBlades(), RelicType.GREEN);
+        BaseMod.addRelic(new RubberSling(), RelicType.GREEN);
+        BaseMod.addRelic(new Catwich(), RelicType.GREEN);
 
         BaseMod.addRelic(new Leech(), RelicType.RED);
         BaseMod.addRelic(new IronBlood(), RelicType.RED);

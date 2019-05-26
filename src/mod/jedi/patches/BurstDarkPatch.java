@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import mod.jedi.cards.blue.BurstDark;
+import mod.jedi.cards.red.UnlimitedPower;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,11 @@ public class BurstDarkPatch
                     c.damage += focus;
                     c.baseDamage += focus;
                 }
+
+                if (c.cardID.equals(UnlimitedPower.ID))
+                {
+                    c.triggerOnEndOfPlayerTurn();
+                }
             }
             for (AbstractCard c : AbstractDungeon.player.discardPile.group)
             {
@@ -32,6 +38,11 @@ public class BurstDarkPatch
                 {
                     c.damage += focus;
                     c.baseDamage += focus;
+                }
+
+                if (c.cardID.equals(UnlimitedPower.ID))
+                {
+                    c.triggerOnEndOfPlayerTurn();
                 }
             }
             for (AbstractCard c : AbstractDungeon.player.hand.group)

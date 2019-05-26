@@ -46,6 +46,13 @@
       " into your hand."
     ]
   },
+  "jedi:catwich": {
+    "NAME": "Catwich",
+    "FLAVOR": "Infinite energy here we go.",
+    "DESCRIPTIONS": [
+      "The first unupgraded card you discard each turn is #yUpgraded."
+    ]
+  },
   "jedi:crownofsimplicity": {
     "NAME": "Crown of Simplicity",
     "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
@@ -93,7 +100,7 @@
   },
   "jedi:ghostblades": {
     "NAME": "Ghost Blades",
-    "FLAVOR": "",
+    "FLAVOR": "There's something strange... In the neighbourhood...",
     "DESCRIPTIONS": [
       "#yShivs ignore enemy #yBlock."
     ]
@@ -218,6 +225,13 @@
     "FLAVOR": "Perfectly balanced, as all things should be.",
     "DESCRIPTIONS": [
       "Increases damage and #yBlock from unupgraded cards by #b25%. Reduces damage and #yBlock from upgraded cards by #b25%."
+    ]
+  },
+  "jedi:rubbersling": {
+    "NAME": "Rubber Sling",
+    "FLAVOR": "I thought they don't use rubber in yoyo?",
+    "DESCRIPTIONS": [
+      "First time each turn when you discard a card, draw a card."
     ]
   },
   "jedi:scrapmetal": {

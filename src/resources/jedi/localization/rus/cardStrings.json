@@ -205,8 +205,8 @@
   },
   "jedi:unlimitedpower": {
     "NAME": "Абсолютная власть",
-    "DESCRIPTION": "Наносит !D! урона. NL Сжигается. NL jedi:Безграничная.",
-    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Отнимает !M! ОЗ. NL Сжигается. NL jedi:Безграничная."
+    "DESCRIPTION": "Наносит !D! урона. NL jedi:Безграничная.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Отнимает !M! ОЗ. NL jedi:Безграничная."
   },
   "jedi:unstablefumes": {
     "NAME": "Хрупкая фляга",

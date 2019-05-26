@@ -27,14 +27,12 @@ public class UnlimitedPower
     private boolean darkSide = false;
     private static int startDamage = 3;
     private static int startMagicNumber = 0;
-
     public static final String IMG_PATH = "resources/jedi/images/cards/red/unlimitedpower.png";
 
 
     public UnlimitedPower()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ENEMY);
-        this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = 0;
         this.damage = this.baseDamage = 3;
     }
@@ -54,8 +52,7 @@ public class UnlimitedPower
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
 
         this.upgrade();
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
-
+//        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
     }
 
     @Override

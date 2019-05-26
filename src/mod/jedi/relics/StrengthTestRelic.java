@@ -29,12 +29,12 @@ public class StrengthTestRelic
         return this.DESCRIPTIONS[0];
     }
 
-    public int calculateCardDamageRelic(AbstractCard card, AbstractMonster target, int damage)
+    public float calculateCardDamageRelic(AbstractCard card, AbstractMonster target, float damage)
     {
         return 10 + damage;
     }
 
-    public int applyPowersRelic(AbstractCard card, int damage)
+    public float applyPowersRelic(AbstractCard card, float damage)
     {
         return 10 + damage;
     }

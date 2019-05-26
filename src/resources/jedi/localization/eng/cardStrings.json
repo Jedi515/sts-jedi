@@ -205,8 +205,8 @@
   },
   "jedi:unlimitedpower": {
     "NAME": "Unlimited Power",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaust. NL jedi:Unlimited.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL Exhaust. NL jedi:Unlimited."
+    "DESCRIPTION": "Deal !D! damage. NL jedi:Unlimited.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL jedi:Unlimited."
   },
   "jedi:unstablefumes": {
     "NAME": "Unstable Fumes",

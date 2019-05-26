@@ -35,35 +35,35 @@ public class Equalizer
     {
         if (card.rarity == AbstractCard.CardRarity.BASIC || card.rarity == AbstractCard.CardRarity.COMMON)
         {
-            return (float)Math.ceil(block * (1F + modifier));
+            return block * (1F + modifier);
         }
         else
         {
-            return (float)Math.floor(block * (1F - modifier));
+            return block * (1F - modifier);
         }
     }
 
-    public int calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, int damage)
+    public float calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, float damage)
     {
         if (card.rarity == AbstractCard.CardRarity.BASIC || card.rarity == AbstractCard.CardRarity.COMMON)
         {
-            return (int)Math.ceil(damage * (1F + modifier));
+            return damage * (1F + modifier);
         }
         else
         {
-            return (int)Math.floor(damage * (1F - modifier));
+            return damage * (1F - modifier);
         }
     }
 
-    public int applyPowersFinalRelic(AbstractCard card, int damage)
+    public float applyPowersFinalRelic(AbstractCard card, float damage)
     {
         if (card.rarity == AbstractCard.CardRarity.BASIC || card.rarity == AbstractCard.CardRarity.COMMON)
         {
-            return (int)Math.ceil(damage * (1F + modifier));
+            return damage * (1F + modifier);
         }
         else
         {
-            return (int)Math.floor(damage * (1F - modifier));
+            return damage * (1F - modifier);
         }
     }
 }
