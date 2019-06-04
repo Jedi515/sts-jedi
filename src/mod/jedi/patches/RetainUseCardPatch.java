@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import mod.jedi.cards.curses.TheDog;
 import mod.jedi.cards.red.UnlimitedPower;
 
-public class BottledFuryUseCardPatch
+public class RetainUseCardPatch
 {
     public static boolean RetainCard = false;
 
@@ -21,10 +22,17 @@ public class BottledFuryUseCardPatch
         @SpireInsertPatch(locator = Locator.class)
         public static SpireReturn Insert(UseCardAction __instance)
         {
-            if (RetainCard || ((AbstractCard) ReflectionHacks.getPrivate(__instance, UseCardAction.class, "targetCard")).cardID.equals(UnlimitedPower.ID)) //might aswell
+            AbstractCard usedCard = (AbstractCard) ReflectionHacks.getPrivate(__instance, UseCardAction.class, "targetCard");
+            if  (    RetainCard ||
+                    (usedCard.cardID.equals(UnlimitedPower.ID)) ||
+                    (usedCard.cardID.equals(TheDog.ID))
+                ) //might aswell
             {
+
+                if (usedCard.cardID.equals(TheDog.ID)) ((TheDog) usedCard).theDogStays();
+
                 RetainCard = false;
-                AbstractDungeon.player.hand.moveToHand((AbstractCard) ReflectionHacks.getPrivate(__instance, UseCardAction.class, "targetCard"), AbstractDungeon.player.hand);
+                AbstractDungeon.player.hand.moveToHand(usedCard, AbstractDungeon.player.hand);
                 __instance.isDone = true;
                 return SpireReturn.Return(null);
             }

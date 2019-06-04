@@ -45,7 +45,7 @@ public class ArchwizardHat
 
     public float calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, float damage)
     {
-        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0) || triggered)
+        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0))
         {
             return (int)Math.ceil(damage * efficiency);
         }
@@ -54,7 +54,7 @@ public class ArchwizardHat
 
     public float applyPowersFinalRelic(AbstractCard card, float damage)
     {
-        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0) || triggered)
+        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0))
         {
             return (float)Math.ceil(damage * efficiency);
         }
