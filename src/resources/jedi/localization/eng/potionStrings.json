@@ -45,5 +45,15 @@
       " random debuff from yourself.",
       " random debuffs from yourself."
     ]
+  },
+  "jedi:hoardpotion":
+  {
+    "NAME": "Hoard Potion",
+    "DESCRIPTIONS":
+    [
+      "Add all cards from current card reward screen to your deck.",
+      "Hoard.",
+      "Upgrade all cards from current card reward screen and add them to your deck."
+    ]
   }
 }
