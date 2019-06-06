@@ -24,7 +24,7 @@ public class OminousLoanNote
 
     public void onEquip()
     {
-        int goldGiven = 475 + AbstractDungeon.relicRng.random(50);
+        int goldGiven = 375 + AbstractDungeon.relicRng.random(50);
         AbstractDungeon.effectList.add(new RainingGoldEffect(goldGiven));
         AbstractDungeon.player.gainGold(goldGiven);
         this.counter = (int)(goldGiven * 1.25F);

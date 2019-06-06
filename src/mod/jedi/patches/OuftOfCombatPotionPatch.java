@@ -27,10 +27,10 @@ public class OuftOfCombatPotionPatch
                 {
                     try
                     {
-                        System.out.println("JEDI MOD: " + i.getType() + " " + i.getType().getName().equals(FruitJuice.class.getName()));
+                        System.out.println("JEDI MOD: " + i.getType().getName() + " " + i.getType().getName().equals(FruitJuice.class.getName()));
                         if (i.getType().getName().equals(FruitJuice.class.getName()))
                         {
-                            i.replace("{$_ = $1 instanceof " + OutOfCombatPotion.class.getName() + ";}");
+                            i.replace("{$_ = ($1 instanceof " + i.getType().getName() + ") || (($1 instanceof " + OutOfCombatPotion.class.getName() + ") && ((" + AbstractPotion.class.getName() + ")$1).canUse());}");
                         }
                     }
                     catch (NotFoundException e)

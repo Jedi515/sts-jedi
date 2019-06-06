@@ -55,5 +55,29 @@
       "Hoard.",
       "Upgrade all cards from current card reward screen and add them to your deck."
     ]
+  },
+  "jedi:mysterypotion":
+  {
+    "NAME": "Mystery Potion",
+    "DESCRIPTIONS":
+    [
+      "The next room you can go to, other than bosses, becomes a #y? room. NL Cannot be used in #yThe #yEnding."
+    ]
+  },
+  "jedi:wingpotion":
+  {
+    "NAME": "Red Bull",
+    "DESCRIPTIONS":
+    [
+      "You may ignore paths when choosing the next room to travel to once."
+    ]
+  },
+  "jedi:specialdeliverypotion":
+  {
+    "NAME": "Special Delivery",
+    "DESCRIPTIONS":
+    [
+      "Heal to full."
+    ]
   }
 }

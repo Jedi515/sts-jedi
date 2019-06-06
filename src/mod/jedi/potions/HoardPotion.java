@@ -10,24 +10,20 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.rewards.RewardItem;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import mod.jedi.interfaces.OutOfCombatPotion;
 
 public class HoardPotion
     extends CustomPotion
     implements OutOfCombatPotion
 {
-
     public static final String ID = "jedi:hoardpotion";
-
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(ID);
     public static final String NAME = potionStrings.NAME;
     public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
     public HoardPotion()
     {
-        super(NAME, ID, PotionRarity.COMMON, PotionSize.CARD, PotionColor.BLUE);
+        super(NAME, ID, PotionRarity.RARE, PotionSize.CARD, PotionColor.BLUE);
         this.potency = getPotency();
         if (this.potency == 1)
         {
@@ -67,6 +63,7 @@ public class HoardPotion
         if (group.size() > 0)
         {
             AbstractDungeon.combatRewardScreen.rewards.remove(AbstractDungeon.cardRewardScreen.rItem);
+            AbstractDungeon.combatRewardScreen.positionRewards();
             AbstractDungeon.gridSelectScreen.openConfirmationGrid(group, this.DESCRIPTIONS[1]);
         }
     }
@@ -75,8 +72,6 @@ public class HoardPotion
     public boolean canUse()
     {
         return AbstractDungeon.screen == AbstractDungeon.CurrentScreen.CARD_REWARD;
-
-//        return true;
     }
 
     @Override

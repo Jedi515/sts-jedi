@@ -120,10 +120,12 @@ public class jedi
     public void receivePostInitialize()
     {
         // Potions
-        BaseMod.addPotion(TentacleJuice.class, Color.PURPLE,null,Color.WHITE,TentacleJuice.ID);
-        BaseMod.addPotion(CoolantLeak.class, null, Color.CYAN, null,CoolantLeak.ID, AbstractPlayer.PlayerClass.DEFECT);
+        BaseMod.addPotion(TentacleJuice.class, Color.PURPLE,null, Color.WHITE, TentacleJuice.ID);
+        BaseMod.addPotion(CoolantLeak.class, null, Color.CYAN, null, CoolantLeak.ID, AbstractPlayer.PlayerClass.DEFECT);
         BaseMod.addPotion(HolyWater.class, Color.YELLOW, Color.WHITE, null, HolyWater.ID);
         BaseMod.addPotion(HoardPotion.class, Color.GOLD, Color.CLEAR, null, HoardPotion.ID);
+        BaseMod.addPotion(MysteryPotion.class, Color.GOLD, Color.CLEAR, null, MysteryPotion.ID);
+        BaseMod.addPotion(WingPotion.class, Color.GOLD, Color.CLEAR, null, WingPotion.ID);
 
         // Filling cursed relic pool for lucky charm
         cursedRelics.clear();
