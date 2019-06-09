@@ -10,9 +10,9 @@ public class EvokeWithoutRemovingSpecificOrbAction
     extends AbstractGameAction
 {
     private int orbCount;
-    private int position;
+    private AbstractOrb orb;
 
-    public EvokeWithoutRemovingSpecificOrbAction(int position, int amount) {
+    public EvokeWithoutRemovingSpecificOrbAction(AbstractOrb orb, int amount) {
         if (Settings.FAST_MODE) {
             this.startDuration = Settings.ACTION_DUR_FAST;
         } else {
@@ -21,7 +21,7 @@ public class EvokeWithoutRemovingSpecificOrbAction
 
         this.duration = this.startDuration;
         this.actionType = ActionType.DAMAGE;
-        this.position = position;
+        this.orb = orb;
         this.orbCount = amount;
     }
 
@@ -29,13 +29,11 @@ public class EvokeWithoutRemovingSpecificOrbAction
     @Override
     public void update()
     {
-        if (this.duration == this.startDuration) {
-            for(int i = 0; i < this.orbCount; ++i) {
-
-                if (!AbstractDungeon.player.orbs.isEmpty() && !(AbstractDungeon.player.orbs.get(position) instanceof EmptyOrbSlot)) {
-                    ((AbstractOrb)AbstractDungeon.player.orbs.get(position)).onEvoke();
-                }
-
+        if (this.duration == this.startDuration)
+        {
+            for(int i = 0; i < this.orbCount; ++i)
+            {
+                orb.onEvoke();
             }
         }
 

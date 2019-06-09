@@ -19,6 +19,9 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.colorless.Shiv;
+import com.megacrit.cardcrawl.cards.green.Bane;
+import com.megacrit.cardcrawl.cards.green.NoxiousFumes;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -28,11 +31,17 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CallingBell;
 import com.megacrit.cardcrawl.relics.PandorasBox;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import gluttonmod.patches.AbstractCardEnum;
+import javassist.*;
+import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
+import javassist.expr.NewExpr;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
@@ -51,6 +60,7 @@ import mod.jedi.util.TextureLoader;
 import mod.jedi.variables.JediSecondMN;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,6 +91,8 @@ public class jedi
     public static boolean isHubrisLoaded;
     public static boolean isArchetypeLoaded;
     public static CardGroup StrikeGroup;
+    public static CardGroup poisonGroup;
+    public static CardGroup shivGroup;
     public static SpireConfig jediConfig;
     public static boolean CommandUnseen;
     public static boolean CommandLocked;
@@ -146,14 +158,47 @@ public class jedi
         BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
 
         StrikeGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        poisonGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        shivGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
         for (AbstractCard card : CardLibrary.getAllCards())
         {
+
             if ((card.hasTag(AbstractCard.CardTags.STRIKE) &&
                 (!card.hasTag(BaseModCardTags.BASIC_STRIKE)) &&
                 (card.rarity != AbstractCard.CardRarity.BASIC)))
             {
                 StrikeGroup.addToBottom(card.makeCopy());
             }
+
+//            System.out.println("JEDI MOD: " + cardClass);
+//            try {
+//                System.out.println("JEDI MOD: " + cardClass.getDeclaredMethod("use", AbstractPlayer.class, AbstractMonster.class).toString());
+//            } catch (NoSuchMethodException e) {
+//                e.printStackTrace();
+//            }
+//
+            if (   !(card.hasTag(AbstractCard.CardTags.HEALING)) &&
+                    (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
+                    (card.rarity != AbstractCard.CardRarity.BASIC) &&
+                    (checkIfContainsWord(card, "poison")))
+            {
+//                System.out.println("JEDI MOD: Adding to poison group: " + card.cardID);
+                poisonGroup.addToBottom(card.makeCopy());
+            }
+            if (card.cardID.equals(NoxiousFumes.ID)) poisonGroup.addToBottom(card.makeCopy());
+//
+//            if (   // !(hasCard(shivGroup, card.cardID)) &&
+//                    !(card.hasTag(AbstractCard.CardTags.HEALING)) &&
+//                    (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
+//                    (card.rarity != AbstractCard.CardRarity.BASIC) &&
+//                    !(card.cardID.equals(Shiv.ID)) &&
+//                    (cardClass.toString().toLowerCase().contains("shiv") || cardClass.toString().toLowerCase().contains("accuracypower"))
+//            )
+//            {
+//                System.out.println("JEDI MOD: Adding to shiv group: " + card.cardID);
+//                shivGroup.addToBottom(card.makeCopy());
+//            }
         }
 
         if (isArchetypeLoaded)
@@ -182,6 +227,114 @@ public class jedi
         loadConfigButtons(settingsPanel);
 
         RelicLibrary.specialList.removeIf(r -> r.relicId.contains("jedi:command_"));
+
+
+        for (AbstractCard c : poisonGroup.group)
+        {
+            System.out.println("JEDI MOD Poison: " + c.cardID);
+        }
+    }
+
+    private boolean checkIfContainsWord(AbstractCard card, String word)
+    {
+        final boolean[] toReturn = {false};
+        if (card.cardID.toLowerCase().contains(word)) return true;
+        if (card.getClass().getName().toLowerCase().contains(word)) return true;
+        try {
+            CtClass ctClass = Loader.getClassPool().get(card.getClass().getName());
+            ctClass.defrost();
+            ExprEditor wordNewExprFinder = new ExprEditor(){
+                @Override
+                public void edit(NewExpr e)
+                {
+                    if (e.getClassName().toLowerCase().contains(word))
+                    {
+                        toReturn[0] = true;
+                    }
+                }
+            };
+
+            ExprEditor wordMethodCallFinder = new ExprEditor(){
+                @Override
+                public void edit(MethodCall m)
+                {
+                    if (m.getClassName().toLowerCase().contains(word))
+                    {
+                        toReturn[0] = true;
+                    }
+                }
+            };
+
+            ExprEditor wordFieldAccessFinder = new ExprEditor(){
+                @Override
+                public void edit(FieldAccess f)
+                {
+                    if (f.getClassName().toLowerCase().contains(word))
+                    {
+                        toReturn[0] = true;
+                    }
+                }
+            };
+
+            CtMethod method = ctClass.getDeclaredMethod("use");
+            method.instrument(wordNewExprFinder);
+            if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
+            if (!toReturn[0]) method.instrument(wordMethodCallFinder);
+
+            if (toReturn[0]) return true;
+
+            try
+            {
+                method = ctClass.getDeclaredMethod("triggerOnManualDiscard");
+                method.instrument(wordNewExprFinder);
+                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
+                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
+            } catch (NotFoundException | CannotCompileException e)
+            {
+
+            }
+
+            if (toReturn[0]) return true;
+            try
+            {
+                method = ctClass.getDeclaredMethod("triggerWhenDrawn");
+                method.instrument(wordNewExprFinder);
+                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
+                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
+            } catch (NotFoundException | CannotCompileException e)
+            {
+
+            }
+
+            if (toReturn[0]) return true;
+            try
+            {
+                method = ctClass.getDeclaredMethod("calculateCardDamage");
+                method.instrument(wordNewExprFinder);
+                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
+                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
+            } catch (NotFoundException | CannotCompileException e)
+            {
+
+            }
+
+            if (toReturn[0]) return true;
+            try
+            {
+                method = ctClass.getDeclaredMethod("triggerOnExhaust");
+                method.instrument(wordNewExprFinder);
+                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
+                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
+            } catch (NotFoundException | CannotCompileException e)
+            {
+
+            }
+
+        } catch (NotFoundException | CannotCompileException e)
+        {
+
+        }
+        return toReturn[0];
     }
 
     private void loadConfigButtons(ModPanel settingsPanel)
@@ -546,5 +699,18 @@ public class jedi
             if (r.relicId.equals(LuckyCharm.ID)) ((LuckyCharm)r).modifyCounter(abstractRelic.relicId);
         }
 
+    }
+
+    public static boolean hasCard(CardGroup group, String cardID)
+    {
+        for (AbstractCard c : group.group)
+        {
+            if (c.cardID.equals(cardID))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
