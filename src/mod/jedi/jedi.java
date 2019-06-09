@@ -237,12 +237,41 @@ public class jedi
 
     private boolean checkIfContainsWord(AbstractCard card, String word)
     {
-        final boolean[] toReturn = {false};
+        boolean toReturn = false;
         if (card.cardID.toLowerCase().contains(word)) return true;
         if (card.getClass().getName().toLowerCase().contains(word)) return true;
         try {
             CtClass ctClass = Loader.getClassPool().get(card.getClass().getName());
             ctClass.defrost();
+
+            String[] methods = {"use", "triggerOnManualDiscard", "triggerWhenDrawn", "calculateCardDamage", "triggerOnExhaust"};
+
+            toReturn = ifFunctionsContainWord(ctClass, methods, word);
+        } catch (NotFoundException e)
+        {
+
+        }
+        return toReturn;
+    }
+
+    private boolean ifFunctionsContainWord(CtClass ctClass, String[] methods, String word)
+    {
+        for (String s : methods)
+        {
+            if (ifFunctionContainsWord(ctClass, s, word)) return true;
+        }
+
+        return false;
+    }
+
+    private boolean ifFunctionContainsWord(CtClass ctClass, String method, String word)
+    {
+        final boolean[] toReturn = {false};
+        try
+        {
+
+            CtMethod ctMethod = ctClass.getDeclaredMethod(method);
+
             ExprEditor wordNewExprFinder = new ExprEditor(){
                 @Override
                 public void edit(NewExpr e)
@@ -276,66 +305,15 @@ public class jedi
                 }
             };
 
-            CtMethod method = ctClass.getDeclaredMethod("use");
-            method.instrument(wordNewExprFinder);
-            if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
-            if (!toReturn[0]) method.instrument(wordMethodCallFinder);
+            ctMethod.instrument(wordNewExprFinder);
+            if (!toReturn[0]) ctMethod.instrument(wordFieldAccessFinder);
+            if (!toReturn[0]) ctMethod.instrument(wordMethodCallFinder);
 
-            if (toReturn[0]) return true;
-
-            try
-            {
-                method = ctClass.getDeclaredMethod("triggerOnManualDiscard");
-                method.instrument(wordNewExprFinder);
-                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
-                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
-            } catch (NotFoundException | CannotCompileException e)
-            {
-
-            }
-
-            if (toReturn[0]) return true;
-            try
-            {
-                method = ctClass.getDeclaredMethod("triggerWhenDrawn");
-                method.instrument(wordNewExprFinder);
-                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
-                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
-            } catch (NotFoundException | CannotCompileException e)
-            {
-
-            }
-
-            if (toReturn[0]) return true;
-            try
-            {
-                method = ctClass.getDeclaredMethod("calculateCardDamage");
-                method.instrument(wordNewExprFinder);
-                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
-                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
-            } catch (NotFoundException | CannotCompileException e)
-            {
-
-            }
-
-            if (toReturn[0]) return true;
-            try
-            {
-                method = ctClass.getDeclaredMethod("triggerOnExhaust");
-                method.instrument(wordNewExprFinder);
-                if (!toReturn[0]) method.instrument(wordFieldAccessFinder);
-                if (!toReturn[0]) method.instrument(wordMethodCallFinder);
-            } catch (NotFoundException | CannotCompileException e)
-            {
-
-            }
-
-        } catch (NotFoundException | CannotCompileException e)
-        {
-
+        } catch (NotFoundException | CannotCompileException e) {
         }
         return toReturn[0];
     }
+
 
     private void loadConfigButtons(ModPanel settingsPanel)
     {
