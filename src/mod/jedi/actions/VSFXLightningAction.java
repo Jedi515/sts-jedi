@@ -50,10 +50,13 @@ public class VSFXLightningAction
             {
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
                 {
-                    mo.damageFlash = true;
-                    mo.damageFlashFrames = 4;
-                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(mo.hb.cX, mo.hb.cY, AbstractGameAction.AttackEffect.NONE));
-                    AbstractDungeon.effectList.add(new LightningEffect(mo.drawX, mo.drawY));
+                    if (!mo.isDeadOrEscaped())
+                    {
+                        mo.damageFlash = true;
+                        mo.damageFlashFrames = 4;
+                        AbstractDungeon.effectList.add(new FlashAtkImgEffect(mo.hb.cX, mo.hb.cY, AbstractGameAction.AttackEffect.NONE));
+                        AbstractDungeon.effectList.add(new LightningEffect(mo.drawX, mo.drawY));
+                    }
                 }
             }
             if (this.playSound)

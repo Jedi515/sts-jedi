@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Shiv;
 import com.megacrit.cardcrawl.cards.green.Bane;
+import com.megacrit.cardcrawl.cards.green.BouncingFlask;
 import com.megacrit.cardcrawl.cards.green.NoxiousFumes;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,9 +30,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AccuracyPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CallingBell;
 import com.megacrit.cardcrawl.relics.PandorasBox;
@@ -160,6 +163,8 @@ public class jedi
         StrikeGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         poisonGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         shivGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        String[] poisons = {"poison", "venom"};
+        String[] shivs = {"shiv", AccuracyPower.class.getName().toLowerCase()};
 
         for (AbstractCard card : CardLibrary.getAllCards())
         {
@@ -170,35 +175,44 @@ public class jedi
             {
                 StrikeGroup.addToBottom(card.makeCopy());
             }
+            boolean extraCheck = false;
+            for (String name : GameDictionary.POISON.NAMES)
+            {
+                if (card.keywords.contains(name))
+                {
+                    extraCheck = true;
+                    break;
+                }
+            }
 
-//            System.out.println("JEDI MOD: " + cardClass);
-//            try {
-//                System.out.println("JEDI MOD: " + cardClass.getDeclaredMethod("use", AbstractPlayer.class, AbstractMonster.class).toString());
-//            } catch (NoSuchMethodException e) {
-//                e.printStackTrace();
-//            }
-//
             if (   !(card.hasTag(AbstractCard.CardTags.HEALING)) &&
                     (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
                     (card.rarity != AbstractCard.CardRarity.BASIC) &&
-                    (checkIfContainsWord(card, "poison")))
+                    (extraCheck || checkIfContainsWords(card, poisons)))
             {
-//                System.out.println("JEDI MOD: Adding to poison group: " + card.cardID);
                 poisonGroup.addToBottom(card.makeCopy());
             }
-            if (card.cardID.equals(NoxiousFumes.ID)) poisonGroup.addToBottom(card.makeCopy());
-//
-//            if (   // !(hasCard(shivGroup, card.cardID)) &&
-//                    !(card.hasTag(AbstractCard.CardTags.HEALING)) &&
-//                    (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
-//                    (card.rarity != AbstractCard.CardRarity.BASIC) &&
-//                    !(card.cardID.equals(Shiv.ID)) &&
-//                    (cardClass.toString().toLowerCase().contains("shiv") || cardClass.toString().toLowerCase().contains("accuracypower"))
-//            )
-//            {
-//                System.out.println("JEDI MOD: Adding to shiv group: " + card.cardID);
-//                shivGroup.addToBottom(card.makeCopy());
-//            }
+
+            extraCheck = false;
+            for (String name : GameDictionary.SHIV.NAMES)
+            {
+                if (card.keywords.contains(name))
+                {
+                    extraCheck = true;
+                    break;
+                }
+            }
+
+            if (   !(card.hasTag(AbstractCard.CardTags.HEALING)) &&
+                    (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
+                    (card.rarity != AbstractCard.CardRarity.BASIC) &&
+                    !(card.cardID.equals(Shiv.ID)) &&
+                    (extraCheck || checkIfContainsWords(card, shivs))
+            )
+            {
+                System.out.println("JEDI MOD: Adding to shiv group: " + card.cardID);
+                shivGroup.addToBottom(card.makeCopy());
+            }
         }
 
         if (isArchetypeLoaded)
@@ -235,10 +249,23 @@ public class jedi
         }
     }
 
+    private boolean checkIfContainsWords(AbstractCard card, String[] words)
+    {
+        for (String s : words)
+        {
+            if (checkIfContainsWord(card, s)) return true;
+        }
+        return false;
+    }
+
     private boolean checkIfContainsWord(AbstractCard card, String word)
     {
         boolean toReturn = false;
         if (card.cardID.toLowerCase().contains(word)) return true;
+        for (String kw : card.keywords)
+        {
+            if (kw.toLowerCase().equals(word)) return true;
+        }
         if (card.getClass().getName().toLowerCase().contains(word)) return true;
         try {
             CtClass ctClass = Loader.getClassPool().get(card.getClass().getName());
@@ -389,6 +416,7 @@ public class jedi
         BaseMod.addCard(new BrewingPoison());
         BaseMod.addCard(new RejectiveToxin());
         BaseMod.addCard(new AcidRain());
+        BaseMod.addCard(new StudyPoison());
 
         //Blue
         BaseMod.addCard(new BurstLightning());

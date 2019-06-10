@@ -75,7 +75,7 @@
     ]
   },
   "jedi:ghostblades": {
-    "NAME": "幽灵剑刃",
+    "NAME": "幽灵刀刃",
     "FLAVOR": "这附近……好像有些奇怪的东西……",
     "DESCRIPTIONS": [
       " #y小刀 现在会无视敌人的 #y格挡 。"
@@ -202,6 +202,14 @@
     "DESCRIPTIONS": [
       "你每次将抽牌堆洗牌时，给予所有敌人 #b",
       " 层 #y中毒 。"
+    ]
+  },
+  "jedi:strikemanual": {
+    "NAME": "打击手册",
+    "FLAVOR": "真正具有打击性的知识。",
+    "DESCRIPTIONS": [
+      "所有的 #y打击 额外造成 #b",
+      " 点伤害。"
     ]
   },
   "jedi:superconductor": {

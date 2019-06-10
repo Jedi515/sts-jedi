@@ -188,6 +188,16 @@
     "DESCRIPTION": "Ethereal. NL Gain !M! Strength at the start of your turn.",
     "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn."
   },
+  "jedi:studypoison": {
+    "NAME": "Study Poison",
+    "DESCRIPTION": "Choose 1 of 3 random Poison-related cards to add into your hand. It costs 0 this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Poison-related cards to add into your hand. It costs 0 this turn."
+  },
+  "jedi:studyshivs": {
+    "NAME": "Study Shivs",
+    "DESCRIPTION": "Choose 1 of 3 random Shivs-related cards to add into your hand. It costs 0 this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Shivs-related cards to add into your hand. It costs 0 this turn."
+  },
   "jedi:suffering": {
     "NAME": "Suffering",
     "DESCRIPTION": "For each Attack Exhausted, deal !M! damage to ALL enemies. NL Exhaust.",

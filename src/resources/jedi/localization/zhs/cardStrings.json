@@ -188,6 +188,16 @@
     "DESCRIPTION": " 虚无 。 NL 在每回合开始时获得 !M! 点 力量 。",
     "UPGRADE_DESCRIPTION": " 虚无 。 NL 获得 !M! 点 力量 。 NL 在每回合开始时获得 !M! 点 力量 。"
   },
+  "jedi:studypoison": {
+    "NAME": "毒素研究",
+    "DESCRIPTION": "从3张与 中毒 有关的随机牌中选择1张加入你的手牌。这张牌在本回合耗能变为0。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从3张与 中毒 有关的随机牌中选择1张加入你的手牌。这张牌在本回合耗能变为0。"
+  },
+  "jedi:studyshivs": {
+    "NAME": "小刀研究",
+    "DESCRIPTION": "从3张与 小刀 有关的随机牌中选择1张加入你的手牌。这张牌在本回合耗能变为0。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从3张与 小刀 有关的随机牌中选择1张加入你的手牌。这张牌在本回合耗能变为0。"
+  },
   "jedi:suffering": {
     "NAME": "苦痛",
     "DESCRIPTION": "对所有敌人造成你在本场战斗中 消耗 的攻击牌总数乘以 !M! 的伤害。 NL  消耗 。",

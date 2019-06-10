@@ -1,20 +1,18 @@
 package mod.jedi.cards.green;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.unique.DiscoveryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.actions.CustomDiscoveryAction;
 import mod.jedi.jedi;
 
-public class StudyPoison
+public class StudyShivs
     extends CustomCard
 {
-    public static final String ID = "jedi:studypoison";
+    public static final String ID = "jedi:studyshivs";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -22,7 +20,7 @@ public class StudyPoison
     public static final int COST = 1;
     public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
 
-    public StudyPoison()
+    public StudyShivs()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.RARE, CardTarget.NONE);
         this.exhaust = true;
@@ -30,7 +28,7 @@ public class StudyPoison
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new CustomDiscoveryAction(jedi.poisonGroup, 3));
+        AbstractDungeon.actionManager.addToBottom(new CustomDiscoveryAction(jedi.shivGroup, 3));
     }
 
     public void upgrade()
