@@ -188,6 +188,11 @@
     "DESCRIPTION": "Ethereal. NL Gain !M! Strength at the start of your turn.",
     "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn."
   },
+  "jedi:studyfrost": {
+    "NAME": "Study Frost",
+    "DESCRIPTION": "Choose 1 of 3 random Frost-related cards to add into your hand. It costs 0 this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Frost-related cards to add into your hand. It costs 0 this turn."
+  },
   "jedi:studypoison": {
     "NAME": "Study Poison",
     "DESCRIPTION": "Choose 1 of 3 random Poison-related cards to add into your hand. It costs 0 this turn. Exhaust.",

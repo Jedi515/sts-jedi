@@ -19,42 +19,68 @@ public class CustomDiscoveryAction
 {
     private CardGroup group;
     private int numberOfCards;
+    private boolean allowSkip;
     private boolean retrieveCard;
 
+    public CustomDiscoveryAction(CardGroup group)
+    {
+        this(group, 3, false);
+    }
 
-    public CustomDiscoveryAction(CardGroup group, int number)
+    public CustomDiscoveryAction(CardGroup group, int number, boolean allowSkip)
     {
         this.group = group;
         this.numberOfCards = number;
+        this.allowSkip = allowSkip;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
+    }
+
+    public CustomDiscoveryAction(CardGroup group, int number)
+    {
+        this(group, number, false);
     }
 
     @Override
     public void update()
     {
+        if (numberOfCards < 1 || group.size() == 0)
+        {
+            this.isDone = true;
+            return;
+        }
         if (this.duration == Settings.ACTION_DUR_FAST)
         {
             try {
                 CardGroup groupToShow = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-                while (groupToShow.size() < numberOfCards)
+                if (group.size() > numberOfCards)
                 {
-                    boolean dupe = false;
-                    AbstractCard tmp = group.getRandomCard(true);
-                    for (AbstractCard c : groupToShow.group)
+                    while (groupToShow.size() < numberOfCards)
                     {
-                        if (c.cardID.equals(tmp.cardID)) dupe = true;
-                    }
+                        boolean dupe = false;
+                        AbstractCard tmp = group.getRandomCard(true);
+                        for (AbstractCard c : groupToShow.group)
+                        {
+                            if (c.cardID.equals(tmp.cardID)) dupe = true;
+                        }
 
-                    if (!dupe)
-                    {
-                        UnlockTracker.markCardAsSeen(tmp.cardID);
-                        groupToShow.addToBottom(tmp);
+                        if (!dupe)
+                        {
+                            UnlockTracker.markCardAsSeen(tmp.cardID);
+                            groupToShow.addToBottom(tmp.makeStatEquivalentCopy());
+                        }
                     }
                 }
-                Method discovery = CardRewardScreen.class.getDeclaredMethod("customDiscovery", CardGroup.class);
+                else
+                {
+                    for (AbstractCard c : group.group)
+                    {
+                        groupToShow.addToBottom(c.makeStatEquivalentCopy());
+                    }
+                }
+                Method discovery = CardRewardScreen.class.getDeclaredMethod("customJediDiscovery", CardGroup.class, boolean.class);
                 discovery.setAccessible(true);
-                discovery.invoke(AbstractDungeon.cardRewardScreen, groupToShow);
+                discovery.invoke(AbstractDungeon.cardRewardScreen, groupToShow, allowSkip);
                 this.tickDuration();
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                 this.isDone = true;

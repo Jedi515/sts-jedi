@@ -84,7 +84,8 @@ public class jedi
             PostUpdateSubscriber,
             AddCustomModeModsSubscriber,
             PostDungeonInitializeSubscriber,
-            RelicGetSubscriber
+            RelicGetSubscriber,
+            AddAudioSubscriber
 {
     public static boolean isReplayLoaded;
     public static boolean isConspireLoaded;
@@ -417,6 +418,7 @@ public class jedi
         BaseMod.addCard(new RejectiveToxin());
         BaseMod.addCard(new AcidRain());
         BaseMod.addCard(new StudyPoison());
+        BaseMod.addCard(new StudyShivs());
 
         //Blue
         BaseMod.addCard(new BurstLightning());
@@ -435,6 +437,7 @@ public class jedi
         BaseMod.addCard(new Bruteforce());
         BaseMod.addCard(new SpotBugs());
         BaseMod.addCard(new Overflow());
+        BaseMod.addCard(new StudyFrost());
 
         //Red
         BaseMod.addCard(new StrikingStrike());
@@ -718,5 +721,11 @@ public class jedi
         }
 
         return false;
+    }
+
+    @Override
+    public void receiveAddAudio()
+    {
+        BaseMod.addAudio("jedi:RUSure", "resources/jedi/audio/are-you-sure-about-that.mp3");
     }
 }

@@ -15,7 +15,7 @@ public class DiscoveryPatch
     {
         CtClass ctClass = ctMethodToPatch.getDeclaringClass();
         CtMethod method = CtNewMethod.make(
-            "public void customDiscovery(" + CardGroup.class.getName() + " cardGroup) {" +
+            "public void customJediDiscovery(" + CardGroup.class.getName() + " cardGroup, boolean allowSkip) {" +
                 "rItem = null;" +
                 "codex = false;" +
                 "discovery = true;" +
@@ -23,7 +23,7 @@ public class DiscoveryPatch
                 "draft = false;" +
                 "codexCard = null;" +
                 "bowlButton.hide();" +
-                "skipButton.hide();" +
+                "if (!allowSkip) { skipButton.hide(); } else { skipButton.show(); }" +
                 "onCardSelect = true;" +
                     AbstractDungeon.class.getName() + ".topPanel.unhoverHitboxes();" +
                 "rewardGroup = cardGroup.group;" +
