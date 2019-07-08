@@ -37,14 +37,8 @@ public class TheDog
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (p.hasRelic("Blue Candle"))
-        {
-            this.useBlueCandle(p);
-        }
-        else
-        {
-            AbstractDungeon.actionManager.addToBottom(new UseCardAction(this));
-        }
+
+
     }
 
     public void upgrade()

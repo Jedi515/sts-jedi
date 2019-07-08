@@ -20,9 +20,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Shiv;
-import com.megacrit.cardcrawl.cards.green.Bane;
-import com.megacrit.cardcrawl.cards.green.BouncingFlask;
-import com.megacrit.cardcrawl.cards.green.NoxiousFumes;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -33,14 +30,17 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AccuracyPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CallingBell;
+import com.megacrit.cardcrawl.relics.Circlet;
 import com.megacrit.cardcrawl.relics.PandorasBox;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import gluttonmod.patches.AbstractCardEnum;
-import javassist.*;
+import javassist.CannotCompileException;
+import javassist.CtClass;
+import javassist.CtMethod;
+import javassist.NotFoundException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
@@ -56,16 +56,15 @@ import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.modifiers.CommandCustomRun;
-import mod.jedi.relics.Equalizer;
 import mod.jedi.potions.*;
 import mod.jedi.relics.*;
 import mod.jedi.util.TextureLoader;
 import mod.jedi.variables.JediSecondMN;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -84,8 +83,7 @@ public class jedi
             PostUpdateSubscriber,
             AddCustomModeModsSubscriber,
             PostDungeonInitializeSubscriber,
-            RelicGetSubscriber,
-            AddAudioSubscriber
+            RelicGetSubscriber
 {
     public static boolean isReplayLoaded;
     public static boolean isConspireLoaded;
@@ -151,6 +149,7 @@ public class jedi
         cursedRelics.add(ScalesOfToshan.ID);
         cursedRelics.add(Equalizer.ID);
         cursedRelics.add(LuckyCharm.ID);
+        Collections.shuffle(cursedRelics);
 
         if (isGathererLoaded)
         {
@@ -623,29 +622,6 @@ public class jedi
         return StrikeGroup.getRandomCard(true).makeCopy();
     }
 
-    //As unused as it is now, will be useful for when kio makes customDiscovery action or something.
-    public CardGroup descriptionSearch(String[] keywords)
-    {
-        CardGroup toReturn = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-
-        for (AbstractCard c : CardLibrary.getAllCards())
-        {
-            for (String keyword : keywords)
-            {
-                if ((   c.rawDescription.toLowerCase().contains(keyword.toLowerCase()) &&
-                        !(toReturn.contains(c)) &&
-                        (c.type != AbstractCard.CardType.CURSE) &&
-                        (c.type != AbstractCard.CardType.STATUS)))
-                {
-                    toReturn.addToBottom(c.makeCopy());
-                    //don't forget to markAsSeen when it pops on player screen
-                    break;
-                }
-            }
-        }
-        return toReturn;
-    }
-
     @Override
     public void receivePostUpdate()
     {
@@ -719,13 +695,12 @@ public class jedi
                 return true;
             }
         }
-
         return false;
     }
 
-    @Override
-    public void receiveAddAudio()
+    public static AbstractRelic returnRandomCursedRelic()
     {
-        BaseMod.addAudio("jedi:RUSure", "resources/jedi/audio/are-you-sure-about-that.mp3");
+        if (cursedRelics.isEmpty()) return new Circlet();
+        return RelicLibrary.getRelic(cursedRelics.remove(cursedRelics.size() - 1)).makeCopy();
     }
 }

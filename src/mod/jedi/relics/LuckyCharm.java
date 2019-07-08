@@ -67,4 +67,9 @@ public class LuckyCharm
         }
         this.counter = cursedCounter;
     }
+
+    public int getPrice()
+    {
+        return 0;
+    }
 }

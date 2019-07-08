@@ -66,4 +66,9 @@ public class ScalesOfToshan
             return damage * (1F - modifier);
         }
     }
+
+    public int getPrice()
+    {
+        return 0;
+    }
 }
