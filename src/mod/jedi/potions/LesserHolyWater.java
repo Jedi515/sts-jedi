@@ -45,8 +45,8 @@ public class LesserHolyWater
         this.targetRequired = false;
         this.tips.add(new PowerTip(this.name, this.description));
 
-        liquidColor = Color.YELLOW;
-        hybridColor = Color.WHITE;
+        liquidColor = Color.YELLOW.cpy();
+        hybridColor = Color.WHITE.cpy();
         spotsColor = null;
         GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
     }

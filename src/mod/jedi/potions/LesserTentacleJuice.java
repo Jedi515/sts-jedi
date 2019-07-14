@@ -34,9 +34,9 @@ public class LesserTentacleJuice
         this.targetRequired = true;
         this.tips.add(new PowerTip(this.name, this.description));
 
-        liquidColor = Color.PURPLE;
+        liquidColor = Color.PURPLE.cpy();
         hybridColor = null;
-        spotsColor = Color.WHITE;
+        spotsColor = Color.WHITE.cpy();
         GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
     }
 

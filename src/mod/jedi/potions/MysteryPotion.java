@@ -35,8 +35,8 @@ public class MysteryPotion
         this.isThrown = false;
         this.tips.add(new PowerTip(this.name, this.description));
 
-        liquidColor = Color.GOLD;
-        hybridColor = Color.CLEAR;
+        liquidColor = Color.GOLD.cpy();
+        hybridColor = Color.CLEAR.cpy();
         spotsColor = null;
     }
 
