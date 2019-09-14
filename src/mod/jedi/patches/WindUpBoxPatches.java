@@ -100,7 +100,7 @@ public class WindUpBoxPatches
         public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
         {
             Matcher finalMatcher = new Matcher.MethodCallMatcher(CrackedHourglass.class, "setCounter");
-            return LineFinder.findInOrder(ctMethodToPatch, Collections.singletonList(finalMatcher), finalMatcher);
+            return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
         }
     }
 

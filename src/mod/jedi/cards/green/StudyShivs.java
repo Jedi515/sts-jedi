@@ -1,6 +1,7 @@
 package mod.jedi.cards.green;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,6 +25,7 @@ public class StudyShivs
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.RARE, CardTarget.NONE);
         this.exhaust = true;
+        this.cardsToPreview = new Shiv();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

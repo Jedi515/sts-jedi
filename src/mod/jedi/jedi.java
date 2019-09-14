@@ -19,7 +19,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.colorless.Shiv;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -54,7 +54,6 @@ import mod.jedi.cards.curses.TheDog;
 import mod.jedi.cards.green.*;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
-import mod.jedi.interfaces.RelicOnFullAttackMonster;
 import mod.jedi.modifiers.CommandCustomRun;
 import mod.jedi.potions.*;
 import mod.jedi.relics.*;
@@ -113,19 +112,6 @@ public class jedi
         isGathererLoaded = Loader.isModLoaded("gatherermod");
         isHubrisLoaded = Loader.isModLoaded("hubris");
         isArchetypeLoaded = Loader.isModLoaded("archetypeapi");
-    }
-
-    public static int publishAttackMonsterChange(DamageInfo info, int damage)
-    {
-        int returnDamage = damage;
-        for (AbstractRelic r : AbstractDungeon.player.relics)
-        {
-            if (r instanceof RelicOnFullAttackMonster)
-            {
-                returnDamage = ((RelicOnFullAttackMonster)r).betterOnAttackedMonster(info, returnDamage);
-            }
-        }
-        return returnDamage;
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -491,8 +477,6 @@ public class jedi
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfMystery(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfSerenity(), RelicType.SHARED);
-
-        BaseMod.addRelic(new StrengthTestRelic(), RelicType.SHARED);
 
         if (isHubrisLoaded)
         {

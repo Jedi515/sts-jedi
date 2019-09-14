@@ -2,18 +2,13 @@ package mod.jedi.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Shiv;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import mod.jedi.interfaces.ModifyDamageRelic;
 import mod.jedi.util.TextureLoader;
 
 public class ScrapMetal
     extends CustomRelic
-    implements ModifyDamageRelic
 {
     public static final String ID = "jedi:scrapmetal";
     public static final String PATH = "resources/jedi/images/relics/";
@@ -46,18 +41,9 @@ public class ScrapMetal
         }
     }
 
-    public float calculateCardDamageRelic(AbstractCard card, AbstractMonster target, float damage)
+    public float atDamageModify(float damage, AbstractCard c)
     {
-        if (card.cardID.equals(Shiv.ID))
-        {
-            return damage + this.counter;
-        }
-        return damage;
-    }
-
-    public float applyPowersRelic(AbstractCard card, float damage)
-    {
-        if (card.cardID.equals(Shiv.ID))
+        if (c.cardID.equals(Shiv.ID))
         {
             return damage + this.counter;
         }

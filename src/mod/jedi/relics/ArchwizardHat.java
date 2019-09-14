@@ -12,7 +12,6 @@ import mod.jedi.util.TextureLoader;
 
 public class ArchwizardHat
     extends CustomRelic
-    implements ModifyDamageRelic
 {
     public static final String ID = "jedi:archwizardhat";
     public static final String PATH = "resources/jedi/images/relics/";
@@ -43,20 +42,12 @@ public class ArchwizardHat
         }
     }
 
-    public float calculateCardDamageFinalRelic(AbstractCard card, AbstractMonster target, float damage)
+    @Override
+    public float atDamageModify(float damage, AbstractCard c)
     {
-        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0))
+        if (((c.costForTurn == EnergyPanel.totalCount || c.cost == -1) && EnergyPanel.totalCount != 0))
         {
             return (int)Math.ceil(damage * efficiency);
-        }
-        return damage;
-    }
-
-    public float applyPowersFinalRelic(AbstractCard card, float damage)
-    {
-        if (((card.costForTurn == EnergyPanel.totalCount || card.cost == -1) && EnergyPanel.totalCount != 0))
-        {
-            return (float)Math.ceil(damage * efficiency);
         }
         return damage;
     }

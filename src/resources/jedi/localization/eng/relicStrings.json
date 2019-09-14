@@ -8,10 +8,10 @@
     ]
   },
   "jedi:arcanewood": {
-    "NAME": "Arcane Wood",
-    "FLAVOR": "Why did it have to be something special?",
+    "NAME": "Portable Tent",
+    "FLAVOR": "Seems to be made of snecko skin, doused in slime goop. Offers long-term restorative effects.",
     "DESCRIPTIONS": [
-      "You can now encounter Rest sites in #y? rooms."
+      "You can now encounter #yRest sites in #y? rooms."
     ]
   },
   "jedi:archwizardhat": {

@@ -184,8 +184,8 @@
     "NAME": "废旧金属",
     "FLAVOR": "任何东西都不应该被浪费。",
     "DESCRIPTIONS": [
-      "每打出 #b",
-      " 张 #y小刀 ，增加一张 #y小刀 到你的手牌。"
+      "你每打出一张 #y小刀 ，本回合内  #y小刀 造成的伤害就增加 #b",
+      " 。"
     ]
   },
   "jedi:shrinkray": {
@@ -280,6 +280,61 @@
     "FLAVOR": "高塔里没有雨。",
     "DESCRIPTIONS": [
       "获得遗物的种类不再随机决定，而是由你自选。"
+    ]
+  },
+  "jedi:arcanewood": {
+    "NAME": "便携帐篷",
+    "FLAVOR": "为什么这东西非得如此特别不可？",
+    "DESCRIPTIONS": [
+      "你现在能在 #y? 房间遇到休息点。"
+    ]
+  },
+  "jedi:bottledfury": {
+    "NAME": "瓶装愤怒",
+    "FLAVOR": "如果你滥用瓶装的包扎一类的东西刷满血，MOD作者会很伤心的。",
+    "DESCRIPTIONS": [
+      "拾起时，选择一张卡牌。每当有敌人死亡时，将这张卡牌 #y取出 并置入你的手牌。",
+      "选择一张卡牌装进 ",
+      "每当有敌人死亡时，将 ",
+      " #y取出 并置入你的手牌。"
+    ]
+  },
+  "jedi:ironblood": {
+    "NAME": "钢铁之血",
+    "FLAVOR": "或许比不上土豆，但肯定比天鹅绒项圈好多了。 NL （*土豆是来自另一个mod Hubris的遗物，效果是“在你的回合内你免疫伤害”。）",
+    "DESCRIPTIONS": [
+      "每当你将要失去生命时，不失去生命而是受到相同数值的伤害。"
+    ]
+  },
+
+  "jedi:tokenofglory": {
+    "NAME": "荣光之印",
+    "FLAVOR": "你有一种不祥的预感……",
+    "DESCRIPTIONS": [
+      "精英敌人的出现频率变高。"
+    ]
+  },
+  "jedi:tokenofmystery": {
+    "NAME": "神秘之印",
+    "FLAVOR": "???????????????????????????",
+    "DESCRIPTIONS": [
+      "#y? 房间的出现频率变高。 NL 你在 #y? 房间遇到普通战斗的几率变高。"
+    ]
+  },
+  "jedi:tokenofserenity": {
+    "NAME": "宁静之印",
+    "FLAVOR": "安静，安静，让疲乏的头脑安睡。",
+    "DESCRIPTIONS": [
+      "休息点的出现频率变高。 NL 休息时，回复 #b",
+      "% 而非 #b30% 的最大生命。"
+    ]
+  },
+  "jedi:tokenofwealth": {
+    "NAME": "财富之印",
+    "FLAVOR": "一切皆有代价。",
+    "DESCRIPTIONS": [
+      "商店的出现频率变高。 NL 所有商店物品的价格提高 #b",
+      "% 。"
     ]
   }
 }

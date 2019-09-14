@@ -10,7 +10,6 @@ import mod.jedi.util.TextureLoader;
 
 public class StrikeManual
     extends CustomRelic
-    implements ModifyDamageRelic
 {
     public static final String ID = "jedi:strikemanual";
     public static final String PATH = "resources/jedi/images/relics/";
@@ -30,18 +29,8 @@ public class StrikeManual
         return this.DESCRIPTIONS[0] + efficiency + this.DESCRIPTIONS[1];
     }
 
-    public float calculateCardDamageRelic(AbstractCard card, AbstractMonster target, float damage)
-    {
-        if (card.hasTag(AbstractCard.CardTags.STRIKE))
-        {
-            return damage + efficiency;
-        }
-        return damage;
-    }
-
-    public float applyPowersRelic(AbstractCard card, float damage)
-    {
-        if (card.hasTag(AbstractCard.CardTags.STRIKE))
+    public float atDamageModify(float damage, AbstractCard c) {
+        if (c.hasTag(AbstractCard.CardTags.STRIKE))
         {
             return damage + efficiency;
         }
