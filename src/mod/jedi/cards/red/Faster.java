@@ -11,9 +11,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 import com.megacrit.cardcrawl.powers.SlowPower;
+import mod.jedi.cards.CustomJediCard;
 
 public class Faster
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:faster";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -31,6 +32,7 @@ public class Faster
         this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
         this.isEthereal = true;
+        cardsToPreview = new Stronger();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -55,6 +57,7 @@ public class Faster
     public void upgrade()
     {
         if (!this.upgraded) {
+            cardsToPreview.upgrade();
             this.upgradeName();
             this.name = UPGRADE_NAME+NAME;
             this.rawDescription = UPGRADE_DESCRIPTION;

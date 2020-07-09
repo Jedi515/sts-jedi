@@ -1,8 +1,5 @@
 package mod.jedi.powers;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -13,7 +10,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class UpgradeOnDraw
     extends AbstractPower
-    implements OnCardDrawPower
 {
     public static final String POWER_ID = "jedi:upgradeondraw";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

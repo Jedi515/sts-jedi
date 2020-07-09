@@ -7,9 +7,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.actions.SpotBugsAction;
+import mod.jedi.cards.CustomJediCard;
 
 public class SpotBugs
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:spotbugs";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

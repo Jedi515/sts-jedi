@@ -1,7 +1,9 @@
 package mod.jedi.cards;
 
+import basemod.AutoAdd;
 import mod.jedi.interfaces.CardAddedToDeck;
 
+@AutoAdd.Ignore
 public abstract class AbstractCollectorCard
     extends CustomJediCard implements CardAddedToDeck
 {

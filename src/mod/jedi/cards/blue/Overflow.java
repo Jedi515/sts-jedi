@@ -7,9 +7,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.actions.OverflowAction;
+import mod.jedi.cards.CustomJediCard;
 
 public class Overflow
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:overflow";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

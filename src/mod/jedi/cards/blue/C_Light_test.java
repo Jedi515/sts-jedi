@@ -8,6 +8,7 @@
 
 package mod.jedi.cards.blue;
 
+import basemod.AutoAdd;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -25,7 +26,7 @@ import com.megacrit.cardcrawl.powers.LockOnPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mod.jedi.actions.EvokeWithoutRemovingSpecificOrbAction;
 
-
+@AutoAdd.Ignore
 public class C_Light_test
         extends CustomCard
 {
@@ -39,7 +40,7 @@ public class C_Light_test
 
     public C_Light_test()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.SPECIAL, CardTarget.ENEMY);
         this.magicNumber = this.baseMagicNumber = 2;
     }
 

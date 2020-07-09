@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DemonFormPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import mod.jedi.cards.CustomJediCard;
 
 public class Stronger
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:stronger";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

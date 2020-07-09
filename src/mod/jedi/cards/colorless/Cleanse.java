@@ -10,9 +10,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mod.jedi.cards.CustomJediCard;
 
 public class Cleanse
-extends CustomCard
+extends CustomJediCard
 {
 
     public static final String ID = "jedi:cleanse";
@@ -37,8 +38,7 @@ extends CustomCard
         if(!this.upgraded)
         {
             upgradeName();
-//            this.retain = true;
-            AlwaysRetainField.alwaysRetain.set(this, true);
+            selfRetain = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

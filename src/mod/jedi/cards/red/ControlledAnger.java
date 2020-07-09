@@ -9,10 +9,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mod.jedi.cards.CustomJediCard;
 import mod.jedi.powers.ControlledAngerPower;
 
 public class ControlledAnger
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:controlledanger";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

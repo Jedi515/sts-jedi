@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.actions.HatredAction;
+import mod.jedi.cards.CustomJediCard;
 
 public class Hate
-    extends CustomCard
-    implements StartupCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:hate";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -25,11 +25,10 @@ public class Hate
     public static final int COST = 2;
     public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_attack.png";
 
-
     public Hate()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 5;
         this.exhaust = true;
 
     }
@@ -43,38 +42,11 @@ public class Hate
     public void upgrade()
     {
         if (!this.upgraded) {
-            this.upgradeDamage(3);
+            this.upgradeDamage(2);
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
             this.exhaust = false;
         }
-    }
-
-
-    public CustomCard makeCopy()
-    {
-        return new Hate();
-    }
-
-    @Override
-    public boolean atBattleStartPreDraw()
-    {
-        boolean toReturn = true;
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
-        {
-            if (c instanceof Anger)
-            {
-                toReturn = false;
-                break;
-            }
-        }
-
-        if (toReturn)
-        {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Anger(), 1, true, true));
-        }
-
-        return toReturn;
     }
 }

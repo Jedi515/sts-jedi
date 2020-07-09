@@ -23,14 +23,7 @@ public class VSFXLightningAction
     {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
-        if (creature == null)
-        {
-            this.c = null;
-        }
-        else
-        {
-            this.c = creature;
-        }
+        this.c = creature;
         this.playSound = playSound;
     }
 
@@ -41,8 +34,8 @@ public class VSFXLightningAction
         {
             if (this.c != null)
             {
-                c.damageFlash = true;
-                c.damageFlashFrames = 4;
+//                c.damageFlash = true;
+//                c.damageFlashFrames = 4;
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(c.hb.cX, c.hb.cY, AbstractGameAction.AttackEffect.NONE));
                 AbstractDungeon.effectList.add(new LightningEffect(c.drawX, c.drawY));
             }
@@ -52,8 +45,8 @@ public class VSFXLightningAction
                 {
                     if (!mo.isDeadOrEscaped())
                     {
-                        mo.damageFlash = true;
-                        mo.damageFlashFrames = 4;
+//                        mo.damageFlash = true;
+//                        mo.damageFlashFrames = 4;
                         AbstractDungeon.effectList.add(new FlashAtkImgEffect(mo.hb.cX, mo.hb.cY, AbstractGameAction.AttackEffect.NONE));
                         AbstractDungeon.effectList.add(new LightningEffect(mo.drawX, mo.drawY));
                     }

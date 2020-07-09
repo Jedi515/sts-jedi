@@ -10,9 +10,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import mod.jedi.cards.CustomJediCard;
 
 public class Harder
-    extends CustomCard
+    extends CustomJediCard
 {
     public static final String ID = "jedi:harder";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -28,6 +29,7 @@ public class Harder
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.RARE, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 2;
+        cardsToPreview = new Better();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -46,6 +48,7 @@ public class Harder
     public void upgrade()
     {
         if (!this.upgraded) {
+            cardsToPreview.upgrade();
             this.upgradeName();
             this.name = UPGRADE_NAME+NAME;
             this.rawDescription = UPGRADE_DESCRIPTION;

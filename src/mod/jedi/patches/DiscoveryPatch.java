@@ -11,7 +11,7 @@ import javassist.*;
 @SpirePatch(clz = CardRewardScreen.class, method = SpirePatch.CONSTRUCTOR)
 public class DiscoveryPatch
 {
-    public static void Raw(CtBehavior ctMethodToPatch) throws NotFoundException, CannotCompileException
+    public static void Raw(CtBehavior ctMethodToPatch) throws CannotCompileException
     {
         CtClass ctClass = ctMethodToPatch.getDeclaringClass();
         CtMethod method = CtNewMethod.make(
@@ -34,9 +34,6 @@ public class DiscoveryPatch
                 "placeCards((float)" + Settings.class.getName() + ".WIDTH / 2.0F, CARD_TARGET_Y);" +
                 "}",
                 ctClass);
-
-
-
         ctClass.addMethod(method);
     }
 }

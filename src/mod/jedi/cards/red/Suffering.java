@@ -10,9 +10,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mod.jedi.cards.CustomJediCard;
 
 public class Suffering
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:suffering";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

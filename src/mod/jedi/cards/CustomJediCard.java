@@ -1,7 +1,9 @@
 package mod.jedi.cards;
 
+import basemod.AutoAdd;
 import basemod.abstracts.CustomCard;
 
+@AutoAdd.Ignore
 public abstract class CustomJediCard
     extends CustomCard
 {
@@ -19,6 +21,7 @@ public abstract class CustomJediCard
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
         isSecondMNModified = false;
     }
+
     public void displayUpgrades()
     {
         super.displayUpgrades();

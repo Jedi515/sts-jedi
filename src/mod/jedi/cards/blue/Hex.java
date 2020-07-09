@@ -1,6 +1,5 @@
 package mod.jedi.cards.blue;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,9 +10,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import mod.jedi.cards.CustomJediCard;
 
 public class Hex
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:hex";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -40,10 +40,10 @@
     "NAME": "Bottled Fury",
     "FLAVOR": "I will be very sad if you put in something like Bandage Up and will just spam it to heal to full every possible time.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a card. Whenever an enemy dies, #yFetch this card to your hand.",
+      "Upon pickup, choose a card. Whenever an enemy dies, #yFetch this card from anywhere.",
       "Choose a card for ",
       "Whenever an enemy dies, #yFetch ",
-      " into your hand."
+      " from anywhere."
     ]
   },
   "jedi:catwich": {
@@ -72,7 +72,7 @@
   },
   "jedi:endoplasm": {
     "NAME": "Endoplasm",
-    "FLAVOR": "Yes it does work in non-combat rooms. No it's not a bug. No you don't lose gold in blood shop.",
+    "FLAVOR": "This relic is deprecated.",
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. The first time you lose HP each round, lose #r50 #yGold. Whenever you lose HP outside of combat, lose #r50 #yGold."
     ]
@@ -149,7 +149,7 @@
   },
   "jedi:leadlinedbottle": {
     "NAME": "Lead-Lined Bottle",
-    "FLAVOR": "Unlike other bottles, this one can actually holds its contents properly.",
+    "FLAVOR": "This relic is deprecated.",
     "DESCRIPTIONS": [
       "Upon pickup, choose a card. Start each combat with this card at the bottom of your draw pile.",
       "Choose a card for ",
@@ -199,6 +199,13 @@
     "FLAVOR": "What does it say?",
     "DESCRIPTIONS": [
       "Enemies with #yLock-On take #b75% more damage rather than #b50%."
+    ]
+  },
+  "jedi:Pinwheel": {
+    "NAME": "Pinwheel",
+    "FLAVOR": "Seems to be spinning despite complete lack of wind.",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your deck, gain #b1 #yStrength."
     ]
   },
   "jedi:paperlyon": {
@@ -260,7 +267,7 @@
   },
   "jedi:strikemanual": {
     "NAME": "Strike Manual",
-    "FLAVOR": "Truly striking knowledge.",
+    "FLAVOR": "This relic is deprecated.",
     "DESCRIPTIONS": [
       "All #yStrikes deal #b",
       " additional damage."
@@ -364,13 +371,6 @@
     "FLAVOR": "There is no rain inside the Spire.",
     "DESCRIPTIONS": [
       "Instead of random you always choose which relic to obtain."
-    ]
-  },
-  "jedi:strengthtestrelic": {
-    "NAME": "Strength test",
-    "FLAVOR": "I mean why not.",
-    "DESCRIPTIONS": [
-      "All attacks deal #b10 more damage."
     ]
   }
 }

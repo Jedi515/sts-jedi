@@ -25,7 +25,7 @@ public class Endoplasm
 
     public Endoplasm()
     {
-        super(ID, IMG, OUTLINE, RelicTier.BOSS,LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.DEPRECATED,LandingSound.FLAT);
     }
 
     public void onEquip()

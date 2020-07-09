@@ -1,10 +1,7 @@
 package mod.jedi;
 
 import archetypeAPI.ArchetypeAPI;
-import basemod.BaseMod;
-import basemod.ModLabel;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
+import basemod.*;
 import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -18,7 +15,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -45,6 +41,7 @@ import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
+import mod.jedi.cards.CustomJediCard;
 import mod.jedi.cards.blue.*;
 import mod.jedi.cards.colorless.Cleanse;
 import mod.jedi.cards.colorless.Forcepull;
@@ -52,6 +49,10 @@ import mod.jedi.cards.colorless.Forcepush;
 import mod.jedi.cards.curses.Frostbite;
 import mod.jedi.cards.curses.TheDog;
 import mod.jedi.cards.green.*;
+import mod.jedi.cards.purple.DeepenNeedles;
+import mod.jedi.cards.purple.MengElixir;
+import mod.jedi.cards.purple.NeedleToss;
+import mod.jedi.cards.purple.NirvanicRebirth;
 import mod.jedi.cards.red.*;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.modifiers.CommandCustomRun;
@@ -156,7 +157,7 @@ public class jedi
         {
 
             if ((card.hasTag(AbstractCard.CardTags.STRIKE) &&
-                (!card.hasTag(BaseModCardTags.BASIC_STRIKE)) &&
+                (!card.hasTag(AbstractCard.CardTags.STARTER_STRIKE)) &&
                 (card.rarity != AbstractCard.CardRarity.BASIC)))
             {
                 StrikeGroup.addToBottom(card.makeCopy());
@@ -260,7 +261,8 @@ public class jedi
             String[] methods = {"use", "triggerOnManualDiscard", "triggerWhenDrawn", "calculateCardDamage", "triggerOnExhaust"};
 
             toReturn = ifFunctionsContainWord(ctClass, methods, word);
-        } catch (NotFoundException e)
+            ctClass.freeze();
+        } catch (NotFoundException ignored)
         {
 
         }
@@ -389,59 +391,7 @@ public class jedi
     public void receiveEditCards()
     {
         BaseMod.addDynamicVariable(new JediSecondMN());
-        //Colorless
-        BaseMod.addCard(new Cleanse());
-        BaseMod.addCard(new Forcepush());
-        BaseMod.addCard(new Forcepull());
-
-        //Green
-        BaseMod.addCard(new PoisonIvy());
-        BaseMod.addCard(new CollectorVenom());
-        BaseMod.addCard(new UnstableFumes());
-        BaseMod.addCard(new PocketPoison());
-        BaseMod.addCard(new BrewingPoison());
-        BaseMod.addCard(new RejectiveToxin());
-        BaseMod.addCard(new AcidRain());
-        BaseMod.addCard(new StudyPoison());
-        BaseMod.addCard(new StudyShivs());
-
-        //Blue
-        BaseMod.addCard(new BurstLightning());
-        BaseMod.addCard(new BurstFrost());
-        BaseMod.addCard(new BurstDark());
-        BaseMod.addCard(new MarkOfDeath());
-        BaseMod.addCard(new LockNLoad());
-        BaseMod.addCard(new Hex());
-        BaseMod.addCard(new Sharpshooter());
-        BaseMod.addCard(new ReadyAimFire());
-        BaseMod.addCard(new Reiji());
-        BaseMod.addCard(new BlockOn());
-        BaseMod.addCard(new GatheringStorm());
-        BaseMod.addCard(new Meditation());
-        BaseMod.addCard(new DarknessCall());
-        BaseMod.addCard(new Bruteforce());
-        BaseMod.addCard(new SpotBugs());
-        BaseMod.addCard(new Overflow());
-        BaseMod.addCard(new StudyFrost());
-
-        //Red
-        BaseMod.addCard(new StrikingStrike());
-        BaseMod.addCard(new OneStrike());
-        BaseMod.addCard(new CollectorStrike());
-        BaseMod.addCard(new Fear());
-        BaseMod.addCard(new Hate());
-        BaseMod.addCard(new Suffering());
-        BaseMod.addCard(new Harder());
-        BaseMod.addCard(new Better());
-        BaseMod.addCard(new Faster());
-        BaseMod.addCard(new Stronger());
-        BaseMod.addCard(new UnlimitedPower());
-        BaseMod.addCard(new BloodyHammer());
-        BaseMod.addCard(new ControlledAnger());
-
-        //Curses
-        BaseMod.addCard(new Frostbite());
-        BaseMod.addCard(new TheDog());
+        new AutoAdd("jedi").packageFilter(CustomJediCard.class).setDefaultSeen(true).cards();
     }
 
     @Override
@@ -472,6 +422,7 @@ public class jedi
         BaseMod.addRelic(new ScalesOfToshan(), RelicType.SHARED);
         BaseMod.addRelic(new Equalizer(), RelicType.SHARED);
         BaseMod.addRelic(new LuckyCharm(), RelicType.SHARED);
+        BaseMod.addRelic(new Pinwheel(), RelicType.SHARED);
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
@@ -551,6 +502,7 @@ public class jedi
 
     private void loadKeywords(String langKey)
     {
+        if (!Gdx.files.internal("resources/jedi/localization/" + langKey + "/").exists()) return;
         Gson gson = new Gson();
 
         String json = GetLocString(langKey, "keywordStrings");
@@ -583,6 +535,7 @@ public class jedi
 
     private void loadStrings(String langKey)
     {
+        if (!Gdx.files.internal("resources/jedi/localization/" + langKey + "/").exists()) return;
         loadCustomStrings(CardStrings.class, GetLocString(langKey, "cardStrings"));
         loadCustomStrings(RelicStrings.class, GetLocString(langKey, "relicStrings"));
         loadCustomStrings(PotionStrings.class, GetLocString(langKey, "potionStrings"));
@@ -680,6 +633,11 @@ public class jedi
             }
         }
         return false;
+    }
+
+    public static String makeID(String id_in)
+    {
+        return "jedi:" + id_in;
     }
 
     public static AbstractRelic returnRandomCursedRelic()

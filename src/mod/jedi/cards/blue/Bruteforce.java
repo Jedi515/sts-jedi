@@ -1,29 +1,15 @@
 package mod.jedi.cards.blue;
 
-import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mod.jedi.actions.BruteforceAction;
-import mod.jedi.actions.RemoveSpecificOrbAction;
-
-import java.util.Collections;
+import mod.jedi.cards.CustomJediCard;
 
 public class Bruteforce
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:bruteforce";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -46,22 +32,6 @@ public class Bruteforce
         AbstractDungeon.actionManager.addToBottom(new BruteforceAction(m, this.magicNumber));
     }
 
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m)
-    {
-        boolean canUse = false;
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (o instanceof Lightning) {
-                canUse = true;
-            }
-        }
-        if (!canUse)
-        {
-            this.cantUseMessage = UPGRADE_DESCRIPTION;
-        }
-
-        return canUse;
-    }
 
     @Override
     public void upgrade()

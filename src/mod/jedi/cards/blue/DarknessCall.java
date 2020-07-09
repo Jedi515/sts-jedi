@@ -1,6 +1,5 @@
 package mod.jedi.cards.blue;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,9 +11,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.powers.LockOnPower;
+import mod.jedi.cards.CustomJediCard;
 
 public class DarknessCall
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:darknesscall";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -50,23 +50,6 @@ public class DarknessCall
                 return;
             }
         }
-    }
-
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m)
-    {
-        boolean canUse = false;
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (o instanceof Dark) {
-                canUse = true;
-            }
-        }
-        if (!canUse)
-        {
-            this.cantUseMessage = UPGRADE_DESCRIPTION;
-        }
-
-        return canUse;
     }
 
     public void upgrade()

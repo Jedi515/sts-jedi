@@ -10,9 +10,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.LockOnPower;
+import mod.jedi.cards.CustomJediCard;
 
 public class ReadyAimFire
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:readyaimfire";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

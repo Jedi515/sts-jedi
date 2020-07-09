@@ -10,9 +10,10 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import mod.jedi.cards.CustomJediCard;
 
 public class GatheringStorm
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:gatheringstorm";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -43,20 +44,12 @@ public class GatheringStorm
 
     public void applyPowers() {
         super.applyPowers();
-        this.baseMagicNumber = 0;
-        this.magicNumber = 0;
-        for (AbstractOrb o : AbstractDungeon.actionManager.orbsChanneledThisCombat)
-        {
-            if (!(o instanceof Lightning)) {
-                ++this.baseMagicNumber;
-            }
-        }
+        this.magicNumber = baseMagicNumber = (int)AbstractDungeon.actionManager.orbsChanneledThisCombat.stream().filter(o -> !(o instanceof Lightning)).count();
 
         if (this.baseMagicNumber > 0) {
             this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
             this.initializeDescription();
         }
-
     }
 
     public void upgrade()

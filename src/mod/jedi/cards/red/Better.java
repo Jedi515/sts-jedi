@@ -9,10 +9,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import mod.jedi.cards.CustomJediCard;
 import mod.jedi.powers.UpgradeOnDraw;
 
 public class Better
-    extends CustomCard
+    extends CustomJediCard
 {
     public static final String ID = "jedi:better";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -29,6 +30,7 @@ public class Better
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.SPECIAL, CardTarget.SELF);
         this.exhaust = true;
         this.isEthereal = true;
+        cardsToPreview = new Faster();
     }
 
 
@@ -50,6 +52,7 @@ public class Better
     public void upgrade()
     {
         if (!this.upgraded) {
+            cardsToPreview.upgrade();
             this.upgradeName();
             this.name = UPGRADE_NAME+NAME;
             this.rawDescription = UPGRADE_DESCRIPTION;

@@ -1,6 +1,7 @@
 package mod.jedi.cards.blue;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,10 +13,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import mod.jedi.cardMods.BurstFrostMod;
+import mod.jedi.cards.CustomJediCard;
 
 
 public class BurstFrost
-        extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:BurstFrost";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -29,6 +32,7 @@ public class BurstFrost
         this.baseBlock = 8;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        CardModifierManager.addModifier(this, new BurstFrostMod());
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -36,77 +40,6 @@ public class BurstFrost
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Frost());
     }
-
-    @Override
-    public void applyPowers() {
-        int baseBlockPlaceholder = this.baseBlock;
-        int currentFocus = 0;
-        int currentDexterity = 0;
-        boolean hasFocus = false;
-        boolean hasDexterity = false;
-        if (AbstractDungeon.player.hasPower(FocusPower.POWER_ID)) {
-            currentFocus = AbstractDungeon.player.getPower(FocusPower.POWER_ID).amount;
-            hasFocus = true;
-        }
-        if (AbstractDungeon.player.hasPower(DexterityPower.POWER_ID)) {
-            currentDexterity = AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount;
-            hasDexterity = true;
-        }
-        if (hasFocus) {
-            if (!hasDexterity) {
-                this.baseBlock += currentFocus * magicNumber;
-                super.applyPowers();
-                this.baseBlock = baseBlockPlaceholder;
-                this.isBlockModified = baseBlock != block;
-            } else {
-                AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentFocus * magicNumber;
-                super.applyPowers();
-                AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentDexterity;
-            }
-        } else if (hasDexterity) {
-            AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentFocus * magicNumber;
-            super.applyPowers();
-            AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentDexterity;
-        } else {
-            super.applyPowers();
-        }
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster m) {
-        int baseBlockPlaceholder = this.baseBlock;
-        int currentFocus = 0;
-        int currentDexterity = 0;
-        boolean hasFocus = false;
-        boolean hasDexterity = false;
-        if (AbstractDungeon.player.hasPower(FocusPower.POWER_ID)) {
-            currentFocus = AbstractDungeon.player.getPower(FocusPower.POWER_ID).amount;
-            hasFocus = true;
-        }
-        if (AbstractDungeon.player.hasPower(DexterityPower.POWER_ID)) {
-            currentDexterity = AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount;
-            hasDexterity = true;
-        }
-        if (hasFocus) {
-            if (!hasDexterity) {
-                this.baseBlock += currentFocus * magicNumber;
-                super.calculateCardDamage(m);
-                this.baseBlock = baseBlockPlaceholder;
-                this.isBlockModified = baseBlock != block;
-            } else {
-                AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentFocus * magicNumber;
-                super.calculateCardDamage(m);
-                AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentDexterity;
-            }
-        } else if (hasDexterity) {
-            AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentFocus * magicNumber;
-            super.calculateCardDamage(m);
-            AbstractDungeon.player.getPower(DexterityPower.POWER_ID).amount = currentDexterity;
-        } else {
-            super.calculateCardDamage(m);
-        }
-    }
-
 
     public void upgrade()
     {

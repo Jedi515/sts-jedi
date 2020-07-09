@@ -16,9 +16,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
+import mod.jedi.cards.CustomJediCard;
 
 public class OneStrike
-    extends CustomCard
+    extends CustomJediCard
 {
 
     public static final String ID = "jedi:onestrike";

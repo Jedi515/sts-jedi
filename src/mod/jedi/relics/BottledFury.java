@@ -22,22 +22,17 @@ import mod.jedi.util.TextureLoader;
 import java.util.function.Predicate;
 
 public class BottledFury
-    extends CustomRelic
+    extends AbstractJediRelic
     implements CustomBottleRelic,
         CustomSavable<Integer>
 {
     public static final String ID = "jedi:bottledfury";
-    public static final String PATH = "resources/jedi/images/relics/";
-    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
-    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
-    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
-    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
     private boolean cardSelected = true;
     public AbstractCard card = null;
 
     public BottledFury()
     {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL);
     }
 
     @Override
@@ -146,6 +141,7 @@ public class BottledFury
         this.description = DESCRIPTIONS[2] + FontHelper.colorString(this.card.name, "y") + DESCRIPTIONS[3];
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
+        cardToPreview = card;
         this.initializeTips();
     }
 

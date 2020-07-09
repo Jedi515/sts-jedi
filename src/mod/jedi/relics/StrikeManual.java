@@ -17,11 +17,11 @@ public class StrikeManual
     public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
-    public static final int efficiency = 4;
+    private static final int efficiency = 4;
 
     public StrikeManual()
     {
-        super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.COMMON, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.DEPRECATED, LandingSound.FLAT);
     }
 
     public String getUpdatedDescription()

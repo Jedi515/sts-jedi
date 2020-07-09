@@ -39,6 +39,11 @@ public class BruteforceAction
     {
         if (this.duration == this.startDuration)
         {
+            if (AbstractDungeon.player.orbs.stream().noneMatch(o -> o instanceof Lightning))
+            {
+                isDone = true;
+                return;
+            }
             DamageInfo info = evokeInfo();
             if (!AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() && !m.isDeadOrEscaped() && !m.isDead)
             {

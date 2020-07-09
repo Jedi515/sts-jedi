@@ -14,9 +14,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mod.jedi.actions.VSFXLightningAction;
+import mod.jedi.cards.CustomJediCard;
 
 public class UnlimitedPower
-    extends CustomCard
+        extends CustomJediCard
 {
     public static final String ID = "jedi:unlimitedpower";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -50,8 +50,8 @@ public class CrownOfSimplicity
         if ((   oncePerTurn &&
                 (
                     card.rarity == AbstractCard.CardRarity.BASIC ||
-                    card.hasTag(BaseModCardTags.BASIC_STRIKE) ||
-                    card.hasTag(BaseModCardTags.BASIC_DEFEND)) &&
+                    card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) ||
+                    card.hasTag(AbstractCard.CardTags.STARTER_DEFEND)) &&
                     !card.purgeOnUse &&
                     !card.freeToPlayOnce)
                 )

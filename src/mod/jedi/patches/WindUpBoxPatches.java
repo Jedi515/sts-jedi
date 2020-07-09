@@ -39,7 +39,7 @@ public class WindUpBoxPatches
         }
     }
 
-    @SpirePatch(clz = Pocketwatch.class, method = "atTurnStart")
+    @SpirePatch(clz = Pocketwatch.class, method = "atTurnStartPostDraw")
     public static class PocketwatchWindup
     {
         public static void Prefix(Pocketwatch __instance)
@@ -78,7 +78,7 @@ public class WindUpBoxPatches
         public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
         {
             Matcher finalMatcher = new Matcher.NewExprMatcher(GainEnergyAction.class);
-            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<Matcher>(), finalMatcher);
+            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
         }
     }
 
@@ -136,7 +136,7 @@ public class WindUpBoxPatches
         public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
         {
             Matcher finalMatcher = new Matcher.FieldAccessMatcher(Metronome.class, "counter");
-            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<Matcher>(), finalMatcher);
+            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
         }
     }
 }
