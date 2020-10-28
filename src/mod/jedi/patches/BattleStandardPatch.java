@@ -6,9 +6,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import mod.jedi.cards.curses.BattleThirst;
 import mod.jedi.relics.BattleStandard;
 
-public class BattleStandartPatch
+public class BattleStandardPatch
 {
     @SpirePatch(
             clz=MapRoomNode.class,
@@ -20,7 +21,7 @@ public class BattleStandartPatch
         {
             if (__result && __instance == AbstractDungeon.getCurrMapNode())
             {
-                if (AbstractDungeon.player.hasRelic(BattleStandard.ID))
+                if (AbstractDungeon.player.hasRelic(BattleStandard.ID) || AbstractDungeon.player.masterDeck.group.stream().anyMatch(c -> c.cardID.equals(BattleThirst.ID)))
                 {
                     for (MapEdge edge : __instance.getEdges())
                     {

@@ -21,7 +21,7 @@ public class Reiji
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 0;
-    public static final String IMG_PATH = "resources/jedi/images/cards/blue/reiji.png";
+    public static final String IMG_PATH = "resources/jedi/images/cards/blue/skill/reiji.png";
 
     public Reiji()
     {

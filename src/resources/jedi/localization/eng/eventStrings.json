@@ -17,5 +17,28 @@
               "[Chest] Obtain a random #ycommon relic.",
               "[Leave]"
             ]
+  },
+  "jedi:ShrineOfCommand":
+  {
+    "NAME": "Shrine of Command",
+    "DESCRIPTIONS":
+            [
+              "You come across a weird-looking shrine. Above it, you see an ancient crown floating mysteriously. It #b~commands~ you for great sacrifices, offering #y~riches~ and ~limitless~ #r~power.~",
+              "Sacrifices must be made.",
+              "#y[Approach] Offer #rgreat sacrifices to command your fate.",
+              "[Leave]"
+            ],
+    "OPTIONS":
+            [
+              "#r[Lose #r%d #rHP] Choose a #ycommon relic to obtain.",
+              "#r[Lose #ra #rpotion #rslot] Choose an #yuncommon relic to obtain.",
+              "#r[Become #rCursed - #rBattle #rThirst] Choose a #yrare relic to obtain.",
+              "#r[Lose #r%d #rMax #rHP] Choose a #yboss relic to obtain.",
+              "#r[Lose #rALL #rGold] Choose a #yshop relic to obtain.",
+              "#r[YOUR #rVERY #rLIFE] Command everything.",
+              "[Leave]",
+              "[Locked] Requires: 1 or more potion slots.",
+              "[Locked] Requires: 200 or more gold."
+            ]
   }
 }

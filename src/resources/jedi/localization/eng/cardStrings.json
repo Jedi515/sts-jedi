@@ -60,8 +60,8 @@
   },
   "jedi:controlledanger": {
     "NAME": "Controlled Anger",
-    "DESCRIPTION": "Add !M! Angers to your hand. NL Whenever you play an Anger, Exhaust it.",
-    "UPGRADE_DESCRIPTION": "Add !M! Upgraded Angers to your hand. NL Whenever you play an Anger, Exhaust it."
+    "DESCRIPTION": "Add !M! *Angers to your hand. NL Whenever you play an *Anger, Exhaust it.",
+    "UPGRADE_DESCRIPTION": "Add !M! Upgraded *Angers to your hand. NL Whenever you play an *Anger, Exhaust it."
   },
   "jedi:darknesscall": {
     "NAME": "Darkness Call",
@@ -75,8 +75,8 @@
   },
   "jedi:fear": {
     "NAME": "Fear",
-    "DESCRIPTION": "Add !M! Angers to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! upgraded Angers to your hand. NL Exhaust."
+    "DESCRIPTION": "Add !M! *Angers to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! upgraded *Angers to your hand. NL Exhaust."
   },
   "jedi:forcepull": {
     "NAME": "Force Pull",
@@ -104,8 +104,8 @@
   },
   "jedi:hate": {
     "NAME": "Hate",
-    "DESCRIPTION": "Exhaust all Angers in your discard pile and deal !D! damage for each. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust all Angers in your discard pile and deal !D! damage for each."
+    "DESCRIPTION": "Exhaust all *Angers in your discard pile and deal !D! damage for each. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust all *Angers in your discard pile and deal !D! damage for each."
   },
   "jedi:hex": {
     "NAME": "Hex",
@@ -250,5 +250,17 @@
   "jedi:RedIncense": {
     "NAME": "Red Incense",
     "DESCRIPTION": "Unplayable. NL Whenever you discard, Exhaust or Scry this card, gain !M! Strength."
+  },
+  "jedi:MakeshiftSword": {
+    "NAME": "Makeshift Sword",
+    "DESCRIPTION": "Whenever a card is created during combat, deal !M! damage to ALL enemies."
+  },
+  "jedi:BattleThirst": {
+    "NAME": "Battle Thirst",
+    "DESCRIPTION": "Unplayable. NL While in your deck, you have to enter combat rooms whenever you can."
+  },
+  "jedi:LeechingStrike": {
+    "NAME": "Leeching Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Heal HP equal to unblocked damage dealt. NL Exhaust."
   }
 }

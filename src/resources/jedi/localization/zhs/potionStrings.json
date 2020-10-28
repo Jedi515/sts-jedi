@@ -45,5 +45,39 @@
       " 层随机负面状态。",
       " 层随机负面状态。"
     ]
+  },
+  "jedi:hoardpotion":
+  {
+    "NAME": "囤积药水",
+    "DESCRIPTIONS":
+    [
+      "将当前卡牌奖励界面的所有卡牌加入到牌组中。",
+      "囤积。",
+      "将当前卡牌奖励界面的所有卡牌 #y升级 ，然后加入到牌组中。"
+    ]
+  },
+  "jedi:mysterypotion":
+  {
+    "NAME": "神秘药剂",
+    "DESCRIPTIONS":
+    [
+      "你所进入的下一个非BOSS房间变为 #y? 房间。  NL 无法在 #y终幕 使用。"
+    ]
+  },
+  "jedi:wingpotion":
+  {
+    "NAME": "能量饮料",
+    "DESCRIPTIONS":
+    [
+      "你在选择下一层的房间时可以无视当前的路线一次。"
+    ]
+  },
+  "jedi:specialdeliverypotion":
+  {
+    "NAME": "特快专递",
+    "DESCRIPTIONS":
+    [
+      "回复所有生命。"
+    ]
   }
 }

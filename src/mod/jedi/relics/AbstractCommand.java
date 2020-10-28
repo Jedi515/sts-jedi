@@ -3,8 +3,8 @@ package mod.jedi.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.mod.hubris.screens.select.RelicSelectScreen;
-import com.evacipated.cardcrawl.mod.hubris.vfx.ObtainRelicLater;
+import mod.jedi.effects.InstantObtainEffect;
+import mod.jedi.screens.RelicSelectScreen;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -71,7 +71,7 @@ public abstract class AbstractCommand
                     default:
                         System.out.println("JEDI MOD: Top 10 anime plot twists - command was SOMEHOW called for a rarity that it doesn't support. I blame mods. If osmething crashed: " + relic.tier.toString());
                 }
-                AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(relic));
+                AbstractDungeon.effectsQueue.add(0, new InstantObtainEffect(relic));
                 AbstractDungeon.getCurrRoom().phase = roomPhase;
                 loseRelic = true;
             } else {

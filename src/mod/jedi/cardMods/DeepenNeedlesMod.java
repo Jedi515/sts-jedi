@@ -12,6 +12,7 @@ public class DeepenNeedlesMod extends AbstractCardModifier
     @Override
     public float modifyDamage(float damage, DamageInfo.DamageType type, AbstractCard card, AbstractMonster target)
     {
+        if (target == null) return damage;
         AbstractPower marks = target.getPower(MarkPower.POWER_ID);
         if (marks != null) damage += marks.amount;
         return damage;

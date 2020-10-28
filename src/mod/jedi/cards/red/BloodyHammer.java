@@ -36,7 +36,7 @@ public class BloodyHammer
     {
         AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p, p, this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new SmithInCombatAction());
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new UpgradeShineEffect(Settings.WIDTH/2, Settings.HEIGHT/2)));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new UpgradeShineEffect(Settings.WIDTH/2F, Settings.HEIGHT/2F)));
     }
 
     public void upgrade()

@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public class MysteryPotion
     extends CustomPotion
-    implements OutOfCombatPotion
 {
     public static final String ID = "jedi:mysterypotion";
 

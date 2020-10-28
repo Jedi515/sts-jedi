@@ -14,7 +14,6 @@ import mod.jedi.interfaces.OutOfCombatPotion;
 
 public class SpecialDeliveryPotion
     extends CustomPotion
-    implements OutOfCombatPotion
 {
     public static final String ID = "jedi:specialdeliverypotion";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(ID);

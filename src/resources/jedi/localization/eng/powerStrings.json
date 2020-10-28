@@ -25,5 +25,11 @@
       " #yShiv to your hand.",
       " #yShivs to your hand."
     ]
+  },
+  "jedi:MakeshiftSwordPower": {
+    "NAME": "Makeshift Sword",
+    "DESCRIPTIONS": [
+      "Whenever a card is created during combat, deal #b%d damage to ALL enemies."
+    ]
   }
 }

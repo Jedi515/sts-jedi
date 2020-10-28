@@ -1,6 +1,5 @@
 package mod.jedi.cards.red;
 
-import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
@@ -29,14 +28,11 @@ public class OneStrike
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 3;
-    public static final String IMG_PATH = "resources/jedi/images/cards/red/onestrike.png";
 
-    public String Speech = "ONE STRIKE!";
-    public String SpeechUp = "ONE STRIKE PLUS ULTRA!";
 
     public OneStrike()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.SPECIAL, CardTarget.ENEMY);
         this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
         this.cantUseMessage = EXTENDED_DESCRIPTION[1];
@@ -51,14 +47,14 @@ public class OneStrike
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, pow.ID));
         }
 
-        if (this.upgraded)
-        {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, SpeechUp, 1.0F, 2.0F));
-        }
-        else
-        {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, Speech, 1.0F, 2.0F));
-        }
+//        if (this.upgraded)
+//        {
+//            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, SpeechUp, 1.0F, 2.0F));
+//        }
+//        else
+//        {
+//            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, Speech, 1.0F, 2.0F));
+//        }
 
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY)));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, m.maxHealth * 2, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE));
@@ -79,8 +75,8 @@ public class OneStrike
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m)
     {
-        boolean canUse = false;
-        if (m != null) {
+        boolean canUse = super.canUse(p, m);
+        if (m != null && canUse) {
             if (m.type != AbstractMonster.EnemyType.BOSS) {
                 canUse = true;
             }

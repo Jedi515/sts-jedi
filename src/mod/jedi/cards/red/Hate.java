@@ -29,8 +29,8 @@ public class Hate
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.damage = this.baseDamage = 5;
+        cardsToPreview = new Anger();
         this.exhaust = true;
-
     }
 
 

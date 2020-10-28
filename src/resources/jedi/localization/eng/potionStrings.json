@@ -64,6 +64,13 @@
       "The next room you can go to, other than bosses, becomes a #y? room. NL Cannot be used in #yThe #yEnding."
     ]
   },
+  "jedi:StrikingPotion": {
+    "NAME": "Striking Potion",
+    "DESCRIPTIONS": [
+      "Choose #b1 of #b3 random cards containing \"Strike\" to add to your hand, it costs #b0 this turn.",
+      "Choose #b1 of #b3 random cards containing \"Strike\" and add #b%d copies to your hand, they cost #b0 this turn."
+    ]
+  },
   "jedi:wingpotion":
   {
     "NAME": "Energy drink",

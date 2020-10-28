@@ -27,6 +27,7 @@ public class Fear
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.COMMON, CardTarget.NONE);
         this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
+        cardsToPreview = new Anger();
     }
 
 
@@ -45,6 +46,7 @@ public class Fear
     {
         if (!this.upgraded) {
             this.upgradeName();
+            cardsToPreview.upgrade();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

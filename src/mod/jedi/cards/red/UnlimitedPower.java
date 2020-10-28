@@ -1,9 +1,7 @@
 package mod.jedi.cards.red;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,8 +9,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import mod.jedi.actions.VSFXLightningAction;
 import mod.jedi.cards.CustomJediCard;
 
@@ -28,14 +24,13 @@ public class UnlimitedPower
     private boolean darkSide = false;
     private static int startDamage = 3;
     private static int startMagicNumber = 0;
-    public static final String IMG_PATH = "resources/jedi/images/cards/red/unlimitedpower.png";
 
 
     public UnlimitedPower()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ENEMY);
-        this.magicNumber = this.baseMagicNumber = 0;
-        this.damage = this.baseDamage = 3;
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ENEMY);
+        this.magicNumber = this.baseMagicNumber = startMagicNumber;
+        this.damage = this.baseDamage = startDamage;
     }
 
 
@@ -88,14 +83,7 @@ public class UnlimitedPower
             return true;
         }
 
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
 
     @Override
@@ -109,7 +97,7 @@ public class UnlimitedPower
         this.rawDescription = DESCRIPTION;
         initializeDescription();
         this.damage = this.baseDamage = startDamage;
-        this.magicNumber = this.baseMagicNumber = this.startMagicNumber;
+        this.magicNumber = this.baseMagicNumber = startMagicNumber;
     }
 
 

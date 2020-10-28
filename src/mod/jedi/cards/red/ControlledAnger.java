@@ -27,6 +27,7 @@ public class ControlledAnger
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.POWER, CardColor.RED, CardRarity.UNCOMMON, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 2;
+        cardsToPreview = new Anger();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -45,6 +46,7 @@ public class ControlledAnger
         if(!this.upgraded)
         {
             upgradeName();
+            cardsToPreview.upgrade();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

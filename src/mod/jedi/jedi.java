@@ -2,7 +2,9 @@ package mod.jedi;
 
 import archetypeAPI.ArchetypeAPI;
 import basemod.*;
-import basemod.helpers.BaseModCardTags;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
+import basemod.eventUtil.util.Condition;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -27,10 +29,7 @@ import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AccuracyPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.CallingBell;
-import com.megacrit.cardcrawl.relics.Circlet;
-import com.megacrit.cardcrawl.relics.PandorasBox;
+import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import gluttonmod.patches.AbstractCardEnum;
 import javassist.CannotCompileException;
@@ -42,21 +41,13 @@ import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
 import mod.jedi.cards.CustomJediCard;
-import mod.jedi.cards.blue.*;
-import mod.jedi.cards.colorless.Cleanse;
-import mod.jedi.cards.colorless.Forcepull;
-import mod.jedi.cards.colorless.Forcepush;
-import mod.jedi.cards.curses.Frostbite;
-import mod.jedi.cards.curses.TheDog;
-import mod.jedi.cards.green.*;
-import mod.jedi.cards.purple.DeepenNeedles;
-import mod.jedi.cards.purple.MengElixir;
-import mod.jedi.cards.purple.NeedleToss;
-import mod.jedi.cards.purple.NirvanicRebirth;
-import mod.jedi.cards.red.*;
+import mod.jedi.events.ShrineOfCommand;
 import mod.jedi.events.SwordDojo;
+import mod.jedi.interfaces.onGenerateCardMidcombatInterface;
 import mod.jedi.modifiers.CommandCustomRun;
+import mod.jedi.modifiers.WarmongerRunMod;
 import mod.jedi.potions.*;
+import mod.jedi.potions.HolyWater;
 import mod.jedi.relics.*;
 import mod.jedi.util.TextureLoader;
 import mod.jedi.variables.JediSecondMN;
@@ -127,6 +118,7 @@ public class jedi
         BaseMod.addPotion(HoardPotion.class, Color.GOLD, Color.CLEAR, null, HoardPotion.ID);
         BaseMod.addPotion(MysteryPotion.class, Color.GOLD, Color.CLEAR, null, MysteryPotion.ID);
         BaseMod.addPotion(WingPotion.class, Color.GOLD, Color.CLEAR, null, WingPotion.ID);
+        BaseMod.addPotion(StrikingPotion.class, Color.RED, Color.CLEAR, Color.WHITE, StrikingPotion.ID);
 
         // Filling cursed relic pool for lucky charm
         cursedRelics.clear();
@@ -146,12 +138,18 @@ public class jedi
 
         // Events
         BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
+        BaseMod.addEvent(new AddEventParams
+                .Builder(ShrineOfCommand.ID, ShrineOfCommand.class)
+                .spawnCondition(() -> AbstractDungeon.actNum > 1)
+                .eventType(EventUtils.EventType.SHRINE)
+                .create()
+        );
 
         StrikeGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         poisonGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         shivGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         String[] poisons = {"poison", "venom"};
-        String[] shivs = {"shiv", AccuracyPower.class.getName().toLowerCase()};
+        String[] shivs = {"shiv", AccuracyPower.class.getSimpleName().toLowerCase()};
 
         for (AbstractCard card : CardLibrary.getAllCards())
         {
@@ -423,21 +421,20 @@ public class jedi
         BaseMod.addRelic(new Equalizer(), RelicType.SHARED);
         BaseMod.addRelic(new LuckyCharm(), RelicType.SHARED);
         BaseMod.addRelic(new Pinwheel(), RelicType.SHARED);
+        BaseMod.addRelic(new HeartOfTheCards(), RelicType.SHARED);
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfMystery(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfSerenity(), RelicType.SHARED);
 
-        if (isHubrisLoaded)
-        {
-            BaseMod.addRelic(new MainCommand(), RelicType.SHARED);
-            BaseMod.addRelic(new Command_common(), RelicType.SHARED);
-            BaseMod.addRelic(new Command_uncommon(), RelicType.SHARED);
-            BaseMod.addRelic(new Command_rare(), RelicType.SHARED);
-            BaseMod.addRelic(new Command_shop(), RelicType.SHARED);
-            BaseMod.addRelic(new Command_boss(), RelicType.SHARED);
-        }
+        BaseMod.addRelic(new MainCommand(), RelicType.SHARED);
+        BaseMod.addRelic(new Command_common(), RelicType.SHARED);
+        BaseMod.addRelic(new Command_uncommon(), RelicType.SHARED);
+        BaseMod.addRelic(new Command_rare(), RelicType.SHARED);
+        BaseMod.addRelic(new Command_shop(), RelicType.SHARED);
+        BaseMod.addRelic(new Command_boss(), RelicType.SHARED);
+
         //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
         BaseMod.addRelic(new AshLotus(), RelicType.SHARED);
 
@@ -564,45 +561,43 @@ public class jedi
     {
         if (AbstractDungeon.player == null) return;
 
-        if (isHubrisLoaded)
+        AbstractCommand command = null;
+
+        for (AbstractRelic r : AbstractDungeon.player.relics)
         {
-            AbstractCommand command = null;
-
-            for (AbstractRelic r : AbstractDungeon.player.relics)
+            if (r.relicId.contains(AbstractCommand.ID))
             {
-                if (r.relicId.contains(AbstractCommand.ID))
-                {
-                    command = (AbstractCommand) r;
-                }
+                command = (AbstractCommand) r;
             }
+        }
 
-            if (command != null)
-            {
-                command.relicBS();
-            }
+        if (command != null)
+        {
+            command.relicBS();
         }
     }
 
     @Override
     public void receiveCustomModeMods(List<CustomMod> list)
     {
-        if (isHubrisLoaded)
-        {
-            list.add(new CustomMod(CommandCustomRun.ID, "b", true));
-        }
+        list.add(new CustomMod(CommandCustomRun.ID, "b", true));
+        list.add(new CustomMod(WarmongerRunMod.ID, "r", true));
     }
 
     @Override
     public void receivePostDungeonInitialize()
     {
-        if (isHubrisLoaded)
+        if (CardCrawlGame.trial != null)
         {
-            if (CardCrawlGame.trial != null)
+            if (CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID))
             {
-                if( CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID))
-                {
-                    new MainCommand().instantObtain();
-                }
+                new MainCommand().instantObtain();
+            }
+            if (CardCrawlGame.trial.dailyModIDs().contains(WarmongerRunMod.ID))
+            {
+                new CoffeeDripper().instantObtain();
+                new BattleStandard().instantObtain();
+                AbstractDungeon.bossRelicPool.removeIf(id -> id.equals(CoffeeDripper.ID) || id.equals(BattleStandard.ID));
             }
         }
         CommandUnseen = jediConfig.getBool("jedi:commandunseen");
@@ -625,14 +620,23 @@ public class jedi
 
     public static boolean hasCard(CardGroup group, String cardID)
     {
-        for (AbstractCard c : group.group)
+        return group.group.stream().anyMatch(card -> card.cardID.equals(cardID));
+    }
+
+    public static void onGenerateCardMidcombat(AbstractCard c)
+    {
+        AbstractDungeon.player.relics.stream().filter(r -> r instanceof onGenerateCardMidcombatInterface).forEach(r -> ((onGenerateCardMidcombatInterface)r).onCreateCard(c));
+        AbstractDungeon.player.powers.stream().filter(r -> r instanceof onGenerateCardMidcombatInterface).forEach(r -> ((onGenerateCardMidcombatInterface)r).onCreateCard(c));
+        AbstractDungeon.player.hand.group.stream().filter(card -> card instanceof onGenerateCardMidcombatInterface).forEach(card -> ((onGenerateCardMidcombatInterface)card).onCreateCardCard(c));
+        AbstractDungeon.player.discardPile.group.stream().filter(card -> card instanceof onGenerateCardMidcombatInterface).forEach(card -> ((onGenerateCardMidcombatInterface)card).onCreateCardCard(c));
+        AbstractDungeon.player.drawPile.group.stream().filter(card -> card instanceof onGenerateCardMidcombatInterface).forEach(card -> ((onGenerateCardMidcombatInterface)card).onCreateCardCard(c));
+        AbstractDungeon.getMonsters().monsters.stream().filter(mon -> !mon.isDeadOrEscaped()).forEach(m -> m.powers.stream().filter(pow -> pow instanceof onGenerateCardMidcombatInterface).forEach(pow -> ((onGenerateCardMidcombatInterface)pow).onCreateCard(c)));
+        if (c instanceof onGenerateCardMidcombatInterface)
         {
-            if (c.cardID.equals(cardID))
-            {
-                return true;
-            }
+            ((onGenerateCardMidcombatInterface)c).onCreateCard(c);
         }
-        return false;
+//        cardsCreatedThisCombat++;
+//        cardsCreatedThisTurn++;
     }
 
     public static String makeID(String id_in)

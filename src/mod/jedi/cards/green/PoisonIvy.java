@@ -3,6 +3,7 @@ package mod.jedi.cards.green;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +26,7 @@ public class PoisonIvy
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.POWER, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 1;
+        cardsToPreview = new Shiv();
     }
 
 

@@ -22,7 +22,7 @@ public class DeepenNeedles extends CustomJediCard {
 
     public DeepenNeedles()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.PURPLE, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.PURPLE, CardRarity.SPECIAL, CardTarget.ENEMY);
         this.baseDamage = this.damage = 7;
         CardModifierManager.addModifier(this, new DeepenNeedlesMod());
     }

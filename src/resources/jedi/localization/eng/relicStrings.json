@@ -372,5 +372,12 @@
     "DESCRIPTIONS": [
       "Instead of random you always choose which relic to obtain."
     ]
+  },
+  "jedi:HeartOfTheCards": {
+    "NAME": "Heart of the cards",
+    "FLAVOR": "That's a lot of alphabets.",
+    "DESCRIPTIONS": [
+      "The first time you create a card during combat: NL If it's an #yAttack - gain #b2 #yStrength. NL If it's a #ySkill - gain #b2 #yDexterity. NL If it's a #yPower - heal #b4 HP. NL If it's a #yStatus or #yCurse - #yExhaust it."
+    ]
   }
 }

@@ -22,7 +22,7 @@ public class NeedleToss extends CustomJediCard {
 
     public NeedleToss()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.PURPLE, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.PURPLE, CardRarity.SPECIAL, CardTarget.ENEMY);
         this.baseDamage = this.damage = 3;
         this.magicNumber = this.baseMagicNumber = 2;
     }

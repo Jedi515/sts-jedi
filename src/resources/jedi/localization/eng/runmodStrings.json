@@ -3,5 +3,10 @@
   {
     "NAME": "Command",
     "DESCRIPTION": "Obtain full control"
+  },
+  "jedi:warmonger":
+  {
+    "NAME": "Warmonger",
+    "DESCRIPTION": "Start with Battle Standard and Coffee Dripper."
   }
 }

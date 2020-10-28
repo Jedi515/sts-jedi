@@ -20,7 +20,7 @@ public class MengElixir extends CustomJediCard
 
         public MengElixir()
         {
-            super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.ENEMY);
+            super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.SPECIAL, CardTarget.ENEMY);
             this.exhaust = true;
             this.magicNumber = this.baseMagicNumber = 3;
             this.tags.add(CardTags.HEALING);
