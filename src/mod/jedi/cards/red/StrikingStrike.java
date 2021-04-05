@@ -64,6 +64,28 @@ public class StrikingStrike
         }
     }
 
+    @Override
+    public void applyPowers()
+    {
+        tags.remove(CardTags.STRIKE);
+        super.applyPowers();
+        int strikelessDmg = damage;
+        tags.add(CardTags.STRIKE);
+        super.applyPowers();
+        damage += (damage - strikelessDmg);
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo)
+    {
+        tags.remove(CardTags.STRIKE);
+        super.calculateCardDamage(mo);
+        int strikelessDmg = damage;
+        tags.add(CardTags.STRIKE);
+        super.calculateCardDamage(mo);
+        damage += (damage - strikelessDmg);
+    }
+
     public AbstractCard makeCopy()
     {
         return new StrikingStrike();

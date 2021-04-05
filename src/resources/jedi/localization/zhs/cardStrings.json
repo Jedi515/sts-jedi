@@ -1,8 +1,4 @@
 {
-  "jedi:BurstDark": {
-    "NAME": "黑暗迸发",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 你的回合结束时，这张卡的伤害增加等于你 集中 点数的数值。 NL  消耗 。"
-  },
   "jedi:BurstFrost": {
     "NAME": "冰霜迸发",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得的格挡 增加等于你 集中 点数的数值。",
@@ -163,7 +159,10 @@
   "jedi:rejectivetoxin": {
     "NAME": "毒素风暴",
     "DESCRIPTION": "丢弃所有手牌。 NL 给予丢弃的手牌数量乘以 !M! 层的 中毒 。",
-    "UPGRADE_DESCRIPTION": "丢弃任意张手牌。 NL 给予丢弃的手牌数量乘以 !M! 层的 中毒 。"
+    "UPGRADE_DESCRIPTION": "丢弃任意张手牌。 NL 给予丢弃的手牌数量乘以 !M! 层的 中毒 。",
+    "EXTENDED_DESCRIPTION": [
+      "来丢弃并给予中毒"
+      ]
   },
   "jedi:sharpshooter": {
     "NAME": "神射手",

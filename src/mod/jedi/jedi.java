@@ -4,7 +4,6 @@ import archetypeAPI.ArchetypeAPI;
 import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
-import basemod.eventUtil.util.Condition;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -40,7 +39,9 @@ import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
+import mod.jedi.cardMods.gathererEssenceMods.AbstractEssenceMod;
 import mod.jedi.cards.CustomJediCard;
+import mod.jedi.events.GuildOfFate;
 import mod.jedi.events.ShrineOfCommand;
 import mod.jedi.events.SwordDojo;
 import mod.jedi.interfaces.onGenerateCardMidcombatInterface;
@@ -144,6 +145,11 @@ public class jedi
                 .eventType(EventUtils.EventType.SHRINE)
                 .create()
         );
+        BaseMod.addEvent(new AddEventParams
+                .Builder(GuildOfFate.ID, GuildOfFate.class)
+                .spawnCondition(() -> AbstractDungeon.actNum == 1 || Settings.isEndless)
+                .eventType(EventUtils.EventType.ONE_TIME)
+                .create());
 
         StrikeGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         poisonGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -417,11 +423,16 @@ public class jedi
         BaseMod.addRelic(new ArcaneWood(), RelicType.SHARED);
         BaseMod.addRelic(new StrikeManual(), RelicType.SHARED);
         BaseMod.addRelic(new OminousLoanNote(), RelicType.SHARED);
-        BaseMod.addRelic(new ScalesOfToshan(), RelicType.SHARED);
-        BaseMod.addRelic(new Equalizer(), RelicType.SHARED);
-        BaseMod.addRelic(new LuckyCharm(), RelicType.SHARED);
+//        BaseMod.addRelic(new ScalesOfToshan(), RelicType.SHARED);
+//        BaseMod.addRelic(new Equalizer(), RelicType.SHARED);
+//        BaseMod.addRelic(new LuckyCharm(), RelicType.SHARED);
         BaseMod.addRelic(new Pinwheel(), RelicType.SHARED);
         BaseMod.addRelic(new HeartOfTheCards(), RelicType.SHARED);
+        BaseMod.addRelic(new ByrdBible(), RelicType.SHARED);
+        BaseMod.addRelic(new PaintBrush(), RelicType.SHARED);
+        BaseMod.addRelic(new StarAurum(), RelicType.SHARED);
+        BaseMod.addRelic(new FennexFeather(), RelicType.SHARED);
+
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import mod.jedi.interfaces.OutOfCombatPotion;
 
 public class HoardPotion
@@ -64,14 +65,14 @@ public class HoardPotion
         {
             AbstractDungeon.combatRewardScreen.rewards.remove(AbstractDungeon.cardRewardScreen.rItem);
             AbstractDungeon.combatRewardScreen.positionRewards();
-            AbstractDungeon.gridSelectScreen.openConfirmationGrid(group, this.DESCRIPTIONS[1]);
+            AbstractDungeon.gridSelectScreen.openConfirmationGrid(group, DESCRIPTIONS[1]);
         }
     }
 
     @Override
     public boolean canUse()
     {
-        return AbstractDungeon.screen == AbstractDungeon.CurrentScreen.CARD_REWARD;
+        return AbstractDungeon.screen == AbstractDungeon.CurrentScreen.CARD_REWARD && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMPLETE;
     }
 
     @Override

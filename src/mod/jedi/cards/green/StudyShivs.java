@@ -8,10 +8,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.actions.CustomDiscoveryAction;
+import mod.jedi.cards.CustomJediCard;
 import mod.jedi.jedi;
 
 public class StudyShivs
-    extends CustomCard
+    extends CustomJediCard
 {
     public static final String ID = "jedi:studyshivs";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

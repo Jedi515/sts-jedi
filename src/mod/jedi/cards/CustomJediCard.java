@@ -18,7 +18,8 @@ public abstract class CustomJediCard
         return "jedi:" + ID;
     }
 
-    public CustomJediCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target) {
+    public CustomJediCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target)
+    {
         super(id, name, imgCheck(id, img, type, color), cost, rawDescription, type, color, rarity, target);
         isSecondMNModified = false;
     }
@@ -61,5 +62,25 @@ public abstract class CustomJediCard
         baseSecondMN += amount;
         secondMN = baseSecondMN;
         isSecondMNUpgraded = true;
+    }
+
+    protected void setDmg(int value)
+    {
+        baseDamage = damage = value;
+    }
+
+    protected void setBlock(int value)
+    {
+        baseBlock = block = value;
+    }
+
+    protected void setMN(int value)
+    {
+        baseMagicNumber = magicNumber = value;
+    }
+
+    protected void setSecondMN(int value)
+    {
+        baseSecondMN = secondMN = value;
     }
 }

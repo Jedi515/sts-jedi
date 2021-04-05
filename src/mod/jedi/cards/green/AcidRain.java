@@ -10,11 +10,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import mod.jedi.cards.CustomJediCard;
 
 import static mod.jedi.cards.CustomJediCard.makeCardId;
 
 public class AcidRain
-    extends CustomCard
+    extends CustomJediCard
 {
     public static final String ID = makeCardId("acidrain");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

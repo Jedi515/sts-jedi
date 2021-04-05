@@ -40,5 +40,26 @@
               "[Locked] Requires: 1 or more potion slots.",
               "[Locked] Requires: 200 or more gold."
             ]
+  },
+  "jedi:GuildOfFate":
+  {
+    "NAME": "Guild of Fate",
+    "DESCRIPTIONS":
+            [
+              "Making your way through the streets, you notice a random paper on the wall. It reads: NL \"On this very spot, at exactly %s, your fate WILL change drastically.\" NL You realise that these are the present date and present time. Suddenly, as you hear a menacing laughter behind you, you decide...",
+              "You turn around and see a typical dirty-looking charlatan face. Unfazed by your judgement, he flips a coin high into the air, catches it, after which silently shoves it into your hand. NL As you look at it, you see...",
+              "You value the future you know too much to change it for the unknown. You run away without looking back."
+            ],
+    "OPTIONS":
+            [
+              "[Turn around] Change your future",
+              "[Flee]",
+              "#r[Nob]",
+              "#b[Question #bMark]",
+              "#g[Campfire]",
+              "#y[Smiling #yMask]",
+              " Obtain a special relic",
+              "[Leave]"
+            ]
   }
 }

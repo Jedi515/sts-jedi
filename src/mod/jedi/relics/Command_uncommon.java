@@ -1,12 +1,10 @@
 package mod.jedi.relics;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mod.jedi.jedi;
-import mod.jedi.util.TextureLoader;
 
 import java.util.ArrayList;
 
@@ -17,12 +15,10 @@ public class Command_uncommon
     public static final String PATH = "resources/jedi/images/relics/";
     public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
     public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
-    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
-    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
 
     public Command_uncommon()
     {
-        super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
+        super(ID, RelicTier.SPECIAL, LandingSound.MAGICAL);
     }
 
     protected void openRelicSelect() {

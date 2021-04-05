@@ -20,13 +20,13 @@ public class Leech
 
     public Leech()
     {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.DEPRECATED, LandingSound.FLAT);
     }
 
     @Override
     public int betterOnLoseHp(DamageInfo damageInfo, int i)
     {
-        if (damageInfo.type == DamageInfo.DamageType.HP_LOSS && i > 1)
+        if (damageInfo.type != DamageInfo.DamageType.NORMAL && i > 1)
         {
             return i-1;
         }

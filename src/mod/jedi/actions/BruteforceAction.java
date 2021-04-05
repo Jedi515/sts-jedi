@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import mod.jedi.interfaces.onEvokeInterface;
 
 public class BruteforceAction
     extends AbstractGameAction
@@ -66,6 +67,15 @@ public class BruteforceAction
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, info, AbstractGameAction.AttackEffect.NONE, true));
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(mo.drawX, mo.drawY), speedTime));
                     AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE"));
+
+                    for (AbstractOrb o : AbstractDungeon.player.orbs)
+                    {
+                        if (o instanceof Lightning)
+                        {
+                            AbstractDungeon.player.hand.group.stream().filter(c -> c instanceof onEvokeInterface).forEach(c -> ((onEvokeInterface)c).onEvoke(o));
+                            break;
+                        }
+                    }
                 }
             }
             else

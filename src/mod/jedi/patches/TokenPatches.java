@@ -36,19 +36,19 @@ public class TokenPatches
         {
             if (AbstractDungeon.player.hasRelic(TokenOfGlory.ID))
             {
-                eliteCount[0] = (int)Math.ceil(eliteCount[0] * INCREMENT);
+                eliteCount[0] = (int)Math.ceil(eliteCount[0] * INCREMENT * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfGlory.ID)).count());
             }
-            else if (AbstractDungeon.player.hasRelic(TokenOfMystery.ID))
+            if (AbstractDungeon.player.hasRelic(TokenOfMystery.ID))
             {
-                eventCount[0] = (int)Math.ceil(eventCount[0] * INCREMENT);
+                eventCount[0] = (int)Math.ceil(eventCount[0] * INCREMENT * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfMystery.ID)).count());
             }
-            else if (AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
+            if (AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
             {
-                restCount[0] = (int)Math.ceil(restCount[0] * INCREMENT);
+                restCount[0] = (int)Math.ceil(restCount[0] * INCREMENT * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfSerenity.ID)).count());
             }
-            else if (AbstractDungeon.player.hasRelic(TokenOfWealth.ID))
+            if (AbstractDungeon.player.hasRelic(TokenOfWealth.ID))
             {
-                shopCount[0] = (int)Math.ceil(shopCount[0] * INCREMENT);
+                shopCount[0] = (int)Math.ceil(shopCount[0] * INCREMENT * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfWealth.ID)).count());
             }
         }
     }
@@ -64,69 +64,84 @@ public class TokenPatches
         }
     }
 
-    @SpirePatch(clz = RestOption.class, method = SpirePatch.CONSTRUCTOR)
-    public static class SerenityTextPatch
-    {
-        @SpireInsertPatch(locator = SerenityTextLocator.class, localvars = {"healAmt"})
-        public static void Insert(RestOption __instance, boolean active, @ByRef int[] healAmt)
-        {
-            if (!ModHelper.isModEnabled(NightTerrors.ID) && AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
-            {
-                healAmt[0] = (int)((float)AbstractDungeon.player.maxHealth * 0.2F);
-            }
-        }
-    }
-
-    private static class SerenityTextLocator extends SpireInsertLocator
-    {
-        public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
-        {
-            Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasBlight");
-            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<Matcher>(), finalMatcher);
-        }
-    }
-
-    @SpirePatch(clz = CampfireSleepEffect.class, method = SpirePatch.CONSTRUCTOR)
-    public static class SerenityHealPatch
-    {
-        @SpireInsertPatch(locator = SerenityHealLocator.class, localvars = {"healAmount"})
-        public static void Insert(CampfireSleepEffect __instance, @ByRef int[] healAmount)
-        {
-            if (!ModHelper.isModEnabled(NightTerrors.ID) && AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
-            {
-                healAmount[0] = (int)((float)AbstractDungeon.player.maxHealth * 0.2F);
-            }
-        }
-    }
-
-    private static class SerenityHealLocator extends SpireInsertLocator
-    {
-        public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
-        {
-            Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
-            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<Matcher>(), finalMatcher);
-        }
-    }
-
-    @SpirePatch(clz = ShopScreen.class, method = "init")
-    public static class WealthPatch
-    {
-        public static void Postfix(ShopScreen __instance, ArrayList<AbstractCard> coloredCards, ArrayList<AbstractCard> colorlessCards)
-        {
-            if (AbstractDungeon.player.hasRelic(TokenOfWealth.ID))
-            {
-                __instance.applyDiscount(1.2F, true);
-            }
-        }
-    }
-
-    @SpirePatch(clz = EventHelper.class, method = "roll", paramtypez = {Random.class})
-    public static class MysteryPatch
-    {
-        public static void Postfix(Random eventRng)
-        {
-            ReflectionHacks.setPrivateStatic(EventHelper.class, "MONSTER_CHANCE",
-                    ((float)ReflectionHacks.getPrivateStatic(EventHelper.class, "MONSTER_CHANCE")) + 0.05F);
-        }
-    }
+//    @SpirePatch(clz = RestOption.class, method = SpirePatch.CONSTRUCTOR)
+//    public static class SerenityTextPatch
+//    {
+//        @SpireInsertPatch(locator = SerenityTextLocator.class, localvars = {"healAmt"})
+//        public static void Insert(RestOption __instance, boolean active, @ByRef int[] healAmt)
+//        {
+//            if (!ModHelper.isModEnabled(NightTerrors.ID) && AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
+//            {
+//                healAmt[0] = (int)((float)AbstractDungeon.player.maxHealth * 0.2F);
+//            }
+//        }
+//    }
+//
+//    private static class SerenityTextLocator extends SpireInsertLocator
+//    {
+//        public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
+//        {
+//            Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasBlight");
+//            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<Matcher>(), finalMatcher);
+//        }
+//    }
+//
+//    @SpirePatch(clz = CampfireSleepEffect.class, method = SpirePatch.CONSTRUCTOR)
+//    public static class SerenityHealPatch
+//    {
+//        @SpireInsertPatch(locator = SerenityHealLocator.class, localvars = {"healAmount"})
+//        public static void Insert(CampfireSleepEffect __instance, @ByRef int[] healAmount)
+//        {
+//            if (!ModHelper.isModEnabled(NightTerrors.ID) && AbstractDungeon.player.hasRelic(TokenOfSerenity.ID))
+//            {
+//                healAmount[0] = (int)((float)AbstractDungeon.player.maxHealth * 0.2F);
+//            }
+//        }
+//    }
+//
+//    private static class SerenityHealLocator extends SpireInsertLocator
+//    {
+//        public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
+//        {
+//            Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
+//            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<Matcher>(), finalMatcher);
+//        }
+//    }
+//
+//    @SpirePatch(clz = ShopScreen.class, method = "init")
+//    public static class WealthPatch
+//    {
+//        public static void Postfix(ShopScreen __instance, ArrayList<AbstractCard> coloredCards, ArrayList<AbstractCard> colorlessCards)
+//        {
+//            if (AbstractDungeon.player.hasRelic(TokenOfWealth.ID))
+//            {
+//                ShopScreen.actualPurgeCost -= TokenOfWealth.effectiveness * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfWealth.ID)).count();
+//                ShopScreen.actualPurgeCost = Math.max(ShopScreen.actualPurgeCost, 0);
+//            }
+//        }
+//    }
+//
+//    @SpirePatch(clz = ShopScreen.class, method = "purgeCard")
+//    public static class WealthPatch2
+//    {
+//        public static void Postfix()
+//        {
+//            if (AbstractDungeon.player.hasRelic(TokenOfWealth.ID))
+//            {
+//                ShopScreen.actualPurgeCost -= TokenOfWealth.effectiveness * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfWealth.ID)).count();
+//                ShopScreen.actualPurgeCost = Math.max(ShopScreen.actualPurgeCost, 0);
+//            }
+//        }
+//    }
+//
+//    @SpirePatch(clz = EventHelper.class, method = "roll", paramtypez = {Random.class})
+//    public static class MysteryPatch
+//    {
+//        public static void Postfix(Random eventRng)
+//        {
+//            if (AbstractDungeon.player.hasPower(TokenOfGlory.ID))
+//            ReflectionHacks.setPrivateStatic(EventHelper.class, "MONSTER_CHANCE",
+//                    ((float)ReflectionHacks.getPrivateStatic(EventHelper.class, "MONSTER_CHANCE")) + 0.05F * AbstractDungeon.player.relics.stream().filter(r -> r.relicId.equals(TokenOfGlory.ID)).count());
+//        }
+//    }
 }

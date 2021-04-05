@@ -265,25 +265,11 @@ public class RelicSelectScreen implements ScrollBarListener
             r.currentX = (START_X + SPACE * col);
             r.currentY = (scrollY - SPACE * row);
             if (RelicLibrary.redList.contains(r)) {
-                if (UnlockTracker.isRelicLocked(r.relicId)) {
-                    r.renderLock(sb, RED_OUTLINE_COLOR);
-                } else {
                     r.render(sb, false, RED_OUTLINE_COLOR);
-                }
             } else if (RelicLibrary.greenList.contains(r)) {
-                if (UnlockTracker.isRelicLocked(r.relicId)) {
-                    r.renderLock(sb, GREEN_OUTLINE_COLOR);
-                } else {
                     r.render(sb, false, GREEN_OUTLINE_COLOR);
-                }
             } else if (RelicLibrary.blueList.contains(r)) {
-                if (UnlockTracker.isRelicLocked(r.relicId)) {
-                    r.renderLock(sb, BLUE_OUTLINE_COLOR);
-                } else {
                     r.render(sb, false, BLUE_OUTLINE_COLOR);
-                }
-            } else if (UnlockTracker.isRelicLocked(r.relicId)) {
-                r.renderLock(sb, BLACK_OUTLINE_COLOR);
             } else {
                 r.render(sb, false, BLACK_OUTLINE_COLOR);
             }

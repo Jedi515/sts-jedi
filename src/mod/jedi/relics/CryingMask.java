@@ -25,7 +25,7 @@ public class CryingMask
 
     public CryingMask()
     {
-        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.FLAT);
         this.description = DESCRIPTIONS[0] + FontHelper.colorString(mask.name, "y");
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
@@ -45,5 +45,12 @@ public class CryingMask
         }
         canBuySecond = true;
     }
+
+    @Override
+    public int getPrice()
+    {
+        return super.getPrice() / 2;
+    }
+
     //More info under patches/CryingMaskPatch
 }

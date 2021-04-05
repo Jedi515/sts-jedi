@@ -3,6 +3,7 @@ package mod.jedi.potions;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPotion;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -49,8 +50,11 @@ public class MysteryPotion
     public void use(AbstractCreature abstractCreature)
     {
         ArrayList<MapRoomNode> visibleMapNodes = (ArrayList<MapRoomNode>) ReflectionHacks.getPrivate(AbstractDungeon.dungeonMapScreen, DungeonMapScreen.class, "visibleMapNodes");
+
+        int goUp = Loader.isModLoaded("downfall") ? -1 : 1;
+        System.out.println("The number to go up is " + goUp);
         for (MapRoomNode n : visibleMapNodes) {
-            if (n.y == AbstractDungeon.getCurrMapNode().y+1 && !(n.room instanceof MonsterRoomBoss)) {
+            if (n.y == AbstractDungeon.getCurrMapNode().y+goUp && !(n.room instanceof MonsterRoomBoss)) {
                 n.setRoom(new EventRoom());
             }
         }

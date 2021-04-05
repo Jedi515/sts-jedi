@@ -1,15 +1,16 @@
 package mod.jedi.relics;
 
 import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import mod.jedi.effects.InstantObtainEffect;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import mod.jedi.screens.RelicSelectScreen;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mod.jedi.jedi;
+import mod.jedi.util.TextureLoader;
 
 public abstract class AbstractCommand
     extends CustomRelic
@@ -19,10 +20,11 @@ public abstract class AbstractCommand
     protected boolean fakeHover = false;
     protected AbstractRoom.RoomPhase roomPhase;
     protected boolean loseRelic = false;
+    private AbstractRelic relic;    
     public static String ID = "jedi:command_";
 
-    public AbstractCommand(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx) {
-        super(id, texture, outline, tier, sfx);
+    public AbstractCommand(String id, RelicTier tier, LandingSound sfx) {
+        super(id, TextureLoader.getTexture("resources/jedi/images/relics/command.png"), TextureLoader.getTexture("resources/jedi/images/relics/outline/command.png"), tier, sfx);
     }
 
     public String getUpdatedDescription()
@@ -51,7 +53,7 @@ public abstract class AbstractCommand
         if (!this.relicSelected) {
             if (this.relicSelectScreen.doneSelecting()) {
                 this.relicSelected = true;
-                AbstractRelic relic = this.relicSelectScreen.getSelectedRelics().get(0).makeCopy();
+                relic = this.relicSelectScreen.getSelectedRelics().get(0).makeCopy();
                 switch (relic.tier) {
                     case COMMON:
                         AbstractDungeon.commonRelicPool.removeIf(id ->  id.equals(relic.relicId));
@@ -69,21 +71,17 @@ public abstract class AbstractCommand
                         AbstractDungeon.bossRelicPool.removeIf(id ->  id.equals(relic.relicId));
                         break;
                     default:
-                        System.out.println("JEDI MOD: Top 10 anime plot twists - command was SOMEHOW called for a rarity that it doesn't support. I blame mods. If osmething crashed: " + relic.tier.toString());
+                        System.out.println("JEDI MOD: Top 10 anime plot twists - command crashed because of this relic: " + relic.relicId);
                 }
-                AbstractDungeon.effectsQueue.add(0, new InstantObtainEffect(relic));
-                AbstractDungeon.getCurrRoom().phase = roomPhase;
                 loseRelic = true;
             } else {
                 this.relicSelectScreen.update();
                 if (!this.hb.hovered) {
                     this.fakeHover = true;
                 }
-
                 this.hb.hovered = true;
             }
         }
-
     }
 
     public void renderTip(SpriteBatch sb) {
@@ -103,29 +101,21 @@ public abstract class AbstractCommand
     public void renderInTopPanel(SpriteBatch sb) {
         super.renderInTopPanel(sb);
         if (!this.relicSelected && !this.fakeHover) {
+            boolean hideRelics = Settings.hideRelics;
+            Settings.hideRelics = false;
             this.relicSelectScreen.render(sb);
+            Settings.hideRelics = hideRelics;
         }
 
     }
 
     public void relicBS()
     {
-        if (loseRelic)
+        if (loseRelic && AbstractDungeon.effectsQueue.stream().noneMatch(eff -> eff instanceof ShowCardAndObtainEffect) && AbstractDungeon.effectList.stream().noneMatch(eff -> eff instanceof ShowCardAndObtainEffect))
         {
             AbstractDungeon.player.loseRelic(this.relicId);
-
-            if (jedi.CommandLocked)
-            {
-                UnlockTracker.lockedRelics.addAll(jedi.lockedRelics);
-            }
-
-            if (jedi.CommandUnseen)
-            {
-                for (AbstractRelic r : jedi.unseenRelics)
-                {
-                    r.isSeen = false;
-                }
-            }
+            relic.instantObtain();
+            AbstractDungeon.getCurrRoom().phase = roomPhase;
         }
     }
 }

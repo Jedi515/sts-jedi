@@ -22,6 +22,7 @@ public class TokenOfWealth
 
     public String getUpdatedDescription()
     {
-        return this.DESCRIPTIONS[0] + effectiveness + this.DESCRIPTIONS[1];
+        return DESCRIPTIONS[0];
+        // + DESCRIPTIONS[1] + effectiveness + DESCRIPTIONS[2];
     }
 }

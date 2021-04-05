@@ -23,7 +23,7 @@ public class RedIncense extends CustomJediCard
 
     public RedIncense()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.COLORLESS, CardRarity.RARE, CardTarget.NONE);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.COLORLESS, CardRarity.UNCOMMON, CardTarget.NONE);
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
@@ -33,6 +33,11 @@ public class RedIncense extends CustomJediCard
     }
 
     public void triggerOnManualDiscard()
+    {
+        bruh();
+    }
+
+    public void onBeingScried()
     {
         bruh();
     }
@@ -58,11 +63,5 @@ public class RedIncense extends CustomJediCard
     public void upgrade() {
         upgradeName();
         upgradeMagicNumber(1);
-    }
-
-    @Override
-    public void onBeingScried()
-    {
-        bruh();
     }
 }
