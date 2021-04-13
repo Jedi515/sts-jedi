@@ -1,4 +1,9 @@
 {
+  "jedi:AC": {
+    "NAME": "AC",
+    "DESCRIPTION": "Channel !M! Lightning. NL Add *DC into your hand.",
+    "UPGRADE_DESCRIPTION": "Channel !M! Lightning. NL Add *DC+ into your hand."
+  },
   "jedi:ApocalypseNow": {
     "NAME": "Apocalypse Now",
     "DESCRIPTION": "Scry !M!. NL If you discard at least 8 cards, NL deal !D! damage to ALL enemies."
@@ -24,9 +29,21 @@
     "DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to your Focus. NL Is affected by *Electrodynamics.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to your Focus times !M!. NL Is affected by *Electrodynamics."
   },
+  "jedi:DC": {
+    "NAME": "DC",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each Lightning. NL Exhaust."
+  },
   "jedi:EchoStrike": {
     "NAME": "Echo Strike",
     "DESCRIPTION": "Deal !D! damage. NL Play every other *Echo *Strike played this combat."
+  },
+  "jedi:Entomb": {
+    "NAME": "Entomb",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes into your hand."
+  },
+  "jedi:FlashFreeze": {
+    "NAME": "Flash Freeze",
+    "DESCRIPTION": "Retain. NL Channel !M! Frost. NL Exhaust."
   },
   "jedi:FortuneCookie": {
     "NAME": "Fortune Cookie",
@@ -35,6 +52,10 @@
   "jedi:FutureShield": {
     "NAME": "Future Shield",
     "DESCRIPTION": "Gain !B! Block when played or *Scried."
+  },
+  "jedi:HatTrick": {
+    "NAME": "Hat Trick",
+    "DESCRIPTION": "Draw ALL Shivs and NL increase damage dealt by Shivs by !M! for each Shiv drawn."
   },
   "jedi:Khahiri": {
     "NAME": "Khahiri",

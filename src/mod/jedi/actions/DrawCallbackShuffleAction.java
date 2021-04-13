@@ -1,5 +1,6 @@
 package mod.jedi.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
@@ -57,6 +58,7 @@ public class DrawCallbackShuffleAction
     public void update()
     {
         CardGroup draw = AbstractDungeon.player.drawPile;
+        count = Math.min(count, BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size());
         if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID) || (draw.group.stream().noneMatch(filter) && AbstractDungeon.player.discardPile.group.stream().noneMatch(filter)) || count == 0)
         {
             isDone = true;
