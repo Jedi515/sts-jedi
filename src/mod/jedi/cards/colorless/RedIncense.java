@@ -24,7 +24,7 @@ public class RedIncense extends CustomJediCard
     public RedIncense()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.COLORLESS, CardRarity.UNCOMMON, CardTarget.NONE);
-        this.magicNumber = this.baseMagicNumber = 1;
+        setMN(2);
     }
 
     public void triggerOnExhaust()

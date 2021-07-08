@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
@@ -64,12 +65,8 @@ public class CustomDiscoveryAction
                 {
                     while (groupToShow.size() < numberOfCards)
                     {
-                        boolean dupe = false;
                         AbstractCard tmp = group.getRandomCard(true);
-                        for (AbstractCard c : groupToShow.group)
-                        {
-                            if (c.cardID.equals(tmp.cardID)) dupe = true;
-                        }
+                        boolean dupe = groupToShow.group.stream().anyMatch(c -> c.cardID.equals(tmp.cardID));
 
                         if (!dupe)
                         {

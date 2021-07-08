@@ -31,6 +31,7 @@ public class UnlimitedPower
         super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ENEMY);
         this.magicNumber = this.baseMagicNumber = startMagicNumber;
         this.damage = this.baseDamage = startDamage;
+        returnToHand = true;
     }
 
 
@@ -42,13 +43,9 @@ public class UnlimitedPower
             AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(p));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.HP_LOSS)));
         }
-
-
         AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(m));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
-
-        this.upgrade();
-//        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
+        upgrade();
     }
 
     @Override
@@ -78,12 +75,7 @@ public class UnlimitedPower
 
     public boolean canUpgrade()
     {
-        if (!CardCrawlGame.isInARun())
-        {
-            return true;
-        }
-
-        return AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+        return !CardCrawlGame.isInARun() || AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
 
     @Override

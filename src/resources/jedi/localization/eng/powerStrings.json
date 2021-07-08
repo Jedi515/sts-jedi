@@ -31,5 +31,11 @@
     "DESCRIPTIONS": [
       "Whenever a card is created during combat, deal #b%d damage to ALL enemies."
     ]
+  },
+  "jedi:FirewallPower": {
+    "NAME": "Firewall",
+    "DESCRIPTIONS": [
+      "When a #yStatus card is created, #yExhaust it."
+    ]
   }
 }

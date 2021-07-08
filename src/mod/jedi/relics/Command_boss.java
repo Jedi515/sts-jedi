@@ -67,6 +67,9 @@ public class Command_boss
 
     public int getPrice()
     {
-        return 999;
+        tier = RelicTier.BOSS;
+        int price = super.getPrice();
+        tier = RelicTier.SPECIAL;
+        return price;
     }
 }

@@ -31,7 +31,8 @@
   },
   "jedi:DC": {
     "NAME": "DC",
-    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each Lightning. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each Lightning. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL "
   },
   "jedi:EchoStrike": {
     "NAME": "Echo Strike",
@@ -39,15 +40,30 @@
   },
   "jedi:Entomb": {
     "NAME": "Entomb",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes into your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes into your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes+ into your hand."
+  },
+  "jedi:Firewall": {
+    "NAME": "Firewall",
+    "DESCRIPTION": "When a Status card is created, NL Exhaust it.",
+    "UPGRADE_DESCRIPTION": "Innate. NL "
   },
   "jedi:FlashFreeze": {
     "NAME": "Flash Freeze",
-    "DESCRIPTION": "Retain. NL Channel !M! Frost. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Channel 1 Frost and NL trigger its passive effect. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Channel 1 Frost and NL trigger its passive effect !M! times. NL Exhaust."
   },
   "jedi:FortuneCookie": {
     "NAME": "Fortune Cookie",
     "DESCRIPTION": "Scry !M!. NL Draw a card if you discarded a card."
+  },
+  "jedi:Furiosity": {
+    "NAME": "Furiosity",
+    "DESCRIPTION": "Enter Wrath. NL Draw !M! Attacks.",
+    "UPGRADE_DESCRIPTION": " NL Select one of them. NL It costs 0 this turn.",
+    "EXTENDED_DESCRIPTION": [
+      " reduce its cost to 0 this turn."
+    ]
   },
   "jedi:FutureShield": {
     "NAME": "Future Shield",
@@ -69,6 +85,10 @@
     "NAME": "Makeshift Sword",
     "DESCRIPTION": "Whenever a card is created during combat, deal !M! damage to ALL enemies."
   },
+  "jedi:Overlook": {
+    "NAME": "Overlook",
+    "DESCRIPTION": "Scry !M!. NL If you discarded an Attack, enter Wrath. NL Otherwise, enter Calm."
+  },
   "jedi:PredictedStrike": {
     "NAME": "Predicted Strike",
     "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL Deal !D! damage for each card discarded."
@@ -84,6 +104,14 @@
   "jedi:RedIncense": {
     "NAME": "Red Incense",
     "DESCRIPTION": "Unplayable. NL Whenever you discard, Exhaust or Scry this card, gain !M! Strength."
+  },
+  "Scrape": {
+    "NAME": "Scrape",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards NL that cost 0."
+  },
+  "jedi:WavingIron": {
+    "NAME": "Waving Iron",
+    "DESCRIPTION": "Gain !B! Block. NL Scry !M!. NL Deal !D! damage if you discarded a card."
   },
   "jedi:acidrain": {
     "NAME": "Acid Rain",
@@ -105,8 +133,11 @@
   },
   "jedi:bloodyhammer": {
     "NAME": "Bloody Hammer",
-    "DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Purge.",
-    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Permanently upgrade a card in your hand. NL Exhaust."
+    "DESCRIPTION": "Permanently upgrade a card in your hand. NL Lose !M! HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Permanently upgrade any number of cards in your hand and NL Lose !M! HP for each. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "upgrade permanently."
+    ]
   },
   "jedi:brewingpoison": {
     "NAME": "Brewing Poison",
@@ -260,7 +291,11 @@
   "jedi:strikingstrike": {
     "NAME": "Strikeing Strike",
     "DESCRIPTION": "Deal !D! damage. NL Play a random Strike on the same enemy. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Play a random upgraded Strike on the same enemy. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Play a random upgraded Strike on the same enemy. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Card played",
+      "Card preview will display last card played by this."
+    ]
   },
   "jedi:stronger": {
     "NAME": "Stronger",

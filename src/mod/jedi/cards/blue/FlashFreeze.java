@@ -1,47 +1,53 @@
 package mod.jedi.cards.blue;
 
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.Frost;
 import mod.jedi.cards.CustomJediCard;
 import mod.jedi.jedi;
 
-public class AC
+public class FlashFreeze
     extends CustomJediCard
 {
-    public static final String ID = jedi.makeID(AC.class.getSimpleName());
+    public static final String ID = jedi.makeID(FlashFreeze.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 1;
 
-    public AC()
+    public FlashFreeze()
     {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.NONE);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.SPECIAL, CardTarget.NONE);
         setMN(1);
-        cardsToPreview = new DC();
+        exhaust = true;
+        selfRetain = true;
     }
-
     @Override
     public void upgrade()
     {
         if (!upgraded)
         {
             upgradeName();
-            cardsToPreview.upgrade();
             upgradeMagicNumber(1);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster)
     {
+        AbstractOrb o = new Frost();
+        addToBot(new ChannelAction(o));
         for (int i = 0; i < magicNumber; ++i)
-            addToBot(new ChannelAction(new Lightning()));
-        addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy()));
+        {
+            o.onStartOfTurn();
+            o.onEndOfTurn();
+        }
     }
 }

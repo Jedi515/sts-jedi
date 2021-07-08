@@ -16,6 +16,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.blue.Scrape;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -41,6 +42,7 @@ import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
 import mod.jedi.cardMods.gathererEssenceMods.AbstractEssenceMod;
 import mod.jedi.cards.CustomJediCard;
+import mod.jedi.cards.blue.ScrapePlus;
 import mod.jedi.events.GuildOfFate;
 import mod.jedi.events.ShrineOfCommand;
 import mod.jedi.events.SwordDojo;
@@ -200,10 +202,7 @@ public class jedi
                     !(card.cardID.equals(Shiv.ID)) &&
                     (extraCheck || checkIfContainsWords(card, shivs))
             )
-            {
-                System.out.println("JEDI MOD: Adding to shiv group: " + card.cardID);
-                shivGroup.addToBottom(card.makeCopy());
-            }
+            shivGroup.addToBottom(card.makeCopy());
         }
 
         if (isArchetypeLoaded)
@@ -232,12 +231,6 @@ public class jedi
         loadConfigButtons(settingsPanel);
 
         RelicLibrary.specialList.removeIf(r -> r.relicId.contains("jedi:command_"));
-
-
-        for (AbstractCard c : poisonGroup.group)
-        {
-            System.out.println("JEDI MOD Poison: " + c.cardID);
-        }
     }
 
     private boolean checkIfContainsWords(AbstractCard card, String[] words)
@@ -395,6 +388,8 @@ public class jedi
     public void receiveEditCards()
     {
         BaseMod.addDynamicVariable(new JediSecondMN());
+//        BaseMod.removeCard(Scrape.ID, AbstractCard.CardColor.BLUE);
+//        BaseMod.addCard(new ScrapePlus());
         new AutoAdd("jedi").packageFilter(CustomJediCard.class).setDefaultSeen(true).cards();
     }
 

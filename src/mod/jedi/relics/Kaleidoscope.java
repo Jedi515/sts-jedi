@@ -9,7 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import mod.jedi.util.TextureLoader;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Kaleidoscope
     extends CustomRelic
@@ -20,7 +21,7 @@ public class Kaleidoscope
     public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
     private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
     private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
-    private static ArrayList<AbstractCard.CardColor> cardColors = new ArrayList<>();
+    private static Set<AbstractCard.CardColor> cardColors;
 
     public String getUpdatedDescription()
     {
@@ -30,6 +31,7 @@ public class Kaleidoscope
     public Kaleidoscope()
     {
         super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.MAGICAL);
+        cardColors = new HashSet<>();
     }
 
     @Override
@@ -37,10 +39,7 @@ public class Kaleidoscope
     {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
         {
-            if (!cardColors.contains(c.color))
-            {
-                cardColors.add(c.color);
-            }
+            cardColors.add(c.color);
         }
         this.counter = cardColors.size();
     }
@@ -51,10 +50,7 @@ public class Kaleidoscope
         cardColors.clear();
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
         {
-            if (!cardColors.contains(c.color))
-            {
-                cardColors.add(c.color);
-            }
+            cardColors.add(c.color);
         }
         this.counter = cardColors.size();
     }

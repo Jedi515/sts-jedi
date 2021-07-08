@@ -69,6 +69,9 @@ public class Command_shop
 
     public int getPrice()
     {
-        return 200;
+        tier = RelicTier.SHOP;
+        int price = super.getPrice();
+        tier = RelicTier.SPECIAL;
+        return price;
     }
 }

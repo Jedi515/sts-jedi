@@ -17,11 +17,11 @@ public class TempCardPatches
     @SpirePatch(clz = ShowCardAndAddToDrawPileEffect.class, method = "update")
     public static class InDraw
     {
-        public static void Prefix(AbstractGameEffect __instance)
+        public static void Prefix(AbstractGameEffect __instance, float ___EFFECT_DUR, AbstractCard ___card)
         {
-            if (__instance.duration == (float)ReflectionHacks.getPrivateStatic(__instance.getClass(), "EFFECT_DUR"))
+            if (__instance.duration == ___EFFECT_DUR)
             {
-                jedi.onGenerateCardMidcombat((AbstractCard) ReflectionHacks.getPrivate(__instance, __instance.getClass(), "card"));
+                jedi.onGenerateCardMidcombat(___card);
             }
         }
     }

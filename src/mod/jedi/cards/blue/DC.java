@@ -19,16 +19,16 @@ public class DC
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 1;
 
     public DC()
     {
-        super(ID, NAME, null, COST,DESCRIPTION,CardType.ATTACK, CardColor.BLUE, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.SPECIAL, CardTarget.ENEMY);
         setDmg(5);
         setMN(3);
         exhaust = true;
     }
-
 
     @Override
     public void upgrade()
@@ -36,7 +36,9 @@ public class DC
         if (!upgraded)
         {
             upgradeName();
-            upgradeMagicNumber(1);
+            rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+            initializeDescription();
+            selfRetain = true;
         }
     }
 

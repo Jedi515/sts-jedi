@@ -27,11 +27,6 @@
     "NAME": "格挡锁定",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 给予所有意图是攻击的敌人 !M! 层 跟踪锁定 。"
   },
-  "jedi:bloodyhammer": {
-    "NAME": "鲜血之锤",
-    "DESCRIPTION": "失去 !M! 点生命。 NL 在这局游戏中永久 升级 你的一张手牌。 NL 抹除 。",
-    "UPGRADE_DESCRIPTION": "失去 !M! 点生命。 NL 在这局游戏中永久 升级 你的一张手牌。 NL 消耗 。"
-  },
   "jedi:brewingpoison": {
     "NAME": "酝酿毒药",
     "DESCRIPTION": "给予 !M! 层 中毒。 NL  消耗 。 NL 抽到这张牌时，将其造成的 中毒 层数增加 !jedi:SecondMN! 。 NL 丢弃这张牌时，将其造成的 中毒 层数翻倍。 NL 消耗 。"
@@ -180,7 +175,11 @@
   "jedi:strikingstrike": {
     "NAME": "打击打击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 以同一个敌人为目标，再打出一张随机的 打击 牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 以同一个敌人为目标，再打出一张已升级的随机 打击 牌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 以同一个敌人为目标，再打出一张已升级的随机 打击 牌。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "Card played",
+      "Card preview will display last card played by this."
+    ]
   },
   "jedi:stronger": {
     "NAME": "Stronger",

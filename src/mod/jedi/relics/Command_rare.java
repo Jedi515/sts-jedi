@@ -70,6 +70,9 @@ public class Command_rare
 
     public int getPrice()
     {
-        return 300;
+        tier = RelicTier.RARE;
+        int price = super.getPrice();
+        tier = RelicTier.SPECIAL;
+        return price;
     }
 }

@@ -67,6 +67,9 @@ public class Command_uncommon
 
     public int getPrice()
     {
-        return 250;
+        tier = RelicTier.UNCOMMON;
+        int price = super.getPrice();
+        tier = RelicTier.SPECIAL;
+        return price;
     }
 }

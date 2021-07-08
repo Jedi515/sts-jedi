@@ -1,6 +1,7 @@
 package mod.jedi.cards.red;
 
-import basemod.abstracts.CustomCard;
+import basemod.helpers.CardPowerTip;
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,6 +14,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mod.jedi.cards.CustomJediCard;
 
+import java.util.ArrayList;
+
 import static mod.jedi.jedi.returnTrulyRandomStrike;
 
 //If you're curious on how does it double increase perfected strike - go patches/strikingstrikepatch.java
@@ -24,8 +27,10 @@ public class StrikingStrike
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 1;
     public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_attack.png";
+    private TooltipInfo tip = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
 
     public StrikingStrike()
     {
@@ -50,6 +55,9 @@ public class StrikingStrike
         card.applyPowers();
         card.calculateCardDamage(m);
         card.purgeOnUse = true;
+
+        cardsToPreview = card.makeStatEquivalentCopy();
+
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, m));
     }
 
@@ -84,6 +92,14 @@ public class StrikingStrike
         tags.add(CardTags.STRIKE);
         super.calculateCardDamage(mo);
         damage += (damage - strikelessDmg);
+    }
+
+    @Override
+    public ArrayList<TooltipInfo> getCustomTooltips()
+    {
+        ArrayList<TooltipInfo> retVal = new ArrayList<>();
+        retVal.add(tip);
+        return retVal;
     }
 
     public AbstractCard makeCopy()
