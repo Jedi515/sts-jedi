@@ -1,0 +1,383 @@
+{
+  "jedi:ByrdBible": {
+    "NAME": "Byrd Bible",
+    "FLAVOR": "In the beginning was the Word. And the Word was \"Ca-caw!\"",
+    "DESCRIPTIONS": [
+      "The first time a card is created each turn, gain [E] ."
+    ]
+  },
+  "jedi:HammerOfTime": {
+    "NAME": "Hammer of Time",
+    "FLAVOR": "Stop! Hammer time!",
+    "DESCRIPTIONS": [
+      "When your turn would be forced to end, instead gain #b1 #yStrength."
+    ]
+  },
+  "jedi:FennexFeather": {
+    "NAME": "Fennex Feather",
+    "FLAVOR": "Fennex, a legendary creature of the desert. Mischievous and immortal, fluffy and feathery...",
+    "DESCRIPTIONS": [
+      "The first time a card is created each combat, gain [E] ."
+    ]
+  },
+  "jedi:HeartOfTheCards": {
+    "NAME": "Tarot Deck",
+    "FLAVOR": "They say drawing from this deck reads your fate. Or does it determine it?",
+    "DESCRIPTIONS": [
+      "The first time you create a card during combat: NL If it's an #yAttack - gain #b2 #yStrength. NL If it's a #ySkill - gain #b2 #yDexterity. NL If it's a #yPower - heal #b4 HP. NL If it's a #yStatus - #yExhaust it and all future #yStatus cards this turn. NL If it's a #yCurse - raise your Max HP by #b2."
+    ]
+  },
+  "jedi:PaintBrush": {
+    "NAME": "Paint Brush",
+    "FLAVOR": "Sometimes, you draw a masterpiece. Sometimes, there's nothing but a daze.",
+    "DESCRIPTIONS": [
+      " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Add a copy of last card created into your hand."
+    ]
+  },
+  "jedi:Pinwheel": {
+    "NAME": "Pinwheel",
+    "FLAVOR": "Seems to be spinning despite complete lack of wind.",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your deck, gain #b1 #yStrength."
+    ]
+  },
+  "jedi:StarAurum": {
+    "NAME": "Star Aurum",
+    "FLAVOR": "Oh? You're approaching me? Instead of running away?",
+    "DESCRIPTIONS": [
+      "If you've created a card during your turn, gain #b%d #yBlock at the end of it."
+    ]
+  },
+  "jedi:angrymask": {
+    "NAME": "Angry Mask",
+    "FLAVOR": "Is this what they call \"Aggressive marketing\"?",
+    "DESCRIPTIONS": [
+      "Whenever you spend any #yGold at a shop, start the next combat with #b",
+      " #yStrength."
+    ]
+  },
+  "jedi:arcanewood": {
+    "NAME": "Portable Tent",
+    "FLAVOR": "Seems to be made of snecko skin, doused in slime goop. Offers long-term restorative effects.",
+    "DESCRIPTIONS": [
+      "You can now encounter #yRest sites in #y? rooms."
+    ]
+  },
+  "jedi:archwizardhat": {
+    "NAME": "Archwizard's Hat",
+    "FLAVOR": "Bakuretsu, bakuretsu, la la la...",
+    "DESCRIPTIONS": [
+      "Whenever an #yAttack that costs #b1 or more uses all of your current energy, increase its damage by #b25%."
+    ]
+  },
+  "jedi:ashlotus": {
+    "NAME": "Ash Lotus",
+    "FLAVOR": "Welcome home, Ashen Two...",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yExhaust a card in your hand. NL Then, if you have NO cards left, gain #b",
+      " #yBlock and deal that much damage to ALL enemies."
+    ]
+  },
+  "jedi:battlestandard": {
+    "NAME": "Battle Standard",
+    "FLAVOR": "To battle! Fight! Fight for your life!",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. You have to enter combat rooms whenever you can."
+    ]
+  },
+  "jedi:bottledfury": {
+    "NAME": "Bottled Fury",
+    "FLAVOR": "Have you heard the tale of an alien who escaped prison with nothing but a sword in his hand?",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card. Whenever an enemy dies, #yFetch this card from anywhere.",
+      "Choose a card for ",
+      "Whenever an enemy dies, #yFetch ",
+      " from anywhere."
+    ]
+  },
+  "jedi:catwich": {
+    "NAME": "Catwich",
+    "FLAVOR": "Infinite energy here we go.",
+    "DESCRIPTIONS": [
+      "The first unupgraded card you discard each turn is #yUpgraded."
+    ]
+  },
+  "jedi:command_book": {
+    "NAME": "Command (book)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any book."
+    ]
+  },
+  "jedi:command_boss": {
+    "NAME": "Command (boss)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any boss relic."
+    ]
+  },
+  "jedi:command_common": {
+    "NAME": "Command (common)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any common relic."
+    ]
+  },
+  "jedi:command_rare": {
+    "NAME": "Command (rare)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any rare relic."
+    ]
+  },
+  "jedi:command_shop": {
+    "NAME": "Command (shop)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any shop relic."
+    ]
+  },
+  "jedi:command_uncommon": {
+    "NAME": "Command (uncommon)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any uncommon relic."
+    ]
+  },
+  "jedi:crownofsimplicity": {
+    "NAME": "Crown of Simplicity",
+    "FLAVOR": "An extremely simple crown for an extremely simple purpose.",
+    "DESCRIPTIONS": [
+      "First #yBasic card each turn is played twice."
+    ]
+  },
+  "jedi:cryingmask": {
+    "NAME": "Crying Mask",
+    "FLAVOR": "Mask worn by the Merchant of the past... Or is it of the future?",
+    "DESCRIPTIONS": [
+      "The Merchant's card removal service can now be purchased twice per shop for the same price. NL Synergy: ",
+      "Synergy",
+      "If the player has ",
+      ", gain #b5 Max HP whenever you remove #b2 cards at the same shop."
+    ]
+  },
+  "jedi:fakemustache": {
+    "NAME": "Fake Mustache",
+    "FLAVOR": "A familiar face?",
+    "DESCRIPTIONS": [
+      "When spending #yGold at the shop, heal #b5 HP. Heal #b10 HP upon pickup."
+    ]
+  },
+  "jedi:firstaidkit": {
+    "NAME": "First Aid Kit",
+    "FLAVOR": "Do you really need a bandage for every byrd peck?",
+    "DESCRIPTIONS": [
+      "Whenever you take unblocked attack damage, gain #b2 Regen."
+    ]
+  },
+  "jedi:ghostblades": {
+    "NAME": "Ghost Blades",
+    "FLAVOR": "There's something strange... In the neighbourhood...",
+    "DESCRIPTIONS": [
+      "#yShivs ignore enemy #yBlock."
+    ]
+  },
+  "jedi:gremlinknob": {
+    "NAME": "Gremlin Knob",
+    "FLAVOR": "If I hear ONE MORE knock-knock joke...",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, gain #b1 #yStrength until the end of your turn."
+    ]
+  },
+  "jedi:heavyjacket": {
+    "NAME": "Heavy Jacket",
+    "FLAVOR": "That's a lot of pockets for a single jacket.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b1 #yPlated #yArmor for every #b2 relics you have."
+    ]
+  },
+  "jedi:hotpepper": {
+    "NAME": "Hot Pepper",
+    "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r25%. Further Max HP increase effects are #rreduced #rby #r50%"
+    ]
+  },
+  "jedi:ironblood": {
+    "NAME": "Iron Blood",
+    "FLAVOR": "\"I am the bone of my sword...\"",
+    "DESCRIPTIONS": [
+      "Whenever you would lose HP, take that much damage instead."
+    ]
+  },
+  "jedi:kaleidoscope": {
+    "NAME": "Kaleidoscope",
+    "FLAVOR": "It seems to be lacking its main shard...",
+    "DESCRIPTIONS": [
+      "Start each combat with #yStrength equal to unique card colors in your deck."
+    ]
+  },
+  "jedi:laserpointer": {
+    "NAME": "Laser Pointer",
+    "FLAVOR": "Why is it a pointer if it targets everyone?",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply #b1 #yLock-On to ALL enemies."
+    ]
+  },
+  "jedi:maincommand": {
+    "NAME": "Command",
+    "FLAVOR": "There is no rain inside the Spire.",
+    "DESCRIPTIONS": [
+      "Instead of random you always choose which relic to obtain."
+    ]
+  },
+  "jedi:matchstick": {
+    "NAME": "Matchstick",
+    "FLAVOR": "The match is struck. A blazing star is born!",
+    "DESCRIPTIONS": [
+      " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Gain [E] [E] ."
+    ]
+  },
+  "jedi:ominousloannote": {
+    "NAME": "Ominous Loan Note",
+    "FLAVOR": "You pay for your greed.",
+    "DESCRIPTIONS": [
+      "Upon pickup receive #b400 gold. Next #r500 gold gained will go toward paying off this debt.",
+      "#r%d gold remaining to pay off the debt.",
+      "The debt has been paid."
+    ]
+  },
+  "jedi:othersneckoeye": {
+    "NAME": "Other Snecko Eye",
+    "FLAVOR": "The legendary second eye of the snecko, unseen by anyone... Untill now.",
+    "DESCRIPTIONS": [
+      "Draw #b1 more card each turn. Start each combat with #b2 #yCHAOS. Gain #b1 more #yCHAOS every #b3 turns."
+    ]
+  },
+  "jedi:paperfaux": {
+    "NAME": "Paper Faux",
+    "FLAVOR": "What does it say?",
+    "DESCRIPTIONS": [
+      "Enemies with #yLock-On take #b75% more damage rather than #b50%."
+    ]
+  },
+  "jedi:paperlyon": {
+    "NAME": "Paper Lyon",
+    "FLAVOR": "It may only be made of paper, yet it gives such an intimidating aura.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. When #yVulnerable, take #b75% more attack damage rather than #b50%. When #yWeak, deal #b40% less attack damage rather than #b25%. NL Synergy: ",
+      "Synergy",
+      "If the player has ",
+      ", receive #b50% more attack damage when #yVulnerable."
+    ]
+  },
+  "jedi:purplefairy": {
+    "NAME": "Purple Fairy",
+    "FLAVOR": "Mai waifu.",
+    "DESCRIPTIONS": [
+      "Whenever you #ySmith a card, heal HP depending on card rarity.",
+      "Healing value",
+      "#yBasic [REMOVE_SPACE]: #gfull HP NL #yCommon or #ySpecial [REMOVE_SPACE]: #b10 HP NL #yUncommon [REMOVE_SPACE]: #b5 HP NL #yRare [REMOVE_SPACE]: #b1 HP NL #rCurse [REMOVE_SPACE]: gain #b5 Max. HP and heal to #gfull [REMOVE_SPACE]."
+    ]
+  },
+  "jedi:rubbersling": {
+    "NAME": "Rubber Sling",
+    "FLAVOR": "I thought they don't use rubber in yoyo?",
+    "DESCRIPTIONS": [
+      "First time each turn when you discard a card, draw a card."
+    ]
+  },
+  "jedi:scrapmetal": {
+    "NAME": "Scrap Metal",
+    "FLAVOR": "Nothing should go to waste.",
+    "DESCRIPTIONS": [
+      "#yShivs deal #b",
+      " additional damage for each #yShiv played during the turn."
+    ]
+  },
+  "jedi:shrinkray": {
+    "NAME": "Shrink Ray",
+    "FLAVOR": "An evil mastermind has once tried to steal a satellite with this very relic...",
+    "DESCRIPTIONS": [
+      "Non-boss enemies have #b",
+      "% less HP."
+    ]
+  },
+  "jedi:sprinkler": {
+    "NAME": "Sprinkler",
+    "FLAVOR": "Taking care of those nasty insects has never been so easy!",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, apply #b",
+      " #yPoison to ALL enemies."
+    ]
+  },
+  "jedi:strikemanual": {
+    "NAME": "Strike Manual",
+    "FLAVOR": "This relic is deprecated.",
+    "DESCRIPTIONS": [
+      "All #yStrikes deal #b",
+      " additional damage."
+    ]
+  },
+  "jedi:superconductor": {
+    "NAME": "Superconductor",
+    "FLAVOR": "You can almost hear orbs going round and round...",
+    "DESCRIPTIONS": [
+      "For every #b10 Orbs Channeled, trigger passive effect of ALL Orbs."
+    ]
+  },
+  "jedi:tokenofglory": {
+    "NAME": "Token of Glory",
+    "FLAVOR": "You're feeling an ominous presence...",
+    "DESCRIPTIONS": [
+      "Elites appear more often in future acts."
+    ]
+  },
+  "jedi:tokenofmystery": {
+    "NAME": "Token of Mystery",
+    "FLAVOR": "???????????????????????????",
+    "DESCRIPTIONS": [
+      "#y? rooms appear more often in future acts.",
+      " NL You are more likely to encounter normal enemy encounters in #y? rooms."
+    ]
+  },
+  "jedi:tokenofserenity": {
+    "NAME": "Token of Serenity",
+    "FLAVOR": "Hush now, quiet now, it's time to lay your sleepy head...",
+    "DESCRIPTIONS": [
+      "Rest sites appear more often in future acts.",
+      " NL When resting, heal #b",
+      "% HP (instead of #b30% [REMOVE_SPACE])"
+    ]
+  },
+  "jedi:tokenofwealth": {
+    "NAME": "Token of Wealth",
+    "FLAVOR": "The price you pay.",
+    "DESCRIPTIONS": [
+      "Shops appear more often in future acts.",
+      " NL The Merchant's card removal service now costs #b",
+      " less Gold."
+    ]
+  },
+  "jedi:windupbox": {
+    "NAME": "Wind-up Box",
+    "FLAVOR": "Like clockwork.",
+    "DESCRIPTIONS": [
+      "Increases effectiveness of all time-based relics.",
+      "Deals #b1 more damage.",
+      "Will provide its effect with #b4 cards played.",
+      "Deals damage #b1 turn earlier.",
+      "Gives #b1 additional [E]",
+      "You have #b30 more seconds to live.",
+      "Has #b2 more charges.",
+      "Scales twice faster."
+    ]
+  },
+  "jedi:zontanonomicon": {
+    "NAME": "Zontanonomicon",
+    "FLAVOR": "You feel invigorated just by holding this Book of Living.",
+    "DESCRIPTIONS": [
+      "The first #ySkill played each turn that costs #b2 or more is played twice."
+    ]
+  }
+}
