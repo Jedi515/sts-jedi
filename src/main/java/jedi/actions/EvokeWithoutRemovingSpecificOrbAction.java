@@ -3,6 +3,7 @@ package jedi.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import jedi.util.Wiz;
 
 public class EvokeWithoutRemovingSpecificOrbAction
     extends AbstractGameAction
@@ -21,6 +22,18 @@ public class EvokeWithoutRemovingSpecificOrbAction
         this.actionType = ActionType.DAMAGE;
         this.orb = orb;
         this.orbCount = amount;
+    }
+
+    public static AbstractOrb getRightmostOrb(String orbID)
+    {
+        for (AbstractOrb o : Wiz.p().orbs)
+        {
+            if (orbID.equals(o.ID))
+            {
+                return o;
+            }
+        }
+        return null;
     }
 
 

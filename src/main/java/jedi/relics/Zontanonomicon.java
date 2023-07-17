@@ -2,6 +2,7 @@ package jedi.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,18 +14,13 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import jedi.util.TextureLoader;
 
 public class Zontanonomicon
-    extends CustomRelic
+    extends AbstractJediRelic
 {
     public static final String ID = "jedi:zontanonomicon";
-    public static final String PATH = "resources/jedi/images/relics/";
-    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
-    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
-    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
-    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
     private boolean activated = true;
 
     public Zontanonomicon() {
-        super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.CLINK);
+        super(ID, RelicTier.SPECIAL, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription()
@@ -34,34 +30,23 @@ public class Zontanonomicon
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.SKILL && (card.costForTurn >= 2 || card.cost == -1 && card.energyOnUse >= 2) && this.activated) {
-            this.activated = false;
-            this.flash();
+            activated = false;
+            flash();
             AbstractMonster m = null;
             if (action.target != null) {
                 m = (AbstractMonster)action.target;
             }
-
-            AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            AbstractCard tmp = card.makeSameInstanceOf();
-            tmp.current_x = card.current_x;
-            tmp.current_y = card.current_y;
-            tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-            tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-            tmp.freeToPlayOnce = true;
-            tmp.applyPowers();
-            tmp.purgeOnUse = true;
-            AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m));
-            this.pulse = false;
+            GameActionManager.queueExtraCard(card, m);
         }
 
     }
 
     public void atTurnStart() {
-        this.activated = true;
+        activated = true;
     }
 
     public boolean checkTrigger() {
-        return this.activated;
+        return activated;
     }
 
     public AbstractRelic makeCopy()

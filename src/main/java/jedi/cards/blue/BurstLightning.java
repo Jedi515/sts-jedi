@@ -72,16 +72,12 @@ public class BurstLightning
         super.calculateCardDamage(mo);
     }
 
-    public void upgrade()
+    public void upp()
     {
-        if(!this.upgraded)
-        {
-            upgradeName();
-            this.upgradeMagicNumber(1);
-            this.upgradeDamage(2);
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
-        }
+        upgradeMagicNumber(1);
+        upgradeDamage(2);
+        rawDescription = UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 
     public AbstractCard makeCopy()

@@ -28,15 +28,11 @@ public class FlashFreeze
         selfRetain = true;
     }
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!upgraded)
-        {
-            upgradeName();
-            upgradeMagicNumber(1);
-            rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
-        }
+        upgradeMagicNumber(1);
+        rawDescription = UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 
     @Override

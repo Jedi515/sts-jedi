@@ -31,11 +31,6 @@
     "NAME": "酝酿毒药",
     "DESCRIPTION": "给予 !M! 层 中毒。 NL  消耗 。 NL 抽到这张牌时，将其造成的 中毒 层数增加 !jedi:SecondMN! 。 NL 丢弃这张牌时，将其造成的 中毒 层数翻倍。 NL 消耗 。"
   },
-  "jedi:bruteforce": {
-    "NAME": "穷举",
-    "DESCRIPTION": " 激发 你最右侧的 闪电 充能球，直到其击中选中的敌人 !M! 次为止。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "我没有闪电充能球！"
-  },
   "jedi:cleanse": {
     "NAME": "涤净",
     "DESCRIPTION": "移除你身上的所有负面效果。 消耗 。",
@@ -109,10 +104,6 @@
   "jedi:markofdeath": {
     "NAME": "死亡标记",
     "DESCRIPTION": "给予99层 跟踪锁定 。 NL  消耗 。"
-  },
-  "jedi:meditation": {
-    "NAME": "冥想",
-    "DESCRIPTION": "你的回合结束时，获得 !M! 点 集中 。 NL 失去生命时，失去所有 集中 。"
   },
   "jedi:onestrike": {
     "NAME": "必杀打击",

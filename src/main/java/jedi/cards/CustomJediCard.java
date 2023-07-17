@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import jedi.jedi;
 
 @AutoAdd.Ignore
 public abstract class CustomJediCard
@@ -131,5 +132,25 @@ public abstract class CustomJediCard
     protected void draw(int amt)
     {
         atb(new DrawCardAction(amt));
+    }
+
+    protected void uDesc(String newDesc)
+    {
+        rawDescription = newDesc;
+        initializeDescription();
+    }
+
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upp();
+        }
+    }
+
+    public void upp(){}
+
+    protected String makeID(String cardID)
+    {
+        return jedi.makeID(cardID);
     }
 }

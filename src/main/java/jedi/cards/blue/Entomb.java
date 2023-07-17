@@ -31,16 +31,12 @@ public class Entomb
     }
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!upgraded)
-        {
-            upgradeName();
-            upgradeBlock(3);
-            cardsToPreview.upgrade();
-            rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
-        }
+        upgradeBlock(3);
+        cardsToPreview.upgrade();
+        rawDescription = UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 
     @Override

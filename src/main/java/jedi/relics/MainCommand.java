@@ -7,7 +7,11 @@ public class MainCommand
 
     public MainCommand()
     {
-        super(ID, RelicTier.SPECIAL, LandingSound.MAGICAL);
+        super(ID,
+                createTexture("jedi:command"),
+                createOutline("jedi:command"),
+                RelicTier.SPECIAL,
+                LandingSound.MAGICAL);
     }
 
     public String getUpdatedDescription()

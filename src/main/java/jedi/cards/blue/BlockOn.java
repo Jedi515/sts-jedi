@@ -45,13 +45,11 @@ public class BlockOn
     }
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!this.upgraded) {
-            upgradeName();
-            this.upgradeBlock(3);
-            this.upgradeMagicNumber(1);
-        }
+        upgradeName();
+        this.upgradeBlock(3);
+        this.upgradeMagicNumber(1);
     }
 
 }

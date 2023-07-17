@@ -3,13 +3,11 @@ package jedi.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.defect.RemoveNextOrbAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 
 public class MeditationPower
@@ -34,28 +32,8 @@ public class MeditationPower
     public void atEndOfTurn(boolean isPlayer)
     {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, this.amount), this.amount));
-    }
-
-    public int onLoseHp(int damageAmount)
-    {
-        if (!this.owner.hasPower(BufferPower.POWER_ID))
-        {
-            this.flash();
-            if (AbstractDungeon.player.hasPower(FocusPower.POWER_ID) && damageAmount > 0)
-            {
-                if (AbstractDungeon.player.getPower(FocusPower.POWER_ID).amount > 0)
-                {
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, FocusPower.POWER_ID));
-                }
-            }
-        }
-        return damageAmount;
-    }
-
-    public void stackPower(int stackAmount) {
-        this.fontScale = 8.0F;
-        this.amount += stackAmount;
+        addToBot(new ApplyPowerAction(owner, owner, new FocusPower(owner, amount), amount));
+        addToBot(new RemoveNextOrbAction());
     }
 
     public void updateDescription() {

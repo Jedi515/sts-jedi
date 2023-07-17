@@ -21,7 +21,7 @@ public class Meditation
 
     public Meditation()
     {
-        super(ID, NAME, COST, DESCRIPTION, AbstractCard.CardType.POWER, AbstractCard.CardColor.BLUE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        super(ID, NAME, COST, DESCRIPTION, AbstractCard.CardType.POWER, AbstractCard.CardColor.BLUE, CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
@@ -34,12 +34,9 @@ public class Meditation
     }
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!this.upgraded) {
-            upgradeName();
-            this.upgradeMagicNumber(1);
-        }
+        upgradeMagicNumber(1);
     }
 
     public AbstractCard makeCopy()

@@ -32,12 +32,8 @@ public class MarkOfDeath
 
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
-        }
-
+    public void upp() {
+        upgradeBaseCost(0);
     }
 
     public AbstractCard makeCopy()

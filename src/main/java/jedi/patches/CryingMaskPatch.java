@@ -2,45 +2,32 @@ package jedi.patches;
 
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.SmilingMask;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 import jedi.relics.CryingMask;
+import jedi.util.Wiz;
 
 public class CryingMaskPatch
 {
-    @SpirePatch(clz = ShopScreen.class, method = "updatePurge")
-    public static class AllowSecondRemovalScreen
-    {
-        public static void Postfix(ShopScreen __instance)
-        {
-            if (AbstractDungeon.player.hasRelic(CryingMask.ID))
-            {
-                CryingMask mask = (CryingMask) AbstractDungeon.player.getRelic(CryingMask.ID);
-                if (mask.canBuySecond && !AbstractDungeon.shopScreen.purgeAvailable)
-                {
-                    mask.canBuySecond = false;
-                    AbstractDungeon.shopScreen.purgeAvailable = true;
-                }
-            }
-        }
-    }
-
-    @SpirePatch(clz = ShopRoom.class, method = "updatePurge")
+    @SpirePatch2(clz = ShopRoom.class, method = "updatePurge")
+    @SpirePatch2(clz = ShopScreen.class, method = "updatePurge")
     public static class AllowSecondRemovalRoom
     {
-        public static void Postfix(ShopRoom __instance)
+        public static void Postfix()
         {
-            if (AbstractDungeon.player.hasRelic(CryingMask.ID))
+            CryingMask mask = (CryingMask) AbstractDungeon.player.getRelic(CryingMask.ID);
+            if (mask == null) return;
+            if (mask.canBuySecond && !AbstractDungeon.shopScreen.purgeAvailable)
             {
-                CryingMask mask = (CryingMask) AbstractDungeon.player.getRelic(CryingMask.ID);
-                if (mask.canBuySecond && !AbstractDungeon.shopScreen.purgeAvailable)
-                {
-                    mask.flash();
-                    mask.canBuySecond = false;
-                    AbstractDungeon.shopScreen.purgeAvailable = true;
-                }
+                mask.flash();
+                AbstractDungeon.shopScreen.purgeAvailable = true;
+                mask.canBuySecond = false;
+                CryingMask.purgeCost = ShopScreen.purgeCost;
+                ShopScreen.purgeCost = 0;
+                ShopScreen.actualPurgeCost = 0;
             }
         }
     }
@@ -50,16 +37,19 @@ public class CryingMaskPatch
     {
         public static void Prefix()
         {
-            if (AbstractDungeon.player.hasRelic(SmilingMask.ID) && AbstractDungeon.player.hasRelic(CryingMask.ID))
+            CryingMask cm = (CryingMask) Wiz.adp().getRelic(CryingMask.ID);
+            if (cm == null) return;
+            if (AbstractDungeon.player.hasRelic(SmilingMask.ID) && !cm.canBuySecond)
             {
-                if (!((CryingMask) AbstractDungeon.player.getRelic(CryingMask.ID)).canBuySecond)
-                {
-                    AbstractDungeon.player.increaseMaxHp(5, true);
-                }
+                AbstractDungeon.player.increaseMaxHp(5, true);
             }
-            if (AbstractDungeon.player.hasRelic(CryingMask.ID))
+            if (cm.canBuySecond)
             {
                 ShopScreen.purgeCost -= 25;
+            }
+            else
+            {
+                CryingMask.purgeCost += 25;
             }
         }
     }

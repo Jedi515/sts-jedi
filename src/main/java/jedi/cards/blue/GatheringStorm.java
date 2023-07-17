@@ -50,13 +50,9 @@ public class GatheringStorm
         }
     }
 
-    public void upgrade()
+    public void upp()
     {
-        if(!this.upgraded)
-        {
-            upgradeName();
-            this.upgradeBaseCost(2);
-        }
+        upgradeBaseCost(2);
     }
 
     public AbstractCard makeCopy()

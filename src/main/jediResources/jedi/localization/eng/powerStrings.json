@@ -3,7 +3,7 @@
     "NAME": "Meditation",
     "DESCRIPTIONS": [
       "Gain #b",
-      " #yFocus at the end of your turn AFTER orb #ypassive effects trigger. Lose ALL #yFocus whenever you lose HP."
+      " #yFocus and remove your rightmost #yOrb at the end of your turn AFTER orb #ypassive effects trigger."
     ]
   },
   "jedi:upgradeondraw": {

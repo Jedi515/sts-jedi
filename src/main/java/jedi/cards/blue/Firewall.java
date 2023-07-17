@@ -25,15 +25,11 @@ public class Firewall
     }
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!upgraded)
-        {
-            upgradeName();
             isInnate = true;
             rawDescription = UPGRADE_DESCRIPTION + DESCRIPTION;
             initializeDescription();
-        }
     }
 
     @Override

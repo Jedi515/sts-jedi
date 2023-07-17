@@ -20,24 +20,22 @@ public class Bruteforce
 
     public Bruteforce()
     {
-        super(ID, NAME, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
-        this.magicNumber = this.baseMagicNumber = 3;
-        this.exhaust = true;
+        super(ID, NAME, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL_ENEMY);
+        magicNumber = baseMagicNumber = 2;
+        exhaust = true;
     }
 
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new BruteforceAction(m, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new BruteforceAction(magicNumber));
     }
 
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!this.upgraded) {
-            upgradeName();
-            this.upgradeMagicNumber(1);
-        }
+        uDesc(UPGRADE_DESCRIPTION);
+        exhaust = false;
     }
 }

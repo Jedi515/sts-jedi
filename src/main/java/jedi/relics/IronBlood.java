@@ -7,7 +7,7 @@ public class IronBlood
 
     public IronBlood()
     {
-        super(ID, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, RelicTier.SHOP, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription()

@@ -60,7 +60,7 @@
     "NAME": "Portable Tent",
     "FLAVOR": "Seems to be made of snecko skin, doused in slime goop. Offers long-term restorative effects.",
     "DESCRIPTIONS": [
-      "You can now encounter #yRest sites in #y? rooms."
+      "You can now encounter #yRest sites in #y? rooms. NL The next #y? room is guaranteed to be one."
     ]
   },
   "jedi:archwizardhat": {
@@ -155,7 +155,7 @@
     "NAME": "Crying Mask",
     "FLAVOR": "Mask worn by the Merchant of the past... Or is it of the future?",
     "DESCRIPTIONS": [
-      "The Merchant's card removal service can now be purchased twice per shop for the same price. NL Synergy: ",
+      "You can now use the Merchant's card removal service second time per shop for free. NL Synergy: ",
       "Synergy",
       "If the player has ",
       ", gain #b5 Max HP whenever you remove #b2 cards at the same shop."
@@ -172,7 +172,7 @@
     "NAME": "First Aid Kit",
     "FLAVOR": "Do you really need a bandage for every byrd peck?",
     "DESCRIPTIONS": [
-      "Whenever you take unblocked attack damage, gain #b2 Regen."
+      "Whenever you take unblocked attack damage, gain #b%d #yRegen."
     ]
   },
   "jedi:ghostblades": {

@@ -29,7 +29,10 @@ public class LeechingStrike
     public void upgrade()
     {
         if (!upgraded)
-        upgradeDamage(3);
+        {
+            upgradeName();
+            upgradeDamage(3);
+        }
     }
 
     @Override

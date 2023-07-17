@@ -56,7 +56,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import static basemod.BaseMod.addRelic;
 import static basemod.BaseMod.loadCustomStrings;
 import static the_gatherer.GathererMod.lesserPotionPool;
 
@@ -90,6 +89,7 @@ public class jedi
     public static ArrayList<String> cursedRelics = new ArrayList<>();
     public static ArrayList<AbstractRelic> unseenRelics = new ArrayList<>();
     public static ArrayList<String> lockedRelics = new ArrayList<>();
+    public static final String modID = "jedi";
 
     public static void initialize()
     {
@@ -392,7 +392,7 @@ public class jedi
         BaseMod.addRelic(new ArchwizardHat(), RelicType.SHARED);
         BaseMod.addRelic(new WindUpBox(), RelicType.SHARED);
         BaseMod.addRelic(new BottledFury(), RelicType.SHARED);
-        BaseMod.addRelic(new ArcaneWood(), RelicType.SHARED);
+        BaseMod.addRelic(new PortableTent(), RelicType.SHARED);
         BaseMod.addRelic(new StrikeManual(), RelicType.SHARED);
         BaseMod.addRelic(new OminousLoanNote(), RelicType.SHARED);
         BaseMod.addRelic(new Pinwheel(), RelicType.SHARED);

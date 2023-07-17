@@ -14,15 +14,16 @@ public class CryingMask
     public static final String ID = "jedi:cryingmask";
     public boolean canBuySecond = true;
     public static final SmilingMask mask = new SmilingMask();
+    public static int purgeCost;
 
     public CryingMask()
     {
         super(ID, RelicTier.SHOP, LandingSound.FLAT);
-        this.description = DESCRIPTIONS[0] + FontHelper.colorString(mask.name, "y");
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
-        this.tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2] + FontHelper.colorString(mask.name, "y") + DESCRIPTIONS[3]));
-        this.initializeTips();
+        description = DESCRIPTIONS[0] + FontHelper.colorString(mask.name, "y");
+        tips.clear();
+        tips.add(new PowerTip(this.name, this.description));
+        tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2] + FontHelper.colorString(mask.name, "y") + DESCRIPTIONS[3]));
+        initializeTips();
     }
 
     public boolean canSpawn() {
@@ -33,7 +34,7 @@ public class CryingMask
     {
         if (!canBuySecond)
         {
-            ShopScreen.purgeCost += 25;
+            ShopScreen.purgeCost = purgeCost;
         }
         canBuySecond = true;
     }

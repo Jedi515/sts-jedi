@@ -11,6 +11,7 @@ public class FirstAidKit
 {
 
     public static final String ID = "jedi:firstaidkit";
+    public static final int potency = 1;
 
     public FirstAidKit()
     {
@@ -23,14 +24,13 @@ public class FirstAidKit
         AbstractPlayer p = AbstractDungeon.player;
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != p && damageAmount > 0 && !p.hasPower("Buffer"))
         {
-            addToBot(new ApplyPowerAction(p, p, new RegenPower(p, 2), 2));
+            addToBot(new ApplyPowerAction(p, p, new RegenPower(p, potency)));
         }
         return damageAmount;
     }
 
     public String getUpdatedDescription()
     {
-        return DESCRIPTIONS[0];
+        return String.format(DESCRIPTIONS[0], potency);
     }
-
 }

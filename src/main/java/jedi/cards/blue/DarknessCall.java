@@ -51,13 +51,9 @@ public class DarknessCall
         }
     }
 
-    public void upgrade()
+    public void upp()
     {
-        if(!this.upgraded)
-        {
-            upgradeName();
-            this.upgradeBaseCost(1);
-        }
+        upgradeBaseCost(1);
     }
 
     public AbstractCard makeCopy()

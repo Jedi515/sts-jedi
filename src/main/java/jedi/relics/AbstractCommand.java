@@ -3,12 +3,16 @@ package jedi.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import jedi.jedi;
 import jedi.screens.RelicSelectScreen;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import jedi.util.TextureLoader;
+
+import java.util.ArrayList;
 
 public abstract class AbstractCommand
     extends CustomRelic
@@ -22,7 +26,7 @@ public abstract class AbstractCommand
     public static String ID = "jedi:command_";
 
     public AbstractCommand(String id, RelicTier tier, LandingSound sfx) {
-        super(id, TextureLoader.getTexture("resources/jedi/images/relics/command.png"), TextureLoader.getTexture("resources/jedi/images/relics/outline/command.png"), tier, sfx);
+        super(id, TextureLoader.getTexture("jedi/images/relics/command.png"), TextureLoader.getTexture("resources/jedi/images/relics/outline/command.png"), tier, sfx);
     }
 
     public String getUpdatedDescription()
@@ -39,19 +43,64 @@ public abstract class AbstractCommand
         }
         roomPhase = AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
-        this.openRelicSelect();
+        openRelicSelect();
     }
 
     protected void openRelicSelect() {
 
     }
 
+
+    protected void openRelicSelect(ArrayList<AbstractRelic> relics) {
+        relicSelected = false;
+        if (!jedi.CommandHasCopy)
+        {
+            relics.removeIf((r) -> AbstractDungeon.player.hasRelic(r.relicId));
+        }
+
+        if (!jedi.CommandLocked)
+        {
+            relics.removeIf((r) -> UnlockTracker.isRelicLocked(r.relicId));
+        }
+        else
+        {
+            jedi.lockedRelics.clear();
+            for (AbstractRelic r : relics)
+            {
+                if (UnlockTracker.isRelicLocked(r.relicId))
+                {
+                    jedi.lockedRelics.add(r.relicId);
+                    UnlockTracker.lockedRelics.remove(r.relicId);
+                }
+            }
+        }
+
+        if (!jedi.CommandUnseen)
+        {
+            relics.removeIf((r) -> !UnlockTracker.isRelicSeen(r.relicId));
+        }
+        else
+        {
+            jedi.unseenRelics.clear();
+            for (AbstractRelic r : relics)
+            {
+                if (!UnlockTracker.isRelicSeen(r.relicId))
+                {
+                    jedi.unseenRelics.add(r);
+                    r.isSeen = true;
+                }
+            }
+        }
+        relicSelectScreen.open(relics);
+    }
+
+
     public void update() {
         super.update();
-        if (!this.relicSelected) {
-            if (this.relicSelectScreen.doneSelecting()) {
-                this.relicSelected = true;
-                relic = this.relicSelectScreen.getSelectedRelics().get(0).makeCopy();
+        if (!relicSelected) {
+            if (relicSelectScreen.doneSelecting()) {
+                relicSelected = true;
+                relic = relicSelectScreen.getSelectedRelics().get(0).makeCopy();
                 switch (relic.tier) {
                     case COMMON:
                         AbstractDungeon.commonRelicPool.removeIf(id ->  id.equals(relic.relicId));
@@ -73,23 +122,23 @@ public abstract class AbstractCommand
                 }
                 loseRelic = true;
             } else {
-                this.relicSelectScreen.update();
-                if (!this.hb.hovered) {
-                    this.fakeHover = true;
+                relicSelectScreen.update();
+                if (!hb.hovered) {
+                    fakeHover = true;
                 }
-                this.hb.hovered = true;
+                hb.hovered = true;
             }
         }
     }
 
     public void renderTip(SpriteBatch sb) {
-        if (!this.relicSelected && this.fakeHover) {
-            this.relicSelectScreen.render(sb);
+        if (!relicSelected && fakeHover) {
+            relicSelectScreen.render(sb);
         }
 
-        if (this.fakeHover) {
-            this.fakeHover = false;
-            this.hb.hovered = false;
+        if (fakeHover) {
+            fakeHover = false;
+            hb.hovered = false;
         } else {
             super.renderTip(sb);
         }
@@ -98,10 +147,10 @@ public abstract class AbstractCommand
 
     public void renderInTopPanel(SpriteBatch sb) {
         super.renderInTopPanel(sb);
-        if (!this.relicSelected && !this.fakeHover) {
+        if (!relicSelected && !fakeHover) {
             boolean hideRelics = Settings.hideRelics;
             Settings.hideRelics = false;
-            this.relicSelectScreen.render(sb);
+            relicSelectScreen.render(sb);
             Settings.hideRelics = hideRelics;
         }
 
@@ -111,7 +160,7 @@ public abstract class AbstractCommand
     {
         if (loseRelic && AbstractDungeon.effectsQueue.stream().noneMatch(eff -> eff instanceof ShowCardAndObtainEffect) && AbstractDungeon.effectList.stream().noneMatch(eff -> eff instanceof ShowCardAndObtainEffect))
         {
-            AbstractDungeon.player.loseRelic(this.relicId);
+            AbstractDungeon.player.loseRelic(relicId);
             relic.instantObtain();
             AbstractDungeon.getCurrRoom().phase = roomPhase;
         }

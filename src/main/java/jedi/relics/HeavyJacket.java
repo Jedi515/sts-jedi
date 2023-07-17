@@ -1,26 +1,18 @@
 package jedi.relics;
 
-import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import jedi.util.TextureLoader;
 
 public class HeavyJacket
-    extends CustomRelic
+    extends AbstractJediRelic
 {
 
     public static final String ID = "jedi:heavyjacket";
-    public static final String PATH = "resources/jedi/images/relics/";
-    public static final String OUTLINE_PATH = PATH + "outline/" + ID.substring(5) + ".png";
-    public static final String IMG_PATH = PATH + ID.substring(5) + ".png";
-    private static final Texture IMG = TextureLoader.getTexture(IMG_PATH);
-    private static final Texture OUTLINE = TextureLoader.getTexture(OUTLINE_PATH);
 
     public HeavyJacket()
     {
-        super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.FLAT);
+        super(ID, RelicTier.BOSS, LandingSound.FLAT);
     }
 
     public void atBattleStart()

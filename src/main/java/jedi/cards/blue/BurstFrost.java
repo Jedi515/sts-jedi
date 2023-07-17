@@ -37,16 +37,12 @@ public class BurstFrost
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Frost());
     }
 
-    public void upgrade()
+    public void upp()
     {
-        if(!this.upgraded)
-        {
-            upgradeName();
-            this.upgradeMagicNumber(1);
-            this.upgradeBlock(3);
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
-        }
+        upgradeMagicNumber(1);
+        upgradeBlock(3);
+        rawDescription = UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 
     public AbstractCard makeCopy()

@@ -43,15 +43,11 @@ public class BurstDark
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Dark());
     }
 
-    public void upgrade()
+    public void upp()
     {
-        if(!this.upgraded)
-        {
-            upgradeName();
-            selfRetain = true;
-            rawDescription = EXTENDED_DESCRIPTION[0] + rawDescription;
-            initializeDescription();
-        }
+        selfRetain = true;
+        rawDescription = EXTENDED_DESCRIPTION[0] + rawDescription;
+        initializeDescription();
     }
 
     @Override

@@ -19,11 +19,16 @@ public abstract class AbstractJediRelic
     public AbstractCard cardToPreview;
     public AbstractJediRelic(String id, RelicTier tier, LandingSound sfx)
     {
-        super(id, createTexture(id), createOutline(id), tier, sfx);
+        this(id, createTexture(id), createOutline(id), tier, sfx);
+    }
+
+    public AbstractJediRelic(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx)
+    {
+        super(id, texture, outline, tier, sfx);
         cardToPreview = null;
     }
 
-    private static Texture createOutline(String ID)
+    protected static Texture createOutline(String ID)
     {
         if (Gdx.files.internal(makeOutlinePath(ID)).exists())
         {
@@ -32,7 +37,7 @@ public abstract class AbstractJediRelic
         return TextureLoader.getTexture(makeOutlinePath("beta_rock"));
     }
 
-    private static Texture createTexture(String ID)
+    protected static Texture createTexture(String ID)
     {
         if (Gdx.files.internal(makeImagePath(ID)).exists())
         {
@@ -41,12 +46,12 @@ public abstract class AbstractJediRelic
         return TextureLoader.getTexture(makeImagePath("beta_rock"));
     }
 
-    private static String makeImagePath(String ID)
+    protected static String makeImagePath(String ID)
     {
         return "jedi/images/relics/" + ID.substring(5) + ".png";
     }
 
-    private static String makeOutlinePath(String ID)
+    protected static String makeOutlinePath(String ID)
     {
         return "jedi/images/relics/outline/" + ID.substring(5) + ".png";
     }

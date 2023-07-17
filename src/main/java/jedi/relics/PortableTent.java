@@ -3,19 +3,19 @@ package jedi.relics;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class ArcaneWood
+public class PortableTent
     extends AbstractJediRelic
 {
     public static final String ID = "jedi:arcanewood";
 
-    public ArcaneWood()
+    public PortableTent()
     {
         super(ID, RelicTier.COMMON, LandingSound.MAGICAL);
     }
 
     public String getUpdatedDescription()
     {
-        return this.DESCRIPTIONS[0];
+        return DESCRIPTIONS[0];
     }
 
     @Override

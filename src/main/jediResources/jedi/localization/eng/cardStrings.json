@@ -1,8 +1,7 @@
 {
   "jedi:AC": {
     "NAME": "AC",
-    "DESCRIPTION": "Channel !M! Lightning. NL Add *DC into your hand.",
-    "UPGRADE_DESCRIPTION": "Channel !M! Lightning. NL Add *DC+ into your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add a *DC{!Upgrades!|>0=+} to your hand."
   },
   "jedi:ApocalypseNow": {
     "NAME": "Apocalypse Now",
@@ -29,10 +28,9 @@
     "DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to your Focus. NL Is affected by *Electrodynamics.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to your Focus times !M!. NL Is affected by *Electrodynamics."
   },
-  "jedi:DC": {
+  "${ModID}:DC": {
     "NAME": "DC",
-    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each Lightning. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL "
+    "DESCRIPTION": "{@@}Retain. NL Channel a Lightning. NL Trigger its Evoke{!Upgrades!|>0= and passive} effect{!Upgrades!|>0=s}. NL Exhaust."
   },
   "jedi:EchoStrike": {
     "NAME": "Echo Strike",
@@ -45,8 +43,7 @@
   },
   "jedi:Firewall": {
     "NAME": "Firewall",
-    "DESCRIPTION": "When a Status card is created, NL Exhaust it.",
-    "UPGRADE_DESCRIPTION": "Innate. NL "
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=Innate. NL }When a Status card is created, NL Exhaust it."
   },
   "jedi:FlashFreeze": {
     "NAME": "Flash Freeze",
@@ -145,7 +142,7 @@
   },
   "jedi:bruteforce": {
     "NAME": "Bruteforce",
-    "DESCRIPTION": "Evoke your rightmost Lightning Orb till it hits selected enemy !M! times. NL Exhaust.",
+    "DESCRIPTION": "{@@}Evoke your rightmost Lightning !M! times, hitting ALL enemies.{!Upgrades!|0= NL Exhaust.|>0=}",
     "UPGRADE_DESCRIPTION": "No Lightning orbs channeled!"
   },
   "jedi:cleanse": {
@@ -224,7 +221,7 @@
   },
   "jedi:meditation": {
     "NAME": "Meditation",
-    "DESCRIPTION": "At the end of your turn, gain !M! Focus. NL Lose ALL Focus whenever you lose HP."
+    "DESCRIPTION": "At the end of your turn, remove your rightmost Orb and gain !M! Focus."
   },
   "jedi:nirvanicrebirth": {
     "NAME": "Nirvanic Rebirth",
