@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
 public class Wiz {
+    public static ArrayList<AbstractCard> cardsCreatedThisTurn = new ArrayList<>();
+    public static ArrayList<AbstractCard> cardsCreatedThisCombat = new ArrayList<>();
 
     public static void atb(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToBottom(action);

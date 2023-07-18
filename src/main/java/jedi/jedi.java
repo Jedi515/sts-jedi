@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AccuracyPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CoffeeDripper;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import javassist.CannotCompileException;
 import javassist.CtClass;
@@ -48,6 +49,7 @@ import jedi.modifiers.WarmongerRunMod;
 import jedi.potions.*;
 import jedi.relics.*;
 import jedi.util.TextureLoader;
+import jedi.util.Wiz;
 import jedi.variables.JediSecondMN;
 
 import java.io.IOException;
@@ -70,7 +72,9 @@ public class jedi
             PostUpdateSubscriber,
             AddCustomModeModsSubscriber,
             PostDungeonInitializeSubscriber,
-            RelicGetSubscriber
+            RelicGetSubscriber,
+            OnStartBattleSubscriber,
+            OnPlayerTurnStartSubscriber
 {
     public static boolean isReplayLoaded;
     public static boolean isConspireLoaded;
@@ -585,10 +589,23 @@ public class jedi
         {
             ((onGenerateCardMidcombatInterface)c).onCreateCard(c);
         }
+        Wiz.cardsCreatedThisTurn.add(c);
+        Wiz.cardsCreatedThisCombat.add(c);
     }
 
     public static String makeID(String id_in)
     {
         return "jedi:" + id_in;
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        Wiz.cardsCreatedThisCombat.clear();
+        Wiz.cardsCreatedThisTurn.clear();
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        Wiz.cardsCreatedThisTurn.clear();
     }
 }
