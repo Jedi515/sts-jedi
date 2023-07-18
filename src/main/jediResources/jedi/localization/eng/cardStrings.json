@@ -7,6 +7,10 @@
     "NAME": "Apocalypse Now",
     "DESCRIPTION": "Scry !M!. NL If you discard at least 8 cards, NL deal !D! damage to ALL enemies."
   },
+  "jedi:AuraStrike": {
+    "NAME": "Aura Strike",
+    "DESCRIPTION": "Deal !D! damage. NL While in hand, Attacks deal !M! additional damage."
+  },
   "jedi:BattleThirst": {
     "NAME": "Battle Thirst",
     "DESCRIPTION": "Unplayable. NL While in your deck, you have to enter combat rooms whenever you can."

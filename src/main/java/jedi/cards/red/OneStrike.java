@@ -46,17 +46,8 @@ public class OneStrike
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, pow.ID));
         }
 
-//        if (this.upgraded)
-//        {
-//            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, SpeechUp, 1.0F, 2.0F));
-//        }
-//        else
-//        {
-//            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, Speech, 1.0F, 2.0F));
-//        }
-
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY)));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, m.maxHealth * 2, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY)));
+        addToBot(new DamageAction(m, new DamageInfo(p, m.maxHealth * 2, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

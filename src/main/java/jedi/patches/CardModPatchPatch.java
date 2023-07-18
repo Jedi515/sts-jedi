@@ -21,6 +21,7 @@ public class CardModPatchPatch
                 {
                     if (mod instanceof ModifyDamageOtherInterface) __result = ((ModifyDamageOtherInterface) mod).modifyDamageOther(__result, card, mo);
                 }
+                if (c instanceof ModifyDamageOtherInterface) __result = ((ModifyDamageOtherInterface) c).modifyDamageOther(__result, card, mo);
             }
 
             return __result;
@@ -38,6 +39,7 @@ public class CardModPatchPatch
                 {
                     if (mod instanceof ModifyDamageOtherInterface) __result = ((ModifyDamageOtherInterface) mod).modifyDamageOtherFinal(__result, card, mo);
                 }
+                if (c instanceof ModifyDamageOtherInterface) __result = ((ModifyDamageOtherInterface) c).modifyDamageOtherFinal(__result, card, mo);
             }
 
             return __result;
