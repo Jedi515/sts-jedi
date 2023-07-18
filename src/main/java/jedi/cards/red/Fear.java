@@ -1,6 +1,7 @@
 package jedi.cards.red;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.red.Anger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import jedi.cards.CustomJediCard;
+import jedi.powers.FearPower;
+import jedi.util.Wiz;
 
 public class Fear
     extends CustomJediCard
@@ -18,42 +21,25 @@ public class Fear
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final int COST = 2;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
+    public static final int COST = 1;
 
 
     public Fear()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.COMMON, CardTarget.NONE);
-        this.magicNumber = this.baseMagicNumber = 2;
-        this.exhaust = true;
-        cardsToPreview = new Anger();
+        super(ID, NAME, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.UNCOMMON, CardTarget.SELF);
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        Anger anger = new Anger();
-        if (this.upgraded)
-        {
-            anger.upgrade();
-        }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(anger.makeStatEquivalentCopy(), this.magicNumber));
+        addToBot(new ApplyPowerAction(Wiz.adp(), Wiz.adp(), new FearPower(Wiz.adp(), magicNumber)));
+        if (upgraded) addToBot(new MakeTempCardInHandAction(new Anger()));
     }
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!this.upgraded) {
-            this.upgradeName();
-            cardsToPreview.upgrade();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-        }
-    }
-
-    public CustomCard makeCopy()
-    {
-        return new Fear();
+        cardsToPreview = new Anger();
     }
 }

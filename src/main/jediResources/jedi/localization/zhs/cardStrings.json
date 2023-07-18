@@ -6,8 +6,7 @@
   },
   "jedi:BurstLightning": {
     "NAME": "闪电迸发",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 造成的伤害增加等于你 集中 点数的数值。 NL 受 *电动力学 影响。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 造成的伤害增加等于你 集中 点数的 !M! 倍的数值。 NL 受 *电动力学 影响。"
+    "DESCRIPTION": "造成 !D! 点伤害。"
   },
   "jedi:acidrain": {
     "NAME": "酸液雨",
@@ -22,10 +21,6 @@
     "NAME": "Better",
     "DESCRIPTION": " 虚无 。 NL 在本场战斗中 升级 你的全部手牌。 NL 增加一张 *Faster 到你的手牌。 NL  消耗 。",
     "UPGRADE_DESCRIPTION": " 虚无 。 NL 在本场战斗中 升级 你的全部手牌。 NL 这个回合内，将所有你抽到的牌 升级 。 NL 增加一张 *Do *it *Faster 到你的手牌。 NL  消耗 。"
-  },
-  "jedi:blockon": {
-    "NAME": "格挡锁定",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 给予所有意图是攻击的敌人 !M! 层 跟踪锁定 。"
   },
   "jedi:brewingpoison": {
     "NAME": "酝酿毒药",
@@ -59,11 +54,6 @@
     "DESCRIPTION": " 虚无 。 NL 给予一个敌人 缓慢 。 NL 添加一张 *Stronger 到你的手牌。 NL  消耗 。",
     "UPGRADE_DESCRIPTION": " 虚无 。 NL 下一回合，获得 [E] [E]  NL 给予所有敌人 缓慢 。 NL 添加一张 *Makes us *Stronger 到你的手牌。 NL 消耗。"
   },
-  "jedi:fear": {
-    "NAME": "恐惧",
-    "DESCRIPTION": "增加 !M! 张 愤怒 到你的手牌。 NL  消耗 。",
-    "UPGRADE_DESCRIPTION": "增加 !M! 张已 升级 的  愤怒 到你的手牌。 NL  消耗 。"
-  },
   "jedi:forcepull": {
     "NAME": "原力牵拉",
     "DESCRIPTION": "给予 !M! 层 易伤 。 NL 抽一张牌。"
@@ -71,10 +61,6 @@
   "jedi:forcepush": {
     "NAME": "原力推撞",
     "DESCRIPTION": "给予 !M! 层 虚弱 。 NL 抽一张牌。"
-  },
-  "jedi:frostbite": {
-    "NAME": "冻伤",
-    "DESCRIPTION": " 不能被打出 。 NL 抽到这张卡时，在本回合内失去3点 力量 。"
   },
   "jedi:gatheringstorm": {
     "NAME": "雷云汇聚",

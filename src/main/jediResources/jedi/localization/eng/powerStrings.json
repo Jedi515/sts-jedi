@@ -6,6 +6,12 @@
       " #yFocus and remove your rightmost #yOrb at the end of your turn AFTER orb #ypassive effects trigger."
     ]
   },
+  "jedi:FearPower": {
+    "NAME": "Fear",
+    "DESCRIPTIONS": [
+      "Until the start of your next turn, whenever a card is created, gain #b%d #yStrength."
+    ]
+  },
   "jedi:upgradeondraw": {
     "NAME": "Better",
     "DESCRIPTIONS": [

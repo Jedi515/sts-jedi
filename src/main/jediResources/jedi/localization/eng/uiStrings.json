@@ -25,5 +25,10 @@
               "Deal !jedi:ALLDMN! damage to ALL enemies. NL ",
               "Gain %d random potion(s). NL "
             ]
+  },
+  "jedi:BurstLightningMod": {
+    "TEXT": [
+      "%s NL Affected by Focus and Lock-On."
+    ]
   }
 }

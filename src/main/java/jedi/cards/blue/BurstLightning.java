@@ -36,52 +36,18 @@ public class BurstLightning
     public BurstLightning()
     {
         super(ID, NAME, 1, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ENEMY);
-        this.baseDamage = 7;
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
+        baseDamage = 7;
         CardModifierManager.addModifier(this, new BurstLightningMod());
-        cardsToPreview = new Electrodynamics();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (p.hasPower(ElectroPower.POWER_ID))
-        {
-            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(null, true));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(m, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
-        }
-        else
-        {
-            AbstractDungeon.actionManager.addToBottom(new VSFXLightningAction(m, true));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
-        }
+        addToBot(new VSFXLightningAction(m, true));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Lightning());
     }
-
-    @Override
-    public void applyPowers()
-    {
-        target = AbstractDungeon.player.hasPower(ElectroPower.POWER_ID) ? CardTarget.ALL_ENEMY : CardTarget.ENEMY;
-        super.applyPowers();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo)
-    {
-        target = AbstractDungeon.player.hasPower(ElectroPower.POWER_ID) ? CardTarget.ALL_ENEMY : CardTarget.ENEMY;
-        super.calculateCardDamage(mo);
-    }
-
     public void upp()
     {
-        upgradeMagicNumber(1);
-        upgradeDamage(2);
-        rawDescription = UPGRADE_DESCRIPTION;
-        initializeDescription();
-    }
-
-    public AbstractCard makeCopy()
-    {
-        return new BurstLightning();
+        upgradeDamage(3);
     }
 }

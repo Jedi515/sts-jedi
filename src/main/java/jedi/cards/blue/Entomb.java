@@ -23,10 +23,10 @@ public class Entomb
 
     public Entomb()
     {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
         setMN(2);
-        setSecondMN(2);
-        setBlock(9);
+        setSecondMN(1);
+        setBlock(15);
         cardsToPreview = new FlashFreeze();
     }
 

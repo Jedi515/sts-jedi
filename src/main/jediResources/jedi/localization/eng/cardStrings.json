@@ -20,21 +20,16 @@
   },
   "jedi:BurstFrost": {
     "NAME": "Burst Frost",
-    "DESCRIPTION": "Gain !B! Block. NL Gain additional Block equal to your Focus.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain additional Block equal to your Focus times !M!."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for each Focus.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for each Focus."
   },
   "jedi:BurstLightning": {
     "NAME": "Burst Lightning",
-    "DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to your Focus. NL Is affected by *Electrodynamics.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deals additional damage equal to your Focus times !M!. NL Is affected by *Electrodynamics."
+    "DESCRIPTION": "Deal !D! damage."
   },
-  "${ModID}:DC": {
+  "jedi:DC": {
     "NAME": "DC",
     "DESCRIPTION": "{@@}Retain. NL Channel a Lightning. NL Trigger its Evoke{!Upgrades!|>0= and passive} effect{!Upgrades!|>0=s}. NL Exhaust."
-  },
-  "jedi:EchoStrike": {
-    "NAME": "Echo Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play every other *Echo *Strike played this combat."
   },
   "jedi:Entomb": {
     "NAME": "Entomb",
@@ -47,8 +42,7 @@
   },
   "jedi:FlashFreeze": {
     "NAME": "Flash Freeze",
-    "DESCRIPTION": "Retain. NL Channel 1 Frost and NL trigger its passive effect. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Channel 1 Frost and NL trigger its passive effect !M! times. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Channel 1 Frost and NL trigger the passive effect of your Frost Orbs. NL Exhaust."
   },
   "jedi:FortuneCookie": {
     "NAME": "Fortune Cookie",
@@ -126,7 +120,7 @@
   },
   "jedi:blockon": {
     "NAME": "Block-On",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Lock-On to each enemy that intends to attack."
+    "DESCRIPTION": "Gain !B! Block for each enemy that intends to attack and NL apply !M! Lock-On to them."
   },
   "jedi:bloodyhammer": {
     "NAME": "Bloody Hammer",
@@ -175,8 +169,7 @@
   },
   "jedi:fear": {
     "NAME": "Fear",
-    "DESCRIPTION": "Add !M! *Angers to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! upgraded *Angers to your hand. NL Exhaust."
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=Add an *Anger to your hand. NL }Until the start of your next turn, whenever a card is created, gain !M! Strength."
   },
   "jedi:forcepull": {
     "NAME": "Force Pull",
@@ -188,7 +181,7 @@
   },
   "jedi:frostbite": {
     "NAME": "Frostbite",
-    "DESCRIPTION": "Unplayable. NL Whenever this card is drawn, lose 3 Strength this turn."
+    "DESCRIPTION": "While in hand, NL Attacks deal 3 less damage."
   },
   "jedi:gatheringstorm": {
     "NAME": "Gathering Storm",

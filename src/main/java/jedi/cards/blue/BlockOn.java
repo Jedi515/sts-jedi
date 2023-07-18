@@ -24,9 +24,9 @@ public class BlockOn
     public BlockOn()
     {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
-        this.baseBlock = 6;
+        this.baseBlock = 5;
     }
 
     @Override
@@ -39,7 +39,8 @@ public class BlockOn
                 mo.intent == AbstractMonster.Intent.ATTACK_DEBUFF ||
                 mo.intent == AbstractMonster.Intent.ATTACK_DEFEND))
             {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new LockOnPower(mo, magicNumber), magicNumber));
+                addToBot(new GainBlockAction(p, p, block));
+                addToBot(new ApplyPowerAction(mo, p, new LockOnPower(mo, magicNumber)));
             }
         }
     }
@@ -48,7 +49,7 @@ public class BlockOn
     public void upp()
     {
         upgradeName();
-        this.upgradeBlock(3);
+        this.upgradeBlock(2);
         this.upgradeMagicNumber(1);
     }
 

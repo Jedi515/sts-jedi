@@ -26,13 +26,9 @@ public class LeechingStrike
     }
 
     @Override
-    public void upgrade()
+    public void upp()
     {
-        if (!upgraded)
-        {
-            upgradeName();
-            upgradeDamage(3);
-        }
+        upgradeDamage(3);
     }
 
     @Override
