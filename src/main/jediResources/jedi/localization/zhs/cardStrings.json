@@ -188,11 +188,6 @@
     "DESCRIPTION": " 不能被打出 。 保留 。 NL 不能被从你的手牌中移除。",
     "UPGRADE_DESCRIPTION": "迷犬会留下来！"
   },
-  "jedi:unlimitedpower": {
-    "NAME": "无限力量",
-    "DESCRIPTION": "造成 !D! 点伤害。  NL  jedi:无限 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL  失去 !M! 点生命。  NL  jedi:无限 。"
-  },
   "jedi:unstablefumes": {
     "NAME": "不稳毒雾",
     "DESCRIPTION": "给予 !M! 层 中毒 。 NL 如果这张牌从你的手牌中被丢弃，给予所有敌人 !jedi:SecondMN! 层 中毒 。"

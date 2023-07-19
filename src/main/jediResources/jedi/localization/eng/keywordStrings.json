@@ -7,34 +7,6 @@
     "DESCRIPTION": "When played, remains in hand and #yUpgrades. NL Can be #yupgraded any number of times. NL Reset #yupgrades at the end of your turn. NL Cannot be #yupgraded outside of combat."
   },
   {
-    "NAMES":
-    [
-      "chaos"
-    ],
-    "DESCRIPTION": "Randomizes cost and effects of certain cards when drawn."
-  },
-  {
-    "NAMES":
-    [
-      "better"
-    ],
-    "DESCRIPTION": "A card that #yupgrades ALL cards in hand and adds #yFaster to your hand."
-  },
-  {
-    "NAMES":
-    [
-      "faster"
-    ],
-    "DESCRIPTION": "A card that applies #ySlow to an enemy (ALL enemies on upgrade) and adds #yStronger to your hand."
-  },
-  {
-    "NAMES":
-    [
-      "stronger"
-    ],
-    "DESCRIPTION": "A power that gives you #yStrength every turn."
-  },
-  {
     "PROPER_NAME": "Constriction",
     "NAMES":
     [
@@ -49,6 +21,6 @@
     [
       "collective"
     ],
-    "DESCRIPTION": "Increase the value of a card in your deck with the same name by the #yCollective amount on it, instead of obtaining this card. You are more likely to find this card in future card rewards the higher the value is."
+    "DESCRIPTION": "Instead of obtaining this card, increase the value of a card in your deck with the same name by its #yCollective value if you already have one. You are more likely to find this card in future card rewards the higher the value is."
   }
 ]

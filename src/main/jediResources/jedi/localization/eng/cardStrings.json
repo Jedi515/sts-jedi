@@ -7,10 +7,6 @@
     "NAME": "Apocalypse Now",
     "DESCRIPTION": "Scry !M!. NL If you discard at least 8 cards, NL deal !D! damage to ALL enemies."
   },
-  "jedi:AuraStrike": {
-    "NAME": "Aura Strike",
-    "DESCRIPTION": "Deal !D! damage. NL While in hand, Attacks deal !M! additional damage."
-  },
   "jedi:BattleThirst": {
     "NAME": "Battle Thirst",
     "DESCRIPTION": "Unplayable. NL While in your deck, you have to enter combat rooms whenever you can."
@@ -46,7 +42,7 @@
   },
   "jedi:FlashFreeze": {
     "NAME": "Flash Freeze",
-    "DESCRIPTION": "Retain. NL Channel 1 Frost and NL trigger the passive effect of your Frost Orbs. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Channel !M! Frost and NL trigger the passive effect of your Frost Orbs. NL Exhaust."
   },
   "jedi:FortuneCookie": {
     "NAME": "Fortune Cookie",
@@ -328,8 +324,7 @@
   },
   "jedi:unlimitedpower": {
     "NAME": "Unlimited Power",
-    "DESCRIPTION": "Deal !D! damage. NL jedi:Unlimited.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose !M! HP. NL jedi:Unlimited."
+    "DESCRIPTION": "{@@}Deal !D! damage. NL {!jedi:SecondMN!|>0=Lose !jedi:SecondMN! HP. NL }Increase damage dealt by 1. NL {!M!|%2=Increase HP loss by 2. NL }{!Upgrades!|0=Becomes Ethereal. NL }Stslib:Persist inf."
   },
   "jedi:unstablefumes": {
     "NAME": "Unstable Fumes",

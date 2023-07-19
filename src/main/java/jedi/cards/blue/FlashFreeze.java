@@ -1,5 +1,6 @@
 package jedi.cards.blue;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Frost;
 import jedi.cards.CustomJediCard;
 import jedi.jedi;
+import jedi.util.Wiz;
 
 public class FlashFreeze
     extends CustomJediCard
@@ -31,19 +33,18 @@ public class FlashFreeze
     public void upp()
     {
         upgradeMagicNumber(1);
-        rawDescription = UPGRADE_DESCRIPTION;
-        initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster)
     {
-        AbstractOrb o = new Frost();
-        addToBot(new ChannelAction(o));
-        for (int i = 0; i < magicNumber; ++i)
-        {
-            o.onStartOfTurn();
-            o.onEndOfTurn();
-        }
+        for (int i=0;i<magicNumber;i++) addToBot(new ChannelAction(new Frost()));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                isDone = true;
+                Wiz.adp().orbs.stream().filter(o -> o instanceof Frost).forEach(AbstractOrb::onEndOfTurn);
+            }
+        });
     }
 }
