@@ -329,5 +329,17 @@
   "jedi:unstablefumes": {
     "NAME": "Unstable Fumes",
     "DESCRIPTION": "Apply !M! Poison. NL If this card is discarded from your hand, apply !jedi:SecondMN! Poison to ALL enemies."
+  },
+  "jedi:Precision": {
+    "NAME": "Precision",
+    "DESCRIPTION": "{@@}Unplayable. NL While in hand, *Shivs deal !M! additional damage. NL When you play a *Shiv, increase this damage by 1."
+  },
+  "jedi:LightningRod": {
+    "NAME": "Lightning Rod",
+    "DESCRIPTION": "{@@}Lightning targets this enemy for !M! turn{!M!|>1=s}. NL Channel a Lightning."
+  },
+  "jedi:TunnelVision": {
+    "NAME": "Tunnel Vision",
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=Apply !M! Lock-On to ALL enemies. NL }Lock-On further increases Orb damage by 25% per additional Lock-On."
   }
 }

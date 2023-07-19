@@ -329,5 +329,17 @@
   "jedi:unstablefumes": {
     "NAME": "Хрупкая фляга",
     "DESCRIPTION": "Накладывает !M! Яда. NL Накладывает !jedi:SecondMN! Яда на ВСЕХ врагов, когда сбрасывается."
+  },
+  "jedi:Precision": {
+    "NAME": "Точность",
+    "DESCRIPTION": "{@@}Неиграбельная. NL *Заточки наносят на !M! урона больше, пока находится в руке. NL Урон повышается на 1 до конца боя, когда вы разыгрываете *Заточку."
+  },
+  "jedi:LightningRod": {
+    "NAME": "Громоотвод",
+    "DESCRIPTION": "{@@}Сферы Молнии наносят урон Lightning targets this enemy for !M! turn{!M!|>1=s}. NL Channel a Lightning."
+  },
+  "jedi:TunnelVision": {
+    "NAME": "Туннельное зрение",
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=Накладывает !M! Захват цели на ВСЕХ врагов. NL }Каждый доп. Захват цели повышает урон от Сфер на 25%."
   }
 }
