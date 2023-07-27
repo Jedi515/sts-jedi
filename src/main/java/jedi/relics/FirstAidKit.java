@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.RegenPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import jedi.util.Wiz;
 
 public class FirstAidKit
@@ -20,7 +21,22 @@ public class FirstAidKit
     }
 
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
+        usedUp = false;
+    }
+
+    @Override
+    public void onVictory() {
+        usedUp = false;
+    }
+
+    @Override
+    public void wasHPLost(int damageAmount) {
+        if (damageAmount <= 0) return;
+        if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) return;
+        if (usedUp) return;
+
+        usedUp = true;
         addToBot(new ApplyPowerAction(Wiz.adp(), Wiz.adp(), new RegenPower(Wiz.adp(), potency)));
     }
 
