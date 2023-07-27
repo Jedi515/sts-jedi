@@ -405,7 +405,6 @@ public class jedi
         BaseMod.addRelic(new PaintBrush(), RelicType.SHARED);
         BaseMod.addRelic(new StarAurum(), RelicType.SHARED);
         BaseMod.addRelic(new FennexFeather(), RelicType.SHARED);
-        BaseMod.addRelic(new HammerOfTime(), RelicType.SHARED);
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
@@ -433,6 +432,8 @@ public class jedi
         BaseMod.addRelic(new Catwich(), RelicType.GREEN);
 
         BaseMod.addRelic(new IronBlood(), RelicType.RED);
+
+        BaseMod.addRelic(new HammerOfTime(), RelicType.PURPLE);
 
         BaseMod.addRelic(new Zontanonomicon(), RelicType.SHARED);
 

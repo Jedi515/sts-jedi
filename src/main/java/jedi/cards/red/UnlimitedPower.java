@@ -1,17 +1,14 @@
 package jedi.cards.red;
 
-import basemod.abstracts.CustomCard;
-import basemod.cardmods.EtherealMod;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import jedi.actions.VSFXLightningAction;
+import jedi.cardMods.EtherealJediMod;
 import jedi.cards.CustomJediCard;
 
 public class UnlimitedPower
@@ -64,7 +61,7 @@ public class UnlimitedPower
         {
             darkSide = true;
         }
-        if (!isEthereal && !upgraded) CardModifierManager.addModifier(this, new EtherealMod());
+        if (!isEthereal && !upgraded) CardModifierManager.addModifier(this, new EtherealJediMod());
     }
 
     @Override

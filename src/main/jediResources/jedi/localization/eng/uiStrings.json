@@ -30,5 +30,10 @@
     "TEXT": [
       "%s NL Affected by Focus and Lock-On."
     ]
+  },
+  "jedi:SufferingMod": {
+    "TEXT": [
+      "{@@}%s NL Deals %d additional damage for each {!Upgrades!|0=Attack|@=card} in your Exhaust pile."
+    ]
   }
 }

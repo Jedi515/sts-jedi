@@ -13,7 +13,7 @@ public class HammerOfTime
 {
     public static final String ID = jedi.makeID(HammerOfTime.class.getSimpleName());
     public HammerOfTime() {
-        super(ID, RelicTier.SPECIAL, LandingSound.HEAVY);
+        super(ID, RelicTier.SHOP, LandingSound.HEAVY);
     }
 
     public boolean onForcedTurnEnd()

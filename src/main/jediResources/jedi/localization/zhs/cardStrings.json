@@ -175,8 +175,7 @@
   },
   "jedi:suffering": {
     "NAME": "苦痛",
-    "DESCRIPTION": "对所有敌人造成你在本场战斗中 消耗 的攻击牌总数乘以 !M! 的伤害。 NL  消耗 。",
-    "UPGRADE_DESCRIPTION": " NL （造成 !D! 点伤害。）"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。"
   },
   "jedi:test": {
     "NAME": "测试",

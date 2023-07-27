@@ -5,28 +5,23 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.RegenPower;
+import jedi.util.Wiz;
 
 public class FirstAidKit
     extends AbstractJediRelic
 {
 
     public static final String ID = "jedi:firstaidkit";
-    public static final int potency = 1;
+    public static final int potency = 4;
 
     public FirstAidKit()
     {
         super(ID, RelicTier.RARE, LandingSound.FLAT);
     }
 
-
-    public int onAttacked(DamageInfo info, int damageAmount)
-    {
-        AbstractPlayer p = AbstractDungeon.player;
-        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != p && damageAmount > 0 && !p.hasPower("Buffer"))
-        {
-            addToBot(new ApplyPowerAction(p, p, new RegenPower(p, potency)));
-        }
-        return damageAmount;
+    @Override
+    public void atBattleStart() {
+        addToBot(new ApplyPowerAction(Wiz.adp(), Wiz.adp(), new RegenPower(Wiz.adp(), potency)));
     }
 
     public String getUpdatedDescription()

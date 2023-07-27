@@ -173,11 +173,11 @@
   },
   "jedi:forcepull": {
     "NAME": "Force Pull",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Draw a card."
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=Gain !M! Strength this turn. NL }Apply !M! Vulnerable. NL Draw a card."
   },
   "jedi:forcepush": {
     "NAME": "Force Push",
-    "DESCRIPTION": "Apply !M! Weak. NL Draw a card."
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=Enemy loses !M! Strength this turn. NL }Apply !M! Weak. NL Draw a card."
   },
   "jedi:frostbite": {
     "NAME": "Frostbite",
@@ -309,8 +309,7 @@
   },
   "jedi:suffering": {
     "NAME": "Suffering",
-    "DESCRIPTION": "For each Attack Exhausted, deal !M! damage to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": " NL (Deals !D! damage)"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
   },
   "jedi:test": {
     "NAME": "Test",

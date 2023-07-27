@@ -1,14 +1,14 @@
 package jedi.cards.colorless;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import jedi.cards.CustomJediCard;
 
@@ -25,27 +25,22 @@ public class Forcepull
     public Forcepull()
     {
         super(ID, NAME, 0, DESCRIPTION, CardType.SKILL, AbstractCard.CardColor.COLORLESS, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
+        baseMagicNumber = 1;
+        magicNumber = baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-    }
-
-    public void upgrade()
-    {
-        if(!this.upgraded)
+        if (upgraded)
         {
-            upgradeName();
-            this.upgradeMagicNumber(1);
+            addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         }
+        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+        addToBot(new DrawCardAction(p, 1));
     }
 
-    public AbstractCard makeCopy()
+    public void upp()
     {
-        return new Forcepull();
     }
 }

@@ -172,7 +172,7 @@
     "NAME": "First Aid Kit",
     "FLAVOR": "Do you really need a bandage for every byrd peck?",
     "DESCRIPTIONS": [
-      "Whenever you take unblocked attack damage, gain #b%d #yRegen."
+      "At the start of combat, gain #b%d #yRegen."
     ]
   },
   "jedi:ghostblades": {
