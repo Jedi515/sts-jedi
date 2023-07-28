@@ -238,6 +238,13 @@
       " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat[] [REMOVE_SPACE]. NL Gain [E] [E] ."
     ]
   },
+  "jedi:ObsidianBrick": {
+    "NAME": "Obsidian Brick",
+    "FLAVOR": "u/NamedName139",
+    "DESCRIPTIONS": [
+      "При получении вы #rодолжите #b%d золота. Следующие #r%d #yзолота пойдут на погашение долга."
+    ]
+  },
   "jedi:ominousloannote": {
     "NAME": "Ominous Loan Note",
     "FLAVOR": "You pay for your greed.",

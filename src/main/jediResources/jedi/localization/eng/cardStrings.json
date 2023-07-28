@@ -216,6 +216,10 @@
     "NAME": "Meditation",
     "DESCRIPTION": "At the end of your turn, remove your rightmost Orb and gain !M! Focus."
   },
+  "jedi:Missplay": {
+    "NAME": "Missplay",
+    "DESCRIPTION": "Unplayable. NL When drawn, plays a random card in hand."
+  },
   "jedi:nirvanicrebirth": {
     "NAME": "Nirvanic Rebirth",
     "DESCRIPTION": "Retain. NL Heal !M! HP. NL When Retained, permanently increase its healing by !jedi:SecondMN!. NL Fleeting."

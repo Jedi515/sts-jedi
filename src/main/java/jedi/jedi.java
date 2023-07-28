@@ -405,6 +405,7 @@ public class jedi
         BaseMod.addRelic(new PaintBrush(), RelicType.SHARED);
         BaseMod.addRelic(new StarAurum(), RelicType.SHARED);
         BaseMod.addRelic(new FennexFeather(), RelicType.SHARED);
+        BaseMod.addRelic(new ObsidianBrick(), RelicType.SHARED); //sorry bro i forgor to push on github
 
         BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
         BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);

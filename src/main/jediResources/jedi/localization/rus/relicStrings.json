@@ -262,6 +262,13 @@
       " NL [#2aecd7]Работает [#2aecd7]один [#2aecd7]раз [#2aecd7]за [#2aecd7]бой.[] NL Даёт [E] [E] ."
     ]
   },
+  "jedi:ObsidianBrick": {
+    "NAME": "Обсидиановый куб",
+    "FLAVOR": "u/NamedName139",
+    "DESCRIPTIONS": [
+      "Даёт #b1 #yзолота в конце боя за каждые #b10 ОЗ."
+    ]
+  },
   "jedi:ominousloannote": {
     "NAME": "Кабальная закладная",
     "FLAVOR": "Такова цена вашей жадности.",
