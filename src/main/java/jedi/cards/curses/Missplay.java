@@ -12,7 +12,7 @@ import jedi.util.Wiz;
 public class Missplay
     extends CustomJediCard
 {
-    public static final String ID = "jedi:BattleThirst";
+    public static final String ID = jedi.jedi.makeID(Missplay.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
