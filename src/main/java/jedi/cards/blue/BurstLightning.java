@@ -27,7 +27,7 @@ import jedi.cards.CustomJediCard;
 public class BurstLightning
         extends CustomJediCard
 {
-    public static final String ID = "jedi:BurstLightning";
+    public static final String ID = jedi.jedi.makeID(BurstLightning.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

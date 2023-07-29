@@ -1,5 +1,6 @@
 package jedi.cards.curses;
 
+import com.megacrit.cardcrawl.cards.green.Reflex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -24,6 +25,12 @@ public class BattleThirst
     public void upgrade()
     {
 
+    }
+
+    @Override
+    public boolean hasEnoughEnergy() {
+        cantUseMessage = CardCrawlGame.languagePack.getCardStrings(Reflex.ID).EXTENDED_DESCRIPTION[0];
+        return false;
     }
 
     @Override

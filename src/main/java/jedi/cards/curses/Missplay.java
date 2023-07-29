@@ -1,5 +1,6 @@
 package jedi.cards.curses;
 
+import com.megacrit.cardcrawl.cards.green.Reflex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,6 +34,12 @@ public class Missplay
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster)
     {
 
+    }
+
+    @Override
+    public boolean hasEnoughEnergy() {
+        cantUseMessage = CardCrawlGame.languagePack.getCardStrings(Reflex.ID).EXTENDED_DESCRIPTION[0];
+        return false;
     }
 
     @Override
