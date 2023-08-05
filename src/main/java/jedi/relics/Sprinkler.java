@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -13,7 +14,7 @@ public class Sprinkler
 
     public Sprinkler()
     {
-        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL, RelicType.GREEN);
         this.description = DESCRIPTIONS[0] + powerCurve + DESCRIPTIONS[1];
     }
 

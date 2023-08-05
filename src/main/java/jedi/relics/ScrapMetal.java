@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -11,7 +12,7 @@ public class ScrapMetal
     public static final int shivCount = 1;
 
     public ScrapMetal() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, RelicTier.UNCOMMON, LandingSound.CLINK, RelicType.GREEN);
         cardToPreview = new Shiv();
         this.counter = -1;
     }

@@ -48,7 +48,7 @@ public class MysteryPotion
     @Override
     public void use(AbstractCreature abstractCreature)
     {
-        ArrayList<MapRoomNode> visibleMapNodes = (ArrayList<MapRoomNode>) ReflectionHacks.getPrivate(AbstractDungeon.dungeonMapScreen, DungeonMapScreen.class, "visibleMapNodes");
+        ArrayList<MapRoomNode> visibleMapNodes = ReflectionHacks.getPrivate(AbstractDungeon.dungeonMapScreen, DungeonMapScreen.class, "visibleMapNodes");
 
         int goUp = Loader.isModLoaded("downfall") ? -1 : 1;
         System.out.println("The number to go up is " + goUp);

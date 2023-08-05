@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -10,7 +11,7 @@ public class RubberSling
 
     public RubberSling()
     {
-        super(ID, RelicTier.COMMON, LandingSound.MAGICAL);
+        super(ID, RelicTier.COMMON, LandingSound.MAGICAL, RelicType.GREEN);
         this.description = DESCRIPTIONS[0];
     }
 

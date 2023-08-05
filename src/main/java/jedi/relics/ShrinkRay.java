@@ -10,7 +10,7 @@ public class ShrinkRay
     extends AbstractJediRelic
 {
     public static final String ID = "jedi:shrinkray";
-    private float MODIFIER_AMT = 0.1F;
+    private static float MODIFIER_AMT = 0.1F;
 
     public ShrinkRay() {
         super(ID, RelicTier.COMMON, LandingSound.CLINK);
@@ -28,6 +28,6 @@ public class ShrinkRay
 
     public String getUpdatedDescription()
     {
-        return this.DESCRIPTIONS[0] + (int) (MODIFIER_AMT * 100) + this.DESCRIPTIONS[1];
+        return this.DESCRIPTIONS[0] + (int)(MODIFIER_AMT * 100.0F) + this.DESCRIPTIONS[1];
     }
 }

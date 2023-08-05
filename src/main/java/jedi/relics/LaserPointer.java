@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,7 +15,7 @@ public class LaserPointer
 
 
     public LaserPointer() {
-        super(ID, RelicTier.COMMON,LandingSound.FLAT);
+        super(ID, RelicTier.COMMON,LandingSound.FLAT, RelicType.BLUE);
     }
 
     public String getUpdatedDescription()

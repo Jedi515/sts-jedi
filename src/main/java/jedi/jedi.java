@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CoffeeDripper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CannotCompileException;
 import javassist.CtClass;
 import javassist.CtMethod;
@@ -44,10 +45,12 @@ import jedi.events.GuildOfFate;
 import jedi.events.ShrineOfCommand;
 import jedi.events.SwordDojo;
 import jedi.interfaces.onGenerateCardMidcombatInterface;
+import jedi.interfaces.onObtainRelicInterface;
 import jedi.modifiers.CommandCustomRun;
 import jedi.modifiers.WarmongerRunMod;
 import jedi.potions.*;
 import jedi.relics.*;
+import jedi.util.ClassScanner;
 import jedi.util.TextureLoader;
 import jedi.util.Wiz;
 import jedi.variables.JediSecondMN;
@@ -170,7 +173,7 @@ public class jedi
             if (   !(card.hasTag(AbstractCard.CardTags.HEALING)) &&
                     (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
                     (card.rarity != AbstractCard.CardRarity.BASIC) &&
-                    (extraCheck || checkIfContainsWords(card, poisons)))
+                    (extraCheck || ClassScanner.checkIfContainsWords(card, poisons)))
             {
                 poisonGroup.addToBottom(card.makeCopy());
             }
@@ -189,7 +192,7 @@ public class jedi
                     (card.rarity != AbstractCard.CardRarity.SPECIAL) &&
                     (card.rarity != AbstractCard.CardRarity.BASIC) &&
                     !(card.cardID.equals(Shiv.ID)) &&
-                    (extraCheck || checkIfContainsWords(card, shivs))
+                    (extraCheck || ClassScanner.checkIfContainsWords(card, shivs))
             )
         shivGroup.addToBottom(card.makeCopy());
         }
@@ -216,99 +219,6 @@ public class jedi
         loadConfigButtons(settingsPanel);
 
         RelicLibrary.specialList.removeIf(r -> r.relicId.contains("jedi:command_"));
-    }
-
-    private boolean checkIfContainsWords(AbstractCard card, String[] words)
-    {
-        for (String s : words)
-        {
-            if (checkIfContainsWord(card, s)) return true;
-        }
-        return false;
-    }
-
-    private boolean checkIfContainsWord(AbstractCard card, String word)
-    {
-        boolean toReturn = false;
-        if (card.cardID.toLowerCase().contains(word)) return true;
-        for (String kw : card.keywords)
-        {
-            if (kw.toLowerCase().equals(word)) return true;
-        }
-        if (card.getClass().getName().toLowerCase().contains(word)) return true;
-        try {
-            CtClass ctClass = Loader.getClassPool().get(card.getClass().getName());
-            ctClass.defrost();
-
-            String[] methods = {"use", "triggerOnManualDiscard", "triggerWhenDrawn", "calculateCardDamage", "triggerOnExhaust"};
-
-            toReturn = ifFunctionsContainWord(ctClass, methods, word);
-            ctClass.freeze();
-        } catch (NotFoundException ignored)
-        {
-
-        }
-        return toReturn;
-    }
-
-    private boolean ifFunctionsContainWord(CtClass ctClass, String[] methods, String word)
-    {
-        for (String s : methods)
-        {
-            if (ifFunctionContainsWord(ctClass, s, word)) return true;
-        }
-
-        return false;
-    }
-
-    private boolean ifFunctionContainsWord(CtClass ctClass, String method, String word)
-    {
-        final boolean[] toReturn = {false};
-        try
-        {
-
-            CtMethod ctMethod = ctClass.getDeclaredMethod(method);
-
-            ExprEditor wordNewExprFinder = new ExprEditor(){
-                @Override
-                public void edit(NewExpr e)
-                {
-                    if (e.getClassName().toLowerCase().contains(word))
-                    {
-                        toReturn[0] = true;
-                    }
-                }
-            };
-
-            ExprEditor wordMethodCallFinder = new ExprEditor(){
-                @Override
-                public void edit(MethodCall m)
-                {
-                    if (m.getClassName().toLowerCase().contains(word))
-                    {
-                        toReturn[0] = true;
-                    }
-                }
-            };
-
-            ExprEditor wordFieldAccessFinder = new ExprEditor(){
-                @Override
-                public void edit(FieldAccess f)
-                {
-                    if (f.getClassName().toLowerCase().contains(word))
-                    {
-                        toReturn[0] = true;
-                    }
-                }
-            };
-
-            ctMethod.instrument(wordNewExprFinder);
-            if (!toReturn[0]) ctMethod.instrument(wordFieldAccessFinder);
-            if (!toReturn[0]) ctMethod.instrument(wordMethodCallFinder);
-
-        } catch (NotFoundException | CannotCompileException e) {
-        }
-        return toReturn[0];
     }
 
 
@@ -379,65 +289,13 @@ public class jedi
     @Override
     public void receiveEditRelics()
     {
-        BaseMod.addRelic(new HotPepper(), RelicType.SHARED);
-        BaseMod.addRelic(new Matchstick(), RelicType.SHARED);
-        BaseMod.addRelic(new FakeMustache(), RelicType.SHARED);
-        BaseMod.addRelic(new FirstAidKit(), RelicType.SHARED);
-        BaseMod.addRelic(new CrownOfSimplicity(), RelicType.SHARED);
-        BaseMod.addRelic(new HeavyJacket(), RelicType.SHARED);
-        BaseMod.addRelic(new ShrinkRay(), RelicType.SHARED);
-        BaseMod.addRelic(new GremlinKnob(), RelicType.SHARED);
-        BaseMod.addRelic(new PurpleFairy(), RelicType.SHARED);
-        BaseMod.addRelic(new CryingMask(), RelicType.SHARED);
-        BaseMod.addRelic(new BattleStandard(), RelicType.SHARED);
-        BaseMod.addRelic(new Kaleidoscope(), RelicType.SHARED);
-        BaseMod.addRelic(new PaperLyon(), RelicType.SHARED);
-        BaseMod.addRelic(new AngryMask(), RelicType.SHARED);
-        BaseMod.addRelic(new ArchwizardHat(), RelicType.SHARED);
-        BaseMod.addRelic(new WindUpBox(), RelicType.SHARED);
-        BaseMod.addRelic(new BottledFury(), RelicType.SHARED);
-        BaseMod.addRelic(new PortableTent(), RelicType.SHARED);
-        BaseMod.addRelic(new StrikeManual(), RelicType.SHARED);
-        BaseMod.addRelic(new OminousLoanNote(), RelicType.SHARED);
-        BaseMod.addRelic(new Pinwheel(), RelicType.SHARED);
-        BaseMod.addRelic(new HeartOfTheCards(), RelicType.SHARED);
-        BaseMod.addRelic(new ByrdBible(), RelicType.SHARED);
-        BaseMod.addRelic(new PaintBrush(), RelicType.SHARED);
-        BaseMod.addRelic(new StarAurum(), RelicType.SHARED);
-        BaseMod.addRelic(new FennexFeather(), RelicType.SHARED);
-        BaseMod.addRelic(new ObsidianBrick(), RelicType.SHARED); //sorry bro i forgor to push on github
-
-        BaseMod.addRelic(new TokenOfWealth(), RelicType.SHARED);
-        BaseMod.addRelic(new TokenOfGlory(), RelicType.SHARED);
-        BaseMod.addRelic(new TokenOfMystery(), RelicType.SHARED);
-        BaseMod.addRelic(new TokenOfSerenity(), RelicType.SHARED);
-
-        BaseMod.addRelic(new MainCommand(), RelicType.SHARED);
-        BaseMod.addRelic(new Command_common(), RelicType.SHARED);
-        BaseMod.addRelic(new Command_uncommon(), RelicType.SHARED);
-        BaseMod.addRelic(new Command_rare(), RelicType.SHARED);
-        BaseMod.addRelic(new Command_shop(), RelicType.SHARED);
-        BaseMod.addRelic(new Command_boss(), RelicType.SHARED);
-
-        //This one is special cuz it's usually ironchad-only, except if player somewhy picks up black hole from hubris or is glutton.
-        BaseMod.addRelic(new AshLotus(), RelicType.SHARED);
-
-        BaseMod.addRelic(new LaserPointer(), RelicType.BLUE);
-        BaseMod.addRelic(new Superconductor(), RelicType.BLUE);
-        BaseMod.addRelic(new PaperFaux(), RelicType.BLUE);
-
-        BaseMod.addRelic(new ScrapMetal(), RelicType.GREEN);
-        BaseMod.addRelic(new Sprinkler(), RelicType.GREEN);
-        BaseMod.addRelic(new GhostBlades(), RelicType.GREEN);
-        BaseMod.addRelic(new RubberSling(), RelicType.GREEN);
-        BaseMod.addRelic(new Catwich(), RelicType.GREEN);
-
-        BaseMod.addRelic(new IronBlood(), RelicType.RED);
-
-        BaseMod.addRelic(new HammerOfTime(), RelicType.PURPLE);
-
-        BaseMod.addRelic(new Zontanonomicon(), RelicType.SHARED);
-
+        new AutoAdd(modID).packageFilter(AbstractJediRelic.class).any(AbstractJediRelic.class, (info, relic) ->
+        {
+            BaseMod.addRelic(relic, relic.cardPool);
+            if (info.seen) {
+                UnlockTracker.markRelicAsSeen(relic.relicId);
+            }
+        });
     }
 
     private static String GetLocString(String locCode, String name) {
@@ -525,6 +383,7 @@ public class jedi
             if (r.relicId.contains(AbstractCommand.ID))
             {
                 command = (AbstractCommand) r;
+                break;
             }
         }
 
@@ -567,16 +426,9 @@ public class jedi
     {
         AbstractPlayer p = AbstractDungeon.player;
         if (p == null) return;
-        for (AbstractRelic r : p.relics)
-        {
-            if (r.relicId.equals(HeavyJacket.ID)) ((HeavyJacket)r).modifyCounter();
-        }
-
-    }
-
-    public static boolean hasCard(CardGroup group, String cardID)
-    {
-        return group.group.stream().anyMatch(card -> card.cardID.equals(cardID));
+        p.relics.stream().
+                filter(r -> r instanceof onObtainRelicInterface).
+                forEach(r -> ((onObtainRelicInterface) r).onObtainRelic(abstractRelic));
     }
 
     public static void onGenerateCardMidcombat(AbstractCard c)

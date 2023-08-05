@@ -2,6 +2,7 @@ package jedi.relics;
 
 import basemod.AutoAdd;
 import basemod.abstracts.CustomRelic;
+import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -16,7 +17,8 @@ import jedi.util.TextureLoader;
 public abstract class AbstractJediRelic
     extends CustomRelic
 {
-    public AbstractCard cardToPreview;
+    public RelicType cardPool = RelicType.SHARED;
+    public AbstractCard cardToPreview = null;
     public AbstractJediRelic(String id, RelicTier tier, LandingSound sfx)
     {
         this(id, createTexture(id), createOutline(id), tier, sfx);
@@ -25,7 +27,18 @@ public abstract class AbstractJediRelic
     public AbstractJediRelic(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx)
     {
         super(id, texture, outline, tier, sfx);
-        cardToPreview = null;
+    }
+
+    public AbstractJediRelic(String id, RelicTier tier, LandingSound sfx, RelicType pool)
+    {
+        this(id, createTexture(id), createOutline(id), tier, sfx);
+        cardPool = pool;
+    }
+
+    public AbstractJediRelic(String id, Texture texture, Texture outline, RelicTier tier, LandingSound sfx, RelicType pool)
+    {
+        super(id, texture, outline, tier, sfx);
+        cardPool = pool;
     }
 
     protected static Texture createOutline(String ID)

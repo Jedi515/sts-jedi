@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 
 public class GhostBlades
@@ -9,7 +10,7 @@ public class GhostBlades
 
     public GhostBlades()
     {
-        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL, RelicType.GREEN);
         this.description = DESCRIPTIONS[0];
         cardToPreview = new Shiv();
     }

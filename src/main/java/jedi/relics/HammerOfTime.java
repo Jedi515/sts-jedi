@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,7 +14,7 @@ public class HammerOfTime
 {
     public static final String ID = jedi.makeID(HammerOfTime.class.getSimpleName());
     public HammerOfTime() {
-        super(ID, RelicTier.SHOP, LandingSound.HEAVY);
+        super(ID, RelicTier.SHOP, LandingSound.HEAVY, RelicType.PURPLE);
     }
 
     public boolean onForcedTurnEnd()

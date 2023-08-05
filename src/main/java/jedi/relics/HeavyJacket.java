@@ -3,9 +3,12 @@ package jedi.relics;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import jedi.interfaces.onObtainRelicInterface;
 
 public class HeavyJacket
     extends AbstractJediRelic
+    implements onObtainRelicInterface
 {
 
     public static final String ID = "jedi:heavyjacket";
@@ -26,13 +29,14 @@ public class HeavyJacket
         this.counter = (AbstractDungeon.player.relics.size()) / 2;
     }
 
-    public void modifyCounter()
-    {
-        this.counter = (AbstractDungeon.player.relics.size() + 1) / 2;
-    }
-
     public String getUpdatedDescription()
     {
         return this.DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void onObtainRelic(AbstractRelic r)
+    {
+        this.counter = (AbstractDungeon.player.relics.size() + 1) / 2;
     }
 }

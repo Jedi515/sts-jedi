@@ -1,5 +1,6 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.actions.defect.ImpulseAction;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -11,7 +12,7 @@ public class Superconductor
     public static final String ID = "jedi:superconductor";
 
     public Superconductor() {
-        super(ID, RelicTier.UNCOMMON,LandingSound.FLAT);
+        super(ID, RelicTier.UNCOMMON,LandingSound.FLAT, RelicType.BLUE);
         counter = 0;
     }
 

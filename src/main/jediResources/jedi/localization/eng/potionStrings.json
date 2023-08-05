@@ -7,7 +7,7 @@
               "Apply #b",
               " #yConstricted.",
               "Constriction",
-              "A debuff that deals damage at the end of creature's turn. If the enemy is constricted, it will do its move first and then take damage from constriction."
+              "Constricted creatures take damage after their turn."
             ]
   },
   "jedi:coolantleak":
@@ -16,7 +16,7 @@
     "DESCRIPTIONS":
             [
               "Apply #b",
-              " Lock-On."
+              " #yLock-On."
             ]
   },
   "jedi:holywater":
@@ -24,7 +24,7 @@
     "NAME": "Holy Water",
     "DESCRIPTIONS":
     [
-      "Remove ALL debuffs from yourself."
+      "Remove ALL your debuffs."
     ]
   },
   "jedi:lessertentaclejuice":
@@ -51,9 +51,9 @@
     "NAME": "Hoard Potion",
     "DESCRIPTIONS":
     [
-      "Add all cards from current card reward screen to your deck.",
+      "Add all cards from current card select screen to your deck.",
       "Hoard.",
-      "Upgrade all cards from current card reward screen and add them to your deck."
+      "Upgrade all cards from current card select screen and add them to your deck."
     ]
   },
   "jedi:mysterypotion":

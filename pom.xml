@@ -4,22 +4,29 @@
     <groupId>jedi</groupId>
 
     <artifactId>jedi</artifactId>
-    <version>1.0.0</version>
-    <name>Jedi's mod</name>
-    <description>Re-release and some stuff</description>
 
     <properties>
+        <maven.build.timestamp.format>yy.MM.dd</maven.build.timestamp.format>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <SlayTheSpire.version>12-18-2022</SlayTheSpire.version>
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
 
         <ModID>jedi</ModID>
-        <description>I've made a mod. All content goes into one of three boxes. The first one is 'I thought this is a missing piece in the cards.' The second one is meme tier. The last one is 'Hey, can I do this?'</description>
+<description>I've made a mod.
+All content goes into one of three boxes.
+    The first one is 'I thought this is a missing piece in the cards.'
+    The second one is meme tier.
+    The last one is 'Hey, can I do this?'
+
+Version change: now by build date instead of arbitrary number. Featuring standard 'yy.MM.dd' format.</description>
 
         <Steam.path>D:/SteamLibrary/steamapps</Steam.path>
 
     </properties>
+
+    <name>Jedi's mod</name>
+    <version>${maven.build.timestamp}</version>
 
     <dependencies>
         <dependency>

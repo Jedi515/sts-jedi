@@ -1,5 +1,7 @@
 package jedi.relics;
 
+import basemod.helpers.RelicType;
+
 public class IronBlood
     extends AbstractJediRelic
 {
@@ -7,7 +9,7 @@ public class IronBlood
 
     public IronBlood()
     {
-        super(ID, RelicTier.SHOP, LandingSound.CLINK);
+        super(ID, RelicTier.SHOP, LandingSound.CLINK, RelicType.RED);
     }
 
     public String getUpdatedDescription()
