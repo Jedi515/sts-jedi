@@ -302,18 +302,18 @@
   },
   "jedi:studyfrost": {
     "NAME": "Study Frost",
-    "DESCRIPTION": "Choose 1 of 3 random Frost-related cards to add into your hand. It costs 0 this turn. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Frost-related cards to add into your hand. It costs 0 this turn."
+    "DESCRIPTION": "Choose 1 of 3 random Frost related cards to add into your hand. It costs 0 this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Frost related cards to add into your hand. It costs 0 this turn."
   },
   "jedi:studypoison": {
     "NAME": "Study Poison",
-    "DESCRIPTION": "Choose 1 of 3 random Poison-related cards to add into your hand. It costs 0 this turn. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Poison-related cards to add into your hand. It costs 0 this turn."
+    "DESCRIPTION": "Choose 1 of 3 random Poison related cards to add into your hand. It costs 0 this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Poison related cards to add into your hand. It costs 0 this turn."
   },
   "jedi:studyshivs": {
     "NAME": "Study Shivs",
-    "DESCRIPTION": "Choose 1 of 3 random Shivs-related cards to add into your hand. It costs 0 this turn. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Shivs-related cards to add into your hand. It costs 0 this turn."
+    "DESCRIPTION": "Choose 1 of 3 random *Shiv related cards to add into your hand. It costs 0 this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random *Shiv related cards to add into your hand. It costs 0 this turn."
   },
   "jedi:suffering": {
     "NAME": "Suffering",

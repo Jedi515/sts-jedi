@@ -19,7 +19,7 @@ public class AcidRain
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-    public static final int COST = 2;
+    public static final int COST = 1;
 
     public AcidRain()
     {

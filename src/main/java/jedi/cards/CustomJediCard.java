@@ -41,23 +41,22 @@ public abstract class CustomJediCard
 
     private static String imgCheck(String id, String img, CardType type, CardColor color)
     {
+        if ((img != null) && Gdx.files.internal(img).exists()) return img;
+
         String imgCheck = "jedi/images/cards/" + color.toString().toLowerCase() + "/" + type.toString().toLowerCase() + "/" + id.substring(5) + ".png";
         if (Gdx.files.internal(imgCheck).exists()) return imgCheck;
 
-        if ((img == null) || (!Gdx.files.internal(img).exists()))
+        switch (type)
         {
-            switch (type)
-            {
-                case ATTACK:
-                    img = "jedi/images/cards/jedi_beta_attack.png";
-                    break;
-                case POWER:
-                    img = "jedi/images/cards/jedi_beta_power.png";
-                    break;
-                default:
-                    img = "jedi/images/cards/jedi_beta.png";
-                    break;
-            }
+            case ATTACK:
+                img = "jedi/images/cards/jedi_beta_attack.png";
+                break;
+            case POWER:
+                img = "jedi/images/cards/jedi_beta_power.png";
+                break;
+            default:
+                img = "jedi/images/cards/jedi_beta.png";
+                break;
         }
         return img;
     }

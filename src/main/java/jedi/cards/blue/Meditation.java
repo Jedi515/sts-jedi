@@ -21,7 +21,7 @@ public class Meditation
 
     public Meditation()
     {
-        super(ID, NAME, COST, DESCRIPTION, AbstractCard.CardType.POWER, AbstractCard.CardColor.BLUE, CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
+        super(ID, NAME, COST, DESCRIPTION, AbstractCard.CardType.POWER, AbstractCard.CardColor.BLUE, CardRarity.RARE, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }

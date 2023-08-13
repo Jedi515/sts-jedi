@@ -26,28 +26,27 @@ public class BurstDark
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-    private DamageUpMod damageUpMod;
+    private final DamageUpMod damageUpMod;
 
     public BurstDark()
     {
-        super(ID, NAME, 2, DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, NAME, 2, EXTENDED_DESCRIPTION[0] + DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
         damageUpMod = new DamageUpMod(0);
+        selfRetain = true;
         CardModifierManager.addModifier(this, damageUpMod);
         magicNumber = baseMagicNumber = 5;
-        this.damage = this.baseDamage = 6;
+        damage = baseDamage = 11;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Dark());
     }
 
     public void upp()
     {
-        selfRetain = true;
-        rawDescription = EXTENDED_DESCRIPTION[0] + rawDescription;
-        initializeDescription();
+        upgradeMagicNumber(3);
     }
 
     @Override
