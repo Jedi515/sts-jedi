@@ -48,6 +48,7 @@ import jedi.interfaces.onGenerateCardMidcombatInterface;
 import jedi.interfaces.onObtainRelicInterface;
 import jedi.modifiers.CommandCustomRun;
 import jedi.modifiers.WarmongerRunMod;
+import jedi.patches.JediEnums;
 import jedi.potions.*;
 import jedi.relics.*;
 import jedi.util.ClassScanner;
@@ -58,6 +59,7 @@ import jedi.variables.JediSecondMN;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -153,6 +155,12 @@ public class jedi
 
         for (AbstractCard card : CardLibrary.getAllCards())
         {
+            if (card.type != AbstractCard.CardType.CURSE &&
+                    (card.keywords.stream().anyMatch(kw -> Arrays.asList(GameDictionary.FROST.NAMES).contains(kw)) ||
+                    ClassScanner.checkIfContainsWord(card, "frost")))
+            {
+                card.tags.add(JediEnums.FROST_CARD);
+            }
 
             if ((card.hasTag(AbstractCard.CardTags.STRIKE) &&
                 (!card.hasTag(AbstractCard.CardTags.STARTER_STRIKE)) &&

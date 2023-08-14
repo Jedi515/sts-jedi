@@ -11,6 +11,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import jedi.actions.CustomDiscoveryAction;
 import jedi.cards.CustomJediCard;
+import jedi.patches.JediEnums;
+
+import java.util.stream.Collectors;
 
 public class StudyFrost
     extends CustomJediCard
@@ -31,18 +34,9 @@ public class StudyFrost
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard c : CardLibrary.getAllCards())
-        {
-            for (String keyword : GameDictionary.FROST.NAMES)
-            {
-                if (c.keywords.contains(keyword))
-                {
-                    group.addToBottom(c.makeStatEquivalentCopy());
-                    break;
-                }
-            }
-        }
-        AbstractDungeon.actionManager.addToBottom(new CustomDiscoveryAction(group, 3));
+        group.group.addAll(CardLibrary.getAllCards().stream().filter(c -> c.hasTag(JediEnums.FROST_CARD)).collect(Collectors.toList()));
+        group.group.removeIf(card -> card.cardID.equals(ID));
+        addToBot(new CustomDiscoveryAction(group, 3));
     }
 
     public void upgrade()

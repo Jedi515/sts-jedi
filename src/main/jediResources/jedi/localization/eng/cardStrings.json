@@ -37,8 +37,8 @@
   },
   "jedi:Entomb": {
     "NAME": "Entomb",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes into your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes+ into your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freeze into your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Add !jedi:SecondMN! *Flash *Freezes into your hand."
   },
   "jedi:Firewall": {
     "NAME": "Firewall",
@@ -140,8 +140,7 @@
   },
   "jedi:bruteforce": {
     "NAME": "Bruteforce",
-    "DESCRIPTION": "{@@}Evoke your rightmost Lightning !M! times, hitting ALL enemies.{!Upgrades!|0= NL Exhaust.|>0=}",
-    "UPGRADE_DESCRIPTION": "No Lightning orbs channeled!"
+    "DESCRIPTION": "{@@}Evoke your rightmost Lightning !M! times, hitting ALL enemies.{!Upgrades!|0= NL Exhaust.|>0=}"
   },
   "jedi:cleanse": {
     "NAME": "Cleanse",

@@ -37,8 +37,8 @@
   },
   "jedi:Entomb": {
     "NAME": "Сковать во льдах",
-    "DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Слабости. NL Добавляет в руку !jedi:SecondMN! *Заморозки.",
-    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Слабости. NL Добавляет в руку !jedi:SecondMN! *Заморозки+."
+    "DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Слабости. NL Добавляет в руку !jedi:SecondMN! *Заморозку.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Слабости. NL Добавляет в руку !jedi:SecondMN! *Заморозки."
   },
   "jedi:Firewall": {
     "NAME": "Антивирус",

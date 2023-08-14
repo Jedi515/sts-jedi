@@ -35,7 +35,6 @@ public class Bruteforce
     @Override
     public void upp()
     {
-        uDesc(UPGRADE_DESCRIPTION);
         exhaust = false;
     }
 }

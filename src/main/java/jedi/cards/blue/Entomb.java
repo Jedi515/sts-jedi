@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import jedi.cards.CustomJediCard;
 import jedi.jedi;
+import jedi.patches.JediEnums;
 
 public class Entomb
     extends CustomJediCard
@@ -24,6 +25,7 @@ public class Entomb
     public Entomb()
     {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
+        tags.add(JediEnums.FROST_CARD);
         setMN(2);
         setSecondMN(1);
         setBlock(15);
@@ -34,7 +36,7 @@ public class Entomb
     public void upp()
     {
         upgradeBlock(3);
-        cardsToPreview.upgrade();
+        upgradeSecondMN(1);
         rawDescription = UPGRADE_DESCRIPTION;
         initializeDescription();
     }
