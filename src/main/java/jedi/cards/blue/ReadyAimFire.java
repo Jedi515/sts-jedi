@@ -45,7 +45,6 @@ public class ReadyAimFire
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBaseCost(0);
-            this.upgradeMagicNumber(1);
         }
     }
     public AbstractCard makeCopy()
