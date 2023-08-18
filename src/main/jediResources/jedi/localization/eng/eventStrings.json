@@ -6,15 +6,15 @@
             [
               "You come across an abandoned sword dojo. No living soul can be found anywhere. The hall you see has many praying mats in it, as well as a treasure chest in front of them.",
               "You decide to sit on a praying mat and meditate. Soon you start feeling sharp knowledge penetrating into your mind, giving you new mastery with the sword.",
-              "You decide to open the chest. Inside you can see relics, most of them dusty and broken. You choose to take the most intact one. It isn't special in any kind, but it is what you got.",
+              "You decide to open the chest. Inside you can see a well-preserved book, showing the martial arts knowledge from many different styles, some even look #p~alien~ or #b~artificial.~ NL It will be of great help in your combats.",
               "Nothing interests you in this abandoned temple. You decide to not touch anything and leave.",
               "Striking knowledge..."
             ],
     "OPTIONS" :
             [
-              "[Meditate] Obtain #y",
-              " random #yStrike cards from ANY character and a #yPerfected #yStrike.",
-              "[Chest] Obtain a random #ycommon relic.",
+              "[Meditate] Your basic #yStrikes become #yImperfected.",
+              "[Locked] You have no basic Strikes.",
+              "[Chest] Obtain a #yspecial relic.",
               "[Leave]"
             ]
   },
@@ -35,7 +35,7 @@
               "#r[Become #rCursed - #rBattle #rThirst] Choose a #yrare relic to obtain.",
               "#r[Lose #r%d #rMax #rHP] Choose a #yboss relic to obtain.",
               "#r[Lose #rALL #rGold] Choose a #yshop relic to obtain.",
-              "#r[YOUR #rVERY #rLIFE] Command everything.",
+              "#r[DIE] Until the end of this run, choose what relics you obtain.",
               "[Leave]",
               "[Locked] Requires: 1 or more potion slots.",
               "[Locked] Requires: 200 or more gold."
@@ -52,13 +52,13 @@
             ],
     "OPTIONS":
             [
-              "[Turn around] Change your future",
+              "[Turn around] Change your future.",
               "[Flee]",
               "#r[Nob]",
               "#b[Question #bMark]",
               "#g[Campfire]",
               "#y[Smiling #yMask]",
-              " Obtain a special relic",
+              " Obtain a special relic.",
               "[Leave]"
             ]
   }

@@ -1,7 +1,8 @@
 package jedi.relics;
 
-import jedi.actions.CustomDiscoveryAction;
-import jedi.jedi;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import jedi.actions.StrikeManualAction;
 
 public class StrikeManual
     extends AbstractJediRelic
@@ -10,21 +11,16 @@ public class StrikeManual
 
     public StrikeManual()
     {
-        super(ID, RelicTier.DEPRECATED, LandingSound.FLAT);
+        super(ID, RelicTier.SPECIAL, LandingSound.FLAT);
+    }
+
+    public void onPlayerEndTurn() {
+        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        this.addToBot(new StrikeManualAction());
     }
 
     public String getUpdatedDescription()
     {
-        return this.DESCRIPTIONS[0];
-    }
-
-    @Override
-    public void onVictory() {
-        usedUp = false;
-    }
-
-    @Override
-    public void atBattleStart() {
-        addToBot(new CustomDiscoveryAction(jedi.StrikeGroup));
+        return DESCRIPTIONS[0];
     }
 }

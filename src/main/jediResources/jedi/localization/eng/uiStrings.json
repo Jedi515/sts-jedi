@@ -35,5 +35,11 @@
     "TEXT": [
       "{@@}%s NL Deals %d additional damage for each {!Upgrades!|0=Attack|@=card} in your Exhaust pile."
     ]
+  },
+  "jedi:ImperfectMod": {
+    "TEXT": [
+      "Imperfected %s",
+      "%s NL Deals %d additional damage for ALL your cards containing \"Strike\"."
+    ]
   }
 }

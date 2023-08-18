@@ -41,6 +41,8 @@ import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
 import jedi.cards.CustomJediCard;
+import jedi.cards.red.OneStrike;
+import jedi.events.BetterSwordDojo;
 import jedi.events.GuildOfFate;
 import jedi.events.ShrineOfCommand;
 import jedi.events.SwordDojo;
@@ -134,10 +136,11 @@ public class jedi
         }
 
         // Events
-        BaseMod.addEvent(SwordDojo.ID, SwordDojo.class, TheCity.ID);
+        BaseMod.addEvent(BetterSwordDojo.ID, BetterSwordDojo.class);
+
         BaseMod.addEvent(new AddEventParams
                 .Builder(ShrineOfCommand.ID, ShrineOfCommand.class)
-                .spawnCondition(() -> AbstractDungeon.actNum > 1)
+//                .spawnCondition(() -> AbstractDungeon.actNum > 1)
                 .eventType(EventUtils.EventType.SHRINE)
                 .create()
         );
@@ -376,7 +379,9 @@ public class jedi
 
     public static AbstractCard returnTrulyRandomStrike()
     {
-        return StrikeGroup.getRandomCard(true).makeCopy();
+        AbstractCard check = StrikeGroup.getRandomCard(true).makeCopy(); //make it ultra rare
+        if (check.cardID.equals(OneStrike.ID)) check = StrikeGroup.getRandomCard(true).makeCopy();
+        return check;
     }
 
     @Override

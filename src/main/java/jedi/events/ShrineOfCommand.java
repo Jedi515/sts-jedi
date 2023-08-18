@@ -26,7 +26,7 @@ public class ShrineOfCommand
 
     public ShrineOfCommand()
     {
-        super(NAME, DESCRIPTIONS[0], "resources/jedi/images/events/mausoleum.jpg");
+        super(NAME, DESCRIPTIONS[0], "jedi/images/events/ShrineOfCommand.jpg");
         imageEventText.setDialogOption(DESCRIPTIONS[2]);
         imageEventText.setDialogOption(DESCRIPTIONS[3]);
     }

@@ -320,10 +320,9 @@
   },
   "jedi:strikemanual": {
     "NAME": "Strike Manual",
-    "FLAVOR": "This relic is deprecated.",
+    "FLAVOR": "Striking knowledge.",
     "DESCRIPTIONS": [
-      "All #yStrikes deal #b",
-      " additional damage."
+      "At the end of your turn, you may shuffle #b1 of #b3 random cards of any color containing #y\"Strike\" in their names into your draw pile."
     ]
   },
   "jedi:superconductor": {

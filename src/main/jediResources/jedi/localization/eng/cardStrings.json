@@ -66,7 +66,7 @@
   },
   "jedi:HatTrick": {
     "NAME": "Hat Trick",
-    "DESCRIPTION": "Draw ALL Shivs and NL increase damage dealt by Shivs by !M! for each Shiv drawn."
+    "DESCRIPTION": "Draw ALL *Shivs and NL increase damage dealt by *Shivs by !M! for each Shiv drawn."
   },
   "jedi:Khahiri": {
     "NAME": "Khahiri",
