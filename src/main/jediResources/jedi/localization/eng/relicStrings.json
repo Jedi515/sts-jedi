@@ -10,7 +10,7 @@
     "NAME": "Hammer of Time",
     "FLAVOR": "Stop! Hammer time!",
     "DESCRIPTIONS": [
-      "When your turn would be forced to end, instead gain #b1 #yStrength."
+      "When your turn would be forced to end, instead gain #b%d #yStrength."
     ]
   },
   "jedi:FennexFeather": {

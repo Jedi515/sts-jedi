@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import jedi.actions.ScryCallbackAction;
+import jedi.actions.ScrySeenCallbackAction;
 import jedi.cards.CustomJediCard;
 import jedi.jedi;
 
@@ -23,7 +24,7 @@ public class WavingIron
     public WavingIron()
     {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, CardColor.PURPLE, CardRarity.COMMON, CardTarget.ENEMY);
-        setDmg(5);
+        setDmg(4);
         setBlock(5);
         setMN(2);
     }
@@ -35,7 +36,8 @@ public class WavingIron
         if (!upgraded)
         {
             upgradeName();
-            upgradeDamage(2);
+            upgradeMagicNumber(1);
+            upgradeDamage(1);
             upgradeBlock(2);
         }
     }
@@ -44,6 +46,6 @@ public class WavingIron
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         blck();
-        addToBot(new ScryCallbackAction(magicNumber, list -> list.forEach(c -> addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL)))));
+        addToBot(new ScrySeenCallbackAction(magicNumber, list -> list.stream().filter(c -> c.type == CardType.ATTACK).forEach(c -> dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT))));
     }
 }

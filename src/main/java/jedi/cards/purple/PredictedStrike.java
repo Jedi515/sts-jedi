@@ -51,6 +51,5 @@ public class PredictedStrike
             CardModifierManager.addModifier(c, new DamageUpMod(magicNumber));
             c.applyPowers();
         })));
-//        addToBot(new ScryCallbackAction(magicNumber, list -> list.forEach(c -> addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT)))));
     }
 }

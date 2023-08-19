@@ -30,7 +30,7 @@ public class ApocalypseNow
     {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCard.CardColor.PURPLE, AbstractCard.CardRarity.RARE, CardTarget.NONE);
         setBlock(6);
-        setMN(10);
+        setMN(3);
     }
 
     @Override

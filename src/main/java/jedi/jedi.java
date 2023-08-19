@@ -287,7 +287,7 @@ public class jedi
         ModLabel lblCmdWarning = new ModLabel(TEXT[3], 350, 450, Settings.CREAM_COLOR, FontHelper.charDescFont,settingsPanel, l -> {});
         settingsPanel.addUIElement(lblCmdWarning);
 
-        BaseMod.registerModBadge(TextureLoader.getTexture("resources/jedi/images/badge.png"), "Jedi", "Jedi#3970", "Wat", settingsPanel);
+        BaseMod.registerModBadge(TextureLoader.getTexture("jedi/images/badge.png"), "Jedi", "Jedi#3970", "Wat", settingsPanel);
     }
 
     @Override

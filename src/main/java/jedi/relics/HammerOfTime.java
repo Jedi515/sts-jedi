@@ -13,6 +13,8 @@ public class HammerOfTime
     implements onForcedTurnEndInterface
 {
     public static final String ID = jedi.makeID(HammerOfTime.class.getSimpleName());
+    private static final int potency = 2;
+
     public HammerOfTime() {
         super(ID, RelicTier.SHOP, LandingSound.HEAVY, RelicType.PURPLE);
     }
@@ -20,12 +22,12 @@ public class HammerOfTime
     public boolean onForcedTurnEnd()
     {
         AbstractPlayer p = AbstractDungeon.player;
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, potency)));
         return false;
     }
 
     public String getUpdatedDescription()
     {
-        return DESCRIPTIONS[0];
+        return String.format(DESCRIPTIONS[0], potency);
     }
 }

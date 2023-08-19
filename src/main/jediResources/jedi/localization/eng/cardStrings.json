@@ -106,7 +106,7 @@
   },
   "jedi:WavingIron": {
     "NAME": "Waving Iron",
-    "DESCRIPTION": "Gain !B! Block. NL Scry !M!. NL Deal !D! damage if you discarded a card."
+    "DESCRIPTION": "Gain !B! Block. NL Scry !M!. NL Deal !D! damage for each Attack you Scry."
   },
   "jedi:acidrain": {
     "NAME": "Acid Rain",
