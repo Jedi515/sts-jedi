@@ -40,6 +40,6 @@ public class AshLotus
 
     public String getUpdatedDescription()
     {
-        return (this.DESCRIPTIONS[0] + 30 + this.DESCRIPTIONS[1]);
+        return (this.DESCRIPTIONS[0] + potency + this.DESCRIPTIONS[1]);
     }
 }
