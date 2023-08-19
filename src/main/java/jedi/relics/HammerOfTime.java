@@ -17,6 +17,7 @@ public class HammerOfTime
 
     public HammerOfTime() {
         super(ID, RelicTier.SHOP, LandingSound.HEAVY, RelicType.PURPLE);
+        cardPool = RelicType.PURPLE;
     }
 
     public boolean onForcedTurnEnd()
