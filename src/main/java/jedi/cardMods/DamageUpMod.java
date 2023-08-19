@@ -6,37 +6,37 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class DamageUpMod
-    extends AbstractCardModifier
+        extends AbstractCardModifier
 {
-    public int amount;
+    int flatMod = 0;
+    float percentMod = 1f;
 
-    public DamageUpMod(int amt)
+    public DamageUpMod(int flat, float percent)
     {
-        amount = amt;
+        flatMod = flat;
+        percentMod = percent;
+    }
+    public DamageUpMod(int flat)
+    {
+        flatMod = flat;
+    }
+    public DamageUpMod(float percent)
+    {
+        percentMod = percent;
     }
 
     @Override
-    public boolean isInherent(AbstractCard card)
-    {
-        return true;
+    public float modifyDamage(float damage, DamageInfo.DamageType type, AbstractCard card, AbstractMonster target) {
+        return damage+flatMod;
     }
 
     @Override
-    public boolean removeOnCardPlayed(AbstractCard card)
-    {
-        if (!card.purgeOnUse) amount = 0;
-        return false;
+    public float modifyDamageFinal(float damage, DamageInfo.DamageType type, AbstractCard card, AbstractMonster target) {
+        return damage*percentMod;
     }
 
     @Override
-    public float modifyDamage(float damage, DamageInfo.DamageType type, AbstractCard card, AbstractMonster target)
-    {
-        return damage + amount;
-    }
-
-    @Override
-    public AbstractCardModifier makeCopy()
-    {
-        return new DamageUpMod(amount);
+    public AbstractCardModifier makeCopy() {
+        return new DamageUpMod(flatMod, percentMod);
     }
 }

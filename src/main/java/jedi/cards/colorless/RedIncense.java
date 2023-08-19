@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import jedi.cards.CustomJediCard;
-import jedi.interfaces.OnBeingScriedInterface;
+import jedi.interfaces.CardSeenScriedInterface;
 
 public class RedIncense extends CustomJediCard
-    implements OnBeingScriedInterface
+    implements CardSeenScriedInterface
 {
     public static final String ID = makeCardId(RedIncense.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -36,7 +36,7 @@ public class RedIncense extends CustomJediCard
         bruh();
     }
 
-    public void onBeingScried()
+    public void onSeenScried()
     {
         bruh();
     }

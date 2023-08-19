@@ -2,14 +2,20 @@ package jedi.cards.purple;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.stances.DivinityStance;
 import jedi.actions.ScryCallbackAction;
 import jedi.cards.CustomJediCard;
 import jedi.jedi;
+import jedi.util.Wiz;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class ApocalypseNow
     extends CustomJediCard
@@ -22,10 +28,9 @@ public class ApocalypseNow
 
     public ApocalypseNow()
     {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCard.CardColor.PURPLE, AbstractCard.CardRarity.RARE, CardTarget.ALL_ENEMY);
-        setDmg(16);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCard.CardColor.PURPLE, AbstractCard.CardRarity.RARE, CardTarget.NONE);
+        setBlock(6);
         setMN(10);
-        isMultiDamage = true;
     }
 
     @Override
@@ -34,19 +39,19 @@ public class ApocalypseNow
         if (!upgraded)
         {
             upgradeName();
-            upgradeDamage(5);
+            upgradeBaseCost(0);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster)
     {
+        Wiz.doBlk(block);
         addToBot(new ScryCallbackAction(magicNumber, list ->
         {
-            if (list.size() > 7)
-            {
-                addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-            }
+            Set<CardType> set = new HashSet<>();
+            list.forEach(c -> set.add(c.type));
+            if (set.size() > 2) addToBot(new ChangeStanceAction(DivinityStance.STANCE_ID));
         }));
     }
 }

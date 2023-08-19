@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Dark;
-import jedi.cardMods.DamageUpMod;
+import jedi.cardMods.BurstDarkMod;
 import jedi.cards.CustomJediCard;
 import jedi.interfaces.onEvokeInterface;
 
@@ -26,14 +26,14 @@ public class BurstDark
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-    private final DamageUpMod damageUpMod;
+    private final BurstDarkMod burstDarkMod;
 
     public BurstDark()
     {
         super(ID, NAME, 2, EXTENDED_DESCRIPTION[0] + DESCRIPTION, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ENEMY);
-        damageUpMod = new DamageUpMod(0);
+        burstDarkMod = new BurstDarkMod(0);
         selfRetain = true;
-        CardModifierManager.addModifier(this, damageUpMod);
+        CardModifierManager.addModifier(this, burstDarkMod);
         magicNumber = baseMagicNumber = 5;
         damage = baseDamage = 11;
     }
@@ -52,14 +52,14 @@ public class BurstDark
     @Override
     public void onEvoke(AbstractOrb orb)
     {
-        damageUpMod.amount += magicNumber;
+        burstDarkMod.amount += magicNumber;
         applyPowers();
     }
 
     public AbstractCard makeCopy()
     {
         AbstractCard copy = super.makeCopy();
-        ((BurstDark)copy).damageUpMod.amount = damageUpMod.amount;
+        ((BurstDark)copy).burstDarkMod.amount = burstDarkMod.amount;
         return copy;
     }
 }

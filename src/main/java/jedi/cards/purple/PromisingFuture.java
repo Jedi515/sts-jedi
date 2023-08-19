@@ -18,12 +18,12 @@ public class PromisingFuture
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final int COST = 1;
+    public static final int COST = 0;
 
     public PromisingFuture()
     {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.NONE);
-        setMN(5);
+        setMN(3);
         setSecondMN(3);
         exhaust = true;
     }
@@ -35,7 +35,7 @@ public class PromisingFuture
         if (!upgraded)
         {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeMagicNumber(2);
         }
     }
 

@@ -64,12 +64,4 @@ public class FutureShield
     {
         applyPowers();
     }
-
-    @Override
-    public List<TooltipInfo> getCustomTooltips()
-    {
-        List<TooltipInfo> tips = new ArrayList<>();
-        tips.add(new TooltipInfo(StringUtils.capitalize(GameDictionary.SCRY.NAMES[0]), GameDictionary.SCRY.DESCRIPTION));
-        return tips;
-    }
 }

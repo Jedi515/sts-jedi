@@ -12,13 +12,14 @@ import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 import jedi.actions.ScryCallbackAction;
+import jedi.actions.ScrySeenCallbackAction;
 import jedi.interfaces.CardSeenScriedInterface;
 import jedi.interfaces.OnBeingScriedInterface;
 
 import java.util.ArrayList;
 
 @SpirePatch(clz = ScryAction.class, method = "update")
-public class OnBeingScriedPatch
+public class ScryPatches
 {
     public static ExprEditor Instrument()
     {
@@ -40,6 +41,7 @@ public class OnBeingScriedPatch
     @SpireInsertPatch(locator =  LocatorOpen.class, localvars = {"tmpGroup"})
     public static void Insert(ScryAction __instance, CardGroup tmpGroup)
     {
+        if (__instance instanceof ScrySeenCallbackAction) ((ScrySeenCallbackAction)__instance).callback.accept(tmpGroup.group);
         for (AbstractCard c : tmpGroup.group)
         {
             if (c instanceof CardSeenScriedInterface)

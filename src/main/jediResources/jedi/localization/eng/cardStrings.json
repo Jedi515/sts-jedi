@@ -5,7 +5,7 @@
   },
   "jedi:ApocalypseNow": {
     "NAME": "Apocalypse Now",
-    "DESCRIPTION": "Scry !M!. NL If you discard at least 8 cards, NL deal !D! damage to ALL enemies."
+    "DESCRIPTION": "Gain !B! Block. NL Scry !M!. NL If you discard 3 or more different types of cards, enter Divinity."
   },
   "jedi:AuraStrike": {
     "NAME": "Aura Strike",
@@ -62,7 +62,7 @@
   },
   "jedi:FutureShield": {
     "NAME": "Future Shield",
-    "DESCRIPTION": "Gain !B! Block when played or *Scried."
+    "DESCRIPTION": "Gain !B! Block when played or discarded via Scry."
   },
   "jedi:HatTrick": {
     "NAME": "Hat Trick",
@@ -70,7 +70,7 @@
   },
   "jedi:Khahiri": {
     "NAME": "Khahiri",
-    "DESCRIPTION": "Deal !D! damage. NL When shown while *Scrying, increase this card damage by !M!."
+    "DESCRIPTION": "Deal !D! damage. NL When *Scried, increase this card damage by !M! this combat."
   },
   "jedi:LeechingStrike": {
     "NAME": "Leeching Strike",
@@ -86,7 +86,7 @@
   },
   "jedi:PredictedStrike": {
     "NAME": "Predicted Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL Deal !D! damage for each card discarded."
+    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL Increase the damage of all Attacks you Scry by !M! this combat."
   },
   "jedi:PromisingFuture": {
     "NAME": "Promising Future",
@@ -94,7 +94,7 @@
   },
   "jedi:Prosperity": {
     "NAME": "Prosperity",
-    "DESCRIPTION": "Draw !M! cards. NL When shown while *Scrying, draw 1 additional card next turn."
+    "DESCRIPTION": "Draw !M! cards. NL When *Scried, draw 1 additional card next turn."
   },
   "jedi:RedIncense": {
     "NAME": "Red Incense",
