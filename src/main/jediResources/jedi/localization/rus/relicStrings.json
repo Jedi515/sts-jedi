@@ -191,7 +191,7 @@
   },
   "jedi:HammerOfTime": {
     "NAME": "Время молота",
-    "FLAVOR": "Stop! Hammer time!",
+    "FLAVOR": "На 100% состоит из соли.",
     "DESCRIPTIONS": [
       "Даёт #b%d #yСилы вместо вынужденного завершения хода."
     ]
@@ -266,7 +266,7 @@
     "NAME": "Обсидиановый куб",
     "FLAVOR": "u/NamedName139",
     "DESCRIPTIONS": [
-      "Даёт #b1 #yзолота в конце боя за каждые #b10 ОЗ."
+      "Даёт #b1 #yзолота в конце боя за каждые #b%d ОЗ."
     ]
   },
   "jedi:ominousloannote": {

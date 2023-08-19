@@ -8,7 +8,7 @@
   },
   "jedi:HammerOfTime": {
     "NAME": "Hammer of Time",
-    "FLAVOR": "Stop! Hammer time!",
+    "FLAVOR": "Made entirely out of salt.",
     "DESCRIPTIONS": [
       "When your turn would be forced to end, instead gain #b%d #yStrength."
     ]
@@ -242,7 +242,7 @@
     "NAME": "Obsidian Brick",
     "FLAVOR": "u/NamedName139",
     "DESCRIPTIONS": [
-      "При получении вы #rодолжите #b%d золота. Следующие #r%d #yзолота пойдут на погашение долга."
+      "At the end of each combat, gain #b1 #yGold for every #b%d HP you have."
     ]
   },
   "jedi:ominousloannote": {

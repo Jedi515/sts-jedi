@@ -21,9 +21,9 @@ public class CompendiumMidgamePatches
     {
         public static void Postfix(SettingsScreen __instance)
         {
-            relicImg = TextureLoader.getTexture("resources/jedi/images/buttons/necronomicon.png");
-            cardImg = TextureLoader.getTexture("resources/jedi/images/buttons/deck.png");
-            paper = TextureLoader.getTexture("resources/jedi/images/buttons/OldPaper.jpg");
+            relicImg = TextureLoader.getTexture("jedi/images/buttons/necronomicon.png");
+            cardImg = TextureLoader.getTexture("jedi/images/buttons/deck.png");
+            paper = TextureLoader.getTexture("jedi/images/buttons/OldPaper.jpg");
             CompButton = new CompendiumMidgameButton();
             LibrButton = new CardLibraryMidgameButton();
         }
