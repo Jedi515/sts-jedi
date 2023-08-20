@@ -1,8 +1,5 @@
 package jedi.relics;
 
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-
 public class PortableTent
     extends AbstractJediRelic
 {
@@ -24,6 +21,6 @@ public class PortableTent
     }
 
     public boolean canSpawn() {
-        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
+        return f40();
     }
 }

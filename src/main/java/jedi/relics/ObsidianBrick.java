@@ -12,6 +12,11 @@ public class ObsidianBrick extends AbstractJediRelic
     }
 
     @Override
+    public boolean canSpawn() {
+        return f40();
+    }
+
+    @Override
     public String getUpdatedDescription() {
         return String.format(DESCRIPTIONS[0], threshold);
     }

@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.relics.FusionHammer;
+import jedi.util.Wiz;
 
 public class PurpleFairy
     extends AbstractJediRelic
@@ -25,7 +27,7 @@ public class PurpleFairy
     }
 
     public boolean canSpawn() {
-        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
+        return !Wiz.adp().hasRelic(FusionHammer.ID) && f48();
     }
 
     @Override

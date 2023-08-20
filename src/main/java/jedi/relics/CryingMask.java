@@ -1,7 +1,5 @@
 package jedi.relics;
 
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.SmilingMask;
@@ -27,7 +25,7 @@ public class CryingMask
     }
 
     public boolean canSpawn() {
-        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
+        return f40();
     }
 
     public void onEnterRoom(AbstractRoom room)

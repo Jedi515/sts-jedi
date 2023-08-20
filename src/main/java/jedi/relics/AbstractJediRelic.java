@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.screens.mainMenu.MainMenuScreen;
 import jedi.util.TextureLoader;
@@ -106,5 +107,14 @@ public abstract class AbstractJediRelic
     {
         super.renderBossTip(sb);
         renderCardPreview(sb);
+    }
+
+    protected static boolean f48()
+    {
+        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
+    }
+    protected static boolean f40()
+    {
+        return Settings.isEndless || AbstractDungeon.floorNum <= 40;
     }
 }
