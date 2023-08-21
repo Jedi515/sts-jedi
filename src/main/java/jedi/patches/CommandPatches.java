@@ -15,6 +15,7 @@ public class CommandPatches
     {
         if (AbstractDungeon.player.hasRelic(MainCommand.ID) || ((CardCrawlGame.trial != null) && (CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID))))
         {
+            System.out.println("JEDI MOD: assume command" + "jedi:command_" + tier.toString().toLowerCase());
             return "jedi:command_" + tier.toString().toLowerCase();
         }
         return __result;

@@ -47,7 +47,6 @@ public class HoardPotion
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : AbstractDungeon.cardRewardScreen.rewardGroup)
         {
-            System.out.println("JEDI MOD: " + c.name);
             AbstractCard crd = c.makeStatEquivalentCopy();
             if (this.potency > 1)
             {

@@ -15,7 +15,7 @@ import jedi.util.TextureLoader;
 import java.util.ArrayList;
 
 public abstract class AbstractCommand
-    extends CustomRelic
+    extends AbstractJediRelic
 {
     protected boolean relicSelected = true;
     protected RelicSelectScreen relicSelectScreen = new RelicSelectScreen();
