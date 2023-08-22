@@ -22,6 +22,7 @@ public class LeechingStrike
     {
         super(ID, NAME, COST, DESCRIPTION, CardType.ATTACK, CardColor.COLORLESS, CardRarity.RARE, CardTarget.ENEMY);
         damage = baseDamage = 6;
+        tags.add(CardTags.HEALING);
         exhaust = true;
     }
 

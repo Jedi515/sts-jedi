@@ -28,25 +28,24 @@ public class StrikingStrike
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 1;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_attack.png";
     private TooltipInfo tip = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
 
     public StrikingStrike()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCard.CardColor.RED, AbstractCard.CardRarity.RARE, CardTarget.ENEMY);
-        this.damage = 6;
-        this.baseDamage = this.damage;
-        this.tags.add(CardTags.STRIKE);
-        this.exhaust = true;
+        super(ID, NAME, COST, DESCRIPTION, CardType.ATTACK, AbstractCard.CardColor.RED, AbstractCard.CardRarity.RARE, CardTarget.ENEMY);
+        damage = 6;
+        baseDamage = damage;
+        tags.add(CardTags.STRIKE);
+        exhaust = true;
     }
 
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         AbstractCard card = returnTrulyRandomStrike().makeCopy();
-        if (this.upgraded)
+        if (upgraded)
         {
             card.upgrade();
         }
@@ -63,10 +62,10 @@ public class StrikingStrike
     @Override
     public void upgrade()
     {
-        if (!this.upgraded) {
+        if (!upgraded) {
             upgradeName();
             upgradeDamage(3);
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -28,8 +28,6 @@ public class Firewall
     protected void upp()
     {
             isInnate = true;
-            rawDescription = UPGRADE_DESCRIPTION + DESCRIPTION;
-            initializeDescription();
     }
 
     @Override
