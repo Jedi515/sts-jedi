@@ -51,7 +51,7 @@ public class DarknessCall
         }
     }
 
-    public void upp()
+    protected void upp()
     {
         upgradeBaseCost(1);
     }

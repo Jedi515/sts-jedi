@@ -25,7 +25,7 @@ public class LightningRod
     }
 
     @Override
-    public void upp() {
+    protected void upp() {
         upgradeMagicNumber(1);
     }
 

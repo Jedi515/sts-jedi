@@ -23,7 +23,7 @@ public class AC
     }
 
     @Override
-    public void upp() {
+    protected void upp() {
         upgradeBlock(4);
         cardsToPreview.upgrade();
     }

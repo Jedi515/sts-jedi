@@ -32,7 +32,7 @@ public class MarkOfDeath
 
     }
 
-    public void upp() {
+    protected void upp() {
         upgradeBaseCost(0);
     }
 

@@ -12,7 +12,7 @@ public class AshLotus
     extends AbstractJediRelic
 {
     public static final String ID = "jedi:ashlotus";
-    public int potency = 50;
+    public static final int potency = 50;
 
     public AshLotus()
     {
@@ -40,6 +40,6 @@ public class AshLotus
 
     public String getUpdatedDescription()
     {
-        return (this.DESCRIPTIONS[0] + potency + this.DESCRIPTIONS[1]);
+        return (DESCRIPTIONS[0] + potency + DESCRIPTIONS[1]);
     }
 }

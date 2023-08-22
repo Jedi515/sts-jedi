@@ -1,6 +1,5 @@
 package jedi.relics;
 
-import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;

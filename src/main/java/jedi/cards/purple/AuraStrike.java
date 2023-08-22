@@ -39,7 +39,7 @@ public class AuraStrike
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
         upgradeMagicNumber(1);
         upgradeDamage(2);

@@ -33,7 +33,7 @@ public class Entomb
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
         upgradeBlock(3);
         upgradeSecondMN(1);

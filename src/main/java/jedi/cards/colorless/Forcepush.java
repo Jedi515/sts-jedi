@@ -42,7 +42,7 @@ extends CustomJediCard
         addToBot(new DrawCardAction(p, 1));
     }
 
-    public void upp()
+    protected void upp()
     {
     }
 }

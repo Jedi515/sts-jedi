@@ -44,7 +44,7 @@ public class BurstDark
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Dark());
     }
 
-    public void upp()
+    protected void upp()
     {
         upgradeMagicNumber(3);
     }

@@ -146,7 +146,7 @@ public abstract class CustomJediCard
         }
     }
 
-    public void upp(){}
+    protected void upp(){}
 
     protected String makeID(String cardID)
     {

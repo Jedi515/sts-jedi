@@ -32,11 +32,6 @@ public class SufferingMod
     }
 
     @Override
-    public String modifyDescription(String rawDescription, AbstractCard card) {
-        return String.format(TEXT[0], rawDescription, potency);
-    }
-
-    @Override
     public AbstractCardModifier makeCopy() {
         return new SufferingMod(potency);
     }

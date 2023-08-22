@@ -25,7 +25,7 @@ public class Firewall
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
             isInnate = true;
             rawDescription = UPGRADE_DESCRIPTION + DESCRIPTION;

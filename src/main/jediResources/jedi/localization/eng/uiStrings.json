@@ -33,7 +33,7 @@
   },
   "jedi:SufferingMod": {
     "TEXT": [
-      "{@@}%s NL Deals %d additional damage for each {!Upgrades!|0=Attack|@=card} in your Exhaust pile."
+      "{@@}%s NL Deals %d additional damage for each {!Upgrades!|>0=card|0=Attack} in your Exhaust pile."
     ]
   },
   "jedi:ImperfectMod": {

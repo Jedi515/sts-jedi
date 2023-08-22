@@ -30,7 +30,7 @@ public class FlashFreeze
         selfRetain = true;
     }
     @Override
-    public void upp()
+    protected void upp()
     {
         upgradeMagicNumber(1);
     }

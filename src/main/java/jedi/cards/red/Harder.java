@@ -1,6 +1,5 @@
 package jedi.cards.red;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -22,42 +21,36 @@ public class Harder
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 1;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
 
 
     public Harder()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.RARE, CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = 2;
+        super(ID, NAME, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.RARE, CardTarget.SELF);
+        magicNumber = baseMagicNumber = 2;
         cardsToPreview = new Better();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         Better better = new Better();
-        if (this.upgraded)
+        if (upgraded)
         {
             better.upgrade();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MetallicizePower(p, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MetallicizePower(p, magicNumber), magicNumber));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PlatedArmorPower(p, magicNumber), magicNumber));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(better));
     }
 
     @Override
     public void upgrade()
     {
-        if (!this.upgraded) {
+        if (!upgraded) {
             cardsToPreview.upgrade();
-            this.upgradeName();
-            this.name = UPGRADE_NAME+NAME;
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeName();
+            name = UPGRADE_NAME+NAME;
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
-    }
-
-    public CustomCard makeCopy()
-    {
-        return new Harder();
     }
 }

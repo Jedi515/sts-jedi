@@ -200,7 +200,7 @@
     "NAME": "Hot Pepper",
     "FLAVOR": "Not only it burns your mouth when you eat it, it also leaves a horrible aftertaste so that any food after it doesn't taste well.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r25%. Further Max HP increase effects are #rreduced #rby #r50%"
+      "Gain [E] at the start of your turn. Upon pickup, #rreduce your Max HP by #r30%."
     ]
   },
   "jedi:ironblood": {

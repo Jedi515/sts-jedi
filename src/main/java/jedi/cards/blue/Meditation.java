@@ -34,7 +34,7 @@ public class Meditation
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
         upgradeMagicNumber(1);
     }

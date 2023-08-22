@@ -1,12 +1,10 @@
 package jedi.cards.red;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.red.Anger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import jedi.cards.CustomJediCard;
@@ -38,7 +36,7 @@ public class Fear
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
         cardsToPreview = new Anger();
     }

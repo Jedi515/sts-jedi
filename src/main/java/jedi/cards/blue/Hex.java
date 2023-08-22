@@ -1,7 +1,6 @@
 package jedi.cards.blue;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -33,7 +32,7 @@ public class Hex
         addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
     }
 
-    public void upp()
+    protected void upp()
     {
         upgradeMagicNumber(1);
     }

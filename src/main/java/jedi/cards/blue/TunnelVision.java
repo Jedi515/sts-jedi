@@ -26,7 +26,7 @@ public class TunnelVision
     }
 
     @Override
-    public void upp() {
+    protected void upp() {
         upgradeMagicNumber(2);
     }
 

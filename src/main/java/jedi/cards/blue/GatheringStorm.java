@@ -50,7 +50,7 @@ public class GatheringStorm
         }
     }
 
-    public void upp()
+    protected void upp()
     {
         upgradeBaseCost(2);
     }

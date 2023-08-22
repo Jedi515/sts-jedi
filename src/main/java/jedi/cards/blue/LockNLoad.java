@@ -35,7 +35,7 @@ public class LockNLoad
         }
     }
 
-    public void upp() {
+    protected void upp() {
         upgradeMagicNumber(1);
     }
 }

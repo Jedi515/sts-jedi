@@ -1,6 +1,5 @@
 package jedi.cards.blue;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -46,7 +45,7 @@ public class BlockOn
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
         upgradeName();
         this.upgradeBlock(2);

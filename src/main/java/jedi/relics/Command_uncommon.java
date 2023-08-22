@@ -1,10 +1,6 @@
 package jedi.relics;
 
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import jedi.jedi;
 
 import java.util.ArrayList;
 

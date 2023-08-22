@@ -40,7 +40,7 @@ public class Forcepull
         addToBot(new DrawCardAction(p, 1));
     }
 
-    public void upp()
+    protected void upp()
     {
     }
 }

@@ -19,7 +19,6 @@ public class Suffering
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 2;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_attack.png";
 
 
     public Suffering()
@@ -38,7 +37,8 @@ public class Suffering
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
+        upgradeDamage(2);
     }
 }

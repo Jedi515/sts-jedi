@@ -33,7 +33,7 @@ public class Bruteforce
 
 
     @Override
-    public void upp()
+    protected void upp()
     {
         exhaust = false;
     }

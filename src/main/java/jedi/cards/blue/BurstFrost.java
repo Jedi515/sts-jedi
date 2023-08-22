@@ -37,7 +37,7 @@ public class BurstFrost
         AbstractDungeon.actionManager.orbsChanneledThisCombat.add(new Frost());
     }
 
-    public void upp()
+    protected void upp()
     {
         upgradeMagicNumber(1);
         upgradeBlock(3);

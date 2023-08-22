@@ -26,7 +26,7 @@ public class LeechingStrike
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
         upgradeDamage(3);
     }

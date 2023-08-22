@@ -25,7 +25,7 @@ public class Missplay
     }
 
     @Override
-    public void upp()
+    protected void upp()
     {
 
     }
