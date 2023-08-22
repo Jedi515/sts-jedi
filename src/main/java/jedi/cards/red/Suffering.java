@@ -40,5 +40,6 @@ public class Suffering
     protected void upp()
     {
         upgradeDamage(2);
+        initializeDescription();
     }
 }

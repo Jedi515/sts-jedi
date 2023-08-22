@@ -316,7 +316,7 @@
   },
   "jedi:suffering": {
     "NAME": "Suffering",
-    "DESCRIPTION": "{@@}Deal !D! damage to ALL enemies. NL Deals !M! additional damage for each {!Upgrades!|>0=card|0=Attack} in your Exhaust pile."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
   },
   "jedi:test": {
     "NAME": "Test",
