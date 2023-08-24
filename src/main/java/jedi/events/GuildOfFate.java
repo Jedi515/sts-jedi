@@ -50,7 +50,7 @@ public class GuildOfFate
                         case 1:
                             screenNum = 2;
                             imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                            imageEventText.updateDialogOption(0, OPTIONS[6]);
+                            imageEventText.updateDialogOption(0, OPTIONS[7]);
                             imageEventText.clearRemainingOptions();
                             return;
                     }
