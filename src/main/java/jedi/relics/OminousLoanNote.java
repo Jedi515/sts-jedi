@@ -9,7 +9,7 @@ public class OminousLoanNote
     extends AbstractJediRelic
 {
     public static final String ID = "jedi:ominousloannote";
-    int loan=400;
+    public static final int loan = 400;
 
     public OminousLoanNote()
     {
@@ -19,10 +19,10 @@ public class OminousLoanNote
 
     public void onEquip()
     {
-        usedUp = false;
         AbstractDungeon.effectList.add(new RainingGoldEffect(loan));
         AbstractDungeon.player.gainGold(loan);
-        this.counter = (int)(loan * 1.25F);
+        usedUp = false;
+        counter = (int)(loan * 1.25F);
     }
 
     public String getUpdatedDescription()

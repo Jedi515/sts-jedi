@@ -12,11 +12,12 @@ public class OminousNotePatch
 {
     public static void Prefix(AbstractPlayer __instance, @ByRef int[] amount)
     {
-        if (AbstractDungeon.player.hasRelic(Ectoplasm.ID)) return;
-        OminousLoanNote ominousLoanNote = (OminousLoanNote) AbstractDungeon.player.getRelic(OminousLoanNote.ID);
+        if (__instance.hasRelic(Ectoplasm.ID)) return;
+        OminousLoanNote ominousLoanNote = (OminousLoanNote) __instance.getRelic(OminousLoanNote.ID);
         if (ominousLoanNote == null) return;
         if (ominousLoanNote.usedUp) return;
 
+        ominousLoanNote.flash();
         if (ominousLoanNote.counter <= amount[0])
         {
             amount[0] -= ominousLoanNote.counter;
@@ -27,7 +28,6 @@ public class OminousNotePatch
         {
             ominousLoanNote.counter -= amount[0];
             amount[0] = 0;
-            System.out.println("Money");
         }
     }
 }
