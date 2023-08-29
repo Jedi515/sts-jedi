@@ -140,13 +140,12 @@ public class jedi
 
         BaseMod.addEvent(new AddEventParams
                 .Builder(ShrineOfCommand.ID, ShrineOfCommand.class)
-//                .spawnCondition(() -> AbstractDungeon.actNum > 1)
                 .eventType(EventUtils.EventType.SHRINE)
                 .create()
         );
         BaseMod.addEvent(new AddEventParams
                 .Builder(GuildOfFate.ID, GuildOfFate.class)
-                .spawnCondition(() -> AbstractDungeon.actNum == 1 || Settings.isEndless)
+                .bonusCondition(() -> AbstractDungeon.actNum == 1 || Settings.isEndless)
                 .eventType(EventUtils.EventType.ONE_TIME)
                 .create());
 
