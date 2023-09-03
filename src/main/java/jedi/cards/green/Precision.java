@@ -1,5 +1,6 @@
 package jedi.cards.green;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.green.Reflex;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
@@ -42,7 +43,17 @@ public class Precision
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (c.cardID.equals(Shiv.ID)) upgradeMagicNumber(1);
+        if (c.cardID.equals(Shiv.ID))
+        {
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    isDone = true;
+                    flash();
+                    upgradeMagicNumber(1);
+                }
+            });
+        }
     }
 
     @Override

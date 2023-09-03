@@ -19,8 +19,8 @@ public class AbstractJediPower extends AbstractPower
         this.amount = amount;
         this.type = powerType;
 
-        Texture normalTexture = TextureLoader.getTexture(jedi.modID + "Resources/images/powers/" + ID.replaceAll(jedi.modID + ":", "") + "32.png");
-        Texture hiDefImage = TextureLoader.getTexture(jedi.modID + "Resources/images/powers/" + ID.replaceAll(jedi.modID + ":", "") + "84.png");
+        Texture normalTexture = TextureLoader.getTexture(jedi.modID + "/images/powers/" + ID.replaceAll(jedi.modID + ":", "") + "32.png");
+        Texture hiDefImage = TextureLoader.getTexture(jedi.modID + "/images/powers/" + ID.replaceAll(jedi.modID + ":", "") + "84.png");
         if (hiDefImage != null) {
             region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
             if (normalTexture != null)

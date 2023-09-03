@@ -1,9 +1,9 @@
 {
-  "jedi:meditation": {
+  "jedi:MeditationPower": {
     "NAME": "Meditation",
     "DESCRIPTIONS": [
       "Gain #b",
-      " #yFocus and remove your rightmost #yOrb at the end of your turn AFTER orb #ypassive effects trigger."
+      " #yFocus and remove your rightmost #yOrb at the end of your turn."
     ]
   },
   "jedi:FearPower": {
@@ -24,7 +24,7 @@
       "Whenever you play an #yAnger, #yExhaust it."
     ]
   },
-  "jedi:poisonivy": {
+  "jedi:PoisonIvyPower": {
     "NAME": "Poison Ivy",
     "DESCRIPTIONS": [
       "Whenever you attack a #yPoisoned enemy with a non #yShiv card, add #b",
@@ -42,6 +42,20 @@
     "NAME": "Firewall",
     "DESCRIPTIONS": [
       "When a #yStatus card is created, #yExhaust it."
+    ]
+  },
+  "jedi:TunnelVisionPower": {
+    "NAME": "Tunnel Vision",
+    "DESCRIPTIONS": [
+      "#yLock-On further increases #yOrb damage by #b",
+      "% per additional #yLock-On."
+    ]
+  },
+  "jedi:LightningRodPower": {
+    "NAME": "Lightning Rod",
+    "DESCRIPTIONS": [
+      "#yLightning targets this enemy this turn.",
+      "#yLightning targets this enemy for #b%d turns."
     ]
   }
 }

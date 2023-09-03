@@ -13,7 +13,7 @@ import jedi.interfaces.onGenerateCardMidcombatInterface;
 import jedi.jedi;
 
 public class FirewallPower
-    extends AbstractPower
+    extends AbstractJediPower
     implements onGenerateCardMidcombatInterface
 {
     public static final String POWER_ID = jedi.makeID(FirewallPower.class.getSimpleName());
@@ -23,13 +23,12 @@ public class FirewallPower
 
     public FirewallPower(AbstractCreature owner)
     {
-        this.name = NAME;
-        this.ID = POWER_ID;
-        this.owner = owner;
-        this.description = DESCRIPTIONS[0];
-        this.updateDescription();
-        this.loadRegion("buffer");
-        this.type = PowerType.BUFF;
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, -1);
+    }
+
+    @Override
+    public void updateDescription() {
+        description = DESCRIPTIONS[0];
     }
 
     public void onCreateCard(AbstractCard card)

@@ -2,7 +2,6 @@ package jedi.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.CursedTome;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
@@ -11,10 +10,9 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
-import jedi.modifiers.CommandCustomRun;
 import jedi.relics.Command_book;
-import jedi.relics.MainCommand;
 import jedi.relics.Zontanonomicon;
+import jedi.jedi;
 
 import java.util.ArrayList;
 
@@ -40,7 +38,7 @@ public class CursedTomePatch
 
     public static AbstractRelic insertCommand(ArrayList<AbstractRelic> possibleBooks, AbstractRelic r)
     {
-        if (AbstractDungeon.player.hasRelic(MainCommand.ID) || ((CardCrawlGame.trial != null) && (CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID))))
+        if (jedi.isCommandRun())
         {
             r = new Command_book();
             ((Command_book)r).relics = possibleBooks;

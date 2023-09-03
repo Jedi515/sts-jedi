@@ -14,7 +14,7 @@ public class TunnelVisionPower extends AbstractJediPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] +  25*amount + DESCRIPTIONS[1];
     }
 
 }

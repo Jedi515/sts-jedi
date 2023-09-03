@@ -80,13 +80,14 @@ public abstract class AbstractCommand
         }
         else
         {
-            jedi.unseenRelics.clear();
+//            jedi.unseenRelics.clear();
             for (AbstractRelic r : relics)
             {
                 if (!UnlockTracker.isRelicSeen(r.relicId))
                 {
-                    jedi.unseenRelics.add(r);
-                    r.isSeen = true;
+                    UnlockTracker.markRelicAsSeen(r.relicId);
+//                    jedi.unseenRelics.add(r);
+//                    r.isSeen = true;
                 }
             }
         }

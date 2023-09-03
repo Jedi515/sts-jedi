@@ -102,6 +102,13 @@
       "Выберите и получите любую книгу."
     ]
   },
+  "jedi:command_face": {
+    "NAME": "Воля (лицо)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Выберите и получите любое лицо."
+    ]
+  },
   "jedi:command_boss": {
     "NAME": "Воля (босса)",
     "FLAVOR": "ASSUMING DIRECT CONTROL",

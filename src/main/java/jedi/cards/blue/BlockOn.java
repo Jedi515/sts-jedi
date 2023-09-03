@@ -25,12 +25,11 @@ public class BlockOn
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
-        this.baseBlock = 5;
+        this.baseBlock = 4;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if ((mo.intent == AbstractMonster.Intent.ATTACK ||
@@ -47,9 +46,8 @@ public class BlockOn
     @Override
     protected void upp()
     {
-        upgradeName();
-        this.upgradeBlock(2);
-        this.upgradeMagicNumber(1);
+        upgradeBlock(2);
+        upgradeMagicNumber(1);
     }
 
 }

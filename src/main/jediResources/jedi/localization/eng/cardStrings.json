@@ -124,7 +124,7 @@
   },
   "jedi:blockon": {
     "NAME": "Block-On",
-    "DESCRIPTION": "Gain !B! Block for each enemy that intends to attack and NL apply !M! Lock-On to them."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block for each enemy that intends to attack and NL apply !M! Lock-On to them."
   },
   "jedi:bloodyhammer": {
     "NAME": "Bloody Hammer",

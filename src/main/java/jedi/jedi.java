@@ -3,7 +3,6 @@ package jedi;
 import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -20,7 +19,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
@@ -32,27 +30,21 @@ import com.megacrit.cardcrawl.relics.CoffeeDripper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import javassist.CannotCompileException;
-import javassist.CtClass;
-import javassist.CtMethod;
-import javassist.NotFoundException;
-import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
-import javassist.expr.MethodCall;
-import javassist.expr.NewExpr;
 import jedi.cards.CustomJediCard;
 import jedi.cards.red.OneStrike;
 import jedi.events.BetterSwordDojo;
 import jedi.events.GuildOfFate;
 import jedi.events.ShrineOfCommand;
-import jedi.events.SwordDojo;
 import jedi.interfaces.onGenerateCardMidcombatInterface;
 import jedi.interfaces.onObtainRelicInterface;
 import jedi.modifiers.CommandCustomRun;
 import jedi.modifiers.WarmongerRunMod;
 import jedi.patches.JediEnums;
 import jedi.potions.*;
-import jedi.relics.*;
+import jedi.relics.AbstractCommand;
+import jedi.relics.AbstractJediRelic;
+import jedi.relics.BattleStandard;
+import jedi.relics.MainCommand;
 import jedi.util.ClassScanner;
 import jedi.util.TextureLoader;
 import jedi.util.Wiz;
@@ -97,7 +89,6 @@ public class jedi
     public static boolean CommandUnseen;
     public static boolean CommandLocked;
     public static boolean CommandHasCopy;
-    public static ArrayList<String> cursedRelics = new ArrayList<>();
     public static ArrayList<AbstractRelic> unseenRelics = new ArrayList<>();
     public static ArrayList<String> lockedRelics = new ArrayList<>();
     public static final String modID = "jedi";
@@ -473,5 +464,10 @@ public class jedi
     @Override
     public void receiveOnPlayerTurnStart() {
         Wiz.cardsCreatedThisTurn.clear();
+    }
+
+    public static boolean isCommandRun()
+    {
+        return AbstractDungeon.player.hasRelic(MainCommand.ID) || ((CardCrawlGame.trial != null) && (CardCrawlGame.trial.dailyModIDs().contains(CommandCustomRun.ID)));
     }
 }

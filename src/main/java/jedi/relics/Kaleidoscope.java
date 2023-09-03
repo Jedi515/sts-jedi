@@ -17,7 +17,7 @@ public class Kaleidoscope
 
     public String getUpdatedDescription()
     {
-        return this.DESCRIPTIONS[0];
+        return DESCRIPTIONS[0];
     }
 
     public Kaleidoscope()
@@ -33,7 +33,7 @@ public class Kaleidoscope
         {
             cardColors.add(c.color);
         }
-        this.counter = cardColors.size();
+        counter = cardColors.size();
     }
 
     @Override
@@ -44,14 +44,14 @@ public class Kaleidoscope
         {
             cardColors.add(c.color);
         }
-        this.counter = cardColors.size();
+        counter = cardColors.size();
     }
 
     @Override
     public void atBattleStart()
     {
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, cardColors.size()), cardColors.size()));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, counter)));
     }
 
 }

@@ -109,6 +109,13 @@
       "Upon pickup, choose and obtain any book."
     ]
   },
+  "jedi:command_face": {
+    "NAME": "Command (face)",
+    "FLAVOR": "ASSUMING DIRECT CONTROL",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose and obtain any face."
+    ]
+  },
   "jedi:command_boss": {
     "NAME": "Command (boss)",
     "FLAVOR": "ASSUMING DIRECT CONTROL",
