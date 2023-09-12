@@ -272,7 +272,7 @@
     "NAME": "Paper Faux",
     "FLAVOR": "What does it say?",
     "DESCRIPTIONS": [
-      "Enemies with #yLock-On take #b75% more damage rather than #b50%."
+      "Enemies with #yLock-On take #b25% more damage from #yOrbs."
     ]
   },
   "jedi:paperlyon": {

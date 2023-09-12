@@ -185,6 +185,13 @@ public class Sentrivulinob
     }
 
     @Override
+    public void die() {
+        CardCrawlGame.screenShake.rumble(4.0F);
+        super.die();
+        onBossVictoryLogic();
+    }
+
+    @Override
     protected void getMove(int i)
     {
         if (asleep) {

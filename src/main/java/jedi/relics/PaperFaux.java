@@ -8,6 +8,7 @@ public class PaperFaux
     extends AbstractJediRelic
 {
     public static final String ID = "jedi:paperfaux";
+    public static final float dmgMod = 0.25F;
 
     public PaperFaux() {
         super(ID, RelicTier.UNCOMMON, LandingSound.CLINK, RelicType.BLUE);

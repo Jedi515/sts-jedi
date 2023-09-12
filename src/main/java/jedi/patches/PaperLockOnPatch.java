@@ -1,62 +1,61 @@
 package jedi.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.powers.LockOnPower;
+import javassist.CannotCompileException;
+import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
 import jedi.relics.PaperFaux;
+import jedi.util.Wiz;
 
 public class PaperLockOnPatch
 {
+    public static int multiplyLockOn(AbstractCreature target, int baseDmg, int dmg)
+    {
+        return (int)((float)baseDmg * (1.5F + PaperFaux.dmgMod * Wiz.adp().relics.stream().filter(r -> r.relicId.equals(PaperFaux.ID)).count()));
+
+    }
 
     @SpirePatch(clz= AbstractOrb.class, method = "applyLockOn")
     public static class SingleTarget {
-        public static SpireReturn<Integer> Prefix(AbstractCreature target, int dmg) {
-            if (AbstractDungeon.player.hasRelic(PaperFaux.ID) && target.hasPower(LockOnPower.POWER_ID)) {
-                return SpireReturn.Return((int) (dmg * 1.75F));
-            } else {
-                return SpireReturn.Continue();
-            }
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess f) throws CannotCompileException {
+                    if (!f.isWriter() || !f.getFieldName().equals("retVal")) return;
+
+                    f.replace("$1 = " + PaperLockOnPatch.class.getName()
+                            + ".multiplyLockOn(target, dmg, $1);" +
+                            "$proceed($$);");
+
+                }
+            };
         }
     }
     @SpirePatch(
             clz = DamageInfo.class,
             method = "createDamageMatrix",
-            paramtypez = {int.class, boolean.class, boolean.class   })
+            paramtypez = {int.class, boolean.class, boolean.class})
     public static class ElectroTarget
     {
-        @SpirePostfixPatch
-        public static int[] Postfix(int[] __result, int baseDamage, boolean isPureDamage, boolean isOrbDamage)
-        {
-            if (!AbstractDungeon.player.hasRelic(PaperFaux.ID))
-            {
-                return __result;
-            }
-            int[] retValMultiPatch = new int[AbstractDungeon.getMonsters().monsters.size()];
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess f) throws CannotCompileException {
+                    if (!f.isWriter() || !f.getFieldName().equals("output")) return;
 
-            for(int i = 0; i < retValMultiPatch.length; ++i) {
-                DamageInfo info = new DamageInfo(AbstractDungeon.player, baseDamage);
-                if (isOrbDamage && ((AbstractMonster)AbstractDungeon.getMonsters().monsters.get(i)).hasPower(LockOnPower.POWER_ID))
-                {
-                    if (AbstractDungeon.player.hasRelic(PaperFaux.ID))
-                    {
-                        info.output = (int)((float)info.base * 1.75F);
-                    }
-                    else
-                    {
-                        info.output = (int) ((float) info.base * 1.5F);
-                    }
+                    f.replace("$1 = " + PaperLockOnPatch.class.getName()
+                            + ".multiplyLockOn((" + AbstractMonster.class.getName() + ")"
+                            + AbstractDungeon.class.getName()
+                            + ".getMonsters().monsters.get(i), info.base, $1);" +
+                            "$proceed($$);");
+
                 }
-
-                retValMultiPatch[i] = info.output;
-            }
-
-            return retValMultiPatch;
+            };
         }
     }
 }

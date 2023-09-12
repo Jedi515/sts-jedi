@@ -12,20 +12,22 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import jedi.powers.TunnelVisionPower;
+import jedi.relics.PaperFaux;
 import jedi.util.Wiz;
 
 public class AdditiveLockOnPatch {
 
-    public static int applyMultiLockOn(AbstractMonster m, int damage)
+    public static int applyMultiLockOn(AbstractMonster m, int baseDamage, int lockedDamage)
     {
         AbstractPower tunnelVision = Wiz.adp().getPower(TunnelVisionPower.POWER_ID);
-        if (tunnelVision == null) return damage;
+        if (tunnelVision == null) return lockedDamage;
 
         float damageModifier = 1.5F
+                + 0.25F * Wiz.adp().relics.stream().filter(r -> r.relicId.equals(PaperFaux.ID)).count()
                 + 0.25F
                 * tunnelVision.amount
                 * (Wiz.getLogicalPowerAmount(m, LockOnPower.POWER_ID) - 1);
-        return (int)(damage * damageModifier);
+        return (int)(baseDamage * damageModifier);
     }
 
 
@@ -41,7 +43,7 @@ public class AdditiveLockOnPatch {
                     f.replace("$1 = " + AdditiveLockOnPatch.class.getName()
                             + ".applyMultiLockOn((" + AbstractMonster.class.getName() + ")"
                             + AbstractDungeon.class.getName()
-                            + ".getMonsters().monsters.get(i), info.base);" +
+                            + ".getMonsters().monsters.get(i), info.base, $1);" +
                             "$proceed($$);");
 
                 }
