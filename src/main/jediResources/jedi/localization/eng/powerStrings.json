@@ -57,5 +57,17 @@
       "#yLightning targets this enemy this turn.",
       "#yLightning targets this enemy for #b%d turns."
     ]
+  },
+  "jedi:MonsterVigorPower": {
+    "NAME": "Vigor",
+    "DESCRIPTIONS": [
+      "Deals #b%d more damage with its next attack."
+    ]
+  },
+  "jedi:NobVigorPower": {
+    "NAME": "Mildly irritated",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, gains #b%d #yVigor."
+    ]
   }
 }

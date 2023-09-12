@@ -16,14 +16,11 @@
               "Command is only accessible through Custom Run modifier or through one event."
             ]
   },
-  "jedi:EssenceMods":
+  "jedi:Sentrivulinob":
   {
     "TEXT":
             [
-              "Deal !D! damage. NL ",
-              "Gain !B! Block. NL ",
-              "Deal !jedi:ALLDMN! damage to ALL enemies. NL ",
-              "Gain %d random potion(s). NL "
+              "Enable Sentrivulinob, act 1 boss. Requires restart."
             ]
   },
   "jedi:BurstLightningMod": {

@@ -347,5 +347,9 @@
   "jedi:TunnelVision": {
     "NAME": "Tunnel Vision",
     "DESCRIPTION": "{@@}{!Upgrades!|>0=Apply !M! Lock-On to ALL enemies. NL }Lock-On further increases Orb damage by 25% per additional Lock-On."
+  },
+  "jedi:Stupefied": {
+    "NAME": "Stupefied",
+    "DESCRIPTION": "Exhaust. NL While in hand, NL Attacks deal !M! less damage."
   }
 }

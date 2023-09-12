@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
@@ -39,6 +40,7 @@ import jedi.interfaces.onGenerateCardMidcombatInterface;
 import jedi.interfaces.onObtainRelicInterface;
 import jedi.modifiers.CommandCustomRun;
 import jedi.modifiers.WarmongerRunMod;
+import jedi.monsters.Sentrivulinob;
 import jedi.patches.JediEnums;
 import jedi.potions.*;
 import jedi.relics.AbstractCommand;
@@ -93,6 +95,8 @@ public class jedi
     public static ArrayList<String> lockedRelics = new ArrayList<>();
     public static final String modID = "jedi";
 
+    public static final int settingsXOffset = 450;
+
     public static void initialize()
     {
         BaseMod.subscribe(new jedi());
@@ -118,7 +122,6 @@ public class jedi
         BaseMod.addPotion(MysteryPotion.class, Color.GOLD, Color.CLEAR, null, MysteryPotion.ID);
         BaseMod.addPotion(WingPotion.class, Color.GOLD, Color.CLEAR, null, WingPotion.ID);
         BaseMod.addPotion(StrikingPotion.class, Color.RED, Color.CLEAR, Color.WHITE, StrikingPotion.ID);
-
 
         if (isGathererLoaded)
         {
@@ -205,6 +208,7 @@ public class jedi
             defaults.put("jedi:commandunseen", Boolean.toString(false));
             defaults.put("jedi:commandlocked", Boolean.toString(false));
             defaults.put("jedi:commandhascopy", Boolean.toString(false));
+            defaults.put("jedi:Sentrivulinob", Boolean.toString(true));
 
             jediConfig = new SpireConfig("jedi","jediConfig", defaults);
             jediConfig.load();
@@ -219,6 +223,13 @@ public class jedi
 
         loadConfigButtons(settingsPanel);
 
+        if (jediConfig.getBool("jedi:Sentrivulinob"))
+        {
+            //Monsters
+            BaseMod.addMonster(Sentrivulinob.ID, () -> new Sentrivulinob());
+            BaseMod.addBoss(Exordium.ID, Sentrivulinob.ID, "jedi/images/monsters/sentrivulinob/Sentrivulinob_Icon.png", "jedi/images/monsters/sentrivulinob/Sentrivulinob_Outline.png");
+        }
+
         RelicLibrary.specialList.removeIf(r -> r.relicId.contains("jedi:command_"));
     }
 
@@ -228,7 +239,7 @@ public class jedi
         UIStrings commandUI = CardCrawlGame.languagePack.getUIString("jedi:Command");
         String[] TEXT = commandUI.TEXT;
         ModLabeledToggleButton cmdUnseenBtn = new ModLabeledToggleButton(TEXT[0],
-                350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                settingsXOffset*Settings.xScale, 600*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 CommandUnseen, settingsPanel, l -> {},
                 button ->
                 {
@@ -243,7 +254,7 @@ public class jedi
                 });
         settingsPanel.addUIElement(cmdUnseenBtn);
         ModLabeledToggleButton cmdLockedBtn = new ModLabeledToggleButton(TEXT[1],
-                350, 550, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                settingsXOffset*Settings.xScale, 550*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 CommandLocked, settingsPanel, l -> {},
                 button ->
                 {
@@ -259,7 +270,7 @@ public class jedi
         settingsPanel.addUIElement(cmdLockedBtn);
 
         ModLabeledToggleButton cmdHascopyBtn = new ModLabeledToggleButton(TEXT[2],
-                350, 500, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                settingsXOffset*Settings.xScale, 500*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 CommandHasCopy, settingsPanel, l -> {},
                 button ->
                 {
@@ -274,7 +285,25 @@ public class jedi
                 });
         settingsPanel.addUIElement(cmdHascopyBtn);
 
-        ModLabel lblCmdWarning = new ModLabel(TEXT[3], 350, 450, Settings.CREAM_COLOR, FontHelper.charDescFont,settingsPanel, l -> {});
+        ModLabeledToggleButton svnBtn = new ModLabeledToggleButton(CardCrawlGame.languagePack.getUIString("jedi:Sentrivulinob").TEXT[0],
+                settingsXOffset*Settings.xScale, 700*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                jediConfig.getBool("jedi:Sentrivulinob"), settingsPanel, l -> {},
+                button ->
+                {
+                    if (jediConfig != null) {
+                        jediConfig.setBool("jedi:Sentrivulinob", button.enabled);
+                        try {
+                            jediConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(svnBtn);
+
+
+
+        ModLabel lblCmdWarning = new ModLabel(TEXT[3], settingsXOffset*Settings.xScale, 450*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,settingsPanel, l -> {});
         settingsPanel.addUIElement(lblCmdWarning);
 
         BaseMod.registerModBadge(TextureLoader.getTexture("jedi/images/badge.png"), "Jedi", "Jedi#3970", "Wat", settingsPanel);
@@ -360,6 +389,7 @@ public class jedi
         loadCustomStrings(CardStrings.class, GetLocString(langKey, "cardStrings"));
         loadCustomStrings(RelicStrings.class, GetLocString(langKey, "relicStrings"));
         loadCustomStrings(PotionStrings.class, GetLocString(langKey, "potionStrings"));
+        loadCustomStrings(MonsterStrings.class, GetLocString(langKey, "monsterStrings"));
         loadCustomStrings(PowerStrings.class, GetLocString(langKey, "powerStrings"));
         loadCustomStrings(EventStrings.class, GetLocString(langKey, "eventStrings"));
         loadCustomStrings(UIStrings.class, GetLocString(langKey, "uiStrings"));
