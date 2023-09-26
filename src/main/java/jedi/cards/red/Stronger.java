@@ -17,16 +17,15 @@ public class Stronger
     public static final String ID = "jedi:stronger";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
-    public static final String UPGRADE_NAME = "Makes us ";
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 2;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta_power.png";
 
 
     public Stronger()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.POWER, CardColor.RED, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.POWER, CardColor.RED, CardRarity.SPECIAL, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 4;
         this.isEthereal = true;
     }
@@ -45,7 +44,7 @@ public class Stronger
     {
         if (!this.upgraded) {
             this.upgradeName();
-            this.name = UPGRADE_NAME+NAME;
+            this.name = EXTENDED_DESCRIPTION[0];
             this.upgradeMagicNumber(2);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();

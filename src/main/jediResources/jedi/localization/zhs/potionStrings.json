@@ -24,7 +24,7 @@
     "NAME": "圣水",
     "DESCRIPTIONS":
     [
-      "移除你身上的所有负面状态。"
+      "移除你身上的所有负面效果。"
     ]
   },
   "jedi:lessertentaclejuice":
@@ -41,9 +41,9 @@
     "NAME": "次级圣水",
     "DESCRIPTIONS":
     [
-      "移除你身上的 #b ",
-      " 层随机负面状态。",
-      " 层随机负面状态。"
+      "随机移除你身上的 #b ",
+      " 种负面效果。",
+      " 种负面效果。"
     ]
   },
   "jedi:hoardpotion":
@@ -62,6 +62,13 @@
     "DESCRIPTIONS":
     [
       "你所进入的下一个非BOSS房间变为 #y? 房间。  NL 无法在 #y终幕 使用。"
+    ]
+  },
+  "jedi:StrikingPotion": {
+    "NAME": "激动药水",
+    "DESCRIPTIONS": [
+      "从 #b3 张随机“打击”牌中选择 #b1 张加入你的手牌。这张牌在本回合耗能变为 #b0 。",
+      "从 #b3 张随机“打击”牌中选择 #b1 张，将其加入你的手牌 #b%d 次。这些牌在本回合耗能变为 #b0 。"
     ]
   },
   "jedi:wingpotion":

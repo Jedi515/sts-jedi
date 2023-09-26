@@ -3,5 +3,10 @@
   {
     "NAME": "命令",
     "DESCRIPTION": "获取完全控制。"
+  },
+  "jedi:warmonger":
+  {
+    "NAME": "战争煽动者",
+    "DESCRIPTION": "初始拥有“战旗”和“咖啡杯”。"
   }
 }

@@ -100,10 +100,6 @@
     "NAME": "Red Incense",
     "DESCRIPTION": "Unplayable. NL Whenever you discard, Exhaust or Scry this card, gain !M! Strength."
   },
-  "Scrape": {
-    "NAME": "Scrape",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards NL that cost 0."
-  },
   "jedi:WavingIron": {
     "NAME": "Waving Iron",
     "DESCRIPTION": "Gain !B! Block. NL Scry !M!. NL Deal !D! damage for each Attack you Scry."
@@ -120,7 +116,10 @@
   "jedi:better": {
     "NAME": "Better",
     "DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL Add *Faster to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add *Do *it *Faster to your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Upgrade all cards in your hand. NL This turn, whenever you draw a card, upgrade it. NL Add *Do *it *Faster to your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Make it Better"
+    ]
   },
   "jedi:blockon": {
     "NAME": "Block-On",
@@ -168,7 +167,10 @@
   "jedi:faster": {
     "NAME": "Faster",
     "DESCRIPTION": "Ethereal. NL Apply Slow to an enemy. NL Add *Stronger to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add *Makes *us *Stronger to your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Next turn, gain [E] [E] NL Apply Slow to ALL enemies. NL Add *Makes *us *Stronger to your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Do it Faster"
+    ]
   },
   "jedi:fear": {
     "NAME": "Fear",
@@ -196,7 +198,10 @@
   "jedi:harder": {
     "NAME": "Harder",
     "DESCRIPTION": "Gain !M! Plated Armor. NL Add *Better to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Metallicize. NL Gain !M! Plated Armor. NL Add *Make *it *Better to your hand."
+    "UPGRADE_DESCRIPTION": "Gain !M! Metallicize. NL Gain !M! Plated Armor. NL Add *Make *it *Better to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Work it Harder"
+    ]
   },
   "jedi:hate": {
     "NAME": "Hate",
@@ -297,7 +302,10 @@
   "jedi:stronger": {
     "NAME": "Stronger",
     "DESCRIPTION": "Ethereal. NL Gain !M! Strength at the start of your turn.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn."
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !M! Strength. NL Gain !M! Strength at the start of your turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Makes us Stronger"
+    ]
   },
   "jedi:studyfrost": {
     "NAME": "Study Frost",

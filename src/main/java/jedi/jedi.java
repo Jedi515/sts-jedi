@@ -32,6 +32,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import jedi.cards.CustomJediCard;
+import jedi.cards.blue.ScrapePlus;
 import jedi.cards.red.OneStrike;
 import jedi.events.BetterSwordDojo;
 import jedi.events.GuildOfFate;
@@ -107,6 +108,24 @@ public class jedi
         isGathererLoaded = Loader.isModLoaded("gatherermod");
         isHubrisLoaded = Loader.isModLoaded("hubris");
         isArchetypeLoaded = Loader.isModLoaded("archetypeapi");
+
+        try {
+            Properties defaults = new Properties();
+            defaults.put("jedi:commandunseen", Boolean.toString(false));
+            defaults.put("jedi:commandlocked", Boolean.toString(false));
+            defaults.put("jedi:commandhascopy", Boolean.toString(false));
+            defaults.put("jedi:Sentrivulinob", Boolean.toString(true));
+            defaults.put("jedi:ScrapeOption", Boolean.toString(true));
+
+            jediConfig = new SpireConfig("jedi","jediConfig", defaults);
+            jediConfig.load();
+            CommandUnseen = jediConfig.getBool("jedi:commandunseen");
+            CommandLocked = jediConfig.getBool("jedi:commandlocked");
+            CommandHasCopy = jediConfig.getBool("jedi:commandhascopy");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 //    		BaseMod.addPotion(potionClass, liquidColor, hybridColor, spotsColor, potionID);
@@ -203,22 +222,6 @@ public class jedi
 
 
         //Buttons
-        try {
-            Properties defaults = new Properties();
-            defaults.put("jedi:commandunseen", Boolean.toString(false));
-            defaults.put("jedi:commandlocked", Boolean.toString(false));
-            defaults.put("jedi:commandhascopy", Boolean.toString(false));
-            defaults.put("jedi:Sentrivulinob", Boolean.toString(true));
-
-            jediConfig = new SpireConfig("jedi","jediConfig", defaults);
-            jediConfig.load();
-            CommandUnseen = jediConfig.getBool("jedi:commandunseen");
-            CommandLocked = jediConfig.getBool("jedi:commandlocked");
-            CommandHasCopy = jediConfig.getBool("jedi:commandhascopy");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         ModPanel settingsPanel = new ModPanel();
 
         loadConfigButtons(settingsPanel);
@@ -301,6 +304,21 @@ public class jedi
                 });
         settingsPanel.addUIElement(svnBtn);
 
+        ModLabeledToggleButton scrapeButton = new ModLabeledToggleButton(CardCrawlGame.languagePack.getUIString("jedi:ScrapeOption").TEXT[0],
+                settingsXOffset*Settings.xScale, 750*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                jediConfig.getBool("jedi:ScrapeOption"), settingsPanel, l -> {},
+                button ->
+                {
+                    if (jediConfig != null) {
+                        jediConfig.setBool("jedi:ScrapeOption", button.enabled);
+                        try {
+                            jediConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(scrapeButton);
 
 
         ModLabel lblCmdWarning = new ModLabel(TEXT[3], settingsXOffset*Settings.xScale, 450*Settings.yScale, Settings.CREAM_COLOR, FontHelper.charDescFont,settingsPanel, l -> {});
@@ -314,6 +332,10 @@ public class jedi
     {
         BaseMod.addDynamicVariable(new JediSecondMN());
         new AutoAdd("jedi").packageFilter(CustomJediCard.class).setDefaultSeen(true).cards();
+        if (jediConfig.getBool("jedi:ScrapeOption"))
+        {
+            BaseMod.addCard(new ScrapePlus());
+        }
     }
 
     @Override
@@ -394,6 +416,10 @@ public class jedi
         loadCustomStrings(EventStrings.class, GetLocString(langKey, "eventStrings"));
         loadCustomStrings(UIStrings.class, GetLocString(langKey, "uiStrings"));
         loadCustomStrings(RunModStrings.class, GetLocString(langKey, "runmodStrings"));
+        if (jediConfig.getBool("jedi:ScrapeOption"))
+        {
+            loadCustomStrings(CardStrings.class, GetLocString(langKey, "scrape"));
+        }
     }
 
 

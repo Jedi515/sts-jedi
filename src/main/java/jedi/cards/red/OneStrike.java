@@ -1,18 +1,13 @@
 package jedi.cards.red;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import jedi.cards.CustomJediCard;
 
@@ -38,16 +33,10 @@ public class OneStrike
         FleetingField.fleeting.set(this, true);
     }
 
-
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        for (AbstractPower pow : m.powers)
-        {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, pow.ID));
-        }
-
         addToBot(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY)));
-        addToBot(new DamageAction(m, new DamageInfo(p, m.maxHealth * 2, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new InstantKillAction(m));
     }
 
     @Override
@@ -66,10 +55,9 @@ public class OneStrike
     public boolean canUse(AbstractPlayer p, AbstractMonster m)
     {
         boolean canUse = super.canUse(p, m);
-        if (m != null && canUse) {
-            if (m.type != AbstractMonster.EnemyType.BOSS) {
-                canUse = true;
-            }
+        if (m != null) {
+            canUse = canUse && m.type != AbstractMonster.EnemyType.BOSS;
+            cantUseMessage = EXTENDED_DESCRIPTION[1];
         }
 
         return canUse;

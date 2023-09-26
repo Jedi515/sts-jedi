@@ -106,7 +106,8 @@
     "NAME": "Воля (лицо)",
     "FLAVOR": "ASSUMING DIRECT CONTROL",
     "DESCRIPTIONS": [
-      "Выберите и получите любое лицо."
+      "Выберите и получите любое лицо.",
+      "[Воля] #yЛюбое #yлицо."
     ]
   },
   "jedi:command_boss": {

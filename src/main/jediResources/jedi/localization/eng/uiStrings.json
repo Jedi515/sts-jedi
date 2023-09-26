@@ -16,6 +16,13 @@
               "Command is only accessible through Custom Run modifier or through one event."
             ]
   },
+  "jedi:ScrapeOption":
+  {
+    "TEXT":
+      [
+        "Change the effect of Scrape, Defect card. Restart required."
+      ]
+  },
   "jedi:Sentrivulinob":
   {
     "TEXT":

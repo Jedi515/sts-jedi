@@ -1,5 +1,6 @@
 package jedi.cards.blue;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ScrapeEffect;
 import jedi.actions.DrawCallbackShuffleAction;
-
+@AutoAdd.Ignore
 public class ScrapePlus
     extends AbstractCard
 {

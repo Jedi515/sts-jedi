@@ -113,7 +113,8 @@
     "NAME": "Command (face)",
     "FLAVOR": "ASSUMING DIRECT CONTROL",
     "DESCRIPTIONS": [
-      "Upon pickup, choose and obtain any face."
+      "Upon pickup, choose and obtain any face.",
+      "[Command] #yAny #yface."
     ]
   },
   "jedi:command_boss": {

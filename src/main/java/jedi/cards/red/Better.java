@@ -18,16 +18,15 @@ public class Better
     public static final String ID = "jedi:better";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
-    public static final String UPGRADE_NAME = "Make it ";
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 1;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
 
 
     public Better()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.SPECIAL, CardTarget.SELF);
         this.exhaust = true;
         this.isEthereal = true;
         cardsToPreview = new Faster();
@@ -54,15 +53,9 @@ public class Better
         if (!this.upgraded) {
             cardsToPreview.upgrade();
             this.upgradeName();
-            this.name = UPGRADE_NAME+NAME;
+            this.name = EXTENDED_DESCRIPTION[0];
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
-
-    public CustomCard makeCopy()
-    {
-        return new Better();
-    }
-
 }

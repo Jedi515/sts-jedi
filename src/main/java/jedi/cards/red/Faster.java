@@ -18,16 +18,15 @@ public class Faster
     public static final String ID = "jedi:faster";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
-    public static final String UPGRADE_NAME = "Do it ";
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 2;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
 
 
     public Faster()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.SPECIAL, CardTarget.ENEMY);
         this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
         this.isEthereal = true;
@@ -58,7 +57,7 @@ public class Faster
         if (!this.upgraded) {
             cardsToPreview.upgrade();
             this.upgradeName();
-            this.name = UPGRADE_NAME+NAME;
+            this.name = EXTENDED_DESCRIPTION[0];
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
             this.target = CardTarget.ALL_ENEMY;

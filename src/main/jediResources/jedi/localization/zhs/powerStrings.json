@@ -1,15 +1,21 @@
 {
-  "jedi:meditation": {
+  "jedi:MeditationPower": {
     "NAME": "冥想",
     "DESCRIPTIONS": [
-      "回合结束时获得 #b",
-      "层 #y专注 （在充能球的 #y被动 效果触发之后触发）。"
+      "每回合结束时获得 #b",
+      " 点 #y集中 ，并移除你最右侧的 #y充能球 。"
+    ]
+  },
+  "jedi:FearPower": {
+    "NAME": "恐惧",
+    "DESCRIPTIONS": [
+      "直到你的下回合开始时，每当有一张牌被创建，你在本场战斗中获得 #b%d 点 #y力量 。"
     ]
   },
   "jedi:upgradeondraw": {
-    "NAME": "Better",
+    "NAME": "更好",
     "DESCRIPTIONS": [
-      " #y升级 一回合内抽到的所有牌。"
+      "本回合抽到牌时，在本场战斗中将其 #y升级 。"
     ]
   },
   "jedi:controlledanger": {
@@ -18,10 +24,10 @@
       "在你打出 #y愤怒 时，将其 #y消耗 。"
     ]
   },
-  "jedi:poisonivy": {
+  "jedi:PoisonIvyPower": {
     "NAME": "毒藤",
     "DESCRIPTIONS": [
-      "当你使用 #y小刀 以外的攻击牌攻击处于 #y中毒 状态的敌人时候，增加 #b",
+      "每当你使用 #y小刀 以外的攻击牌攻击处于 #y中毒 状态的敌人，增加 #b",
       " 张 #y小刀 到你的手牌。",
       " 张 #y小刀 到你的手牌。"
     ]
@@ -29,7 +35,39 @@
   "jedi:MakeshiftSwordPower": {
     "NAME": "临时之剑",
     "DESCRIPTIONS": [
-      "每当你在战斗中临时增加卡牌，对所有敌人造成 #b%d 点伤害。"
+      "每当你创建一张牌，对所有敌人造成 #b%d 点伤害。"
+    ]
+  },
+  "jedi:FirewallPower": {
+    "NAME": "防火墙",
+    "DESCRIPTIONS": [
+      "每当 #y状态牌 被创建时，将其 #y消耗 。"
+    ]
+  },
+  "jedi:TunnelVisionPower": {
+    "NAME": "管窥",
+    "DESCRIPTIONS": [
+      "#y跟踪锁定 在1层的基础上每多一层，其效果增加 #b",
+      "% 。"
+    ]
+  },
+  "jedi:LightningRodPower": {
+    "NAME": "引雷针",
+    "DESCRIPTIONS": [
+      "这回合内， #y闪电 充能球以这个敌人为目标。",
+      "#b%d 回合内， #y闪电 充能球以这个敌人为目标。"
+    ]
+  },
+  "jedi:MonsterVigorPower": {
+    "NAME": "活力",
+    "DESCRIPTIONS": [
+      "本回合额外造成 #b%d 点 #y攻击 伤害。"
+    ]
+  },
+  "jedi:NobVigorPower": {
+    "NAME": "半恼",
+    "DESCRIPTIONS": [
+      "你每打出一张 #y技能牌 ，获得 #b%d 点 #y活力 。"
     ]
   }
 }

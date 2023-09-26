@@ -100,10 +100,6 @@
     "NAME": "Красный дым",
     "DESCRIPTION": "Неиграбельная. NL Даёт !M! Силы когда *Предсказывается, сбрасывается или Сжигается."
   },
-  "Scrape": {
-    "NAME": "Ободрать",
-    "DESCRIPTION": "Наносит !D! урона. NL Вы берёте !M! карты NL стоимостью 0 [E]."
-  },
   "jedi:WavingIron": {
     "NAME": "Волновая сталь",
     "DESCRIPTION": "Даёт !B! Защиты. NL Вы Предсказываете !M! карты. NL Наносит !D! урона за каждую *Предсказанную Атаку."
@@ -120,7 +116,10 @@
   "jedi:better": {
     "NAME": "Better",
     "DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Добавляет в руку *Faster. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Улучшает все карты, которые вы берёте, в этом ходу до конца боя. NL Добавляет в руку *Do *it *Faster. NL Сжигается."
+    "UPGRADE_DESCRIPTION": "Эфирная. NL Улучшает ВСЕ карты в руке до конца боя. NL Улучшает все карты, которые вы берёте, в этом ходу до конца боя. NL Добавляет в руку *Do *it *Faster. NL Сжигается.",
+    "EXTENDED_DESCRIPTION": [
+      "Make it Better"
+    ]
   },
   "jedi:blockon": {
     "NAME": "Блокирующий Захват",
@@ -169,7 +168,9 @@
   "jedi:faster": {
     "NAME": "Faster",
     "DESCRIPTION": "Эфирная. NL Накладывает Медлительность на врага. NL Добавляет в руку *Stronger. NL Сжигается.",
-    "UPGRADE_DESCRIPTION": "Эфирная. NL Даёт [E] [E] в вашем след. ходу. NL Накладывает Медлительность на ВСЕХ врагов. NL Добавляет в руку *Makes *us *Stronger. NL Сжигается."
+    "UPGRADE_DESCRIPTION": "Эфирная. NL Даёт [E] [E] в вашем след. ходу. NL Накладывает Медлительность на ВСЕХ врагов. NL Добавляет в руку *Makes *us *Stronger. NL Сжигается.",    "EXTENDED_DESCRIPTION": [
+      "Do it Faster"
+    ]
   },
   "jedi:fear": {
     "NAME": "Страх",
@@ -197,7 +198,10 @@
   "jedi:harder": {
     "NAME": "Harder",
     "DESCRIPTION": "Даёт !M! Панциря. NL Добавляет в руку *Better.",
-    "UPGRADE_DESCRIPTION": "Даёт !M! Защиты в конце хода. NL Даёт !M! Панциря. NL Добавляет в руку *Make *it *Better."
+    "UPGRADE_DESCRIPTION": "Даёт !M! Защиты в конце хода. NL Даёт !M! Панциря. NL Добавляет в руку *Make *it *Better.",
+    "EXTENDED_DESCRIPTION": [
+      "Work it Harder"
+    ]
   },
   "jedi:hate": {
     "NAME": "Ненависть",
@@ -298,7 +302,10 @@
   "jedi:stronger": {
     "NAME": "Stronger",
     "DESCRIPTION": "Эфирная. NL Даёт !M! Силы в начале вашего хода.",
-    "UPGRADE_DESCRIPTION": "Эфирная. NL Даёт !M! Силы. NL Даёт !M! Силы в начале вашего хода."
+    "UPGRADE_DESCRIPTION": "Эфирная. NL Даёт !M! Силы. NL Даёт !M! Силы в начале вашего хода.",
+    "EXTENDED_DESCRIPTION": [
+      "Makes us Stronger"
+    ]
   },
   "jedi:studyfrost": {
     "NAME": "Изучить льды",
