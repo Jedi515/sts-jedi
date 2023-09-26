@@ -71,5 +71,6 @@ public class UnlimitedPower
         damage = baseDamage = startDamage;
         magicNumber = baseMagicNumber = startMagicNumber;
         secondMN = baseSecondMN = 0;
+        super.triggerOnEndOfPlayerTurn();
     }
 }

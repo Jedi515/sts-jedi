@@ -85,7 +85,7 @@ public class DrawCallbackShuffleAction
                 {
                     blacklist.add(c);
                     draw.removeCard(c);
-                    draw.addToTop(c);
+                    draw.addToBottom(c);
                     break;
                 }
             }

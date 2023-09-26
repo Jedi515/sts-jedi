@@ -40,11 +40,7 @@ public class Kaleidoscope
     public void onMasterDeckChange()
     {
         cardColors.clear();
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
-        {
-            cardColors.add(c.color);
-        }
-        counter = cardColors.size();
+        onEquip();
     }
 
     @Override
@@ -53,5 +49,4 @@ public class Kaleidoscope
         AbstractPlayer p = AbstractDungeon.player;
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, counter)));
     }
-
 }

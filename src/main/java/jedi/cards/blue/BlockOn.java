@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LockOnPower;
 import jedi.cards.CustomJediCard;
+import jedi.util.Wiz;
 
 public class BlockOn
     extends CustomJediCard
@@ -31,7 +32,7 @@ public class BlockOn
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+        for (AbstractMonster mo : Wiz.getEnemies()) {
             if ((mo.intent == AbstractMonster.Intent.ATTACK ||
                 mo.intent == AbstractMonster.Intent.ATTACK_BUFF ||
                 mo.intent == AbstractMonster.Intent.ATTACK_DEBUFF ||

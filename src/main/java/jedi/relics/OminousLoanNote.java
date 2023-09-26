@@ -1,9 +1,10 @@
 package jedi.relics;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.Ectoplasm;
 import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
+import jedi.util.Wiz;
 
 public class OminousLoanNote
     extends AbstractJediRelic
@@ -35,6 +36,11 @@ public class OminousLoanNote
             if (oln != null) return String.format(DESCRIPTIONS[1], counter);
         }
         return DESCRIPTIONS[0];
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return !Wiz.adp().hasRelic(Ectoplasm.ID);
     }
 
     public int getPrice()
