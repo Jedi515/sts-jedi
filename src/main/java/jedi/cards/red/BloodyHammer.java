@@ -23,11 +23,10 @@ public class BloodyHammer
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 1;
-    public static final String IMG_PATH = "resources/jedi/images/cards/jedi_beta.png";
 
     public BloodyHammer()
     {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.RARE, CardTarget.NONE);
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, CardColor.RED, CardRarity.RARE, CardTarget.NONE);
         this.magicNumber = this.baseMagicNumber = 6;
         this.exhaust = true;
     }
@@ -38,7 +37,7 @@ public class BloodyHammer
                 c ->
                     {
                         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(c);
-                        return masterCard != null && masterCard.canUpgrade();
+                        return ((masterCard != null) && (masterCard.canUpgrade()));
                     },
                 list ->
                     {

@@ -1,6 +1,8 @@
 package jedi.cards.purple;
 
 import basemod.helpers.CardModifierManager;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -43,6 +45,13 @@ public class PromisingFuture
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster)
     {
         addToBot(new ScryAction(magicNumber));
-        addToBot(new DrawCallbackShuffleAction(secondMN, c -> true, list -> list.forEach(c -> CardModifierManager.addModifier(c, new ExhaustJediMod()))));
+        addToBot(new DrawCardAction(3, new AbstractGameAction() {
+            @Override
+            public void update() {
+                isDone = true;
+                DrawCardAction.drawnCards.forEach(c -> CardModifierManager.addModifier(c, new ExhaustJediMod()));
+            }
+        }));
+//        addToBot(new DrawCallbackShuffleAction(secondMN, c -> true, list -> list.forEach(c -> CardModifierManager.addModifier(c, new ExhaustJediMod()))));
     }
 }

@@ -225,7 +225,7 @@
     "DESCRIPTION": "At the end of your turn, remove your rightmost Orb and gain !M! Focus."
   },
   "jedi:Missplay": {
-    "NAME": "Missplay",
+    "NAME": "Misplay",
     "DESCRIPTION": "Unplayable. NL When drawn, plays a random card in hand."
   },
   "jedi:nirvanicrebirth": {

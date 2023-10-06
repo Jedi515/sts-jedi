@@ -1,6 +1,7 @@
 package jedi.relics;
 
 import basemod.helpers.RelicType;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -31,7 +32,13 @@ public class ScrapMetal
     {
         if (c instanceof Shiv)
         {
-            this.counter++;
+            addToTop(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    isDone=true;
+                    counter++;
+                }
+            });
         }
     }
 

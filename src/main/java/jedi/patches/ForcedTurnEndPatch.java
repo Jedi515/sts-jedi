@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
+import com.megacrit.cardcrawl.ui.buttons.EndTurnButton;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
@@ -15,6 +16,15 @@ import jedi.interfaces.onForcedTurnEndInterface;
 import java.util.ArrayList;
 
 public class ForcedTurnEndPatch {
+
+    public static boolean shouldEndTurn()
+    {
+            for (AbstractRelic r : AbstractDungeon.player.relics) {
+                if ((r instanceof onForcedTurnEndInterface) && (!(((onForcedTurnEndInterface) r).onForcedTurnEnd())))
+                    return false;
+            }
+        return true;
+    }
 
     @SpirePatch2(clz = GameActionManager.class, method = "callEndTurnEarlySequence")
     public static class BaseGame {
@@ -29,24 +39,17 @@ public class ForcedTurnEndPatch {
 
     @SpirePatch2(cls = "infinitespire.monsters.Nightmare", method = "onEnoughDamageTakenAlpha", optional = true)
     @SpirePatch2(cls = "infinitespire.monsters.Nightmare", method = "onEnoughDamageTakenBeta", optional = true)
+    @SpirePatch2(cls = "com.megacrit.cardcrawl.mod.replay.powers.TimeCollectorPower", method = "onAfterUseCard", optional = true)
     public static class InfiniteSpire {
-        @SpireInsertPatch(locator = Locator.class)
-        public static SpireReturn Insert() {
-            for (AbstractRelic r : AbstractDungeon.player.relics) {
-                if ((r instanceof onForcedTurnEndInterface) && (!(((onForcedTurnEndInterface) r).onForcedTurnEnd())))
-                    return SpireReturn.Return();
-            }
-            return SpireReturn.Continue();
-        }
-    }
-
-
-    private static class Locator extends SpireInsertLocator
-    {
-        public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException
-        {
-            Matcher finalMatcher = new Matcher.MethodCallMatcher(ArrayList.class, "clear");
-            return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().equals(EndTurnButton.class.getName()) && m.getMethodName().equals("disable")) {
+                        m.replace("if (" + ForcedTurnEndPatch.class.getName() + ".shouldEndTurn()) {$proceed($$);}");
+                    }
+                }
+            };
         }
     }
 }

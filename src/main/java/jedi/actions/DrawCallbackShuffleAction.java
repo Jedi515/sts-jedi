@@ -79,13 +79,13 @@ public class DrawCallbackShuffleAction
         ArrayList<AbstractCard> blacklist = new ArrayList<>();
         for (int i = 0; i < actualCount; ++i)
         {
-            for (AbstractCard c : draw.group)
+            for (AbstractCard c : reversed(draw.group))
             {
                 if (filter.test(c) && !blacklist.contains(c))
                 {
                     blacklist.add(c);
                     draw.removeCard(c);
-                    draw.addToBottom(c);
+                    draw.addToTop(c);
                     break;
                 }
             }
@@ -101,5 +101,15 @@ public class DrawCallbackShuffleAction
             }
         }) : null));
         isDone = true;
+    }
+
+    private static ArrayList<AbstractCard> reversed(ArrayList<AbstractCard> listIn)
+    {
+        ArrayList<AbstractCard> retVal = new ArrayList<>();
+        for (AbstractCard c : listIn)
+        {
+            retVal.add(0, c);
+        }
+        return retVal;
     }
 }
