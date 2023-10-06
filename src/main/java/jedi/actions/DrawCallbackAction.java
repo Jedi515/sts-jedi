@@ -71,7 +71,7 @@ public class DrawCallbackAction
             ArrayList<AbstractCard> blacklist = new ArrayList<>();
             for (int i = 0; i < actualCount; ++i)
             {
-                for (AbstractCard c : draw.group)
+                for (AbstractCard c : reversed(draw.group))
                 {
                     if (filter.test(c) && !blacklist.contains(c))
                     {
@@ -94,5 +94,15 @@ public class DrawCallbackAction
             }
         }) : null));
         isDone = true;
+    }
+
+    private static ArrayList<AbstractCard> reversed(ArrayList<AbstractCard> listIn)
+    {
+        ArrayList<AbstractCard> retVal = new ArrayList<>();
+        for (AbstractCard c : listIn)
+        {
+            retVal.add(0, c);
+        }
+        return retVal;
     }
 }
